@@ -32,7 +32,8 @@ header_pages:
 
 
 # Build settings
-theme: minima
+# bootwatch: paper
+# theme: minima
 # plugins:
 #   - jekyll-feed
 
