@@ -1,6 +1,6 @@
 ---
 title: Tecnologie e Progettazione di Sistemi Informatici e di Telecomunicazioni
-sigla: TPSI
+sigla: TPSIT
 layout: page
 ---
 

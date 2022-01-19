@@ -15,13 +15,9 @@
               {{ site.title | escape }}
             {%- endif -%}
           </li>
-          {%- if site.email -%}
-            <li>
-              <a href="mailto:{{ site.email }}">
-                {{ site.email }}
-              </a>
-            </li>
-          {%- endif -%}
+          <li>
+            {%- include social.html -%}
+          </li>
         </ul>
       </div>
 
@@ -29,7 +25,7 @@
       <div class="col-sm text-right">
         <p>{{- site.description | escape -}}</p>
 
-        <p>
+        <p style="font-size: 0.8em;">
           <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
         </p>
       </div>

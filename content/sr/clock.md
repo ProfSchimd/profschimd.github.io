@@ -38,5 +38,3 @@ Nella figura a sopra si vedono tre esempi ognuna con due clock diversi. Il segna
 * Nel secondo caso i due clock hanno la stessa frequenza, ma sono sfasati, infatti le "salite" del prima sono allineate alle discese del secondo. Le due sequenze ricostruite sono: ``00111100100`` e ``0110100010``. Come si vede le due sequenze sono diverse.
 * Infine nel terzo esempio sono indicate le frecce nel clock. Le frecce indicano il fronte del clock su cui misurare il segnale. Nel caso del fronte di discesa (come in Clock 1), il segnale va misurato quando il clock scende cioè passa da alto a basso. In questo caso i bit calcolati sono ``01101000101``. Nel caso del fronte di salita (come nel Clock 2) , il segnale va misurato quando il clock sale, cioè passa da basso ad alto. In questo caso i bit calcolati sono ``00111101100``.
 
-
-
