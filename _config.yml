@@ -22,6 +22,8 @@ minima:
 collections:
   materie:
     output: true
+  classi:
+    output: true
 
 header_pages:
   - index.markdown

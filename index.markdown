@@ -15,7 +15,12 @@ seguenti discipline informatiche:
 {% endfor %}
 
 ### Classi coinvolte (A.S. 2021-2022)
+{% for item in site.classi %}
+* [{{ item.title }} ({{ item.materia }})]({{ item.url }})
+{% endfor %}
+<!-- 
 {% for item in site.data.classi %}
 * [{{ item.classe }} ({{ item.materia }})]({{ item.link }})
 {% endfor %}
 
+ -->

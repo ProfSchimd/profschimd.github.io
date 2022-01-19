@@ -1,24 +1,14 @@
-- classe: 3IC
-  anno: 2021_2022
-  materia: Sistemi e Reti
-  link: /2021_2022/3IC.html
+2021_2022_3ic_sr:
+  comment: Good
 
-- classe: 4IC
-  anno: 2021_2022
-  materia: Sistemi e Reti
-  link: /2021_2022/4IC.html
+2021_2022_4ic_sr:
+  comment: Good
 
-- classe: 5IC
-  anno: 2021_2022
-  materia: Sistemi e Reti
-  link: /2021_2022/5IC.html
+2021_2022_5ic_sr:
+  comment: Good
 
-- classe: 4ID
-  anno: 2021_2022
-  materia: TPSIT
-  link: /2021_2022/4ID.html
+2021_2022_4id_tpsit:
+  Comment: Good
 
-- classe: 5IA
-  anno: 2021_2022
-  materia: GPOI
-  link: /2021_2022/5IA.html
+2021_2022_5ia_gpoi:
+  Comment: Good
