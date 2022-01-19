@@ -1,37 +1,38 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: Prof Schimd WebSite
-#email: your-email@example.com
+title: Michele Schimd - ITIS Zuccante
+email: michele.schimd@itiszuccante.edu.it
 description: >- # this means to ignore newlines until "baseurl:"
-  Materiale di studio
+  Materiale di studio e di esercizio per gli alunni dell'ITIS Carlo
+  Zuccante di Venezia-Mestre.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://profschimd.github.io/
 domain: profschimd.github.io
+prevent_indexing: false
+
 # twitter_username: jekyllrb
-# github_username:  jekyll
+# github_username:  ProfSchimd
+# linkedin_username: michele-schimd-44a85160
+
+minima:
+  # generate social links in footer
+  social_links:
+    github:  ProfSchimd
+    linkedin: michele-schimd-44a85160
+
+
+collections:
+  materie:
+    output: true
+
+header_pages:
+  - index.markdown
+  - materie.markdown
+  - about.markdown
+
 
 # Build settings
 theme: minima
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.

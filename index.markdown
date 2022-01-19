@@ -1,9 +1,21 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
+title: Home Page
 ---
 
-# Materiale di studio
-## Prof. Schimd ITIS "C. Zuccante"
+# {{ page.title }}
+## {{ site.title }}
+
+Benvenuti sul sito didattico del Prof. Schimd dell'[ITIS Carlo Zuccante di
+Venezia-Mestre](https://www.itiszuccante.edu.it/). In queste pagine si trova
+materiale di studio preparato per gli alunni dell'istituto relativamente alle
+seguenti discipline informatiche:
+{% for item in site.materie %}
+* [{{ item.title }} ({{ item.sigla }})]({{ item.url }})
+{% endfor %}
+
+### Classi coinvolte (A.S. 2021-2022)
+{% for item in site.data.classi %}
+* [{{ item.classe }} ({{ item.materia }})]({{ item.link }})
+{% endfor %}
+
