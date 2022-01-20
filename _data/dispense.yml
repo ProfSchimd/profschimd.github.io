@@ -1,0 +1,9 @@
+sr:
+  - name: Sicurezza e Crittografia
+    revision: 0.3
+    link: /content/dispense/sr/crittografia.pdf
+
+gpoi:
+  - name: PERT e CPM
+    revision: 0.1
+    link: /content/dispense/gpoi/pert.pdf
