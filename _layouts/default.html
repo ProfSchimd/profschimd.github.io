@@ -5,17 +5,10 @@
 
   <body>
 
-    {%- include header.html -%}
-
-  <div class="alert alert-dismissible alert-danger" style="text-align: center;">
-  <h4 class="alert-heading">!! Attenzione !!</h4>
-  <p class="mb-0">Questo sito è in ancora in fase di costruzione! <br />
-  <a class="alert-link" target="_blank" href="https://sites.google.com/itiszuccante.edu.it/schimd2122/home-page">Qui il sito attualmente in uso</a>
-</div>
-
+  {%- include header.html -%}
 
     <div class="py-5">
-      <div class="container page-content">
+      <div class="container page-content" style="text-align: {{ page.align | defualt: left }}">
           {{ content }}
       </div>
     </div>

@@ -26,8 +26,9 @@ collections:
     output: true
 
 header_pages:
-  - index.markdown
   - materie.markdown
+  - classi.markdown
+  - content/dispense.md
   - about.markdown
 
 
