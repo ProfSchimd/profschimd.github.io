@@ -12,7 +12,3 @@ title: Materie
 
 ___
 {% endfor %}
-
-
-
-<hru />

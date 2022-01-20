@@ -1,5 +1,6 @@
 ---
 title: Appunti
+layout: default
 ---
 
 <div class="card-deck">
