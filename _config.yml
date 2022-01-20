@@ -35,8 +35,7 @@ header_pages:
 # Build settings
 # bootwatch: paper
 # theme: minima
-plugins:
-  - jekyll-toc
+# plugins:
 #   - jekyll-feed
 
 # Exclude from processing.
