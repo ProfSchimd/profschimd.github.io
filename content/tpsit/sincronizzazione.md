@@ -103,3 +103,4 @@ Nel secondo caso (figura in basso), le operazioni tra Thread1 e Thread2 sono *in
 3. Thread1 e Thread2 scrivono uno dopo l'altro il valore (diverso) di x.
 Il valore finale di x sarà dato dal thread che scrive per ultimo (nell'esempio Thread2).
 </div>
+</div>
