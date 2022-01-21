@@ -8,6 +8,10 @@ anno: 2021-2022
 cid: 2021_2022_4id_tpsit
 ---
 
+## Materiale da studiare
+
+* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
+
 ## Link
 <ul>
 	<a href="{{ page.classroom }}" target="_blank">Classroom</a>

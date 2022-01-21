@@ -1,0 +1,14 @@
+clock:
+  titolo: Il Clock
+  uid: sr_3_clock
+  classe: 3
+  materia: Sistemi e Reti
+  materia_sigla: sr
+  link: /content/sr/clock.html
+
+tpsit:
+  titolo: Mutex, Semafori e Monitor
+  uid: tpsit_4_mutex_semafori_monitor
+  materia: Tecnologie e Progettazione di Sistemi Informatici e di Telecomunicazioni 
+  materia_sigla: TPSIT
+  link: /content/tpsit/mutex.html
