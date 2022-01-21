@@ -8,7 +8,16 @@ anno: 2021-2022
 cid: 2021_2022_5ia_gpoi
 ---
 
+* Principi di macroeconomia
+	* Domande e offerta
+	* Economia dell'informazione
+* Project Management
+	* Progetti e processi
+	* Ambito di progetto
+	* WBS e GANTT
+	* PERT e CPM
+
 ## Link
 <ul>
-	<a href="{{ page.classroom }}" target="_blank">Classroom</a>
+	<li><a href="{{ page.classroom }}" target="_blank">Classroom</a></li>
 </ul>

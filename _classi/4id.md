@@ -10,9 +10,15 @@ cid: 2021_2022_4id_tpsit
 
 ## Materiale da studiare
 
-* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
+* [Processi](/content/tpsit/processi.html)
+* UML
+	* Diagramma delle classi
+	* Diagramma di sequenza
+* [Sincronizzazione](/content/tpsit/sincronizzazione.html)
+	* [Sexione critica](/content/tpsit/sezione_critica.html)
+	* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
 
 ## Link
 <ul>
-	<a href="{{ page.classroom }}" target="_blank">Classroom</a>
+	<li><a href="{{ page.classroom }}" target="_blank">Classroom</a></li>
 </ul>

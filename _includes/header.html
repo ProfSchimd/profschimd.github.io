@@ -14,6 +14,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Materie</a>
+          <div class="dropdown-menu">
+            {%- for materia in site.materie -%}
+            <a class="dropdown-item" href="{{ materia.url }}">{{ materia.sigla }}</a>
+            {%- endfor -%}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/materie.html">Materie</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Classi</a>
+          <div class="dropdown-menu">
+            {%- for classe in site.classi -%}
+            <a class="dropdown-item" href="{{ classe.url }}">{{ classe.title }}</a>
+            {%- endfor -%}
+        </li>
         {%- for path in page_paths -%}
           {%- assign my_page = site.pages | where: "path", path | first -%}
           {%- if my_page.title -%}
@@ -22,6 +39,8 @@
           </li>
           {%- endif -%}
         {% endfor -%}
+  
+        
       </ul>
     </div>
   </div>

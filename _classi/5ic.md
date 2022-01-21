@@ -8,7 +8,19 @@ anno: 2021-2022
 cid: 2021_2022_5ic_sr
 ---
 
+* Ripasso IP e TCP
+* Livello applicativo
+	* DNS
+	* HTTP
+	* FTP
+	* Mail
+* Sicurezza nelle reti
+	* Sicurezza e crittografia
+	* NAT
+	* Firewall
+
 ## Link
 <ul>
-	<a href="{{ page.classroom }}" target="_blank">Classroom</a>
+	<li><a href="{{ page.classroom }}" target="_blank">Classroom</a></li>
+	<li><a href="https://netacad.com/" target="_blank">Cisco Net Academy</a></li>
 </ul>
