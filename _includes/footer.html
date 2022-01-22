@@ -10,7 +10,7 @@
         <ul class="list-unstyled">
           <li>
             {%- if site.author -%}
-              {{ site.author | escape }}
+              {{ site.author | escape }} &copy; {{ site.time | date: "%Y" }}
             {%- else -%}
               {{ site.title | escape }}
             {%- endif -%}
@@ -19,7 +19,7 @@
             {%- include social.html -%}
           </li>
         </ul>
-        <p style="font-size: 0.8em;">Copyright {{ site.author }} {{ site.time | date: "%Y" }}</p>
+        <!-- <p style="font-size: 0.8em;">Copyright {{ site.author }} {{ site.time | date: "%Y" }}</p> -->
       </div>
 
 

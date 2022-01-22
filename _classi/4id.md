@@ -12,7 +12,7 @@ cid: 2021_2022_4id_tpsit
 
 * [Processi](/content/tpsit/processi.html)
 * UML
-	* Diagramma delle classi
+	* [Diagramma delle classi](/content/tpsit/uml_classi.html)
 	* Diagramma di sequenza
 * [Sincronizzazione](/content/tpsit/sincronizzazione.html)
 	* [Sexione critica](/content/tpsit/sezione_critica.html)
