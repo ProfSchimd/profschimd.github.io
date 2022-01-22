@@ -8,7 +8,9 @@ layout: default
   </header> -->
 
   <section>
+    {% unless page.toc == false %}
     {% include toc.html html=content %}
+    {% endunless %}
     {{ content }}
   </section>
 

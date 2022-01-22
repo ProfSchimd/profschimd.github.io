@@ -17,6 +17,4 @@ Al termine del percorso quinquennale, gli alunni possono ottenere la
 
 <ul>
 	<a href="https://www.netacad.com/" target="_blank">Cisco NetAcademy</a>
-<!-- 	<a href="" target="_blank"></a>
-	<a href="" target="_blank"></a> -->
 </ul>

@@ -1,0 +1,88 @@
+- nome_materia: Sistemi e Reti
+  classi:
+    - anno: 3
+      moduli:
+        - argomento: Architettura degli elaboratori
+          link: /content/sr/architettura/
+          lezioni:
+            - RAM
+            - CPU
+            - I/O
+        - argomento: Linguaggio assembly
+          link: /content/sr/assembly/
+          lezioni:
+            - RISC-V
+        - argomento: Basi delle reti
+          link: /content/sr/basereti/
+    - anno: 4
+      moduli:
+        - argomento: Reti e comunicazione
+          lezioni:
+            - Comunicazione
+            - Stack protocollari
+        - argomento: Livello fisico
+          lezioni:
+            - Banda e latenza
+            - Codifica
+            - Mezzi di comunicazione
+        - argomento: Livello data link
+          lezioni:
+        - argomento: Ethernet
+          lezioni:
+          - Switch
+          - ARP
+        - argomento: Livello di rete
+          lezioni:
+            - IP indirizzamento
+            - IP instradamento
+        - argomento: Livello di trasporto
+    - anno: 5
+      moduli:
+        - argomento: Livello applicativo
+          lezioni:
+            - DNS
+            - HTTP
+            - FTP
+            - Mail
+        - argomento: Sicurezza sulle reti
+          lezioni:
+            - Principi CIAA
+            - Crittografia
+        - argomento: Reti wireless
+
+- tpsit:
+  nome_materia: TPSIT
+  classi:
+    -   anno: 4
+        moduli:
+        - argomento: Processi e Thread
+          lezioni:
+        - argomento: UML
+          lezioni:
+          - classi
+          - sequence
+          - use_case
+        - argomento: Sincronizzazione
+          lezioni:
+            - mutex
+            - deadlock
+
+- gpoi:
+  nome_materia: GPOI
+  classi:
+    - anno: 5
+      moduli:
+      - argomento: Macroeconomia
+        lezioni:
+          - domanda_offerta
+          - informazione
+      - argomento: Project Management
+        lezioni:
+          - charter
+          - scope_wbs
+          - gantt
+          - pert
+      - argomento: Ingegneria del software
+        lezioni:
+          - traditional
+          - agile

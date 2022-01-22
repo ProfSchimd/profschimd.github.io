@@ -4,17 +4,13 @@ email: michele.schimd@itiszuccante.edu.it
 description: >- # this means to ignore newlines until "baseurl:"
   Materiale di studio e di esercizio per gli alunni dell'ITIS Carlo
   Zuccante di Venezia-Mestre.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" 
 url: https://profschimd.github.io/
 domain: profschimd.github.io
 prevent_indexing: false
 
-# twitter_username: jekyllrb
-# github_username:  ProfSchimd
-# linkedin_username: michele-schimd-44a85160
-
 minima:
-  # generate social links in footer
+  # generate social links in the footer
   social_links:
     github:  ProfSchimd
     linkedin: michele-schimd-44a85160
@@ -28,31 +24,20 @@ collections:
 
 header_pages:
   - content/dispense.md
-  - about.markdown
-
 
 # Build settings
-# bootwatch: paper
-# theme: minima
 # plugins:
 #   - jekyll-feed
 
 # Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
