@@ -31,7 +31,7 @@ Qualunque sia la soluzione per risolvere il problema della regione critica, ques
 2. Se un thread a richiesto l'accesso alla sezione critica c'è un **numero massimo** di volte in cui altri thread potranno farlo prima di lui.
 3. Se non ci sono thread in regione critica, ma ce ne sono che hanno richiesto di entrarvi, in un **tempo limitato** uno dei thread in attesa può entrare nella zona critica.
 
-## Sezione critica in Java ``syncrhonized``
+## Sezione critica in Java ``synchronized``
 Il sistema di gestione dei thread di Java mette a disposizione un meccanismo di accesso alla regione critica. L'unica cosa che il programmatore deve fare è indicare a Java quale codice deve fare parte della regione critica, questo avviene utilizzando la parola chiave ``synchronized``.
 
 {%- highlight java -%}

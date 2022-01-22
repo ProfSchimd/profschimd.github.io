@@ -87,7 +87,7 @@ che il sistema operativo deve garantire un po' di tempo processore a tutti i pro
 è possibile usare i tempi di attesa di un processo per far proseguire un altro processo che era in attesa del
 processore. Il sistema operativo può sospender un processo anche se questo non è in attesa. In questo modo si 
 può dare la CPU ad altri processi che altrimenti rimarrebbero troppo a lungo sospesi. Si dice in questo caso
-che il sistema operativo fa *preemtping* (pre-rilascio) della CPU. Le regole secondo cui il sistema operativo
+che il sistema operativo fa *preempting* (pre-rilascio) della CPU. Le regole secondo cui il sistema operativo
 decide come gestire la CPU vanno sotto il nome di **scheduling** della CPU.
 
 Da quanto detto sopra si vede che un processo può trovarsi in diversi <strong class="text-danger">stati</strong>
@@ -96,7 +96,7 @@ sistema operativo si deve preoccupare di spostare un processo da uno stato ad un
 
 <div class="row">
 <div class="col-6" markdown="1">
-![Diagramma degli stati di un proceso](img/processo_diagramma_stati.jpeg)
+![Diagramma degli stati di un processo](img/processo_diagramma_stati.jpeg)
 </div>
 <div class="col-6" markdown="1">
 Nell'immagine a sinistra vediamo i 5 stati in cui un processo si può trovare.

@@ -9,5 +9,5 @@ Management** con particolare riferimento all'ambito dei progetti
 software.
 
 L'ITIS Zuccante fornisce la possibilità agli alunni che lo desiderano
-di ottenere la certificazion PM Base grazie ad un'attiva collaborazione
+di ottenere la certificazione PM Base grazie ad un'attiva collaborazione
 con il *PM Office*.

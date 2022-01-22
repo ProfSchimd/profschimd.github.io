@@ -15,7 +15,7 @@ cid: 2021_2022_4id_tpsit
 	* [Diagramma delle classi](/content/tpsit/uml_classi.html)
 	* Diagramma di sequenza
 * [Sincronizzazione](/content/tpsit/sincronizzazione.html)
-	* [Sexione critica](/content/tpsit/sezione_critica.html)
+	* [Sezione critica](/content/tpsit/sezione_critica.html)
 	* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
 
 ## Link

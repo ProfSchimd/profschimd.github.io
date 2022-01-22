@@ -1,5 +1,5 @@
 ---
-title: Mutex, Semfaori e Monitor
+title: Mutex, Semafori e Monitor
 layout: page
 materia: tpsit
 align: justify

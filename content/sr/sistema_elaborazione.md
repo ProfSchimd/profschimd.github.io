@@ -67,7 +67,7 @@ Vediamo ora in dettaglio qual'è il compito delle quattro componenti principali 
 La **CPU** (Central Processing Unit) è il "cervello" di un calcolatore. Si tratta di un sistema molto complesso in grado di eseguire istruzioni relativamente semplice (perlopiù operazioni matematiche) ad una elevatissima velocità. Una CPU moderna può sommare 1 miliardi di numeri in un secondo. La CPU deve sempre avere una *prossima istruzione da eseguire*. Nell'architettura di von Neumann queste istruzioni sono memorizzate (insieme ai dati) nella *memoria centrale*.
 
 #### Memoria centrale
-La **memoria centrale** è un "contenitore" di informazioni (*bit*). Nell'architettura di von Neumann la memoria centrale contiene i **dati** (ad esempio una sequenza di numeri da sommare) e le **istruzioni**. Le istruzioni sono le operazioni fondamentali che la CPU è in grado di eseguire. Mettendo tante istruzioni uno dopo l'altra si crea un prog*ramma.
+La **memoria centrale** è un "contenitore" di informazioni (*bit*). Nell'architettura di von Neumann la memoria centrale contiene i **dati** (ad esempio una sequenza di numeri da sommare) e le **istruzioni**. Le istruzioni sono le operazioni fondamentali che la CPU è in grado di eseguire. Mettendo tante istruzioni uno dopo l'altra si crea un programma.
 
 #### Bus
 Siccome la CPU deve prendere dati e istruzioni dalla memoria, queste due componenti devono essere collegate. Il "filo" che le collega di chiama **bus di sistema**. Si tratta di un vero e proprio collegamento (visibile anche nel parte inferiore di una scheda madre) che permette a CPU e memoria di scambiarsi informazione (*bit*). È importante ricordare che la CPU può sia leggere che scrivere sulla memoria. Ad esempio la CPU legge dalla memoria due variabili \\( x \\) ed \\( y \\), le somma e poi scrive sulla memoria il risultato \\( x+y \\).
@@ -75,10 +75,9 @@ Nei sistemi di elaborazione moderni, il bus di sistema è composto di tre bus.
 1. **Bus indirizzi** che viene usato dalla CPU per indicare l'indirizzo di memoria a cui si vuole accedere (in lettura o in scrittura)
 2. **Bus dati** che viene usato dalla CPU e dalla memoria per scambiarsi i dati
 3. **Bus di controllo** che serve alla CPU, alla memoria ed ai dispositivi di I/O per gestire e coordinare le varie operazioni che fanno funzionare il sistema.
-
+ 
 #### I/O
 Quanto abbiamo visto finora (CPU, memoria e bus) basta per creare una calcolatore. In pratica, però, è necessario leggere input (ad esempio dalla tastier) e/o mostrare output (ad esempio sullo schermo). Questo operazioni di **Input/Output** o **I/O** sono gestite da dei *controller* che sono collegati alla CPU e alla memoria attraverso il bus di sistema.
-
 ____
 
 ## Esercizi di programmazione
