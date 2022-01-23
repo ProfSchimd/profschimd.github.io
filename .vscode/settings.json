@@ -6,6 +6,7 @@
         "gantt",
         "GPOI",
         "ITIS",
+        "multithread",
         "Mutex",
         "Neumann",
         "profschimd",

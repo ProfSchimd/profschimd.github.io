@@ -5,9 +5,13 @@
         - argomento: Architettura degli elaboratori
           link: /content/sr/architettura/
           lezioni:
-            - RAM
-            - CPU
-            - I/O
+            - title: Sistema di elaborazione
+              link: /content/sr/sistema_elaborazione.html
+            - title: RAM
+            - title: CPU
+            - title: I/O
+            - title: Il clock
+              link: /content/sr/clock.html
         - argomento: Linguaggio assembly
           link: /content/sr/assembly/
           lezioni:
@@ -57,15 +61,26 @@
         moduli:
         - argomento: Processi e Thread
           lezioni:
+            - title: Processi e thread
+              link: /content/tpsit/processi.html
         - argomento: UML
+          link: /content/tpsit/uml/
           lezioni:
-          - classi
-          - sequence
-          - use_case
+          - title: Diagramma delle classi
+            link: /content/tpsit/uml_classi.html
+          - title: Sequence diagram
+            link: /content/tpsit/sincronizzazione.html
+          - title: "Use cae diagram"
+            link:
         - argomento: Sincronizzazione
+          link: /content/tpsit/sincronizzazione.html
           lezioni:
-            - mutex
-            - deadlock
+            - title: Sezione critica
+              link: /content/tpsit/sezione_critica.html
+            - title: Mutex, Semafori e Monitor
+              link: /content/tpsit/mutex.html
+            - title: Deadlock
+              link:
 
 - gpoi:
   nome_materia: GPOI
