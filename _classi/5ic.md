@@ -16,7 +16,7 @@ cid: 2021_2022_5ic_sr
 	* Mail
 * Sicurezza nelle reti
 	* Sicurezza e crittografia
-	* [NAT](nat.html)
+	* [NAT](/content/sr/nat.html)
 	* Firewall
 
 ## Link
