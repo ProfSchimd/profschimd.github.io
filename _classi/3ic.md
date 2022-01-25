@@ -11,7 +11,7 @@ cid: 2021_2022_3ic_sr
 ## Materiale da studiare
 
 * [Sistemi di elaborazione](/content/sr/sistema_elaborazione.html)
-* RAM
+* [Funzionamento della RAM](/content/sr/ram.html)
 * CPU Fetch and Execute
 	* Load e Store
 	* Add e And
