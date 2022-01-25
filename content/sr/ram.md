@@ -26,7 +26,7 @@ Come sappiamo nell'architettura di von Neumann, la *CPU è collegata alla RAM tr
 <div class="col-6">
 {% include_relative img/comunicazione_ram_cpu.html %}
 </div>
-<div class="col-6">
+<div class="col-6" markdown="1">
 
 L'immagine di fianco mostra lo schema di funzionamento della memoria e come la CPU richiede il contenuto di una cella di memoria (**Attenzione** in questo disegno all'interno delle celle è indicato l'indirizzo *non* il contenuto delle celle)
 1. Per prima cosa la CPU scrive nel suo registro *Memory Address Register* (``MAR``) l'indirizzo della cella di cui vuole il contenuto.

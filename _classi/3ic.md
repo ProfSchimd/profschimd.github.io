@@ -12,7 +12,7 @@ cid: 2021_2022_3ic_sr
 
 * [Sistemi di elaborazione](/content/sr/sistema_elaborazione.html)
 * [Funzionamento della RAM](/content/sr/ram.html)
-* CPU Fetch and Execute
+* [CPU Fetch and Execute](/content/sr/cpu.html)
 	* Load e Store
 	* Add e And
 	* Branch
