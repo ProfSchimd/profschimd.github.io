@@ -10,14 +10,10 @@ cid: 2021_2022_5ic_sr
 
 * Ripasso IP e TCP
 * Livello applicativo
-	* DNS
-	* HTTP
-	* FTP
-	* Mail
 * Sicurezza nelle reti
-	* Sicurezza e crittografia
+	* [Sicurezza e crittografia (pdf)](/content/dispense/sr/crittografia.pdf)
 	* [NAT](/content/sr/nat.html)
-	* Firewall
+	* [Firewall](/content/sr/firewall.html)
 
 ## Link
 <ul>

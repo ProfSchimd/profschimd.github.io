@@ -8,14 +8,18 @@
             - title: Sistema di elaborazione
               link: /content/sr/sistema_elaborazione.html
             - title: RAM
+              link: /content/sr/ram.html
             - title: CPU
+              link: /content/sr/cpu.html
             - title: I/O
+              link:
             - title: Il clock
               link: /content/sr/clock.html
         - argomento: Linguaggio assembly
           link: /content/sr/assembly/
           lezioni:
-            - RISC-V
+            - title: RISC-V
+              link: /content/sr/riscV.html
         - argomento: Basi delle reti
           link: /content/sr/basereti/
     - anno: 4
@@ -33,8 +37,8 @@
           lezioni:
         - argomento: Ethernet
           lezioni:
-          - Switch
-          - ARP
+            - Switch
+            - ARP
         - argomento: Livello di rete
           lezioni:
             - IP indirizzamento
@@ -50,8 +54,16 @@
             - Mail
         - argomento: Sicurezza sulle reti
           lezioni:
-            - Principi CIAA
-            - Crittografia
+            - title: Principi CIAA
+              link:
+            - title: Crittografia
+              link:
+            - title: Network Address Translation
+              link: /content/sr/nat.html
+            - title: Firewall
+              link: /content/sr/firewall.html
+            - title: Virtual Private Network (VPN)
+              link: 
         - argomento: Reti wireless
 
 - tpsit:
@@ -70,7 +82,7 @@
             link: /content/tpsit/uml_classi.html
           - title: Sequence diagram
             link: /content/tpsit/sincronizzazione.html
-          - title: "Use cae diagram"
+          - title: Use cae diagram
             link:
         - argomento: Sincronizzazione
           link: /content/tpsit/sincronizzazione.html
