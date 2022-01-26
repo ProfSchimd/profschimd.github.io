@@ -17,8 +17,8 @@ cid: 2021_2022_3ic_sr
 	* Add e And
 	* Branch
 	* [Il segnale di clock](/content/sr/clock.html)
-* Assembly
-	* RISC-V
+* [Assembly](/content/sr/assembly)
+	* [RISC-V](/content/sr/riscV.html)
 
 ## Link
 <ul>
