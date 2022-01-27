@@ -19,6 +19,7 @@ cid: 2021_2022_4id_tpsit
 * [Sincronizzazione](/content/tpsit/sincronizzazione.html)
 	* [Sezione critica](/content/tpsit/sezione_critica.html)
 	* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
+* [Programmazione asincrona](/content/tpsit/programmazione_asincrona.html)
 
 ## Link
 <ul>

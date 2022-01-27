@@ -11,6 +11,8 @@
               link: /content/sr/ram.html
             - title: CPU
               link: /content/sr/cpu.html
+            - title: Architetture Load-Store
+              link: /content/sr/load_store.html
             - title: I/O
               link:
             - title: Il clock
@@ -93,6 +95,8 @@
               link: /content/tpsit/mutex.html
             - title: Deadlock
               link:
+        - argomento: Programmazione asincrona
+          link: /content/tpsit/programmazione_asincrona.html
 
 - gpoi:
   nome_materia: GPOI
