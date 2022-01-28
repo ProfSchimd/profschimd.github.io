@@ -8,7 +8,8 @@ anno: 2021-2022
 cid: 2021_2022_4ic_sr
 ---
 
-* Introduzione alle rete
+* [Introduzione alle rete](/content/sr/introduzione_reti.html)
+	* [Mail Delivery System and Encapsulation](/content/sr/mail_encapsulation.html)
 * Livello fisico
 	* Codifica
 	* Topologia

@@ -27,6 +27,7 @@
     - anno: 4
       moduli:
         - argomento: Reti e comunicazione
+          link: /content/sr/introduzione_reti.html
           lezioni:
             - Comunicazione
             - Stack protocollari
