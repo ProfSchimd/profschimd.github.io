@@ -112,5 +112,71 @@ public class Mutex {
 {% endhighlight %}
 
 ## Semafori
+I mutex come descritti sopra permettono di mettere un *lock* (cioè un "lucchetto") ad una risorsa, ma **solo un thread alla volta può accedere a quella risorsa**. Alcune risorse potrebbero essere accessibili a più thread per volta, ad esempio in un processore con 4 core, 4 thread possono essere eseguiti contemporaneamente, ma altri thread che volessero essere eseguiti devono essere messi in attesa che un qualche core si liberi.
+
+Un meccanismo che permette l'accesso fino a ``T`` thread contemporaneamente (ma non più di ``T``) si usano i **semafori**. Un semaforo è semplicemente un *contatore* che tiene traccia di quanti thread stanno usando una determinata risorsa. Quando il contatore raggiunge il limite, allora il *semaforo diventa rosso* e nessun altro thread può usare la risorsa fino a che uno dei thread che la sta utilizzando la libera.
+
+L'idea di un semaforo è che il thread che vuole accedere alla risorsa deve mettersi in attesa ``wait`` che la risorsa si liberi (semaforo verde). Quando un thread non ha più bisogno di accedere ad una risorsa che ha acquisito mediante semaforo, segnala (``signal``) il rilascio della risorsa. La seguente versione Java del semaforo rappresenta un punto di partenza che, come vedremo, può essere esteso in modo opportuno.
+
+{% highlight java %}
+public class Semaphore {
+    private int value;
+    public Semaphore(int v) {
+        value = v;
+    }
+    // using wait doesn't work because Object already has the wait method
+    public synchronized boolean waitSemaphore() {
+        if (value > 0) {
+            value--;
+            return true; // can access resource
+        }
+        return false; // cannot access resource
+    }
+    // using signal doesn't work because Object already has the signal method
+    public synchronized void signalRelease() {
+        value++;
+    }
+}
+{% endhighlight %}
+
+Notiamo che l'implementazione del semaforo avviene mediante un *countdown*, cioè si parte dal numero di "posti" disponibili per l'accesso alla risorsa e si decrementa fino a che non si raggiunge ``value`` zero che indica che *non ci sono più posti disponibili* (semaforo rosso).
+
+### Coda al semaforo
+L'idea del semaforo per la gestione delle risorse presenta un'altra analogia con i semafori per la gestione del traffico, la *coda*. In un semaforo, quando un thread richiede una risorsa che non è disponibile (semaforo rosso), il thread si mette in attesa che la risorsa si liberi (come l'auto in attesa del semaforo verde). In pratica di fronte al semaforo si viene a formare una **coda di thread** in attesa che qualche altro thread liberi la risorsa.
+
+Il codice che segue mostra una "bozza" di classe ``Semaforo`` che aggiunge alla versione sopra la coda (oggetto ``Queue``) dei thread che sono in attesa dell'accesso alla risorsa.
+{% highlight java %}
+public class Semaphore {
+    private int value;
+    private Queue coda;
+    public Semaphore(int v) {
+        value = v;
+        // coda = ...
+    }
+    public synchronized void waitSemaphore(Thread t) {
+        value--;
+        if (value < 0) {
+            coda.addTOWaitingList(t);
+        }
+    }
+    public synchronized void signalRelease() {
+        value++;
+        if (value <= 0) {
+            coda.risvegliaIlProssimoThreadInCoda();
+        }
+    }
+}
+{% endhighlight %}
+
+ <div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-eye"></i> Osserva</h5>
+Il codice sopra utilizza in maniera "intelligente" la variabile ``value``.
+
+* Appena creata la classe, ``value`` contiene il numero di accessi contemporanei massimo.
+* In ogni momento, ``value`` può essere:
+    * positivo ad indicare quanti thread possono ancora accedere alla risorsa;
+    * zero significa che non ci sono più posti disponibili (semaforo rosso) **e** e non ci sono thread in coda;
+    * negativo indica che non ci sono posti disponibili **e** ci sono ``|value|`` (**valore assoluto**) processi in coda.
+</div>
 
 ## Monitor
