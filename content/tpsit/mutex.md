@@ -168,7 +168,7 @@ public class Semaphore {
 }
 {% endhighlight %}
 
- <div class="alert alert-primary" markdown="1">
+<div class="alert alert-primary" markdown="1">
 <h5 class="no_toc"><i class="bi bi-eye"></i> Osserva</h5>
 Il codice sopra utilizza in maniera "intelligente" la variabile ``value``.
 
