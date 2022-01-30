@@ -32,11 +32,13 @@
             - Comunicazione
             - Stack protocollari
         - argomento: Livello fisico
+          link: /content/sr/physical.html
           lezioni:
             - Banda e latenza
             - Codifica
             - Mezzi di comunicazione
         - argomento: Livello data link
+          link: /content/sr/datalink.html
           lezioni:
         - argomento: Ethernet
           lezioni:
@@ -50,6 +52,7 @@
     - anno: 5
       moduli:
         - argomento: Livello applicativo
+          link: /content/sr/application.html
           lezioni:
             - DNS
             - HTTP

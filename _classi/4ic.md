@@ -10,11 +10,11 @@ cid: 2021_2022_4ic_sr
 
 * [Introduzione alle rete](/content/sr/introduzione_reti.html)
 	* [Mail Delivery System and Encapsulation](/content/sr/mail_encapsulation.html)
-* Livello fisico
+* [Livello fisico](/content/sr/physical.html)
 	* Codifica
 	* Topologia
 	* Banda e latenza
-* Livello Data Link
+* [Livello Data Link](/content/sr/datalink.html)
 	* Ruolo del livello Data Link
 	* LLC e MAC
 	* Accesso al mezzo

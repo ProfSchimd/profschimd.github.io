@@ -2,7 +2,6 @@
 title: Network Address Translation (NAT)
 layout: page
 materia: sr
-usemathjax: true
 align: justify
 ---
 
