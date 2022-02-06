@@ -5,5 +5,5 @@ sr:
 
 gpoi:
   - name: PERT e CPM
-    revision: 0.1
+    revision: 0.3
     link: /content/dispense/gpoi/pert.pdf
