@@ -21,8 +21,13 @@ cid: 2021_2022_4id_tpsit
 	* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
 * [Programmazione asincrona](/content/tpsit/programmazione_asincrona.html)
 
+## Progetto ``Mosca Ceca``
+* [Repository](https://github.com/ProfSchimd/mosca-ceca)
+* Definizione del progetto (TBA)
+
 ## Link
 <ul>
 	<li><a href="{{ page.classroom }}" target="_blank">Classroom</a></li>
 	<li><a href="{{ page.repo }}" target="_blank">Repository di classe</a></li>
 </ul>
+
