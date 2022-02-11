@@ -22,4 +22,7 @@ cid: 2021_2022_5ic_sr
 	<li><a href="https://netacad.com/" target="_blank">Cisco Net Academy</a></li>
 </ul>
 
+## Educazione Civica: The social dilemma
+* [Slide "The Filter Bubble" (11/02/2022)](/content/ec/slides/ec_filte_bubble_2022.pdf)
+
 ## Teacher 4 a day

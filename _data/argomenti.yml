@@ -13,8 +13,10 @@
               link: /content/sr/cpu.html
             - title: Architetture Load-Store
               link: /content/sr/load_store.html
+            - title: Interrupt della CPU
+              link: /content/sr/interrupt.html
             - title: I/O
-              link:
+              link: /content/sr/io.html
             - title: Il clock
               link: /content/sr/clock.html
         - argomento: Linguaggio assembly
@@ -77,47 +79,64 @@
   classi:
     -   anno: 4
         moduli:
-        - argomento: Processi e Thread
-          lezioni:
-            - title: Processi e thread
-              link: /content/tpsit/processi.html
-        - argomento: UML
-          link: /content/tpsit/uml/
-          lezioni:
-          - title: Diagramma delle classi
-            link: /content/tpsit/uml_classi.html
-          - title: Sequence diagram
+          - argomento: Processi e Thread
+            lezioni:
+              - title: Processi e thread
+                link: /content/tpsit/processi.html
+          - argomento: UML
+            link: /content/tpsit/uml/
+            lezioni:
+              - title: Diagramma delle classi
+                link: /content/tpsit/uml_classi.html
+              - title: Sequence diagram
+                link: /content/tpsit/sincronizzazione.html
+              - title: Use cae diagram
+                link:
+          - argomento: Sincronizzazione
             link: /content/tpsit/sincronizzazione.html
-          - title: Use cae diagram
-            link:
-        - argomento: Sincronizzazione
-          link: /content/tpsit/sincronizzazione.html
-          lezioni:
-            - title: Sezione critica
-              link: /content/tpsit/sezione_critica.html
-            - title: Mutex, Semafori e Monitor
-              link: /content/tpsit/mutex.html
-            - title: Deadlock
-              link:
-        - argomento: Programmazione asincrona
-          link: /content/tpsit/programmazione_asincrona.html
+            lezioni:
+              - title: Sezione critica
+                link: /content/tpsit/sezione_critica.html
+              - title: Mutex, Semafori e Monitor
+                link: /content/tpsit/mutex.html
+              - title: Deadlock
+                link:
+          - argomento: Programmazione asincrona
+            link: /content/tpsit/programmazione_asincrona.html
 
 - gpoi:
   nome_materia: GPOI
   classi:
     - anno: 5
       moduli:
-      - argomento: Macroeconomia
-        lezioni:
-          - domanda_offerta
-          - informazione
-      - argomento: Project Management
-        lezioni:
-          - charter
-          - scope_wbs
-          - gantt
-          - pert
-      - argomento: Ingegneria del software
-        lezioni:
-          - traditional
-          - agile
+        - argomento: Macroeconomia
+          lezioni:
+            - domanda_offerta
+            - informazione
+        - argomento: Project Management
+          lezioni:
+            - charter
+            - scope_wbs
+            - gantt
+            - pert
+        - argomento: Ingegneria del software
+          lezioni:
+            - traditional
+            - agile
+
+- ec:
+  nome_materia: Educazione Civica
+  classi:
+    - anno: 5
+      moduli:
+        - argomento: The Filter Bubble
+          link: /content/ec/thefilterbubble/
+          lezioni:
+            - title: The Filter Bubble
+              link: /content/ec/filter_bubble.html
+            - title: Artificial Intelligence
+              link:
+            - title: The Social Dilemma
+              link:
+            - title: AI for Good
+              link:

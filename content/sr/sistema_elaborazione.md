@@ -41,7 +41,8 @@ Il programmatore, si occupa di scrivere software per sistemi programmabili (ad e
 
 <div class="row">
 <div class="col-4" style="text-align: center">
-<img src="img/vonNeumann_Model.png" alt="Architettura di von Neumann" />
+<!-- <img src="img/vonNeumann_Model.png" alt="Architettura di von Neumann" /> -->
+{% include_relative img/von_neumann.html %}
 </div>
 <div class="col-8" markdown="1">    
 Nell'immagine a sinistra si vede uno schema dell'architettura di von Neumann. Essa è composta dalla **CPU** (*Central Processing Unit*) la quale è collegata alla **memoria** (chiamata anche **RAM** - *Random Access Memory*) ed ai dispositivi di **I/O** (*Input/Output*) tramite il **Bus di sistema** (un vero e proprio circuito). 

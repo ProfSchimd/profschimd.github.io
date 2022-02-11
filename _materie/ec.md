@@ -13,7 +13,7 @@ dell'informatica (e delle discipline simili). Un elenco (non certo esaustivo) è
 fornito di seguito.
 
 * Opportunità ed impatto dell'*intelligenza artificiale* e del *machine learning*.
-* [The Filter Bubble](/content/ec/filter_bubble.md)
+* [The Filter Bubble](/content/ec/filter_bubble.html)
 * Educazione al corretto utilizzo degli strumenti digitali.
 * L'Internet delle cose e dei *big data*.
 * Il *digital divide* in Italia, in Europa e nel mondo.

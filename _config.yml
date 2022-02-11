@@ -1,4 +1,4 @@
-title: Michele Schimd - ITIS Zuccante
+title: Michele Schimd
 author: Michele Schimd
 email: michele.schimd@itiszuccante.edu.it
 description: >- # this means to ignore newlines until "baseurl:"
@@ -14,6 +14,7 @@ minima:
   social_links:
     github:  ProfSchimd
     linkedin: michele-schimd-44a85160
+    stackoverflow: "18081937"
 
 
 collections:

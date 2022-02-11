@@ -16,5 +16,5 @@ Alcuni link utili:
 * [GitHub ProfSchimd](https://github.com/ProfSchimd/)
 * [Vecchio sito materiale](https://sites.google.com/itiszuccante.edu.it/schimd2122/home-page)
 * [Registro Elettronico](https://web.spaggiari.eu/)
-* [Sito Ufficiale ITIS Calro Zuccante](https://www.itiszuccante.edu.it/)
+* [Sito Ufficiale ITIS Carlo Zuccante](https://www.itiszuccante.edu.it/)
 * [Sito Orientamento ITIS Zuccante](https://www.zuccante.it/)
