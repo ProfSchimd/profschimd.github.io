@@ -12,7 +12,18 @@ align: justify
 >
 > Eli Pariser, *The Filter Bubble* (Penguin , 2012)
 
-## Link
+## Reference material
+Below, you can find reference material: slides of presentation(s), interesting videos related
+to the filter bubble and machine learning, and other useful resources.
 
-* [The Filter Bubble (slide)](/content/ec/slides/ec_filte_bubble_2022.pdf)
-* [The Social Dilemma](https://www.thesocialdilemma.com/)
+### Slides
+* [The Filter Bubble](/content/ec/slides/ec_filte_bubble_2022.pdf)
+* [Machine Learning Introduction](/content/ec/slides/ec_machine_learning_2022.pdf)
+
+### Videos
+* [TED Talk by Eli Pariser on the Filter Bubble (2011)](https://www.youtube.com/watch?v=B8ofWFx525s)
+* [Presentation of Google Duplex (2018)](https://www.youtube.com/watch?v=D5VN56jQMWM)
+
+### Other useful resources
+* [The Social Dilemma (website)](https://www.thesocialdilemma.com/)
+* [The Filter Bubble (book on Amazon)](https://www.amazon.it/Filter-Bubble-What-Internet-Hiding/dp/0241954525/)
