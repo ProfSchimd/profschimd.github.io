@@ -24,6 +24,8 @@
           lezioni:
             - title: RISC-V
               link: /content/sr/riscV.html
+            - title: Subroutine e gestione dello stack
+              link: /content/sr/subroutine.html
         - argomento: Basi delle reti
           link: /content/sr/basereti/
     - anno: 4
