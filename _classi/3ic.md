@@ -21,7 +21,7 @@ cid: 2021_2022_3ic_sr
 	* [RISC-V](/content/sr/riscV.html)
 * [Subroutine e gestione dello stack](/content/sr/subroutine.html)
 * [Interrupt della CPU](/content/sr/interrupt.html)
-* [Gestione dell'I/O](content/sr/io.html)
+* [Gestione dell'I/O](/content/sr/io.html)
 
 ## Link
 <ul>
