@@ -28,5 +28,3 @@ cid: 2021_2022_3ic_sr
 	<li><a href="{{ page.classroom }}" target="_blank">Classroom</a></li>
 	<li><a href="https://netacad.com/" target="_blank">Cisco Net Academy</a></li>
 </ul>
-
-## Teacher 4 a day

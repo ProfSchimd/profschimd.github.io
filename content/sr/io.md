@@ -19,12 +19,24 @@ Numero e tipo di dispositivi di I/O oggi utilizzati è estremamente elevato; alc
 * Stampanti, Scanner, ...
 * ...
 
-Questa lista, seppure incompleta, mostra la necessità di un meccanismo
-di *identificazione dei dispositivi di I/O*, questo meccanismo avviene
-attraverso il concetto di **porta di I/O**.  Ogni porta è numerate
-0,1,2,... e per accedere ad un dispositivo, è necessario conoscere la
-porta alla quale è connesso (a volte chiamata anche *indirizzo di
-I/O*).
+Secondo l'architettura di von Neumann, tutti i dispositivi di I/O
+sono connessi al *bus di sistema*; solitamente questo collegamento
+avviene mediante un **controller** che si occupa di gestire il bus
+e i vari dispositivi connessi (es. controller USB).
+
+La figura sotto mostra che in un'architettura moderna esistono diversi
+tipi di dispositivi di I/O e, di conseguenza, diversi ti di *controller*.
+Spesso questi controller corrispondono ad una o più porte fisiche presenti
+sulla scheda madre (PCIe, SATA, USB, ...)
+
+{% include_relative img/bus_io_devices.html %}
+
+La lista di dispositivi presentata sopra, seppure incompleta, mostra
+la necessità di un meccanismo di *identificazione dei dispositivi di
+I/O*, questo meccanismo avviene attraverso il concetto di **porta di
+I/O**.  Ogni porta è numerata 0,1,2,... e per accedere ad un
+dispositivo, è necessario conoscere la porta alla quale è connesso
+(a volte chiamata anche *indirizzo di I/O*).
 
 ## I/O mediante interrupt
 Durante la propria esecuzione la CPU può essere interrotta mediante un meccanismo noto com
@@ -55,3 +67,18 @@ usare lo stesso bus determina la necessità un meccanismo di sincronizzazione de
 del bus. In pratica si deve assolutamente evitare che CPU e I/O controller utilizzino
 contemporaneamente il bus, se ciò accadesse, i due interferirebbero l'uno con l'altro e né CPU
 né I/O controller riuscirebbero ad utilizzare il bus.
+
+## Gestione dell'I/O nelle architetture moderne
+L'architettura di von Neumann, proposta agli inizi dell'informatica moderna, rappresenta un
+valido strumento didattico, ma è oggi superata in favore di architetture più *moderne*.
+
+<div class="row">
+<div class="col-6" markdown="1">
+![North e south bridge](https://upload.wikimedia.org/wikipedia/commons/b/bd/Motherboard_diagram.svg)
+</div>
+<div class="col-6" markdown="1">
+
+* North bridge
+* South bridge
+</div>
+</div>
