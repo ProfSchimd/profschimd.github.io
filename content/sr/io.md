@@ -61,16 +61,34 @@ dell'I/O bensì un **I/O controller** al quale, tuttavia, deve essere concesso d
 in memoria, ad esempio avendo accesso al *bus di sistema*.
 
 ### Arbitraggio del bus di sistema
-Con l'I/O mappato in memoria, il bus dati è usato sia dalla CPU per accedere alla memoria sia
-dall'hardware per trasferire dati alla memoria. Il fatto che CPU e I/O controller possano
-usare lo stesso bus determina la necessità un meccanismo di sincronizzazione detto **arbitraggio**
-del bus. In pratica si deve assolutamente evitare che CPU e I/O controller utilizzino
-contemporaneamente il bus, se ciò accadesse, i due interferirebbero l'uno con l'altro e né CPU
-né I/O controller riuscirebbero ad utilizzare il bus.
+Dato che CPU e I/O controller usano lo stesso bus, è necessario un meccanismo di
+sincronizzazione, detto **arbitraggio**. Lo scopo è di evitare che CPU e I/O
+utilizzino il bus contemporaneamente, se ciò accadesse i due interferirebbero 
+e nessuno riuscirebbe ad effettuare una comunicazione sul bus.
+
+I metodi di sincronizzazione del bus possono essere suddivisi in due categorie:
+
+1. **bus sincrono** (*synchronous bus*) in cui gli accessi sono eseguite
+seguendo gli *eventi* scanditi da un [clock](clock.html) e
+2. **bus asincrono** (*asynchronous bus*) in cui gli accessi avvengono mediante
+sincronizzazioni che non coinvolgono alcun clock.
+
+Inoltre è possibile suddividere i metodi di sincronizzazione in due altre
+categorie.
+
+1. **arbitraggio centralizzato** in cui un hardware apposito (solitamente nel
+*chipset* della scheda madre) si occupa di coordinare l'accesso al bus dei vari
+dispositivi connessi.
+2. **arbitraggio distribuito** in cui i vari dispositivi connessi al bus si
+"auto-coordinano" per accedere a turno al bus.
 
 ## Gestione dell'I/O nelle architetture moderne
-L'architettura di von Neumann, proposta agli inizi dell'informatica moderna, rappresenta un
-valido strumento didattico, ma è oggi superata in favore di architetture più *moderne*.
+L'architettura di von Neumann, proposta agli albori dell'informatica, è un
+valido strumento didattico, ma è oggi superata da architetture più *moderne*.
+Facendo riferimento alla figura sotto (fonte Wikipedia), discutiamo ora in
+breve il funzionamento basata sulla presenza di un **chipset** (parte
+installato nella scheda madre e parte nel processore) che si occupa di gestire
+l'accesso ai vari bus presenti in un'architettura moderna.
 
 <div class="row">
 <div class="col-6" markdown="1">
@@ -78,7 +96,31 @@ valido strumento didattico, ma è oggi superata in favore di architetture più *
 </div>
 <div class="col-6" markdown="1">
 
-* North bridge
-* South bridge
+La prima fondamentale differenza tra l'architettura della figura a fianco e
+l'architettura di von Neumann è la presenza di più di un bus e di due componenti
+(oltre alla CPU) che sono a loro volta connessi a vari bus. Questi due componenti sono:
+* **Northbridge** collegato al **Front Side Bus (FSB)** utilizzato per connettere
+la CPU con memoria centrale e con i dispositivi ad alta velocità collegati al *bus
+PCI Express (PCIe)*.
+* **Southbridge** collegato al Northbridge mediante l'**Internal Bus (IB)** e dal quale
+si diramano diversi altri bus:
+    * *PCI Bus* al quale sono collegate le varie periferiche di espansione
+    * *Low Pin Count (LPC) Bus* a cui sono collegati dispositivi relativamente lenti:
+    tastiera PS/2, Bios ROM, floppy disk, ...
+    * *Serial ATA (SATA) Bus* a cui sono collegati dischi e SSD
+    * USB, Rete, ...
+
+La presenza di una divisione tra il FSB, direttamente collegato alla CPU e i bus a più
+bassa velocità aveva, agli inizi degli anni 2000, permesso di rendere molto più efficiente
+la gestione dell'I/O. Con il tempo, tuttavia, anche i dispositivi a "bassa velocità" hanno
+iniziato ad essere sempre più efficiente (si pensi, ad esempio, al passaggio da disco rigido
+ad SSD) e un chip esterno (il northbridge) non è più stato in grado di gestire in modo
+efficiente le comunicazioni tra alcuni dispositivi e la CPU. Per questo motivo le funzioni
+del northbridge sono state spostate nello stesso chip della CPU grazie anche all'aumento del
+numero di transistor che possono essere inseriti in un singolo chip. Oggi, quindi, la divisione
+tra northbridge e southbridge è più logica che fisica anche se il southbridge rimane un chip
+distinto dalla CPU (cosa non vera per il northbridge). In ogni caso è rimasta la separazione
+tra il front side bus a cui la CPU è direttamente collegata e l'internal bus a cui sono
+collegati i dispositivi di I/O più lenti.
 </div>
 </div>

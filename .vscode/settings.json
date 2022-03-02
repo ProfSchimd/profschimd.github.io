@@ -10,8 +10,10 @@
         "multithread",
         "Mutex",
         "Neumann",
+        "northbridge",
         "profschimd",
         "Schimd",
+        "Southbridge",
         "tpsit",
         "usemathjax",
         "Zuccante"
