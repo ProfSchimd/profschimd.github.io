@@ -9,14 +9,20 @@ align: justify
 Un sistema *multithread* può presentare **problemi di sincronizzazione dovuti all'utilizzo da parte di due o più thread della stessa risorsa**. Questa risorsa può essere un file e perfino una variabile (ricordiamo che i thread di un processo lavorano su uno spazio di memoria condiviso, quindi possono usare variabili condivise). Un esempio di questi problemi di sincronizzazione si ha in caso di *race condition* (come descritto [qui](sincronizzazione.html)).
 
 Un modo per risolvere alcuni problemi di sincronizzazione è utilizzare il concetto di **regione critica** (*critical section*) con la quale si garantisce che al massimo in thread stia eseguendo operazioni "critiche" (ad esempio, l'aggiornamento del valore di una variabile condivisa).
-
+<!-- 
 <div class="card bg-light mb-3">
   <div class="card-header">Definizione: <strong>Regione Critica</strong></div>
   <div class="card-body">
     <p class="card-text">La <strong>regione critica</strong> di un thread è una parte di codice di esecuzione del thread che può essere eseguita solo se nessun altro thread sta eseguendo la propria regione critica.
     </p>
   </div>
+</div> -->
+
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione: <strong>Regione Critica</strong></h5>
+La <strong>regione critica</strong> di un thread è una parte di codice di esecuzione del thread che può essere eseguita solo se nessun altro thread sta eseguendo la propria regione critica.
 </div>
+
 
 La regola fondamentale della regione critica è che **o nessun thread sta eseguendo la propria regione critica oppure un solo thread sta eseguendo la propria regione critica**. 
 

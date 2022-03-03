@@ -46,6 +46,8 @@ usarlo anche per la gestione dell'hardware. L'idea è molto semplice: quando un 
 esempio la tastiera) ha ricevuto dell'input e vuole *notificare* la CPU di questo, genera un
 interrupt che avvisa la CPU dell'avvenuto *evento hardware*.
 
+### Funzionamento dell'I/O mediante interrupt
+
 ## I/O mappato in memoria
 L'I/O mediante interrupt ha un principale svantaggio: ogni volta che un qualsiasi hardware
 ha dei dati pronti, interrompe la CPU. Si capisce che ben presto la CPU si troverà interrotta
@@ -59,6 +61,8 @@ in memoria l'input proveniente dal dispositivo o l'output diretto ad un disposit
 indirizzo di memoria specifico. In questo modo non è il più il processore che si occupa
 dell'I/O bensì un **I/O controller** al quale, tuttavia, deve essere concesso di scrivere
 in memoria, ad esempio avendo accesso al *bus di sistema*.
+
+### Funzionamento dell'I/O mappato in memoria
 
 ### Arbitraggio del bus di sistema
 Dato che CPU e I/O controller usano lo stesso bus, è necessario un meccanismo di

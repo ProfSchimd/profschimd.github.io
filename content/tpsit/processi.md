@@ -7,16 +7,29 @@ align: justify
 
 ## Processi e Thread
 
-<div class="card bg-light mb-3">
+<!-- <div class="card bg-light mb-3">
 <div class="card-header">Definizione: <strong>Processo</strong></div>
 <div class="card-body" markdown="1">
 Un <strong class="text-danger">processo</strong> è un *programma in esecuzione*. I processi sono entità gestite dal sistema operativo il quale assegna le **risorse** (CPU, memoria, file, ...) ai processi.
 </div>
+</div> -->
+
+
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione: <strong>Processo</strong></h5>
+Un <strong class="text-danger">processo</strong> è un *programma in esecuzione*. I processi sono entità gestite dal sistema operativo il quale assegna le **risorse** (CPU, memoria, file, ...) ai processi.
 </div>
 
 È importante sottolineare che *processo e programma* ***non*** *sono la stessa cosa*. Ad esempio, un programma di video-scrittura con due finestre (file) corrisponde a due processi diversi (uno per ogni finestra). In questa situazione il *programma* è sempre lo stesso (es. Word), ma due processi diversi sono in *esecuzione*. Semplificando un po', il *programma è l'insieme di istruzioni e dati memorizzati sul file eseguibile* (es. Word.exe), mentre il processo è *tutto ciò che serve affinché il programma sia eseguito*. Aiuta pensare ad un programma come qualcosa che non cambia (a meno che non si installi una nuova versione), mentre ad un processo come qualcosa che cambia nel tempo. Per esempio lo stesso programma di video-scrittura può essere aperto una volta con il file ``pippo.docx`` e la volta dopo con il file ``pluto.docx``, i due processi corrispondenti saranno diversi (ma il programma sarà lo stesso).
 
-<div class="card bg-light mb-3">
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione: <strong>Thread e Schedulazione</strong></h5>
+Un <strong class="text-danger">thread</strong> (*filo*) è una *parte di programma in esecuzione*. Ad esempio, l'esecuzione di un metodo Java che aspetta l'input dalla tastiera si può realizzare con un thread. Un processo può generare (*spawn*) più di un thread. Di fatto, **il sistema operativo schedula i thread sulla CPU** (non i processi).
+
+<strong class="text-danger">Schedulare</strong> un thread significa metterlo in esecuzione su un *core* (ricordiamo che oggi i processori hanno diversi core, ogni core può eseguire un thread).
+</div>
+
+<!-- <div class="card bg-light mb-3">
 <div class="card-header">Definizione: <strong>Thread e Schedulazione</strong></div>
 <div class="card-body" markdown="1">
 Un <strong class="text-danger">thread</strong> (*filo*) è una *parte di programma in esecuzione*. Ad esempio, l'esecuzione di un metodo Java che aspetta l'input dalla tastiera si può realizzare con un thread. Un processo può generare (*spawn*) più di un thread. Di fatto, **il sistema operativo schedula i thread sulla CPU** (non i processi).
@@ -24,7 +37,7 @@ Un <strong class="text-danger">thread</strong> (*filo*) è una *parte di program
 <strong class="text-danger">Schedulare</strong> un thread significa metterlo in esecuzione su un *core* (ricordiamo che oggi i processori hanno diversi core, ogni core può eseguire un thread).
 </p>
 </div>
-</div>
+</div> -->
 
 I thread sono simili ai processi nel senso che sono *unità di esecuzione* e hanno bisogno che la CPU gli venga *allocata* (messa a disposizione) dal sistema operativo. Tuttavia, i thread sono più "snelli" da gestire perché il sistema operativo non tiene tutta l'informazione che tiene per i processi (es. file aperti, pagine di memoria, ...). Per questo motivo i thread si possono considerare **processi leggeri**.
 

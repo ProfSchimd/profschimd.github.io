@@ -28,8 +28,8 @@ non può essere oggetto di* **data race** tra thread diversi.
 Per quanto detto sopra, il mutex viene spesso chiamato **lock** in quanto rappresenta un
 meccanismo di "blocco" dell'utilizzo di una risorsa, vediamo come si usa un mutex.
 
-<div class="alert alert-info" markdown="1">
-<strong><i class="bi bi-pen"></i> Esercizio</strong><br />
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-pencil-square"></i> Esercizio</h5>
 Disegnare il *sequence diagram* di una situazione in cui la variabile booleana condivisa
 ``mutex`` che ha valore ``false`` (mutex libero) viene letta da due thread prima che nessuno dei due la cambi. Quindi entrambi
 vedono il mutex libero ed entrambi impostano a ``true`` il valore.
@@ -168,7 +168,7 @@ public class Semaphore {
 }
 {% endhighlight %}
 
-<div class="alert alert-primary" markdown="1">
+<div class="alert alert-success" markdown="1">
 <h5 class="no_toc"><i class="bi bi-eye"></i> Osserva</h5>
 Il codice sopra utilizza in maniera "intelligente" la variabile ``value``.
 

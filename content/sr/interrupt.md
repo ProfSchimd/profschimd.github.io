@@ -55,6 +55,8 @@ vengono eseguite dalla CPU la quale interrompe momentaneamente l'esecuzione del 
 Proprio per questo motivo è importante che le ISR siano *veloci* e terminino il prima
 possibile, infatti ogni ritardo di una ISR è un ritardo nell'esecuzione del programma.
 
+### Esempio: interrupt ed esecuzione dell'ISR
+
 ## Mascherare gli interrupt
 A volte la CPU deve *ignorare* gli interrupt per completare operazioni cruciali (ad
 esempio operazioni del sistema operativo). Durante l'esecuzioni di queste operazioni

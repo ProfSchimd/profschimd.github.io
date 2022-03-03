@@ -19,22 +19,32 @@ Nella figura a sinistra si vede il <b>diagramma di sequenza</b> (*sequence diagr
 </div>
 </div>
 
-<div class="card bg-light mb-3">
+<!-- <div class="card bg-light mb-3">
   <div class="card-header">Esercizio</div>
   <div class="card-body">
     <p class="card-text">Quali operazioni operazioni compi durante la tua giornata che richiedono una sincronizzazione con altre persone? Fai il sequence diagram per una o più di queste.
     </p>
   </div>
+</div> -->
+
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-pencil-square"></i> Esercizio</h5>
+Quali operazioni operazioni compi durante la tua giornata che richiedono una sincronizzazione con altre persone? Fai il sequence diagram per una o più di queste.
 </div>
 
 Ci si potrebbe chiedere se la sincronizzazione tra thread sia veramente necessaria, in effetti è possibile che alcuni problemi si possano risolvere utilizzando thread che non devono mai sincronizzarsi. Tuttavia, è più comune che un programma multithreading necessiti di sincronizzazione tra i suoi thread. Normalmente la sincronizzazione serve per evitare che il programma si comporti in modo anomalo. Ad esempio, se un thread si occupa di scaricare i fotogrammi di un video ed un altro thread si occupa di mostrare il video, il secondo thread dovrà attendere l'arrivo dei fotogrammi prima di metterli in sequenza per formare il video. In pratica la sincronizzazione è necessaria quando una operazione OP1 di un thread TA può essere eseguita solo dopo che l'operazione OP2 del thread TB è stata eseguita. Dal momento che quando TA e TB sono eseguiti su due core diversi non siamo sicuri che OP1 avvenga dopo OP1, è necessario sincronizzare TA e TB in modo esplicito.
 
-<div class="card bg-light mb-3">
+<!-- <div class="card bg-light mb-3">
   <div class="card-header">Definizione: <strong>Sincronizzazione di thread</strong></div>
   <div class="card-body">
     <p class="card-text">La <strong>sincronizzazione</strong> tra thread è un qualsiasi meccanismo che permette di eseguire in un ordine prestabilito istruzioni che sono eseguite da thread diversi.  
     </p>
   </div>
+</div> -->
+
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione: <strong>Sincronizzazione di thread</strong></h5>
+La <strong>sincronizzazione</strong> tra thread è un qualsiasi meccanismo che permette di eseguire in un ordine prestabilito istruzioni che sono eseguite da thread diversi.  
 </div>
 
 ## Thread join
@@ -72,12 +82,17 @@ In <a href="https://github.com/ProfSchimd/4id_2021_2022/blob/master/thread/join/
 Il join di due o più thread non è l'unico caso di sincronizzazione, in realtà è molto più frequente che due o più thread si sincronizzino senza dover necessariamente *unirsi* in un unico thread (*to join* per l'appunto). Se torniamo all'esempio della pizza, è normale pensare (come si vede nel diagramma di sequenza sopra) che per informare si aspetti che la prima farcitura sia completata ed allo stesso che per la seconda farcitura si aspetti che la pizza sia stata tolta dal forno. Se, ad esempio, la seconda farcitura venisse fatta prima che la pizza sia tolta dal forno, gli ingredienti finirebbero sul piatto o sul piano di lavoro. In altre parole, **è importante l'ordine con cui le operazioni vengono eseguite perché un ordine sbagliato produce un risultato finale sbagliato** (ad esempio gli ingredienti sul piano di lavoro e non sulla pizza. Questa situazione in cui l'esito dipende dall'ordine di arrivo delle operazioni viene chiamata <strong class="text-danger">race condition</strong>.
 
 
-<div class="card bg-light mb-3">
+<!-- <div class="card bg-light mb-3">
   <div class="card-header">Definizione: <strong>Race condition</strong></div>
   <div class="card-body">
     <p class="card-text">Una <strong>race condition</strong> si verifica quando l'ordine in cui le operazioni vengono eseguite è importante affinché il risultato finale sia quello che ci si aspetta. 
     </p>
   </div>
+</div> -->
+
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione <strong>Race condition</strong></h5>
+Una <strong>race condition</strong> si verifica quando l'ordine in cui le operazioni vengono eseguite è importante affinché il risultato finale sia quello che ci si aspetta. 
 </div>
 
 

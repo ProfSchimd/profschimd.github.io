@@ -25,7 +25,7 @@ La tecnologia alla base delle VPN è **IPsec** che permette di scambiare pacchet
 Il concetto di **tunnelling** già menzionato sopra, rappresenta, semplicemente, l'idea di utilizzare un protocollo di rete (ad esempio IP) per trasportare pacchetti appartenenti ad un'altra rete. Ad esempio, la rete Internet viaggia su diverse reti: Ethernet, 802.11 (Wireless), cellulare, ... In questo caso i pacchetti IP sono *tunnelled* all'interno di frame Ethernet o 802.11.
 
 <div class="alert alert-primary" markdown="1">
-<h5 class="no_toc"><i class="bi bi-eye"></i> Rifletti: cos'è una rete?</h5>
+<h5 class="no_toc"><i class="bi bi-lightbulb"></i> Rifletti: cos'è una rete?</h5>
 
 Una rete è un insieme di **agenti** in grado di scambiarsi informazione (*comunicare*). Infatti si parla spesso di *rete di contatti* tra persone, i social media vengono anche chiamati *reti sociali*, non perché create connettendo in rete dei dispositivi, ma perché mettono in comunicazione (in società) delle persone.
 

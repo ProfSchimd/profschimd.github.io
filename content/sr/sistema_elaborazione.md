@@ -27,14 +27,9 @@ Chiaramente la sveglia non è programmabile (possiamo impostare l'ora, ma non po
 Il programmatore, si occupa di scrivere software per sistemi programmabili (ad esempio scrivere un App Android). Fortunatamente, non serve imparare da zero la programmazione per ogni dispositivo programmabile. Per esempio è possibile creare un software per Windows e per Android usando (quasi) lo stesso codice Java. Ciò è possibile perché nei vari sistemi programmabili i componenti sono organizzati in maniera simile. Si dice che questi sistemi utilizzano la stessa *architettura*. L'architettura più importante è quella di *von Neumann* che è alla base di quasi tutti i sistemi di elaborazione. Per questo motivo cercheremo di capire questo modo di organizzare un elaboratore.
 
 ### Architettura di un sistema di elaborazione
-
-<div class="card bg-light mb-3">
-  <div class="card-header">Definizione: <strong>Architettura di un sistema di elaborazione</strong></div>
-  <div class="card-body">
-    <p class="card-text">
-        Si chiama <strong>architettura</strong> di un sistema di elaborazione il modo in cui i vari componenti sono collegati tra loro ed il modo in cui questi componenti interagiscono per ottenere l'elaborazione input/output.
-    </p>
-  </div>
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione</h5>
+Si chiama **architettura** di un sistema di elaborazione il modo in cui i vari componenti sono collegati tra loro ed il modo in cui questi componenti interagiscono per ottenere l'elaborazione input/output.
 </div>
 
 ## Architettura di von Neumann
