@@ -47,6 +47,25 @@ esempio la tastiera) ha ricevuto dell'input e vuole *notificare* la CPU di quest
 interrupt che avvisa la CPU dell'avvenuto *evento hardware*.
 
 ### Funzionamento dell'I/O mediante interrupt
+Vediamo schematicamente come avvengono input e output utilizzando il meccanismo di
+interrupt.
+
+Input
+1. Il dispositivo di input ha un nuovo dato da far arrivare alla CPU
+2. Il dispositivo deposita il dato in un proprio registro d'appoggio
+3. Il dispositivo attiva la linea ``IRQ`` (Interrupt ReQuest) ed attende l'ok dell CPU
+4. Ricevuto l'ok, il dispositivo invia sul bus dati il contenuto del registro d'appoggio
+5. La CPU copia in un proprio registro d'appoggio il contenuto del bus dati
+6. Appena possibile, il contenuto del registro d'appoggio viene elaborato dalla CPU
+
+Output
+1. La CPU ha un nuovo dato da inviare al dispositivo di output
+2. La CPU deposita il dato una un proprio registro d'appoggio
+3. La CPU attiva la linea ``IRQ`` (Interrupt ReQuest) ed attende l'ok del dispositivo
+4. Ricevuto l'ok, la CPU invia sul bus dati il contenuto del registro d'appoggio
+5. Il dispositivo copia in un proprio registro d'appoggio il contenuto del bus dati
+6. Appena possibile, il contenuto del registro d'appoggio viene *emesso* in output
+
 
 ## I/O mappato in memoria
 L'I/O mediante interrupt ha un principale svantaggio: ogni volta che un qualsiasi hardware

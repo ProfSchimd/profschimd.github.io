@@ -186,3 +186,38 @@ per il risultato di una subroutine).
 
 ## Esempio di subroutine 
 
+Consideriamo ora un esempio di subroutine che, in Java, corrispondente ad un metodo con
+la seguente *firma*.
+
+{% highlight java %}
+public int trova(int[] v, int k) 
+{% endhighlight %}
+
+Questo metodo restituisce un ``int`` che rappresenta l'indice della posizione di ``k``
+nell'array ``v``. Se in ``v`` non esiste una posizione con il valore ``k``, il metodo
+restituisce ``-1``.
+
+Notiamo che
+
+* Il metodo ha due parametri di ingresso
+    1. il **riferimento** all'array ``v``
+    2. il numero ``k`` da cercare
+* Il metodo restituisce un singolo valore di tipo ``int``
+
+Supponiamo, inoltre, che il metodo ``trova`` utilizzi una sola variabile locale,
+ che chiamiamo ``y``, di tipo ``int`` dichiarata con una riga di codice simile
+ a quella sotto
+
+{% highlight java %}
+int y = -1; // inizializzo la posizione
+{% endhighlight %}
+
+I cambiamenti subiti dallo stack durante l'esecuzione del metodo ``trova``, sono
+mostrati nell'immagine qui sotto
+
+{% include_relative img/local_variable_vs_stack.html %}
+
+A differenza dell'immagine più in alto, notiamo che quando la variabile ``y`` viene
+dichiarata, questa viene posizionata sullo stack mentre ``SP`` viene ulteriormente
+decrementato come conseguenza.
+

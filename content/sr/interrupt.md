@@ -50,11 +50,6 @@ gli indirizzi di inizio delle varie ISR sono scritti in una tabella in posizione
 memoria. Ad esempio si potrebbe stabilire alla parola di memoria di indirizzo \\(n\\) si
 trovi l'indirizzo di inizio della ISR per gestire l'interrupt \\(I_n\\).
 
-Da quanto visto [sopra](#come-funzionano-gli-interrupt), le ISR sono delle subroutine che
-vengono eseguite dalla CPU la quale interrompe momentaneamente l'esecuzione del programma.
-Proprio per questo motivo è importante che le ISR siano *veloci* e terminino il prima
-possibile, infatti ogni ritardo di una ISR è un ritardo nell'esecuzione del programma.
-
 ### Esempio: interrupt ed esecuzione dell'ISR
 
 ## Mascherare gli interrupt
@@ -91,3 +86,64 @@ loro esecuzione. Come già detto sopra l'esecuzione delle ISR è "tempo perso" p
 programma in esecuzione (es. da parte dell'utente). Avere più ISR innestate rende tale
 problema ancora più grave perché tutte le ISR devono terminare prima che il 
 *programma utente* possa terminare.
+
+## Efficienza e *interrupt storm*
+Da quanto visto [sopra](#come-funzionano-gli-interrupt), le ISR sono delle subroutine che
+vengono eseguite dalla CPU la quale interrompe momentaneamente l'esecuzione del programma.
+Proprio per questo motivo è importante che le ISR siano *veloci* e terminino il prima
+possibile, infatti ogni ritardo di una ISR è un ritardo nell'esecuzione del programma.
+
+Quando le ISR sono molto frequenti il sistema può rallentarsi di molto. Questo rallentamento
+si può misurare in termini di **efficienza** nell'utilizzo del processore.
+
+<div class="alert alert-primary" markdown="1">
+<h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione: Efficienza</h5>
+Chiamiamo **efficienza** \\(E\\) del processore la *frazione* (o percentuale) di "istruzione di
+programma" rispetto a tutte le istruzioni eseguite
+
+$$ E = \frac{IstruzioniProgrmma}{TotaleIstruzioni} 
+= \frac{IstruzioniProgramma}{IstruzioneProgramma + IstruzioniISR} $$
+
+$$ E\% = E \times 100 $$
+</div>
+
+Per fare un esempio di efficienza, se durante l'esecuzione di un programma di 1000
+istruzioni si eseguono 200 istruzioni di ISR l'efficienza sarà
+
+$$ E = \frac{1000}{1000+200} = \frac{1000}{1200} = 0,8333 $$
+
+corrispondente ad una efficienza percentuale
+
+$$ E\% = 83\% $$
+
+Questo significa che l'83% del tempo, il processore sarà impegnato ad eseguire istruzioni
+di programma mentre per il 17% eseguirà istruzioni di di ISR.
+
+Un **interrupt storm** è una situazione in cui il processore viene *tempestato* di interrupt
+al punto che la maggior parte del tempo lo spende ad eseguire ISR. Se nell'esempio sopra
+la stessa ISR di 200 istruzioni deve essere eseguita 100 volte, (totale 20000 istruzioni)
+l'efficienza diventa
+
+$$ E = \frac{1000}{1000 + 20000} = \frac{1000}{21000} = 0,05 $$
+
+quindi solo il 5% del tempo viene speso sul programma il restante 95% vengono eseguite
+istruzioni delle ISR. Chiaramente in questa situazione il programma subirebbe dei rallentamenti
+inaccettabili per l'utente.
+
+<div class="alert alert-success" markdown="1">
+<h5 class="no_toc"><i class="bi bi-lightbulb"></i> Rifletti</h5>
+
+Come spiegato in [questa pagina](/content/sr/io.html), un utilizzo degli interrupt è per
+gestire l'I/O. Con l'aumento del numero di dispositivi di I/O, tuttavia, è possibile che
+centinaia di interrupt siano richiesti ogni secondo. Si pensi infatti a tutte le richieste
+che potrebbero provenire da
+
+* dischi rigidi e SSD
+* schede di rete
+* dispositivi USB (tastiera, mouse, pendrive, ...)
+* GPU
+* ...
+
+Per evitare che un'*interrupt storm* si scateni sui processori moderni, molti dispositivi
+di I/O vengono gestite in modi diversi dagli interrupt.
+</div>
