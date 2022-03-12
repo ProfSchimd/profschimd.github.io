@@ -83,6 +83,65 @@ in memoria, ad esempio avendo accesso al *bus di sistema*.
 
 ### Funzionamento dell'I/O mappato in memoria
 
+Input
+1. Il dispositivo di input ha nuovi dati in ingresso
+2. Il dispositivo richiede l'accesso al bus
+3. Il *bus arbiter* consente al dispositivo di utilizzare il bus
+4. Il dispositivo, attraverso il bus, memorizza in una zona prestabilita della memoria i dati
+5. Il dispositivo *notifica* la CPU che ci sono nuovi dati di input in memoria
+6. La CPU preleva i nuovi dati
+
+Output
+1. La CPU deve scrivere dei dati sul dispositivo di output
+2. La CPU richiede l'accesso al bus
+3. Il *bus arbiter* consente alla CPU di utilizzare il bus
+4. La CPU, attraverso il bus, memorizza in una zona prestabilita della memoria i dati
+5. La CPU *notifica* il dispositivo che ci sono nuovi dati di output in memoria
+6. Il dispositivo manda in output i dati
+
+Questo tipo di I/O si definisce *mappato in memoria* proprio perché i dati (di input o
+di output) passano attraverso la memoria prima essere letti dalla CPU o scritti in output.
+Alcuni dei vantaggi dell'I/O mappato in memoria sono
+* La CPU può continuare a fare le proprie operazione anche durante l'input o l'output da e
+verso il dispositivo. Questo è importante perché la CPU può essere milioni di volte più
+veloce del dispositivo (ad esempio un disco rigido).
+* La CPU può generare dati di output più veloce di quanto non sia in grado di scriverli il
+dispositivo di output. I dati che sono stati generati dalla CPU, ma non ancora scritti
+(proprio perché il dispositivo è lento) possono rimanere temporaneamente nella memoria.
+* Il Bus può essere utilizzato in modo più efficiente, ad esempio quando la CPU non ne
+ha bisogno per accedere alla memoria, i dispositivi di I/O possono usarlo per le operazioni
+di input e output.
+* Se per qualche motivo il dispositivo di I/O è occupato con altre operazioni (esempio
+altre operazioni di I/O), la CPU non deve aspettare che questo si liberi per poi leggere
+o scrivere i dati (questo è vero soprattutto per le operazioni di scrittura).
+
+### Confronto tra Interrupt e DMA
+
+Nell'immagine sotto vediamo uno schema per meglio capire come il meccanismo di DMA utilizza
+meglio la CPU rispetto all'I/O basato su interrupt. Nello schema si vedono le quattro
+componenti principali dei sistema di von Neumann (CPU, memoria, bus e I/O) ed il loro
+utilizzo (blu sta facendo lavoro, rosso sta aspettando senza fare nulla).
+
+{% include_relative img/io_interrupt_vs_dma.html %}
+
+In alto vediamo il caso di I/O con interrupt durante il quale la CPU viene interrotta per
+portare a termine l'operazione di I/O. Durante questa operazione (che **non** passa
+attraverso la memoria, che infatti è in attesa) la CPU non può fare nulla se non mandare
+informazioni all'I/O mediante il bus.
+
+La parte inferiore dello schema mostra la stessa operazione con il sistema di DMA.
+Inizialmente la CPU deposita in memoria i dati da mandare in output. Durante questa
+operazione la CPU non può fare altro, ma questo tempo di *idle* è molto più corto del
+caso precedente poiché scrivere sulla memoria è molto più veloce che scrivere su un
+dispositivo di output. Non appena questa operazione termina, la CPU può subito riprendere
+il *fetch-and-execute* "normale" mentre sarà il dispositivo di I/O che preleverà i dati
+dalla memoria senza rallentare le operazioni della CPU.
+
+Tra le due situazioni, la grossa differenza sta nel "segmento rosso" della CPU (tempo in
+cui la CPU non può fare nulla, se non aspettare che termini le operazioni sul bus). Nel
+caso di DMA si noti come questo segmento sia più piccolo indicando che la CPU spende più
+tempo a fare "operazioni utili" aumentando l'efficienza del suo utilizzo.
+
 ### Arbitraggio del bus di sistema
 Dato che CPU e I/O controller usano lo stesso bus, è necessario un meccanismo di
 sincronizzazione, detto **arbitraggio**. Lo scopo è di evitare che CPU e I/O
@@ -104,6 +163,21 @@ categorie.
 dispositivi connessi.
 2. **arbitraggio distribuito** in cui i vari dispositivi connessi al bus si
 "auto-coordinano" per accedere a turno al bus.
+
+#### Esempio di arbitraggio: *daisy chain*
+Ci sono diverse tecniche di arbitraggio del bus delle quali ne vediamo una semplice
+nota come *daisy chain*. In questa tecnica tutti i dispositivi (*controller*) che
+possono accedere al bus possono usarlo "a turno". In altre parole se i controller
+connessi al bus sono numerati da ``0`` a ``n-1``, ci sarà uno *slot* di tempo in cui
+il dispositivo ``0`` può accedere al bus, poi il dispositivo ``1``, poi ``2`` e così
+fino a ``n-1`` dopo il quale il turno passa nuovamente a ``0``.
+
+Questa tecnica molto semplice, tuttavia presenta diversi problemi. Uno è quello che
+la CPU che accederà spesso al bus rischia di dover aspettare che finisca un intero
+giro prima di poter accedervi. Un secondo problema è che il tempo viene allocato ad
+ogni singolo controller anche se questo non ha niente da fare con il bus. In questo
+caso sarebbe potuto essere più conveniente lasciare il turno ad altri dispositivi che
+effettivamente necessitano del bus.
 
 ## Gestione dell'I/O nelle architetture moderne
 L'architettura di von Neumann, proposta agli albori dell'informatica, è un
