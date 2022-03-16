@@ -35,5 +35,5 @@ cid: 2021_2022_3ic_sr
 	<li><a href="https://www.cs.cornell.edu/courses/cs3410/2019sp/riscv/interpreter/" target="_blank">Interprete RISC-V</a></li>
 	<li><a href="https://www.kvakil.me/venus/" target="_blank">Altro simulatore RISC-V</a></li>
 	<li><a href="https://medium.com/swlh/risc-v-assembly-for-beginners-387c6cd02c49">Guida RISC-V (in inglese)</a></li>
-	<li><a href="/assets/misc/rars.jar">Programma di simulazione RISC-V scritto in java</a> (<a href="" target="_blank">codice qui</a>)</li>
+	<li><a href="https://github.com/TheThirdOne/rars/releases/tag/continuous" target="_blank">Programma di simulazione RISC-V scritto in java</a></li>
 </ul>
