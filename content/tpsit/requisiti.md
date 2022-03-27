@@ -10,15 +10,17 @@ align: justify
 Nella *progettazione* di un software uno degli obiettivi è, ovviamente, quello di
 soddisfare l'*utente finale*. Cosa significa "soddisfare" in questo caso? A questa
 domanda non può esistere un'unica risposta in quanto la soddisfazione dipende da
-quello che l'utente si aspetta e quello che l'utente si aspetta dipende da quali
-sono le sue *esigenze* (rispetto al software in questione). Quindi, nel progettare
+quello che l'utente si aspetta. Quello che l'utente si aspetta dipende da quali
+sono le sue *esigenze* (rispetto al software). Quindi, nel progettare
 un software **è fondamentale conoscere le esigenze del cliente** che verranno poi
 tradotte in **requisiti** del software stesso.
 
 <div class="alert alert-primary" markdown="1">
 <h5 class="no_toc"><i class="bi bi-journal-text"></i> Definizione: Requisiti software</h5>
 I **requisiti** di un software sono le *caratteristiche* e le *funzionalità* che un
-software deve possedere per essere considerato adatto allo scopo.
+software deve possedere per essere considerato, da parte dell'utente, adatto allo scopo.
+Fondamentale è che ogni requisito possa essere *verificato*, cioè si deve poter dire
+se un software soddisfa o meno quel requisito.
 </div>
 
 <div class="alert alert-primary" markdown="1">
