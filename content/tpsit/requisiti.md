@@ -35,8 +35,8 @@ Per progettare un software, quindi, è necessario conoscere le esigenze degli ut
 finali, che devono perciò essere interrogati su quello che loro si aspettano dal
 software. Per esempio, se il progetto prevede lo sviluppo di un *software gestionale*
 (il software che gestisce il *sistema informativo* di un azienda, esempio dipendenti,
-clienti, fatture, ...) si andrà a interrogare i dipendenti dell'azienda che userà il
-software. In certi casi però questo non è possibile, si pensi, ad esempio, ad una
+clienti, fatture, ...) si andranno a interrogare i dipendenti dell'azienda.
+In certi casi però questo non è possibile, si pensi, ad esempio, ad una
 software house che sviluppa videogiochi e che vuole conquistare mercato con un gioco
 innovativo. Chi sono gli utenti da interrogare? Come è possibile interrogare gli
 utenti su quello che si aspettano da un gioco che ancora non esiste? Come si vede,
@@ -49,7 +49,7 @@ ma può richiedere tempo e sforzo notevoli.
 Facciamo ora alcuni esempi di requisiti che un *software gestionale* deve possedere.
 La raccolta e l'analisi dei requisiti di un software (anche semplice) richiede diverse
 pagine di documentazione perciò ci limitiamo qui a pochi esempi che possano fornire
-un'idea di massima.
+un'idea di massima. 
 
 * **Gestione dell'anagrafica fornitori** Il software deve permettere di: consultare,
 modificare e stampare una schermata (eventualmente composta di più pagine) che

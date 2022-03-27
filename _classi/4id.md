@@ -19,6 +19,7 @@ cid: 2021_2022_4id_tpsit
 	* [Analisi dei requisiti](/content/tpsit/requisiti.html)
 	* [Diagrammi dei casi d'uso](/content/tpsit/uml_use_case.html)
 	* [Design Patterns](/content/tpsit/design_pattern.html)
+	* [Testing](/content/tpsit/testing.html)
 * [Sincronizzazione](/content/tpsit/sincronizzazione.html)
 	* [Sezione critica](/content/tpsit/sezione_critica.html)
 	* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)

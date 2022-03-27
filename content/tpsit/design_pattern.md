@@ -5,10 +5,6 @@ materia: tpsit
 align: justify
 ---
 
-## Patter di programmazione
-
-### Factory
-
 ## Pattern di progettazione
 
 ### Model-View-Controller
@@ -17,7 +13,17 @@ align: justify
 
 ### Frontend e Backend
 
+## Pattern di programmazione
 
-* [Software Design Pattern (Wikipedia)](https://en.wikipedia.org/wiki/Software_design_pattern)
+### Gerarchia di classi
+
+### Classi anonime
+
+### Singleton
+
+### Factory
+
+
+* [Software Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
 * [Model-View-Controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
 * [Model-View Viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
