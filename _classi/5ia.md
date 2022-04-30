@@ -20,7 +20,8 @@ cid: 2021_2022_5ia_gpoi
 	* *Total Quality Management*
 	* ISO 9000
 * [Ingegneria del software](/content/gpoi/ing_software.html)
-	* Project management per il software
+	* [Analisi dei requisiti](/content/tpsit/requisiti.html)
+	* [UML use-case diagram](/content/tpsit/uml_use_case.html)
 	* Modello a cascata
 	* Progettazione *agile*
 
