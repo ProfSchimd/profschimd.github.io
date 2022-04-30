@@ -16,6 +16,13 @@ cid: 2021_2022_5ia_gpoi
 	* Ambito di progetto
 	* WBS e GANTT
 	* PERT e CPM
+* Qualità Totale
+	* *Total Quality Management*
+	* ISO 9000
+* [Ingegneria del software](/content/gpoi/ing_software.html)
+	* Project management per il software
+	* Modello a cascata
+	* Progettazione *agile*
 
 ## Link
 <ul>
