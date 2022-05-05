@@ -22,7 +22,7 @@ cid: 2021_2022_5ia_gpoi
 * [Ingegneria del software](/content/gpoi/ing_software.html)
 	* [Analisi dei requisiti](/content/tpsit/requisiti.html)
 	* [UML use-case diagram](/content/tpsit/uml_use_case.html)
-	* Modello a cascata
+	* [Modello a cascata](/content/gpoi/waterfall.html)
 	* Progettazione *agile*
 
 ## Link
