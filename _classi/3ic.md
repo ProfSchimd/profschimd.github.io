@@ -36,4 +36,5 @@ cid: 2021_2022_3ic_sr
 	<li><a href="https://www.kvakil.me/venus/" target="_blank">Altro simulatore RISC-V</a></li>
 	<li><a href="https://medium.com/swlh/risc-v-assembly-for-beginners-387c6cd02c49">Guida RISC-V (in inglese)</a></li>
 	<li><a href="https://github.com/TheThirdOne/rars/releases/tag/continuous" target="_blank">Programma di simulazione RISC-V scritto in java</a></li>
+	<li><a href="https://github.com/mortbopet/Ripes" target="_blank">Programma di simulazione di un CPU RISC-V</a></li>
 </ul>
