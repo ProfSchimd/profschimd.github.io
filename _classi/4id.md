@@ -24,6 +24,7 @@ cid: 2021_2022_4id_tpsit
 	* [Sezione critica](/content/tpsit/sezione_critica.html)
 	* [Mutex, Semafori e Monitor](/content/tpsit/mutex.html)
 * [Socket e Thread](/content/tpsit/socket_threads.html)	
+* [Deadlock](/content/tpsit/deadlock.html)
 * [Programmazione asincrona](/content/tpsit/programmazione_asincrona.html)
 
 ## Progetto ``Mosca Ceca``
