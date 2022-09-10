@@ -1,6 +1,6 @@
 ---
 title: 5IA
-subject_s: GPOI
+subject_s: INF
 menu:
     main:
         parent: "classi"
