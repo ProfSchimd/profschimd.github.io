@@ -1,0 +1,8 @@
+{{ $default_head_img_url :=  "img/zuccante_it.jpeg" | absURL  }}
+{{ .Scratch.Set "splash" $default_head_img_url}}
+{{ $section_splash := .CurrentSection.Params.splash }}
+{{ if $section_splash }}
+{{ .Scratch.Set "splash" $section_splash }}
+{{ end }}
+{{ $head_img_url := .Scratch.Get "splash"}}
+{{ return $head_img_url }}

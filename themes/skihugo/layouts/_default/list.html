@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="container" style="text-align: justify">
+  <section>
+    {{ .Content }}
+  </section>
+  <h2>
+    {{ with .Param "heading" }}
+      {{ . }}
+    {{ else }}
+      Argomenti
+    {{ end }}
+  </h2>
+  <hr style="border: 0.5px solid">
+  {{ range .Pages.ByWeight }}
+  <div class="mt-4">
+    {{ with .Param "unlisted"}}
+    {{ else }}
+      <h4>{{ .Title }}</h4>
+      <div class="ml-3 mr-5">
+      <p>
+      {{ .Summary }}
+      <br>
+      <a href="{{ .Permalink }}">Vai alla pagina...</a>
+      </p>
+    </div>
+    {{ end }}
+    <hr>
+      
+  </div>
+  {{ end }}
+  
+</div>
+{{ end }}

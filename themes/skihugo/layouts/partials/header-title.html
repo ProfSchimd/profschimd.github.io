@@ -1,0 +1,9 @@
+{{ $title := .Title }}
+{{ with partial "func/get-splash" . }}
+{{ $head_img_url := .}}
+<div class="p-5 bg-primary" style="background-size: cover; background-position: center center; background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url( {{$head_img_url}})">
+  <div class="container">
+    <h1 class="display-4 text-white">{{ $title }}</h1>
+  </div>
+</div>
+{{ end }}

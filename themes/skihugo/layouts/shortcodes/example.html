@@ -1,0 +1,4 @@
+<div class="alert alert-primary" markdown="1">
+    <h5 class="no_toc"><i class="bi bi-journal-code"></i> Esempio{{ with .Get "title" }}: {{ . }}{{ end }}</strong></h5>
+    <p>{{ .Inner | markdownify }}</p>
+</div>

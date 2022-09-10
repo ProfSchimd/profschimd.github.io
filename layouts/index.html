@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article>
+{{ .Content }}
+  <div class="row">
+    {{ range where .Sections ".Name" "==" "Materie" }}
+    <div class="col-8">
+      <div class="card border-primary mb-3">
+      <h5 class="card-header"><i class="bi bi-mortarboard"></i> Materie</h5>
+      <div class="card-body text-primary">
+        <ul>
+          {{ range .Sections }}
+        <li><a href="{{ .Permalink }}">{{ .Title }} {{ with .Param "code" }}({{ . }}){{ end }}</a></li>
+         {{ end }}
+        </ul>
+      </div>
+      </div>
+    </div>
+    {{ end }}
+  
+    {{ range where .Sections ".Name" "==" "Classi" }}
+    <div class="col-4">
+      <div class="card border-primary mb-3">
+      <h5 class="card-header"><i class="bi bi-people-fill"></i> Classi</h5>
+      <div class="card-body text-primary">
+        <ul>
+            {{ range .Pages }}
+            
+            <li><a href="{{ .Permalink }}">{{ .Title }} {{ with .Param "subject_s" }}({{ . }}){{ end }}</a></li>
+            {{ end }}
+        </ul>
+      </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

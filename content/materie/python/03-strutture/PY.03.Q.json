@@ -1,0 +1,18 @@
+[
+    {
+        "id": "011",
+        "type": "single",
+        "text": "...",
+        "options": [
+            "<pre>def coppia1(a,b):\n   return a,b</pre>",
+            "<pre>def coppia2(a,b):\n   return (a,b)</pre>",
+            "<pre>def coppia3(a,b):\n   return (a),(b)</pre>",
+            "<pre>def coppia4(a,b):\n   return ((a),(b))</pre>",
+            "<pre>def coppia5(a,b):\n   return tuple([a,b])</pre>",
+            "<pre> def coppia6(a,b): return [a,b]</pre>"
+        ],
+        "correct": 5,
+        "weight": 5,
+        "hint": ""
+    }
+]

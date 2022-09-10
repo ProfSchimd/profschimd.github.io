@@ -1,3 +1,2 @@
-.jekyll-metadata
 .DS_Store
-_site/
+.hugo_build.lock

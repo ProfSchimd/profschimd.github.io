@@ -1,0 +1,7 @@
+{{ $title := .Get 0 }}
+{{ $type := .Get 1 }}
+{{ $inner := .Inner }}
+<div class="alert alert-{{ $type }}">
+<h5 class="alert-heading">{{ $title }}</h5>
+{{ $inner | markdownify }}
+</div>

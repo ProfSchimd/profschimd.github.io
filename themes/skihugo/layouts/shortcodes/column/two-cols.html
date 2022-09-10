@@ -1,0 +1,21 @@
+{{ $width_left :=  .Get "wl" }}
+{{ $width_right := .Get "wr" }}
+{{ $file_path := .Get "embed" }}
+{{ $inner := .Inner }}
+{{ $content_side := .Get "content" }}
+{{ with .Page }}
+{{ $base_path := .File.Dir }}
+
+{{ $full_file_path := (path.Join $base_path $file_path) }}
+{{ $c_embed := readFile $full_file_path }}
+{{ $left := cond (eq $content_side "right") $c_embed $inner }}
+{{ $right := cond (eq $content_side "right") $inner $c_embed }}
+<div class="row">
+    <div class="col-{{ $width_left }}">
+      {{ $left | markdownify }}
+    </div>
+    <div class="col-{{ $width_right }}">
+      {{ $right | markdownify }}
+    </div>
+  </div>
+  {{ end }}
