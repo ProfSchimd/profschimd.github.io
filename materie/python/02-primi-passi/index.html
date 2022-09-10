@@ -1,0 +1,271 @@
+<!doctype html><html><head><meta charset=utf-8><title>Primi passi con Python &ndash; Michele Schimd</title><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/spacelab/bootstrap.min.css rel=stylesheet><link href=https://profschimd.github.io/css/syntax.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css><script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
+<script src=https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js integrity=sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 crossorigin=anonymous></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></head><body><header><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand rel=author href=https://profschimd.github.io/>Michele Schimd</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav ml-auto"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false>Materie</a><div class=dropdown-menu><a href=https://profschimd.github.io/materie/sr/ class=dropdown-item>SR</a>
+<a href=https://profschimd.github.io/materie/tpsit/ class=dropdown-item>TPSIT</a>
+<a href=https://profschimd.github.io/materie/gpoi/ class=dropdown-item>GPOI</a>
+<a href=https://profschimd.github.io/materie/ec/ class=dropdown-item>EC</a>
+<a href=https://profschimd.github.io/materie/inf/ class=dropdown-item>Informatica</a>
+<a href=https://profschimd.github.io/materie/python/ class=dropdown-item>Python</a></div></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false>Classi</a><div class=dropdown-menu><a href=https://profschimd.github.io/classi/3ic/ class=dropdown-item>3IC</a>
+<a href=https://profschimd.github.io/classi/4ic/ class=dropdown-item>4IC</a>
+<a href=https://profschimd.github.io/classi/4id/ class=dropdown-item>4ID</a>
+<a href=https://profschimd.github.io/classi/5ia/ class=dropdown-item>5IA</a>
+<a href=https://profschimd.github.io/classi/5ic/ class=dropdown-item>5IC</a>
+<a href=https://profschimd.github.io/classi/anni-passati/ class=dropdown-item>Anni precedenti</a></div></li><li class=nav-item><a class=nav-link href=https://profschimd.github.io/about/ role=button><i class="bi bi-info-circle"></i></a></li></ul></div></div></nav></header><div class="p-5 bg-primary" style="background-size:cover;background-position:50%;background-image:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.6) 100%),url(https://profschimd.github.io/img/zuccante_it.jpeg)"><div class=container><h1 class="display-4 text-white">Primi passi con Python</h1></div></div><div class="container py-5"><main><div class=row><div class=col-10><aside><nav id=TableOfContents><ul><li><a href=#hello-world>Hello World!</a><ul><li><a href=#buona-pratica-il-main>Buona pratica: il <code>main</code></a></li></ul></li><li><a href=#variabili>Variabili</a><ul><li><a href=#operatori>Operatori</a></li></ul></li><li><a href=#funzioni>Funzioni</a><ul><li><a href=#valori-di-ritorno>Valori di ritorno</a></li><li><a href=#parametri-opzionali-e-parametri-con-nome-named-parameters>Parametri opzionali e parametri con nome (<em>named parameters</em>)</a></li></ul></li><li><a href=#input>Input</a></li><li><a href=#condizione-if-else-e-elif>Condizione <code>if</code>, <code>else</code> e <code>elif</code></a></li><li><a href=#cicli>Cicli</a><ul><li><a href=#ciclo-while>Ciclo <code>while</code></a></li><li><a href=#ciclo-for>Ciclo <code>for</code></a></li></ul></li></ul></nav></aside></div><div class=col-2><a class="btn btn-outline-primary my-1 w-100" href=https://github.com/ProfSchimd/python/tree/main/01_python_primi_passi role=button target=_blank><i class="bi bi-github"></i> Source</a>
+<a class="btn btn-outline-primary my-1 w-100" href=quiz role=button target=_blank><i class="bi bi-question-circle"></i> Quiz</a></div></div><article><div class=container style=text-align:justify><h2 id=hello-world>Hello World!</h2><p>Python può essere utilizzato anche come <em>linguaggio di scripting</em>, questo implica che
+il <code>main</code> è implicito nella prima riga del file che viene eseguito. Per vedere
+questo basta scrivere un file <code>hello.py</code> inserendo la seguente riga<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Hello World!&#34;</span><span class=p>)</span></span></span></code></pre></div>ed eseguire l&rsquo;interprete python su tale file</p><pre><code>python hello.py
+</code></pre><p>il risultato dovrebbe essere proprio la stampa della famigerata stringa <code>Hello World!</code></p><h3 id=buona-pratica-il-main>Buona pratica: il <code>main</code></h3><p>Anche se Python non prevede esplicitamente un <code>main</code>, è sempre buona norma (per evitare
+futuri mal di testa), organizzare il codice in modo che si rispecchi la classica esecuzione
+con un <code>main</code>. Per fare questo si può usare la variabile <code>__name__</code> (inizio e fine con
+un doppio underscore <code>_</code>) che contiene il <em>nome</em> dell&rsquo;esecuzione (<code>__main__</code> quando si
+esegue l&rsquo;interprete con il comando mostrato sopra, altro valore comune è <code>__test__</code>).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Hello World!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></td></tr></table></div></div><p>Da notare che</p><ul><li>il file viene ancora eseguito come uno script cioè partendo dalla prima riga,</li><li>essendo la prima riga un <code>def</code> viene quindi definita una procedura dal nome
+<code>main</code></li><li>successivamente viene eseguito l&rsquo;<code>if</code> della riga 4 che confronta il valore
+della variabile <code>__name__</code> con la stringa (<em>literal</em>) <code>__main__</code>,</li><li>se questo confronto dà esito positivo, viene invocata la funzione <code>main</code>.</li></ul><h4 id=dove-sono-i-miei-args>Dove sono i miei <code>args</code>?!</h4><p>Abbiamo visto come un vero <code>main</code> in Python non esista, ma allora come si
+possono recuperare i parametri della riga di comando? Ad esempio il comando</p><pre><code>python hello_args.py Mario Rossi 34
+</code></pre><p>ha tre parametri: <code>Mario</code>, <code>Rossi</code> e <code>34</code>. Per accedere a questi
+parametri, bisogna utilizzare la variabile <code>argv</code> (<em>arguments vector</em>)
+presente nel <strong>modulo</strong><code>sys</code> della libreria standard di Python che,
+tuttavia, importato con l&rsquo;istruzione <code>import</code>. Copiano in un file
+con il nome <code>hello_args.py</code> il seguente codice</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>sys</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></td></tr></table></div></div><p>ed eseguendo l&rsquo;istruzione sopra, verrà prodotto in output qualcosa simile
+alla seguente riga</p><pre><code>['hello_args.py', 'Mario', 'Rossi', '34']
+</code></pre><p>che indica una <strong>lista</strong> (lo riconosciamo dalle parantesi quadre <code>[ ]</code>)
+che contiene</p><ol><li>nella prima posizione (indice <code>0</code>) il nome del programma (script) eseguito,</li><li>nelle rimanenti posizioni gli argomenti passati alla linea di comando.</li></ol><div class="alert alert-success" markdown=1><h5 class=no_toc><i class="bi bi-eye"></i> Osserva</strong></h5><p>Come tutti i linguaggi di programmazione, anche Python ha i <strong>commenti</strong>. Un commento
+inizia con il carattere <em>sharp</em> <code>#</code> (cancelletto) e termina con la fine della riga.
+Non è prevista una sintassi apposita per i <em>blocchi di commento</em>, bisogna quindi
+utilizzare un <code>#</code> ad ogni inizio di riga di commento.</p></div><h2 id=variabili>Variabili</h2><p>Una differenza di Python con linguaggi come Java e C++ è che le variabili
+vengono dichiarate senza tipo</p><p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=mi>10</span> <span class=c1># intero</span>
+</span></span><span class=line><span class=cl><span class=n>b</span> <span class=o>=</span> <span class=mf>3.14</span> <span class=c1># float</span>
+</span></span><span class=line><span class=cl><span class=n>c</span> <span class=o>=</span> <span class=s2>&#34;hello&#34;</span> <span class=c1># stringa</span>
+</span></span><span class=line><span class=cl><span class=n>cc</span> <span class=o>=</span> <span class=s1>&#39;world!&#39;</span> <span class=c1># stringa</span></span></span></code></pre></div>Questo, tuttavia, non vuol dire che Python non sia un linguaggio tipizzato.
+Ad esempio, le seguenti istruzioni (successivamente a quelle sopra), falliscono
+generando l&rsquo;errore riportato sotto.<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>d</span> <span class=o>=</span> <span class=n>a</span> <span class=o>-</span> <span class=mi>1</span> <span class=c1># Ok</span>
+</span></span><span class=line><span class=cl><span class=n>e</span> <span class=o>=</span> <span class=n>c</span> <span class=o>+</span> <span class=n>a</span> <span class=c1># Errore</span></span></span></code></pre></div></p><pre><code>Traceback (most recent call last):
+File &quot;vars.py&quot;, line 5, in &lt;module&gt;
+    e = c + a
+TypeError: can only concatenate str (not &quot;int&quot;) to str
+</code></pre><p>Giustamente, Python si lamenta che (secondo lui) non ha senso
+<em>concatenare</em> (operatore <code>+</code> su stringhe) una stringa e un intero.
+Il modo giusto per ottenere l&rsquo;effetto di creare la string <code>hello10</code>
+è convertire prima l&rsquo;intero <code>a</code> in stringa, questo è possibile
+utilizzando la funzione <em>built-in</em> <code>str</code><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>e</span> <span class=o>=</span> <span class=n>c</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>a</span><span class=p>)</span> <span class=c1># Ok</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>e</span><span class=p>)</span></span></span></code></pre></div></p><p>Oltre a <code>str</code> sono disponibili altre funzioni per le conversioni &ldquo;basilari&rdquo;:</p><ul><li><code>int(x)</code> converte l&rsquo;argomento <code>x</code> in intero,</li><li><code>float(x)</code> converte l&rsquo;argomento <code>x</code> in numero decimale (<em>floating point</em>).</li></ul><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-pencil-square"></i> Esercizio</strong></h5><p>Scrivere un programma che calcola la media di 3 numero forniti dalla riga di comando
+(per accedere agli elementi di una lista, si usa la notazione indice <code>v[i]</code> con indice
+che prende i valori <code>0,1,2,...</code>).</p></div><h3 id=operatori>Operatori</h3><p>Python possiede tutti gli operatori aritmetici e logici che sono presenti nei linguaggi
+di programmazione. Qui presentiamo solo i più importanti di questi operatori, una lista
+più esauriente si può trovare a <a href=https://www.w3schools.com/python/python_operators.asp target=_blank rel=noopener>questa pagina</a>.</p><table class="table table-striped"><thead><tr><th>Operatore</th><th>Nome</th><th>Esempio</th></tr></thead><tbody><tr><td><code>+</code></td><td>Addizione</td><td>1 + 3 = 5</td></tr><tr><td><code>-</code></td><td>Sottrazione</td><td>3.5 - 2 = 1.5</td></tr><tr><td><code>*</code></td><td>Moltiplicazione</td><td>4 * 4 = 16</td></tr><tr><td><code>/</code></td><td>Divisione</td><td>5 / 10 = 0.5</td></tr><tr><td><code>%</code></td><td>Resto</td><td>4 % 3 = 1</td></tr><tr><td><code>**</code></td><td>Potenza</td><td>2 ** 3 = 8</td></tr><tr><td><code>//</code></td><td>Divisione intera</td><td>5 // 2 = 1</td></tr></tbody></table><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-pencil-square"></i> Esercizio</strong></h5><p>Scrivere un programma che faccia la <em>divisione euclidea</em> di un intero <code>n</code> per un
+intero <code>m</code> fornendo un intero <code>q</code> (<em>quoziente</em>) e un intero <code>r</code> (<em>resto</em>) tali
+che
+\[ n = mq + r \]
+i valori di input <code>n</code> ed <code>m</code> vanno presi dalla riga di comando mentre i valori
+di output <code>q</code> ed <code>r</code> vanno stampati sulla console.</p></div><h2 id=funzioni>Funzioni</h2><p>È sempre buona norma dividere il codice in <em>blocchi</em> ognuno dei quali si occupa di risolvere un
+problema ben specifico. Il modo più semplice di dividere in blocchi è utilizzando le <strong>funzioni</strong>
+o <em>subroutine</em> (un altro modo è utilizzando la programmazione ad oggetti che tratteremo in una
+lezione futura).</p><p>In Python una funzione si dichiara utilizzando la parola chiave <code>def</code>, seguita dalla <strong>firma</strong>
+della funzione:</p><ul><li>nome della funzione e</li><li>lista dei parametri.</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>nomeFunzione</span><span class=p>(</span><span class=n>parametro1</span><span class=p>,</span> <span class=n>parametro2</span><span class=p>,</span> <span class=o>...</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>istruzione1</span>
+</span></span><span class=line><span class=cl>    <span class=n>istruzione2</span>
+</span></span><span class=line><span class=cl>    <span class=c1># ...</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>valoreDaRestituire</span></span></span></code></pre></div><p>In Python il tipo ritornato da una funzione ed il tipo dei parametri non sono
+obbligatori (nelle prime versioni di Python non erano previste, ma più di recente è stata
+introdotta la possibilità di indicare i tipo). Ad esempio la funzione <code>somma</code> del codice
+sotto, avrà risultati diverso in base ai parametri forniti</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>somma</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>a</span> <span class=o>+</span> <span class=n>b</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>somma</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>somma</span><span class=p>(</span><span class=s2>&#34;1&#34;</span><span class=p>,</span> <span class=s2>&#34;2&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></td></tr></table></div></div><h3 id=valori-di-ritorno>Valori di ritorno</h3><p>Per ritornare un valore da una funzione in Python si usa l&rsquo;istruzione <code>return</code>. Nell&rsquo;esempio
+visto sopra, la funziona <code>somma</code> restituisce il risultato dell&rsquo;operazione <code>a + b</code>. L&rsquo;istruzione
+<code>return</code> fa anche terminare l&rsquo;esecuzione della funzione ovunque questa si trovi</p><p>Le funzioni Python ritornano sempre un valore, quando questo non è esplicitato dal
+programmatore, questo valore è <code>None</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>noneReturn</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>pass</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=n>noneReturn</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>a</span><span class=p>)</span></span></span></code></pre></td></tr></table></div></div><p>In questo esempio si vede anche come creare un blocco che non ha alcuna istruzione (in questo caso
+si tratta di un blocco funzione, ma lo stesso si può fare con blocchi cicli e classi).</p><h4 id=ritornare-più-valori>Ritornare più valori</h4><p>Altra caratteristica interessante di Python, è la possibilità che una funziona restituisca più di un
+valore<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>minmax</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>min</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>),</span> <span class=nb>max</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>minmax</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span><span class=mi>1</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></td></tr></table></div></div></p><p>Nell&rsquo;esempio sopra, la funzione <code>minmax</code> restituisce due valori: il minimo ed il massimo dei due
+parametri passati in ingresso.</p><div class="alert alert-success" markdown=1><h5 class=no_toc><i class="bi bi-eye"></i> Osserva</strong></h5><p>Nell&rsquo;esempio di codice <code>minmax</code> si può vedere l&rsquo;utilizzo di due altre funzioni standard di Python:
+<code>min</code> restituisce il minimo tra <strong>2 o più valori</strong> e <code>max</code> restituisce il massimo tra <strong>2 o più
+valori</strong>.</p></div><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-pencil-square"></i> Esercizio</strong></h5><p>Ri-scrivere il codice per la <em>divisione euclidea</em> (vedi sopra) utilizzando una funzione che
+prende in input <code>n</code> ed <code>m</code> e che restituisce i valori <code>q</code> e <code>r</code>.</p></div><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-pencil-square"></i> Esercizio: Equazione di secondo grado</strong></h5><p><p>Scrivere una funzione Python <code>secondoGrado</code> che calcola le soluzioni dell&rsquo;equazione</p><p>$$ ax^2 + bx + c = 0 $$</p><p>quando \(a\), \(b\) e \(c\) sono input della funzione e le due soluzioni \(x_1\) e \(x_2\)
+sono output. Per calcolare \(\sqrt{x}\) si può usare la funzione <code>sqrt(x)</code> attraverso il pacchetto
+<code>math</code> che va importato</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>math</span>
+</span></span><span class=line><span class=cl><span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>secondoGrado</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>c</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span><span class=line><span class=cl>    <span class=c1># mette in &#39;r&#39; la radice quadrata di &#39;discriminante&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>r</span> <span class=o>=</span> <span class=n>math</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>discriminate</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl>    <span class=o>...</span></span></span></code></pre></div></p></div><p>In Python è possibile catturare valori di ritorno multipli sia utilizzando le <em>tuple</em>, sia utilizzando
+le variabili. Ad esempio per mettere minimo e massimo in due variabile usando la nostra funzione <code>minmax</code>
+possiamo usare il seguente codice<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>minimo</span><span class=p>,</span> <span class=n>massimo</span> <span class=o>=</span> <span class=n>minmax</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>minimo</span><span class=p>)</span> <span class=c1># stampa 1</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>massimo</span><span class=p>)</span> <span class=c1># stampa 3</span></span></span></code></pre></td></tr></table></div></div></p><div class="alert alert-danger" markdown=1><h5 class="alert-danger no_toc"><i class="bi bi-exclamation-triangle"></i> Attenzione</strong></h5><p><p>Quando si usano funzioni con più valori ritornati bisogna fare attenzione a cosa viene <em>catturato</em>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>v</span> <span class=o>=</span> <span class=n>minmax</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>)</span> <span class=c1># stampa (-1, 2) -&gt; tupla</span>
+</span></span><span class=line><span class=cl><span class=n>v</span><span class=p>,</span> <span class=n>w</span> <span class=o>=</span> <span class=n>minmax</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>)</span> <span class=c1># stampa -1 -&gt; intero</span></span></span></code></pre></div>A sinistra dell'uguale ci può essere<ul><li>una sola variabile questa variabile sarà una tupla se la funzione restituisce più di un valore</li><li>un numero variabili <strong>uguale</strong> al numero di variabili restituite dalla funzione</li></ul><p>In tutti gli altri casi l&rsquo;interprete Python darà un messaggio d&rsquo;errore simile al seguente</p><pre><code>Traceback (most recent call last):
+File &quot;&lt;pyshell&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: too many values to unpack (expected 2)
+</code></pre></p></div><h3 id=parametri-opzionali-e-parametri-con-nome-named-parameters>Parametri opzionali e parametri con nome (<em>named parameters</em>)</h3><p>Come la maggior parte dei linguaggi, anche Python permette l&rsquo;utilizzo di <em>valori di default</em> per i
+parametri di una funzioni. I valori di default sono quelli che il parametro ha quando nulla viene
+indicato nella chiamata.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>saluta</span><span class=p>(</span><span class=n>nome</span><span class=o>=</span><span class=s2>&#34;anonimo&#34;</span><span class=p>,</span> <span class=n>cognome</span><span class=o>=</span><span class=s2>&#34;&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Hello &#34;</span> <span class=o>+</span> <span class=n>nome</span> <span class=o>+</span> <span class=s2>&#34; &#34;</span> <span class=o>+</span> <span class=n>cognome</span> <span class=o>+</span> <span class=s2>&#34;!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>saluta</span><span class=p>()</span> <span class=c1># &#39;Hello anonimo!&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>saluta</span><span class=p>(</span><span class=s2>&#34;Mario&#34;</span><span class=p>)</span> <span class=c1># &#39;Hello Mario!&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>saluta</span><span class=p>(</span><span class=s2>&#34;Mario&#34;</span><span class=p>,</span> <span class=s2>&#34;Rossi&#34;</span><span class=p>)</span> <span class=c1># &#39;Hello Mario Rossi!&#39;</span></span></span></code></pre></td></tr></table></div></div><p>In questo semplice esempio la funziona <code>saluta</code> ha due parametri (<code>nome</code> e <code>cognome</code>) che
+hanno un valore di default.</p><ul><li>Quando nessun valore viene passato, i due valori di default vengono utilizzati (sia per <code>nome</code>
+che per <code>cognome</code>).</li><li>Quando un valore viene passato, solo il secondo viene inizializzato con il valore di default.</li><li>Infine, quando due valori vengono passati, nessun valore di default viene utilizzato.</li></ul><p>Si vede come sia impossibile in questo modo avere un valore assegnato al secondo parametro
+(<code>cognome</code>), ma il valore di default per il primo parametro (<code>nome</code>). Per fare questo si
+può usare il nome del parametro nella chiamata<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>saluta</span><span class=p>(</span><span class=n>cognome</span><span class=o>=</span><span class=s2>&#34;ignoto&#34;</span><span class=p>)</span> <span class=c1># &#39;Hello anonimo ignoto!&#39;</span></span></span></code></pre></div></p><p>I nomi dei parametri si possono anche usare per indicare il valore da dare ai vari parametri
+senza necessariamente mantenere l&rsquo;ordine con cui sono stati dichiari<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>saluta</span><span class=p>(</span><span class=n>cognome</span><span class=o>=</span><span class=s2>&#34;Verdi&#34;</span><span class=p>,</span> <span class=n>nome</span><span class=o>=</span><span class=s2>&#34;Andrea&#34;</span><span class=p>)</span> <span class=c1># &#39;Hello Andrea Verdi!&#39;</span></span></span></code></pre></div>Si veda come nell&rsquo;esempio sopra, prima viene assegnato il valore al parametro <code>cognome</code>
+(che compare secondo nella lista) e poi al parametro <code>nome</code> (che compare primo
+nella lista).</p><h2 id=input>Input</h2><p>Chiedere l&rsquo;input da tastiera in Python è molto semplice, basta usare la funzione <code>input</code> la quale
+si metterà in attesa di un input dalla tastiera<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>nome</span> <span class=o>=</span> <span class=nb>input</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=n>Mario</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>nome</span><span class=p>)</span> <span class=c1># stampa &#39;Mario&#39;</span></span></span></code></pre></td></tr></table></div></div>È possibile indicare una stringa come parametri di <code>input</code> per aiutare a comprendere l&rsquo;input richiesto<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>nome</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s2>&#34;Nome: &#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=n>Nome</span><span class=p>:</span> <span class=n>Fabio</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>nome</span><span class=p>)</span> <span class=c1># stampa &#39;Fabio&#39;</span></span></span></code></pre></td></tr></table></div></div></p><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-pencil-square"></i> Esercizio</strong></h5><p>Scrivere una funzione Python senza parametri che richieda di inserire in input nome e cognome
+e che restituisca le due stringhe (prima cognome e poi nome).</p></div><h2 id=condizione-if-else-e-elif>Condizione <code>if</code>, <code>else</code> e <code>elif</code></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>stampaNumero</span><span class=p>(</span><span class=n>numero</span><span class=p>,</span> <span class=n>base</span><span class=o>=</span><span class=mi>10</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>base</span> <span class=o>==</span> <span class=mi>16</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>{0:x}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>numero</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>elif</span><span class=p>(</span><span class=n>base</span> <span class=o>==</span> <span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>{0:o}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>numero</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>elif</span><span class=p>(</span><span class=n>base</span> <span class=o>==</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>{0:b}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>numero</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=si>{0}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>numero</span><span class=p>))</span></span></span></code></pre></td></tr></table></div></div><h2 id=cicli>Cicli</h2><h3 id=ciclo-while>Ciclo <code>while</code></h3><p>In Python è presente il ciclo <code>while</code> che esegue un gruppo di operazione fino a che
+una certa condizione è vera. La sintassi generica del ciclo <code>while</code> è la seguente<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>while</span> <span class=n>condizione</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1># operazioni</span>
+</span></span><span class=line><span class=cl>    <span class=c1># ...</span>
+</span></span><span class=line><span class=cl><span class=c1># prima istruzione dopo il ciclo</span></span></span></code></pre></div></p><p>Si noti come le istruzioni del ciclo iniziano con una indentazione (riga 2 sopra)
+e terminano quando questa indentazione &ldquo;rientra&rdquo; (riga 4 sopra).</p><p>Ad esempio per stampare il <em>countdown</em> di capodanno da <code>10</code> a <code>0</code> si può il seguente
+ciclo <code>while</code>.<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>i</span> <span class=o>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=n>i</span><span class=o>&gt;</span><span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>i</span><span class=p>,</span> <span class=s2>&#34;...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>i</span> <span class=o>-=</span> <span class=mi>1</span> <span class=c1># Senza il programma non termina!</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;...Buon 1991&#34;</span><span class=p>)</span></span></span></code></pre></td></tr></table></div></div></p><p>Un esempio più complicato permette di continuare a leggere l&rsquo;input da tastiera fino a che non viene
+immesso il carattere <code>q</code> o <code>Q</code>, possiamo usare il seguente ciclo <code>while</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>lettura</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=p>(</span><span class=n>lettura</span> <span class=o>!=</span> <span class=s2>&#34;q&#34;</span> <span class=ow>and</span> <span class=n>lettura</span> <span class=o>!=</span> <span class=s2>&#34;Q&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>lettura</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s2>&#34;Carattere (q per uscire): &#34;</span><span class=p>)</span></span></span></code></pre></td></tr></table></div></div><p>La condizione controllo che contemporaneamente (operatore logico <code>and</code>):</p><ol><li>la variabile <code>lettura</code> <strong>non</strong> sia uguale alla stringa <code>"q"</code> <strong>e</strong></li><li>la variabile <code>lettura</code> <strong>non</strong> sia uguale alla string <code>"Q"</code> (notare maiuscolo).</li></ol><p>Se una delle condizione (o entrambe) <strong>non</strong> sono vere, allora la condizione del
+<code>while</code> non è più vera ed il ciclo termina.</p><h3 id=ciclo-for>Ciclo <code>for</code></h3><p>Oltre al ciclo <code>while</code>, Python prevede un solo altro tipo di ciclo, il ciclo <code>for</code>.
+Il <code>for</code> di Python è di tipo <em>for each</em> cioè itera ogni elemento di un un oggetto che,
+ovviamente, deve essere <em>iterabile</em>. Un esempio di oggetto iterabile sono le liste<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>lista</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>9</span><span class=p>]</span></span></span></code></pre></div></p><p>La sintassi del <code>for</code> è la seguente<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>for</span> <span class=n>variabile</span> <span class=ow>in</span> <span class=n>iterabile</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1># operazioni</span>
+</span></span><span class=line><span class=cl>    <span class=c1># ...</span>
+</span></span><span class=line><span class=cl><span class=c1># prima istruzione dopo il ciclo</span></span></span></code></pre></div></p><p>Esattamente come nel ciclo <code>while</code>, l&rsquo;indentazione del codice è usata per le operazioni
+all&rsquo;interno del ciclo.</p><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-code"></i> Esempio</strong></h5><p><p>Stampare il numero \(x^2\) (\(x\) al quadrato) per ogni intero \(x\) tra 1 e 9</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>lista</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>lista</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>x</span><span class=o>*</span><span class=n>x</span><span class=p>)</span> <span class=c1># si può anche scrivere x**2</span></span></span></code></pre></td></tr></table></div></div></p></div><h4 id=la-funzione-range>La funzione <code>range</code></h4><p>Dichiarare esplicitamente gli elementi su cui iterare è, ovviamente, poco pratico e a volte
+impossibile. Per generare numeri interi in un certo <em>range</em> (intervallo) si può usare la
+funzione <em>built-in</em> (cioè che fa parte del linguaggio Python) <code>range</code>. Questa funzione
+accetta uno, due o tre parametri e restituisce in oggetto iterabile. Vediamo in generale
+l&rsquo;utilizzo di <code>range</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Un parametro &#39;n&#39; -&gt; 0, 1, 2, ..., n-1</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>i</span><span class=p>)</span> <span class=c1># 0,1,2,...,9</span>
+</span></span><span class=line><span class=cl><span class=c1># Due parametri &#39;m&#39; e &#39;n&#39; -&gt; m, m+1, m+2, ..., n-1</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span><span class=mi>10</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>i</span><span class=p>)</span> <span class=c1># 5,6,..,9</span>
+</span></span><span class=line><span class=cl><span class=c1># Tre parametri &#39;m&#39;, &#39;n&#39; e &#39;k&#39; -&gt; m, m+k, m+k+k, ...</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>10</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>i</span><span class=p>)</span> <span class=c1># 0,10,20,...,90</span></span></span></code></pre></td></tr></table></div></div></div></article><nav class="mx-5 my-3"><div class=card><h5 class=card-header>Indice di Python</h5><ul class="list-group list-group-flush"><li class=list-group-item><a href=https://profschimd.github.io/materie/python/01-installazione/>Installazione Python</a></li><li class="list-group-item list-group-item-primary"><strong><a href=https://profschimd.github.io/materie/python/02-primi-passi/>> Primi passi con Python</a></strong></li><li class=list-group-item><a href=https://profschimd.github.io/materie/python/03-strutture/>Liste, Tuple e Dizionari</a></li><li class=list-group-item><a href=https://profschimd.github.io/materie/python/l01-calcolatrice/>Laboratorio 1: Calcolatrice</a></li><li class=list-group-item><a href=https://profschimd.github.io/materie/python/l02-tictactoe/>Laboratorio 2: Tic-Tac-Toe</a></li><li class=list-group-item><a href=https://profschimd.github.io/materie/python/l03-mastermind/>Laboratorio 3: Mastermind e Wordle</a></li></ul><div class=card-footer><a class="btn btn-primary" href=https://profschimd.github.io/materie/python/>Index</a></div></div></nav></main></div><div class="py-5 border-top"><div class=container><p class="h5 mb-3">Michele Schimd</p><div class=row><div class=col-sm><ul class=list-unstyled><li>Michele Schimd &copy; 2022</li><li><a href=mailto:ms@m.m><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-at" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 012 2h12a2 2 0 011.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83.191 12.857A2 2 0 002 14h12a2 2 0 001.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg></a><a rel=me href=https://github.com/ProfSchimd target=_blank title=ProfSchimd alt=GitHub><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.012 8.012.0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a rel=me href=https://www.linkedin.com/in/michele-schimd-44a85160 target=_blank title=michele-schimd-44a85160 alt=Linkedin><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526.0 1.175.0h13.65C15.474.0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487.0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837.0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822.0-1.359.54-1.359 1.248.0.694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869.0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274.0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54.0 01.016-.025V6.169h-2.4c.03.678.0 7.225.0 7.225h2.4z"/></svg></a><a rel=me href=https://stackoverflow.com/users/18081937 target=_blank title=18081937><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-stack-overflow" viewBox="0 0 16 16"><path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z"/><path d="M3.857 13.145h7.137v-1.428H3.857v1.428zM10.254.0 9.108.852l4.26 5.727 1.146-.852L10.254.0zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z"/></svg></a></li><li><span style=font-size:small><em>Ultimo aggiornamento: 10/09/2022</em></span></li></ul></div><div class="col-lg text-right"><ul class=list-unstyled><li>Materiale di studio e di esercizio per gli alunni dello Zuccante.</li></ul><div><p><a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/><img style=float:right alt="Creative Commons License" src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png></a></div></p></div></div></div></div></div></body></html>
