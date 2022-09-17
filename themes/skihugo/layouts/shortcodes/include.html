@@ -1,6 +1,0 @@
-{{ $file_path := .Get 0 }}
-{{ with .Page }}
-{{ $base_path := .File.Dir }}
-{{ $full_file_path := (path.Join $base_path $file_path) }}
-{{ readFile $full_file_path | markdownify }}
-{{ end }}

@@ -3,10 +3,15 @@
 {{ end }}
 {{ define "main" }}
 <main>
+  {{ partial "single-content-head.html" . }}
+  
   <article>
     <div class="container" style="text-align: justify">
     {{ .Content }}
     </div>
   </article>
+  <nav class="mx-5 my-3">
+    {{ partial "section-navigator" . }}
+  </nav>
 </main>
 {{ end }}

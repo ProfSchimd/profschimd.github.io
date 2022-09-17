@@ -1,6 +1,7 @@
 ---
 title: Sezione critica
 weight: 30
+type: lecture
 ---
 
 ## Il problema della sezione critica

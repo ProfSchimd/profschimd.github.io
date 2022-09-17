@@ -1,6 +1,7 @@
 ---
 title: Mutex, Semafori e Monitor
 weight: 80
+type: lecture
 ---
 
 ## Mutex
@@ -172,7 +173,5 @@ Il codice sopra utilizza in maniera "intelligente" la variabile `value`.
     * positivo ad indicare quanti thread possono ancora accedere alla risorsa;
     * zero significa che non ci sono più posti disponibili (semaforo rosso) **e** e non ci sono thread in coda;
     * negativo indica che non ci sono posti disponibili **e** ci sono `|value|` (**valore assoluto**) processi in coda.
-</div>
 {{</observe>}}
 
-## Monitor

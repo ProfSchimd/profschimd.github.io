@@ -86,3 +86,28 @@ Nell'immagine a sinistra vediamo i 5 stati in cui un processo si può trovare.
 * **Running**: il processo sta eseguendo su un qualche core del processore
 * **Waiting**: il processo è sospeso e sta aspettando un evento esterno e quindi non è pronto per essere immediatamente eseguito (si noti che manca la freccia da *waiting* a *running*).
 {{</column/two-cols>}}
+
+### IL Process Control Block (PCB)
+
+{{<column/two-cols wl=4 wr=8 content="right" embed="img/pcb.html">}}
+Il sistema operativo deve tenere traccia di tutte le informazioni relative ad un processo. Tali informazioni
+sono raccolte nel **Process Control Block (PCB)**. Cosa viene tenuto nel PCB
+dipende dal sistema operativo, ma alcune informazioni sono sempre presenti.
+* Process number o *process identifier* (PID)
+* *Process state*
+* *Program counter*
+* *Registri della CPU*
+* Informazioni sulla *memoria* del processo
+* *Lista dei file* aperti dal processo
+* Qualsiasi informazioni necessaria a gestire il processo
+{{</column/two-cols>}}
+
+### Context switch
+
+Un sistema operativo che fa un buon lavoro di gestione dei processi, fa si che *un processo non accorga che è stato spostato da un core, messo in waiting per un po' e poi rimesso in esecuzione*. Per faro questo, è necessario che il processo riportato su un core dopo che è stato messo in waiting ritrovi "tutto come era". Questo significa che il sistema operativo deve tenere traccia nel PCB di tutti i registri della CPU in modo da poterli ripristinare quando necessario. Questi registri rappresentano il **contesto del processo** (*context*) e l'operazione di scambio dei contesti di due processi viene detta **context switch** (*cambio di contesto*).
+
+Si noti come il PCB contiene tutte le informazioni del contesto di un processo ed è quindi usato dal sistema operativo nelle operazioni di context switch. È importante sottolineare che *il context switch è un'operazione che richiede molto tempo* ed è quindi una cosa da evitare quanto più possibile. Tuttavia in un sistema con tanti processi e "pochi" core, sarà necessario fare context switch molto di frequente.
+
+{{<attention>}}
+Il context switch è un'operazione così importanti che molti processori (es. Intel dal 80386 in poi) hanno dei circuiti e delle istruzioni apposite. Queste permette di rendere più veloce ed efficiente l'operazione.
+{{</attention>}}
