@@ -1,0 +1,141 @@
+<!doctype html><html><head><meta charset=utf-8><title>Concetti base programmazione ad oggetti &ndash; Michele Schimd</title><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/spacelab/bootstrap.min.css rel=stylesheet><link href=https://profschimd.github.io/css/syntax.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css><script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
+<script src=https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js integrity=sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 crossorigin=anonymous></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></head><body><header><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand rel=author href=https://profschimd.github.io/>Michele Schimd</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav ml-auto"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false>Materie</a><div class=dropdown-menu><a href=https://profschimd.github.io/materie/sr/ class=dropdown-item>SR</a>
+<a href=https://profschimd.github.io/materie/tpsit/ class=dropdown-item>TPSIT</a>
+<a href=https://profschimd.github.io/materie/gpoi/ class=dropdown-item>GPOI</a>
+<a href=https://profschimd.github.io/materie/ec/ class=dropdown-item>EC</a>
+<a href=https://profschimd.github.io/materie/inf/ class=dropdown-item>Informatica</a>
+<a href=https://profschimd.github.io/materie/python/ class=dropdown-item>Python</a></div></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false>Classi</a><div class=dropdown-menu><a href=https://profschimd.github.io/classi/4ia/ class=dropdown-item>4IA</a>
+<a href=https://profschimd.github.io/classi/4ic/ class=dropdown-item>4IC</a>
+<a href=https://profschimd.github.io/classi/5ic/ class=dropdown-item>5IC</a>
+<a href=https://profschimd.github.io/classi/5id/ class=dropdown-item>5ID</a>
+<a href=https://profschimd.github.io/classi/anni-passati/ class=dropdown-item>Anni precedenti</a></div></li><li class=nav-item><a class=nav-link href=https://profschimd.github.io/about/ role=button><i class="bi bi-info-circle"></i></a></li></ul></div></div></nav></header><div class="p-5 bg-primary" style="background-size:cover;background-position:50%;background-image:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.6) 100%),url(https://profschimd.github.io/img/zuccante_it.jpeg)"><div class=container><h1 class="display-4 text-white">Concetti base programmazione ad oggetti</h1></div></div><div class="container py-5"><main><div class=row><div class=col-10><aside><nav id=TableOfContents><ul><li><a href=#perché-la-programmazione-ad-oggetti>Perché la programmazione ad oggetti</a></li><li><a href=#classe-e-oggetto>Classe e oggetto</a></li><li><a href=#incapsulamento>Incapsulamento</a></li><li><a href=#esercizi>Esercizi</a></li></ul></nav></aside></div><div class=col-2><a class="btn btn-outline-primary my-1 w-100" href=https://github.com/ProfSchimd/teaching-material/tree/main/inf/oop/bank role=button target=_blank><i class="bi bi-github"></i> Source</a></div></div><article><div class=container style=text-align:justify><h2 id=perché-la-programmazione-ad-oggetti>Perché la programmazione ad oggetti</h2><p>Lo scopo di un programma, molto spesso, è creare uno strumento che
+descriva un qualche aspetto del mondo reale oppure di un mondo
+virtuale.<div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-code"></i> Esempio</strong></h5><p>Ad esempio, il software di una banca descrive i propri
+clienti e i loro conto correnti, le filiali, i dipendenti (manager,
+sportellisti, addetti all&rsquo;ICT, &mldr;). Come secondo esempio consideriamo
+un gioco di ruolo crea un mondo virtuale composto da avatar, oggetti,
+entità (nemici, agenti atmosferici, &mldr;), regole e molti altri aspetti.</p></div>Trasformare questi aspetti del mondo (reale o virtuale) in codice è il
+compito del programmatore, tale compito può essere reso più semplice e
+naturale se si adotta un approccio di <em>programmazione orientata agli
+oggetti</em> (che indicheremo con <strong>OOP</strong> dalla sigla inglese <em>Object
+Oriented Programming</em>).</p><p>Immaginiamo un linguaggio di programmazione non ad oggetti che ci permetta
+di usare solo variabili e funzioni (ad esempio il linguaggio C, anche se
+oggi esistono versioni di C ad oggetti, oltre a C++). E prendiamo un semplice
+esempio di un conto corrente bancario. Il conto corrente avrà associate
+diverse proprietà, sicuramente un saldo che indichiamo con <code>amount</code> ed un
+numero, che indicheremo con <code>number</code>. Se usassimo un linguaggio puramente
+funzionale (senza oggetti) dovremmo creare delle funzioni <code>withdraw</code> per il
+prelievo che prende (almeno) i due parametri <code>number</code> e <code>cash</code> per indicare
+che vogliamo prelevare la quantità <code>cash</code> dal conto corrente di numero <code>number</code>.
+La funzione, dovrà accedere ai dati relativi all&rsquo;account <code>number</code>, controllare
+la disponibilità per il prelievo ed infine effettuare l&rsquo;operazione, se possibile.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>struct</span> <span class=n>BanckAccount</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>number</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>double</span> <span class=n>amount</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=c1>// the next array is defined and created somewhere else
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>BankAccount</span> <span class=n>accounts</span><span class=p>[</span><span class=n>TOTAL_ACCOUNT</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=c1>// withdraw operation returns 0 if ok, an error code otherwise
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>int</span> <span class=nf>withdraw</span><span class=p>(</span><span class=kt>int</span> <span class=n>acc_num</span><span class=p>,</span> <span class=kt>double</span> <span class=n>cash</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>accounts</span><span class=p>[</span><span class=n>acc_num</span><span class=p>].</span><span class=n>amount</span> <span class=o>&gt;=</span> <span class=n>cash</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>accounts</span><span class=p>[</span><span class=n>acc_num</span><span class=p>].</span><span class=n>amount</span> <span class=o>-=</span> <span class=n>cash</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>1</span><span class=p>;</span> <span class=c1>// code for &#39;not enough money&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span></span></span></code></pre></div><p>Sebbene il codice sopra non sembri particolarmente problematico notiamo che:</p><ul><li><p>l&rsquo;array <code>accounts</code> deve essere definito e riempito &ldquo;a parte&rdquo; rispetto alle
+funzioni che ne fanno uso;</p></li><li><p>ogni funzione tipo <code>withdraw()</code> che deve <em>manipolare</em> gli elementi dell&rsquo;array
+deve sapere quale elemento accedere;</p></li><li><p>in generale, non si capisce in modo chiaro che withdraw è un&rsquo;operazione
+strettamente legata ad un account (si potrebbe modificare la funzione accettare
+come input una variabile <code>BankAccount</code>, ma anche in questo caso le due cose
+sarebbero separate).</p></li></ul><p>Nella programmazione ad oggetti le &ldquo;entità&rdquo; che popolano il programma sono
+<strong>oggetti in grado di mantenere un proprio stato interno e di eseguire ben
+specifiche operazioni</strong>. Nell&rsquo;esempio del conto corrente bancario, l&rsquo;oggetto
+avrebbe un proprio <em>stato</em> determinato da <code>number</code> e <code>amount</code> e sarebbe in
+grado di operare, ad esempio mediante un&rsquo;operazione (chiamato anche <em>metodo</em>)
+che cambia lo stato.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>BankAccount</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>int</span> <span class=n>number</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>double</span> <span class=n>amount</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>withdraw</span><span class=o>(</span><span class=kt>double</span> <span class=n>cash</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=o>(</span><span class=n>amount</span> <span class=o>&gt;=</span> <span class=n>cash</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>amount</span> <span class=o>-=</span> <span class=n>cash</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>true</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>false</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><p>Vediamo cosa abbiamo &ldquo;guadagnato&rdquo; con la programmazione ad oggetti:</p><ul><li><p>quando creiamo un oggetto della classe <code>BankAccount</code>, tutti i suoi dati
+vengono automaticamente associati a quell&rsquo;istanza (vedi
+<a href=#classe-e-istanza>Classe e istanza</a> più sotto);</p></li><li><p>oltre ai dati anche le funzionalità (ad esempio <code>withdraw()</code>) vengono
+automaticamente associate all&rsquo;istanza;</p></li><li><p>risulta evidente cosa sia un <code>BankAccount</code>, vale a dire l&rsquo;insieme di
+proprietà, detti <strong>campi</strong> e funzioni, detti <strong>metodi</strong> che descrivono
+cosa è e come si comporta un <code>BankAccount</code>. Per individuare campi e metodi
+di una classe, basta vedere cosa è compreso tra le graffe <code>{...}</code>
+corrispondenti a <code>BankAccount</code>.</p></li></ul><h2 id=classe-e-oggetto>Classe e oggetto</h2><p>Spesso si tende a confondere i concetti di <em>classe</em> e <em>istanza</em>, questo non
+solo è un errore, ma indica che i concetti della programmazione ad oggetti
+non sono del tutto chiari. In una frase potremmo dire che <strong>la classe è
+la descrizione di come sono fatti e come si comportano gli oggetti che sono
+istanza della classe</strong>. Nell&rsquo;esempio del conto corrente bancario la classe,
+che si vede nel codice sopra, rappresenta la descrizione, nel nostro caso
+questa descrizione ci dice che:</p><ol><li>la classe si chiama <code>BankAccount</code> ed ha una visibilità <code>public</code>;</li><li>la classe contiene due <em>campi</em>: <code>number</code> (tipo <code>int</code>) e <code>amount</code> (tipo <code>double</code>)
+entrambi con visibilità <code>private</code>;</li><li>la classe ha un <em>metodo</em> <code>withdraw</code> che restituisce un <code>boolean</code> e che accetta
+un parametro di tipo <code>double</code> denominato <code>cash</code>.</li></ol><p>La creazione di oggetti avviene mediante l&rsquo;<em>istanziazione</em> della classe, questo
+processo crea un oggetto o istanza di tipo indicato dalla classe che si istanzia
+che, di conseguenza, ha tutte le caratteristiche (campi e metodi) di quella classe.
+Il seguente codice istanzia due oggetti di tipo <code>BankAccount</code> sopra definito, i due
+oggetti sono riferiti dalle variabile <code>account1</code> e <code>account2</code>. Per completezza
+le due istruzione di istanziazione sono inserite in un metodo <code>main</code>.<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>BankAccount</span> <span class=n>account1</span> <span class=o>=</span> <span class=k>new</span> <span class=n>BankAccount</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>    <span class=n>BankAccount</span> <span class=n>account2</span> <span class=o>=</span> <span class=k>new</span> <span class=n>BankAccount</span><span class=o>();</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div></p><p>Gli <strong>oggetti</strong> <code>account1</code> e <code>account2</code> sono entrambe istanze della <strong>stessa classe</strong>
+<code>BankAccount</code>. Per questo motivo si <em>comportano allo stesso</em> e <em>contengono lo stesso
+tipo di dati</em> permettendo le <em>stesse operazioni</em>. Tuttavia <code>account1</code> e <code>account2</code> sono
+oggetti (istanze) diversi della classe <code>BankAccount</code>. Dopo che sono state fatte delle
+operazioni, il valore di <code>amount</code> sarà diverso nei due casi. Anche il valore di <code>number</code>
+sarà, in una implementazione completa della classe <code>BankAccount</code>, diverso. Possiamo a
+questo punto proporre una definizione per i concetti di classe e di oggetto.</p><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-text"></i> Definizione: Classe e Oggetto</strong></h5><p>Una <strong>classe</strong> è la definizione dei <em>dati</em> e delle <em>operazioni</em> alla quale ogni <em>istanza</em>
+della classe deve essere conforme. Un <strong>oggetto</strong> è un <em>istanza</em> di una data classe (a
+volte chiamata <em>tipo</em>) che, di conseguenza, è conforme ai dati ed alle operazioni che sono
+definite dalla classe stessa.</p></div><h2 id=incapsulamento>Incapsulamento</h2><p>Un concetto importante nella programmazione ad oggetti è quello di <strong>incapsulamento</strong>
+(<em>encapsulation</em>) a volte chiamato <em>information hiding</em>. L&rsquo;idea è che un oggetto dovrebbe
+essere visto come una &ldquo;scatola nera&rdquo; che ha un certo comportamento. I dettagli su come
+il programmatore ha deciso di implementare questo comportamento dovrebbero essere
+nascosti. Un esempio nel caso della classe <code>BankAccount</code> è il numero identificativo.
+Tale numero è solitamente un intero di 12 cifre con parecchi zeri iniziali, es.
+<code>000000001234</code>. Un programmatore potrebbe decidere di utilizzare il tipo <code>int</code> (come
+nell&rsquo;esempio sopra) sapendo però che in certi casi (ad esempio nella composizione
+dell&rsquo;IBAN), il numero di conto corrente deve contenere tutti gli zeri iniziali (cosa
+che Java omette quando stampa il numero, nel nostro caso la stampa darebbe <code>1234</code>).
+Per questo motivo, un altro programmatore potrebbe suggerire che è meglio usare una
+stringa per il numero di conto corrente. Indipendentemente dalla scelta, il numero di
+conto corrente deve permettere l&rsquo;identificazione univoca all&rsquo;interno del sistema
+informatico della banca, sia che usi un <code>int</code>, sia che si usi una <code>String</code>. A meno che
+non sia necessario fare operazioni tra numeri di conto corrente (cosa che non ha, in
+generale, senso), la scelta del tipo non è importante e i dettagli di implementazione
+possono rimanere nascosti.</p><p>Altro esempio potrebbe riguardare il metodo di memorizzazione della variabile <code>amount</code>.
+Nel nostro caso abbiamo scelto un <code>double</code>, ma avremmo potuto scegliere un intero che
+rappresenta i centesimi e poi convertirlo in numero con virgola.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>BankAccount</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>private</span> <span class=kt>int</span> <span class=n>amount</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>public</span> <span class=kt>double</span> <span class=nf>getAmount</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=o>((</span><span class=kt>double</span><span class=o>)</span><span class=n>amount</span><span class=o>)</span> <span class=o>/</span> <span class=n>100</span><span class=o>.</span><span class=na>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><p>Un programmatore che usa la classe <code>BankAccount</code> potrebbe pensare che nella classe
+la variabile <code>amount</code> (di cui tipicamente lui non sa il nome) è definita come
+<code>double</code> e non come <code>int</code>. Infatti tutto ciò che può utilizzare il programmatore
+è il metodo <strong>pubblico</strong> <code>getAmount()</code> che restituisce un <code>double</code>. In altre parole
+tutto sarebbe identico se la classe fosse definita come segue.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>BankAccount</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>private</span> <span class=kt>double</span> <span class=n>amount</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>public</span> <span class=kt>double</span> <span class=nf>getAmount</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>amount</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></div><h2 id=esercizi>Esercizi</h2><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-pencil-square"></i> Esercizio</strong></h5><p><p>Immagina un gioco online in cui, tra le altre cose, esiste un&rsquo;entità player alla quale
+è associata una classe <code>Player</code>.</p><ol><li>Descrivi almeno 3 campi che la classe <code>Player</code> potrebbe contenere.</li><li>Descrivi almeno 2 metodi che la classe <code>Player</code> potrebbe contenere.</li><li>Realizza in Java (o in altri linguaggi OOP) la classe <code>Player</code> con i
+campi e metodi descritti ai punti precedenti.</li><li>Crea almeno 3 istanze (oggetti) della classe <code>Player</code> creata al punto
+precedente.</li></ol></p></div></div></article><nav class="mx-5 my-3"><div class=card><h5 class=card-header>Indice di Ripasso programmazione ad oggetti</h5><ul class="list-group list-group-flush"><li class="list-group-item list-group-item-primary"><strong><a href=https://profschimd.github.io/materie/inf/4/01-ripasso-oop/01-oop-concetti-base/>> Concetti base programmazione ad oggetti</a></strong></li><li class=list-group-item><a href=https://profschimd.github.io/materie/inf/4/01-ripasso-oop/02-campi-metodi/>Campi e metodi di un oggetto</a></li></ul><div class=card-footer><a class="btn btn-primary" href=https://profschimd.github.io/materie/inf/4/01-ripasso-oop/>Index</a></div></div></nav></main></div><div class="py-5 border-top"><div class=container><p class="h5 mb-3">Michele Schimd</p><div class=row><div class=col-sm><ul class=list-unstyled><li>Michele Schimd &copy; 2022</li><li><a href=mailto:ms@m.m><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-at" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 012 2h12a2 2 0 011.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83.191 12.857A2 2 0 002 14h12a2 2 0 001.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg></a><a rel=me href=https://github.com/ProfSchimd target=_blank title=ProfSchimd alt=GitHub><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.012 8.012.0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a rel=me href=https://www.linkedin.com/in/michele-schimd-44a85160 target=_blank title=michele-schimd-44a85160 alt=Linkedin><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526.0 1.175.0h13.65C15.474.0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487.0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837.0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822.0-1.359.54-1.359 1.248.0.694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869.0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274.0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54.0 01.016-.025V6.169h-2.4c.03.678.0 7.225.0 7.225h2.4z"/></svg></a><a rel=me href=https://stackoverflow.com/users/18081937 target=_blank title=18081937><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-stack-overflow" viewBox="0 0 16 16"><path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z"/><path d="M3.857 13.145h7.137v-1.428H3.857v1.428zM10.254.0 9.108.852l4.26 5.727 1.146-.852L10.254.0zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z"/></svg></a></li><li><span style=font-size:small><em>Ultimo aggiornamento: 18/09/2022</em></span></li></ul></div><div class="col-lg text-right"><ul class=list-unstyled><li>Materiale di studio e di esercizio per gli alunni dello Zuccante.</li></ul><div><p><a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/><img style=float:right alt="Creative Commons License" src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png></a></div></p></div></div></div></div></div></body></html>
