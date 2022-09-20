@@ -103,9 +103,88 @@ public void Persona(...) { ... }
 {{</highlight>}}
 {{</attention>}}
 
-## Campi e metodi `static`
-
 ## Accedere a campi e metodi (Java)
-Fin'ora abbiamo visto come definire campi e metodi di istanza e di classe (questi
-ultimi con `static`). Vediamo ora come utilizzare campi e metodi di una classe
-nel linguaggio Java.
+Fin'ora abbiamo visto come definire campi e metodi, vediamo ora come utilizzare
+campi e metodi nel linguaggio Java. Per campi e metodi di istanze (quelli visti
+fin'ora), l'accesso ad un campo o ad un metodo avviene utilizzando l'operatore
+`.` (*dot* o *punto*) su un'istanza dell classe.
+
+{{<highlight java>}}
+Persona p = new Persona(123);
+p.getId(); // Operatore '.' per accedere al metodo 'getId'
+String name = p.firstName; // operatore '.' per accedere al campo 'firstName'
+{{</highlight>}}
+
+Ovviamente, affinché l'operatore `.` possa essere utilizzato, deve essere
+possibile accedere al campo o al metodo, in caso contrario viene generato un
+errore di compilazione che ci comunica che il campo/metodo richiesto non è
+accessibile.
+
+
+## Campi e metodi `static`
+Abbiamo visto sopra che i campi sono variabili associati ad ogni singola istanza
+di una classe, diciamo per questo che sono *variabili (campi) di istanza*. Questa
+significa che istanze diverse possono avere valori diverse, Ad esempio una istanza
+`p` della classe Persona potrebbe avere `firstName = "Dave"`, un'altra potrebbe
+avere valore `firstName = "Betty"`.
+
+In certi casi può essere utile assegnare una variabile *all'intera classe*, ad esempio
+una variabile `numeroPersone` che conta il numero complessivo di persone registrate
+nel sistema. Si potrebbe pensare di usare un campo `private int count`, tuttavia
+questa crea diversi problemi, vediamone alcuni.
+* In memoria ogni istanza avrà una propria variabile, se ci sono un milione di
+istanze, ci saranno un milione di variabili tutte, presumibilmente, con lo stesso
+valore.
+* Quando il valore di `count` cambia questo deve essere cambiato in tutte le istanze,
+se ci sono un milione di istanze, questo significa aggiornare un milione di variabili.
+L'alternativa è avere alcune variabili aggiornate ed altre no, soluzione come porterà
+inevitabilmente a dei problemi.
+
+La soluzione a questo problema è l'utilizzo di **variabili di classe** che in Java si
+identificano mettendo la parola chiave `static` tra il modificatore di accesso ed il
+tipo di dato ritornato.
+
+{{<highlight java>}}
+public class Persona {
+    // ...
+    public static int count = 0;
+    // ...
+}
+{{</highlight>}}
+
+In Java le variabili di classe si accedono utilizzando il nome della classe anziché
+il nome del riferimento all'istanza.
+
+{{<highlight java>}}
+public class Persona {
+    private int id;
+    public static int count = 0;
+    public Persona(int id) {
+        this.id = id;
+        Persona.count++;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Persona p = new Persona(123);
+        System.out.println("Ci sono: " + Persona.count + " persone nel sistema.");
+    }
+}
+{{</highlight>}}
+
+Come le variabili di classi, esistono anche i **metodi di classe**, questi hanno accesso
+unicamente alle variabili di classe e non a quelle di istanza. In Java i metodi di
+classe si indicano con la parola chiave `static` tra il modificatore di accesso ed il
+tipo di dato ritornato. Ovviamente, i metodi `static` di una classe possono accedere
+variabili `static` anche se queste sono `private` o `protected`.
+
+{{<highlight java>}}
+public class Persona {
+    private static int count = 0;
+    public static void eliminaEntry(Persona p) {
+        // operazioni cancellazione entry 'p'
+        Persona.count--; // Ok anche se private
+    }
+}
+{{</highlight>}}
