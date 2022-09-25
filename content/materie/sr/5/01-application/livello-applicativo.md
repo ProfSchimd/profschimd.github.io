@@ -20,8 +20,6 @@ Ricordiamo che ogni host della rete si comporta come un "condominio" nel quale s
 
 ### Alcune porte riservate
 {{<column/two-cols wl=6 wr=6 embed="img/porte_note.html" content="right">}}
-
-
 Proprio perché è necessario conoscere la porta per poter contattare un processo remoto, ogni protocollo di livello applicativo è associato ad una **porta riservata** che è buona norma non occupare con altri tipi di servizi. 
 
 Nella figura accanto si vedono alcuni esempi di porte riservate. Ad esempio il servizio DNS di traduzione dei nomi è solitamente assegnato alla porta 53 UDP mentre il servizio HTTP alla porta 80 TCP. La lista completa delle porte riservate è mantenuta da **IANA** (*Internet Assigned Numbers Authority*) e si può consultare a [questa pagina](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml).
