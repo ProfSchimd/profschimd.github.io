@@ -7,7 +7,7 @@ theme = 'skihugo'
   author = 'Michele Schimd'
   description = 'Materiale di studio e di esercizio per gli alunni dello Zuccante.'
 [params.social]
-    mail = 'ms@m.m'
+    mail = 'michele.schimd@itiszuccante.edu.it'
     github = 'ProfSchimd'
     linkedin = 'michele-schimd-44a85160'
     stackoverflow = '18081937'

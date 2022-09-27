@@ -9,8 +9,11 @@ Il materiale prodotto, quindi, va utilizzato **esclusivamente a scopi
 didattici** e non rappresenta documentazione o guida ufficiale ad i tool,
 linguaggi ed in generale agli argomenti trattati.
 
-Alcuni link utili:
+## Informazioni
 
+* **Ricevimento:** *coming soon*
+
+## Link utili
 * [GitHub ProfSchimd](https://github.com/ProfSchimd/)
 * [Vecchio sito materiale](https://sites.google.com/itiszuccante.edu.it/schimd2122/home-page)
 * [Registro Elettronico](https://web.spaggiari.eu/)
