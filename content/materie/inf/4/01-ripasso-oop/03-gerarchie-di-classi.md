@@ -152,9 +152,132 @@ Al contrario, la classe `Main` non è sottoclasse di `Prodotto` quindi **non**
 può accedere al campo `id` (potrebbe se questo fosse `public`).
 
 ## Catena di costruzione su gerarchia
+La struttura gerarchica di classi, sottoclassi, sottoclassi di sottoclassi, ...
+determina una relazione tra le classi stesse. In particolare è utile pensare alla
+relazione **is a** (*è una*) in riferimento al rapporto tra classe e sottoclassi.
+Più nello specifico se `B` è sottoclasse di `A`, allora `B` **is a** `A`, ad
+esempio ogni `Studente` è una `Persona` e ogni `Professore` è anche una `Persona`.
+Il contrario non è sempre vero **alcune** `Persona` sono `Studente`, ma non tutte;
+allo stesso modo `Studente` **non è** `Professore` (e viceversa).
+
+Questo aspetto si riflette anche nel modo in cui le istanze vengono costruite, infatti
+se ogni `Studente` è anche una `Persona` ne deve avere tutti i campi e i metodi,
+perciò quando ci riferiamo a `Studente` diamo per scontato che campi quali `firstName`
+e `birthDate` siano già definiti. Per questo motivo quando si istanzia una classe
+**vengono chiamati tutti i costruttori di tutte le classi della gerarchia, dalla
+più generica, alla più specifica**. In Java l'istanziazione di un oggetto della classe
+`Studente` darebbe luogo alla seguente *catena di chiamate a costruttori*.
+
+1. Per primo viene chiamato il costruttore di `Object` in quanto in Java questa
+è sempre la classe base di tutte.
+
+2. Successivamente viene chiamato il costruttore di `Persona` che, se non ha un
+`extends` esplicito, sarà sottoclasse di `Object`.
+
+3. Infine viene chiamato il costruttore di `Studente` che è sottoclasse diretta
+di `Persona`.
+
+A titolo di esempio si provi il seguente codice (opportunamente divisa in 3 file come indicato)
+{{<highlight java>}}
+// file: Persona.java
+public class Persona {
+    public Persona() {
+        System.out.println("Costruttore: Persona");
+    }
+}
+// file: Studente.java
+public class Studente extends Persona {
+    public Studente() {
+        System.out.println("Costruttore: Studente");
+    }
+}
+// file Main.java
+public class Main {
+    public static void main(String[] args) {
+        Studente s = new Studente();
+    }
+}
+/*
+Output del programma:
+
+Costruttore: Persona
+Costruttore: Studente
+*/
+{{</highlight>}}
+
 
 ## *Casting* attraverso le classi della gerarchia
+Sempre in virtù della relazione **is a**, i vari linguaggi orientati agli
+oggetti permettono di convertire (*casting*) un tipo in un altro purché
+il primo sia in relazione **is a** con il secondo. Ad esempio è sempre
+possibile convertire uno `Studente` in una `Persona`, in Java questa conversione
+avviene in maniera *implicita*
 
+{{<highlight java>}}
+Studente s = new Studente(); // Creo un'istanza di Studente
+Persona p = s; // Nessun errore, cast implicito
+{{</highlight>}}
 
+Ovviamente il tentativo di convertire un tipo generico, ad esempio `Persona`, in
+un tipo più specifico, ad esempio `Studente`, non va a buon fine.
 
-## Interfacce
+{{<highlight java>}}
+// Creo Studente e subito faccio cast implicito
+Persona p = new Studente(); 
+Studente s = p; // Errore, cast implicito non possibile
+{{</highlight>}}
+
+D'altro canto, se questo cast non fosse segnalato come errore si potrebbero fare
+delle operazioni senza significato come nel seguente frammento di codice.
+
+{{<highlight java>}}
+// Creo Studente e subito faccio cast esplicito
+Persona p = new Studente(); 
+Professore s = p; // non ha senso!
+{{</highlight>}}
+
+In certi casi, tuttavia, può essere utile la conversione da tipo generale a tipo
+specifico; Java permette di fare questa conversione purché venga resa *esplicita*.
+
+{{<highlight java>}}
+Persona p = new Studente(); 
+Studente s = (Studente)p; // Ok, cast esplicito
+{{</highlight>}}
+
+Bisogna stare attenti tuttavia che questo cast esplicito può fallire in fase di
+esecuzione (in *runtime*) in quanto non è sempre possibile.
+
+{{<highlight java>}}
+// Creo Studente e subito faccio cast esplicito
+Persona p = new Studente(); 
+Professore s = (Studente)p; // compila, ma genera un'eccezione in fase di esecuzione
+{{</highlight>}}
+
+### L'operatore Java `instanceof`
+Il linguaggio Java (come altri) permette di verificare in fase di esecuzione, se una
+referenza è una *istanza* di una classe specificata. Questo permette di evitare le
+eccezioni dovute ad un erroneo utilizzo del cast esplicito visto sopra. L'operatore
+`instanceof` permette questo test ad accetta una referenza a sinistra ed il nome di una
+classe a destra
+
+{{<highlight java>}}
+Persona p = new Studente();
+System.out.println((p instanceof Persona)); // true
+System.out.println((p instanceof Studente)); // true
+System.out.println((p instanceof Professore)); // false
+System.out.println((p instanceof Object)); // True qualsiasi classe sia p
+{{</highlight>}}
+
+Si noti come `instanceof` esegue un test su tutta la gerarchia, infatti viene valutato
+`true` un'istanza di `Studente` sia nel test con `Studente` sia nel test con `Persona`.
+
+Vale la pena dire che `instanceof` ha un comportamento non sempre intuitivo, infatti
+tutte e tre i test nel codice seguente danno esito `true`.
+
+{{<highlight java>}}
+public static void main(String[] args) {       
+    System.out.println(args instanceof String[]); // true (ovvio)
+    System.out.println(args instanceof Object); // true (sospettoso)
+    System.out.println(args instanceof Object[]); // true (i can see that!)
+}
+{{</highlight>}}

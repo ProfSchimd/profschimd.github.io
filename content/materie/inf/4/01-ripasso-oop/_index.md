@@ -1,7 +1,7 @@
 ---
 title: "Ripasso programmazione ad oggetti"
 heading: Lezioni
-weight: 1
+weight: 10
 ---
 
 In questo modulo vengono ripresi i concetti di programmazione ad oggetti
