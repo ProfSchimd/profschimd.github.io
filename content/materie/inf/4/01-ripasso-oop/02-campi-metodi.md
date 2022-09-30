@@ -120,6 +120,61 @@ possibile accedere al campo o al metodo, in caso contrario viene generato un
 errore di compilazione che ci comunica che il campo/metodo richiesto non è
 accessibile.
 
+### Visibilità
+Un aspetto fondamentale della programmazione ad oggetti è l'*incapsulamento* secondo
+cui i dettagli di come sono internamente fatti gli oggetti devono essere nascosti a
+chi la classe la usa. Ad esempio, un'anagrafica di persone potrebbe memorizzare le
+istanze di `Persona` in un array o in un'altra struttura, magari piè efficiente. Chi
+utilizza la classe `Anagrafica`, d'altro canto, utilizzerà dei metodi per accedere ai
+dati **indipendentemente da come questi sono gestiti**.
+
+Per garantire l'incapsulamento è possibile i **modificatori di visibilità** associati
+a campi e metodi. In Java esistono quattro modificatori: `private`, `protected`, `package`
+e `public`. Dettagli su `protected` sono descritti [qui]({{<ref 03-gerarchie-di-classi.md>}})
+mentre qui ci occupiamo di `private` e `public` (`package` è usato raramente e non lo
+trattiamo).
+
+#### Visibilità `private`
+Quando un campo o un metodo viene definito `private`, possono accedervi solo metodi che
+sono definiti nella stessa classe
+
+{{<highlight java>}}
+public class Persona {
+    private String firstName;
+    public void printName() {
+        System.out.println("Nome: " + firstName); // Ok
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Persona p = new Persona(...);    
+       System.out.println("Nome: " + p.firstName); // Errore
+    }
+}
+{{</highlight>}}
+
+#### Visibilità `publica`
+Quando un campo o un metodo è definito `public` è accessibile da tutto il codice
+{{<highlight java>}}
+public class Persona {
+    public String firstName;
+    public void printName() {
+        System.out.println("Nome: " + firstName); // Ok
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Persona p = new Persona(...);    
+       System.out.println("Nome: " + p.firstName); // Ok
+    }
+}
+{{</highlight>}}
+
+Ovviamente l'utilizzo di `public` per i campi è problematico perché non è conforme
+al concetto di *incapsulamento*. Di norma, quindi, i campi sono resi `public` sono
+in casi **rarissimi** che devono essere ben motivati (un commento che ne spiega il
+motivo è, praticamente, obbligatorio).
+
 
 ## Campi e metodi `static`
 Abbiamo visto sopra che i campi sono variabili associati ad ogni singola istanza
