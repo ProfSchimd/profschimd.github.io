@@ -153,7 +153,7 @@ public class Main {
 }
 {{</highlight>}}
 
-#### Visibilità `public`
+#### Visibilità `publica`
 Quando un campo o un metodo è definito `public` è accessibile da tutto il codice
 {{<highlight java>}}
 public class Persona {
