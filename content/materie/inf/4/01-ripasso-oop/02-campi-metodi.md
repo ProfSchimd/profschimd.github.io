@@ -148,12 +148,12 @@ public class Persona {
 public class Main {
     public static void main(String[] args) {
         Persona p = new Persona(...);    
-       System.out.println("Nome: " + p.firstName); // Errore
+        System.out.println("Nome: " + p.firstName); // Errore
     }
 }
 {{</highlight>}}
 
-#### Visibilità `publica`
+#### Visibilità `public`
 Quando un campo o un metodo è definito `public` è accessibile da tutto il codice
 {{<highlight java>}}
 public class Persona {
@@ -165,7 +165,7 @@ public class Persona {
 public class Main {
     public static void main(String[] args) {
         Persona p = new Persona(...);    
-       System.out.println("Nome: " + p.firstName); // Ok
+        System.out.println("Nome: " + p.firstName); // Ok
     }
 }
 {{</highlight>}}

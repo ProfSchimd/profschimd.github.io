@@ -7,6 +7,12 @@ menu:
 ---
 
 ## Lezioni
+<!-- * 10
+* 09 - Verifica scritta sulla programmazione ad oggetti -->
+* 08 - Esercizio *profili social* in preparazione alla verifica scritta (30/09/2022)
+* 07 - Attività laboratorio *gestione magazzino* (28/09/22)
+    * [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
+* 06 - Ripasso gerarchia di classi e progettazione gerarchia (27/09/22)
 * 05 - Ripasso Java e gerarchie di classi e static (26/09/22)
     * [Slide della lezione su classroom](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NTUwMDgwMDY1ODk1/details)
     * [Spiegazione sulla gerarchia di classi]({{< ref "03-gerarchie-di-classi.md" >}})

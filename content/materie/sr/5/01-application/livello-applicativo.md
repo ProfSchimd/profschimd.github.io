@@ -3,7 +3,7 @@ title: Livello applicativo
 weight: 100
 ---
 
-Il **livello applicativo** (*application layer*) è l'ultimo (settimo) livello dell'[architettura ISO/OSI]({{< ref "architettura-rete.md">}}). Il suo ruolo è quello di fornire i *servizi* necessari alla realizzazione di un'applicazione di rete quali posta, World Wide Web, streaming e molte altro.
+Il **livello applicativo** (*application layer*) è l'ultimo (settimo) livello dell'[architettura ISO/OSI]({{< ref "02-architettura-rete.md">}}). Il suo ruolo è quello di fornire i *servizi* necessari alla realizzazione di un'applicazione di rete quali posta, World Wide Web, streaming e molte altro.
 
 La quantità di protocolli del livello applicativo è vastissima ed è praticamente impossibile discuterli tutti. Alcuni di questi protocolli, tuttavia, ricoprono un ruolo fondamentale nell'utilizzo di Internet ed è quindi importante conoscerne i dettagli. In particolare, sono di fondamentale importanza i seguenti protocolli del livello applicativo.
 

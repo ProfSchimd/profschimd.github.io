@@ -16,4 +16,4 @@ classi astratte, protocolli, ...).
 1. Livello **fisico** (`PHY`),
 2. Livello **collegamento** (`DL`).
 
-[1]: {{< ref "architettura-rete" >}}
+[1]: {{< ref "02-architettura-rete" >}}
