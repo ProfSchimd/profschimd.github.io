@@ -2,6 +2,7 @@
 title: Basi del linguaggio Dart
 weight: 1
 type: lecture
+summary: "Questa lezione introduce i principali costrutti del linguaggio Dart con particolare riferimento agli aspetti che differiscono in maniera sostanziale dagli altri linguaggi quali Java, C, Python, ..."
 ---
 
 ## Variabili
@@ -89,6 +90,42 @@ print(a == b); /* ??? */
 
 {{</exercise>}}
 
+## Tipi di variabili *built-in*
+In Dart ci sono diversi tipi già definiti (detti *built-in*) i più importanti sono i seguenti:
+
+* numeri: `int` e `double`;
+* stringhe: `String`
+* booleani: `bool`
+* contenitori: `List`, `Set` e `Map`
+* classe base: `Object`
+* tipo nullo: `Null`
+* programmazione asincrona: `Future`, `Stream`
+* altri: `Runes`, `Symbols`, `Enum`, `Iterable`, `Never`
+
+Per maggiori informazione si può riferimento alla [guida introduttiva a Dart][1]
+
+## Classi
+
+### Costruttori
+
+{{<highlight dart>}}
+class Person {
+  String firstName;
+  String secondName;
+  // Usual constructor syntax
+  Persona(List<String> list) {
+    firstName = list[0];
+    secondName = list[1];
+  }
+  // Initializing format of constructor
+  Person(this.firstName, this.secondName);
+  // Named constructor with pre-body initialization
+  Person.johnSmith() : firstName = 'John', secondName = 'Smith';
+}
+{{</highlight>}}
+
 ## Link utili
 
-* [A tour of the Dart language](https://dart.dev/guides/language/language-tour)
+* [A tour of the Dart language][1]
+
+[1]: https://dart.dev/guides/language/language-tour

@@ -8,9 +8,22 @@ menu:
 
 ## Lezioni
 
-<!-- * 04 - Linguaggio Dart (03/10/22)
-    * Classi
-    * Esperienza sullo stage -->
+<!-- * 09 - LAB: ... (13/10/22)
+* 08 - Factory design patterns (12/10/22)
+    * [Factory methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
+    * [Dart factory constructor](https://dart.dev/guides/language/language-tour)
+* 07 - Linguaggio Dart (10/10/22)
+    * [Classi](https://dart.dev/guides/language/language-tour)
+* 06 - LAB: ... (06/10/22)
+* 05 - Linguaggio Dart (05/10/22)
+    * [Funzioni e parametri](https://dart.dev/guides/language/language-tour)
+        * Funzioni e *arrow functions*
+        * Parametri posizionali e parametri nominali
+        * Parametri opzionali
+    * Discussione esperienza di stage -->
+* 04 - Linguaggio Dart (03/10/22)
+    * [L'utilizzo di `late`, `const` e `final`](https://dart.dev/guides/language/language-tour)
+    * Discussione esperienza di stage
 * 03 - LAB: L'ambiente di lavoro per `flutter` (29/09/22)
     * Accesso alle macchine nella partizione Linux
     * Android Studio e Android Virtual Device

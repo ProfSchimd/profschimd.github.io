@@ -7,9 +7,12 @@ menu:
 ---
 
 ## Lezioni
-<!-- * 10
-* 09 - Verifica scritta sulla programmazione ad oggetti -->
-* 08 - Esercizio *profili social* in preparazione alla verifica scritta (30/09/2022)
+* 10 - Interfacce in Java: `interface` (04/10/22)
+    * Il concetto di interfaccia e di API
+    * Esempio di interfaccia in Java
+* 09 - Verifica scritta sulla programmazione ad oggetti (03/10/22) 
+    * Progettazione e sviluppo delle classi per gestire le `Reaction` in un social media
+* 08 - Esercizio *profili social* in preparazione alla verifica scritta (30/09/22)
 * 07 - Attività laboratorio *gestione magazzino* (28/09/22)
     * [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
 * 06 - Ripasso gerarchia di classi e progettazione gerarchia (27/09/22)
