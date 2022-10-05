@@ -8,8 +8,8 @@ menu:
 
 ## Lezioni
 
-<!-- * 08 - Le basi delle reti (04/10/22)
-    * Cisco CCNA 3.2 -->
+* 08 - Le basi delle reti (04/10/22)
+    * Cisco CCNA da 3.2.1 a 3.2.3
 * 07 - LAB: Programmazione di Arduino (03/10/22)
     * Utilizzo della funzione [millis()](https://www.arduino.cc/reference/en/language/functions/time/millis/) per "multi-tasking"
 * 06 - Le basi delle reti: comunicazione e protocolli (30/09/22)

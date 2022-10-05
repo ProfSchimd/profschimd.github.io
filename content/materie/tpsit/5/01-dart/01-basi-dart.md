@@ -1,6 +1,6 @@
 ---
 title: Basi del linguaggio Dart
-weight: 1
+weight: 10
 type: lecture
 summary: "Questa lezione introduce i principali costrutti del linguaggio Dart con particolare riferimento agli aspetti che differiscono in maniera sostanziale dagli altri linguaggi quali Java, C, Python, ..."
 ---
@@ -104,24 +104,65 @@ In Dart ci sono diversi tipi già definiti (detti *built-in*) i più importanti 
 
 Per maggiori informazione si può riferimento alla [guida introduttiva a Dart][1]
 
-## Classi
-
-### Costruttori
+## Funzioni
+La sintassi Dart per le funzioni è simile a quella di altri linguaggi tipo C e Python (Java
+ha solo il concetto di metodo e non quello di funzione che non sia metodo).
 
 {{<highlight dart>}}
-class Person {
-  String firstName;
-  String secondName;
-  // Usual constructor syntax
-  Persona(List<String> list) {
-    firstName = list[0];
-    secondName = list[1];
-  }
-  // Initializing format of constructor
-  Person(this.firstName, this.secondName);
-  // Named constructor with pre-body initialization
-  Person.johnSmith() : firstName = 'John', secondName = 'Smith';
+double sum(double a, double b) {
+  return a + b;
 }
+{{</highlight>}}
+
+
+{{<attention>}}
+Dart è un linguaggio ad oggetti ed anche le funzioni sono oggetti, in particolare il loro tipo è
+`Function`. Questo fatto ha implicazioni:
+* le funzioni possono essere assegnate a variabili;
+* le funzioni possono essere argomenti di altre funzioni;
+* due funzioni possono essere confrontate.
+{{</attention>}}
+
+### Parametri
+In Dart è possibile passare parametri *posizionali* (*positional*) o parametri *nominali*
+(*named*). La sintassi per i parametri posizionali è quella usuale, mentre i parametri
+nominali si racchiudono in parentesi graffe. Di norma i parametri nominali sono facoltativi,
+ma possono essere resi obbligatori con la parola chiave `required`.
+
+{{<highlight dart>}}
+// positional + named arguments
+double logF(double x, {double base = e}) {
+  return log(x)/log(base);
+}
+// required named
+double foo({required double x}) {
+  return x;
+}
+{{</highlight>}}
+
+Per indicare i parametri nominali la sintassi prevede l'utilizzo di `{nome: attuale}` ad
+indicare che al parametro con nome `nome` andrà assegnato il valore della variabile
+`attuale`.
+
+{{<highlight dart>}}
+print(logF(4, base: 2));
+print(foo(x: 1.11));
+{{</highlight>}}
+
+### Arrow functions
+Quando l'unica istruzione di una funzione è una **singola espressione**, si può utilizzare
+la notazione *arrow function* per cui
+
+{{<highlight dart>}}
+double product(double a, double b) {
+  return a * b;
+}
+{{</highlight>}}
+
+può essere compattamente scritta come
+
+{{<highlight dart>}}
+double product(a, b) => a*b;
 {{</highlight>}}
 
 ## Link utili

@@ -7,6 +7,8 @@ menu:
 ---
 
 ## Lezioni
+* 12 - LAB: Interfaccia per il cronometro, cronometro PRO (07/10/22)
+* 11 - LAB: (05/10/22)
 * 10 - Interfacce in Java: `interface` (04/10/22)
     * Il concetto di interfaccia e di API
     * Esempio di interfaccia in Java
