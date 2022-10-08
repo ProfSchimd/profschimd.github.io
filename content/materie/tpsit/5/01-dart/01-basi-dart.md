@@ -3,6 +3,7 @@ title: Basi del linguaggio Dart
 weight: 10
 type: lecture
 summary: "Questa lezione introduce i principali costrutti del linguaggio Dart con particolare riferimento agli aspetti che differiscono in maniera sostanziale dagli altri linguaggi quali Java, C, Python, ..."
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/tpsit/dart/basics
 ---
 
 ## Variabili

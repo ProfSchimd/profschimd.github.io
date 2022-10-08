@@ -3,6 +3,7 @@ title: Le classi nel linguaggio Dart
 weight: 20
 type: lecture
 summary: "Questa lezione introduce la sintassi per usare e creare classi in Dart. Particolare spazio è dedicato ai costruttore che in Dart hanno una forma ed una sintassi non usuale."
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/tpsit/dart/basics
 ---
 
 ## Utilizzo delle classi in Dart

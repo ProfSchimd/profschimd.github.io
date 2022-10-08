@@ -8,6 +8,9 @@ menu:
 
 ## Lezioni
 
+* 06 - LAB: (07/10/22)
+* 05 - Ripasso IP (06/10/22)
+    * Cisco CCNA: 7.1.2 - 7.1.4
 * 04 - Ripasso IP (04/10/22)
     * Cisco CCNA: 6.2 - 6.4, 7.1.1
 * 03 - LAB: VLAN (30/09/22)

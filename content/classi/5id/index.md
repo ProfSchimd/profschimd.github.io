@@ -13,14 +13,17 @@ menu:
     * [Factory methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
     * [Dart factory constructor](https://dart.dev/guides/language/language-tour)
 * 07 - Linguaggio Dart (10/10/22)
+    * Ripasso funzioni e parametri con simulazione interrogazione
     * [Classi](https://dart.dev/guides/language/language-tour)
-* 06 - LAB: ... (06/10/22)
+    * Discussione esperienza di stage -->
+* 06 - LAB: Applicazioni Flutter (06/10/22)
+    * [Assegnamento "App ToDo"](https://classroom.google.com/c/NTQ4NzcyMDM2MDMy/m/NTU0ODAwOTA3ODc0/details)
+    * Github classroom per attività di laboratorio
 * 05 - Linguaggio Dart (05/10/22)
-    * [Funzioni e parametri](https://dart.dev/guides/language/language-tour)
+    * [Funzioni e parametri](https://dart.dev/guides/language/language-tour#functions)
         * Funzioni e *arrow functions*
         * Parametri posizionali e parametri nominali
         * Parametri opzionali
-    * Discussione esperienza di stage -->
 * 04 - Linguaggio Dart (03/10/22)
     * [L'utilizzo di `late`, `const` e `final`](https://dart.dev/guides/language/language-tour)
     * Discussione esperienza di stage
