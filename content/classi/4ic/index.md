@@ -8,6 +8,10 @@ menu:
 
 ## Lezioni
 
+* 10 - LAB: Programmazione di Arduino (10/10/22)
+    * Utilizzo della funzione [millis()](https://www.arduino.cc/reference/en/language/functions/time/) per "multi-tasking"
+* 09 - Le basi delle reti (10/10/22)
+    * Cisco 3.3 "Suite di protocolli"
 * 08 - Le basi delle reti (04/10/22)
     * Cisco CCNA da 3.2.1 a 3.2.3
 * 07 - LAB: Programmazione di Arduino (03/10/22)

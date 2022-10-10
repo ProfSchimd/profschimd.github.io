@@ -8,7 +8,8 @@ menu:
 
 ## Lezioni
 
-* 06 - LAB: (07/10/22)
+* 06 - LAB: VLAN (07/10/22)
+    * [Configurazione di una VLAN con trunk](https://classroom.google.com/c/NTI4MDk2ODM5MjQw/a/NDkwNjE4NDIwMDA4/details)
 * 05 - Ripasso IP (06/10/22)
     * Cisco CCNA: 7.1.2 - 7.1.4
 * 04 - Ripasso IP (04/10/22)

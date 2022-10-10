@@ -10,12 +10,12 @@ menu:
 
 <!-- * 09 - LAB: ... (13/10/22)
 * 08 - Factory design patterns (12/10/22)
+    * Ripasso classi in Dart con simulazione interrogazione
     * [Factory methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
-    * [Dart factory constructor](https://dart.dev/guides/language/language-tour)
+    * [Dart factory constructor](https://dart.dev/guides/language/language-tour)-->
 * 07 - Linguaggio Dart (10/10/22)
-    * Ripasso funzioni e parametri con simulazione interrogazione
-    * [Classi](https://dart.dev/guides/language/language-tour)
-    * Discussione esperienza di stage -->
+    * [Classi in Dart](https://dart.dev/guides/language/language-tour)
+    * Discussione esperienza di stage 
 * 06 - LAB: Applicazioni Flutter (06/10/22)
     * [Assegnamento "App ToDo"](https://classroom.google.com/c/NTQ4NzcyMDM2MDMy/m/NTU0ODAwOTA3ODc0/details)
     * Github classroom per attività di laboratorio
