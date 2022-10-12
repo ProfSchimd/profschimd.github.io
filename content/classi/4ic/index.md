@@ -8,6 +8,9 @@ menu:
 
 ## Lezioni
 
+* 11 - Incapsulamento dei dati (11/10/22)
+    * CCNA 3.6 "Incapsulamento dei dati" e 3.7.1 "Indirizzi"
+    * Esercizio sull'incapsulamento e calcolo dell'efficienza
 * 10 - LAB: Programmazione di Arduino (10/10/22)
     * Utilizzo della funzione [millis()](https://www.arduino.cc/reference/en/language/functions/time/) per "multi-tasking"
 * 09 - Le basi delle reti (10/10/22)

@@ -8,6 +8,11 @@ menu:
 
 ## Lezioni
 
+<!-- * 09 - LAB (14/10/22)
+* 08 - Verifica scritta su ripasso IP e TCP (13/19/22) -->
+* 07 - Ripasso TCP (11/10/22)
+    * Lista argomenti IP e TCP oggetto di verifica
+    * CCNA: 9.1 - 9.2.1
 * 06 - LAB: VLAN (07/10/22)
     * [Configurazione di una VLAN con trunk](https://classroom.google.com/c/NTI4MDk2ODM5MjQw/a/NDkwNjE4NDIwMDA4/details)
 * 05 - Ripasso IP (06/10/22)

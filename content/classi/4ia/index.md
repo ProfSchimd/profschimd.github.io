@@ -8,10 +8,12 @@ menu:
 
 ## Lezioni
 <!-- * 16 - LAB: (14/10/22)
-* 15 - LAB: (12/10/22)
-* 14 - Strutture dati (11/10/22)
-    * [Le operazioni di manipolazione dei dati]({{< ref 01-operazione.md >}})
     * [L'interfaccia Java per vector](https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java) -->
+* 15 - LAB: Programmazione ad oggetto (12/10/22) 
+    * Esperienze [Cronometro](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTQ5MDI4NzIzNjA4/details) e [Cronometro Pro](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU0OTMwMDcyMDUx/details)
+    * [Esercizio di preparazione alla verifica di laboratorio](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU2MTI4NzQ1NjA2/details)
+* 14 - Strutture dati (11/10/22)
+    * [Le operazioni di manipolazione dei dati]({{< ref 01-operazione.md >}}) 
 * 13 - Interfacce in Java (10/10/22)
     * Interfaccia per Cronometro
     * Assegnazione [attività per casa "Cronometro PRO"](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU0OTMwMDcyMDUx/details)

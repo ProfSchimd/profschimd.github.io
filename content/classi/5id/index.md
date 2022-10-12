@@ -8,11 +8,14 @@ menu:
 
 ## Lezioni
 
-<!-- * 09 - LAB: ... (13/10/22)
+<!-- * 09 - LAB: ... (13/10/22) 
+    * * [Dart factory constructor](https://dart.dev/guides/language/language-tour) -->
 * 08 - Factory design patterns (12/10/22)
     * Ripasso classi in Dart con simulazione interrogazione
-    * [Factory methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
-    * [Dart factory constructor](https://dart.dev/guides/language/language-tour)-->
+    * [Attività su design pattern](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU1OTMxMzY2NTI1)
+        * [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern)
+        * [Abstract Factory](https://en.wikipedia.org/wiki/Abstract_factory_pattern)
+        * [Factory methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
 * 07 - Linguaggio Dart (10/10/22)
     * [Classi in Dart](https://dart.dev/guides/language/language-tour)
     * Discussione esperienza di stage 
