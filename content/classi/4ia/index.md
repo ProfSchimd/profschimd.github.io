@@ -7,8 +7,13 @@ menu:
 ---
 
 ## Lezioni
-<!-- * 16 - LAB: (14/10/22)
+<!--* 19 - LAB: (19/10/22)
+* 18 (18/10/22)
+* 17 - (17/10/22)
     * [L'interfaccia Java per vector](https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java) -->
+* 16 - LAB: Programmazione ad oggetti (14/10/22)
+    * Esperienze [Cronometro Pro](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU0OTMwMDcyMDUx/details)
+    * [Esercizio di preparazione alla verifica di laboratorio](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU2MTI4NzQ1NjA2/details)
 * 15 - LAB: Programmazione ad oggetto (12/10/22) 
     * Esperienze [Cronometro](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTQ5MDI4NzIzNjA4/details) e [Cronometro Pro](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU0OTMwMDcyMDUx/details)
     * [Esercizio di preparazione alla verifica di laboratorio](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU2MTI4NzQ1NjA2/details)

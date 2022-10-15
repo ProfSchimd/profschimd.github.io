@@ -8,8 +8,10 @@ menu:
 
 ## Lezioni
 
-<!-- * 09 - LAB: ... (13/10/22) 
-    * * [Dart factory constructor](https://dart.dev/guides/language/language-tour) -->
+<!-- * 10: (17/10/22)
+    * -->
+* 09 - LAB: Applicazioni Flutter (13/10/22) 
+    * [Applicazione "Calcolatrice"](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU2MzgzMTYwODM0)
 * 08 - Factory design patterns (12/10/22)
     * Ripasso classi in Dart con simulazione interrogazione
     * [Attività su design pattern](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU1OTMxMzY2NTI1)

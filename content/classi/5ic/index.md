@@ -8,8 +8,11 @@ menu:
 
 ## Lezioni
 
-<!-- * 09 - LAB (14/10/22)
-* 08 - Verifica scritta su ripasso IP e TCP (13/19/22) -->
+<!-- * 10 - Livello applicativo (18/10/22)
+    * Cisco 10. ... -->
+* 09 - LAB Esercitazioni packet tracer su configurazione di un router (14/10/22)
+    * [Attività CCNA: 6.4.1.3, 6.4.3.3 e 6.4.3.4](https://classroom.google.com/c/NTI4MDk2ODM5MjQw/a/NDkwODY4ODY5MjE2/details)
+* 08 - Verifica scritta su ripasso IP e TCP (13/19/22) 
 * 07 - Ripasso TCP (11/10/22)
     * Lista argomenti IP e TCP oggetto di verifica
     * CCNA: 9.1 - 9.2.1

@@ -8,6 +8,9 @@ menu:
 
 ## Lezioni
 
+* 12 - I modelli a strati delle reti (14/10/22)
+    * CCNA 3.5 "Modelli di riferimento"
+    * Lista degli argomenti per la verifica scritta
 * 11 - Incapsulamento dei dati (11/10/22)
     * CCNA 3.6 "Incapsulamento dei dati" e 3.7.1 "Indirizzi"
     * Esercizio sull'incapsulamento e calcolo dell'efficienza
