@@ -8,8 +8,19 @@ menu:
 
 ## Lezioni
 
-<!-- * 10: (17/10/22)
-    * -->
+<!-- 
+* 13 - Programmazione asincrona in Dart
+    * [Ripasso thread e multi-threading]({{< ref 01-processi-thread >}})
+    * [`async` e `await`][1]
+* 12 - LAB: Applicazioni flutter (20/10/22)
+    * Applicazione calcolatrice in flutter --> 
+* 11 - Il linguaggio Dart (19/10/22)
+    * Interrogazioni
+    * Factory design pattern
+    * [Visibilità *library private*, getter e setter][1]
+* 10 - Il linguaggio Dart (17/10/22)
+    * Interrogazioni
+    * [Linguaggio Dart][1]: Costruttori costanti e *factory constructor*
 * 09 - LAB: Applicazioni Flutter (13/10/22) 
     * [Applicazione "Calcolatrice"](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU2MzgzMTYwODM0)
 * 08 - Factory design patterns (12/10/22)
@@ -19,18 +30,18 @@ menu:
         * [Abstract Factory](https://en.wikipedia.org/wiki/Abstract_factory_pattern)
         * [Factory methods](https://en.wikipedia.org/wiki/Factory_method_pattern)
 * 07 - Linguaggio Dart (10/10/22)
-    * [Classi in Dart](https://dart.dev/guides/language/language-tour)
+    * [Classi in Dart][1]
     * Discussione esperienza di stage 
 * 06 - LAB: Applicazioni Flutter (06/10/22)
     * [Assegnamento "App ToDo"](https://classroom.google.com/c/NTQ4NzcyMDM2MDMy/m/NTU0ODAwOTA3ODc0/details)
     * Github classroom per attività di laboratorio
 * 05 - Linguaggio Dart (05/10/22)
-    * [Funzioni e parametri](https://dart.dev/guides/language/language-tour#functions)
+    * [Funzioni e parametri][1]
         * Funzioni e *arrow functions*
         * Parametri posizionali e parametri nominali
         * Parametri opzionali
 * 04 - Linguaggio Dart (03/10/22)
-    * [L'utilizzo di `late`, `const` e `final`](https://dart.dev/guides/language/language-tour)
+    * [L'utilizzo di `late`, `const` e `final`][1]
     * Discussione esperienza di stage
 * 03 - LAB: L'ambiente di lavoro per `flutter` (29/09/22)
     * Accesso alle macchine nella partizione Linux
@@ -38,7 +49,7 @@ menu:
     * Prima applicazione in `flutter`
     * [Tutorial per costruire `Hello World!` in `flutter`](https://classroom.google.com/c/NTQ4NzcyMDM2MDMy/m/NTI4NDk0MzUzMjEz/details)
 * 02 - Linguaggio `Dart` (28/09/22)
-    * [Primi cenni del linguaggio `Dart`](https://dart.dev/guides/language/language-tour)
+    * [Primi cenni del linguaggio `Dart`][1]
         * [L'ambiente DartPad](https://dartpad.dev/)
         * Entry point: main
         * dichiarazione delle variabili con tipo e con `var`
@@ -47,3 +58,5 @@ menu:
 * 01 - Presentazione di TPSIT in Quinta (26/09/22)
     * Slide programma TPSIT di Quinta
     * Discussione esperienza di stage 
+
+[1]: https://dart.dev/guides/language/language-tour

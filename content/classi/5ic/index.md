@@ -8,8 +8,11 @@ menu:
 
 ## Lezioni
 
-<!-- * 10 - Livello applicativo (18/10/22)
-    * Cisco 10. ... -->
+<!-- * 11 Livello applicativo (20/10/22)
+    * CCNA: -->
+* 10 - Livello applicativo (18/10/22)
+    * Riconsegna delle verifiche
+    * CCNA: 10.1.1.1 - 10.1.1.2
 * 09 - LAB Esercitazioni packet tracer su configurazione di un router (14/10/22)
     * [Attività CCNA: 6.4.1.3, 6.4.3.3 e 6.4.3.4](https://classroom.google.com/c/NTI4MDk2ODM5MjQw/a/NDkwODY4ODY5MjE2/details)
 * 08 - Verifica scritta su ripasso IP e TCP (13/19/22) 

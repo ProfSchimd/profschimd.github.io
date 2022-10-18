@@ -7,10 +7,19 @@ menu:
 ---
 
 ## Lezioni
-<!--* 19 - LAB: (19/10/22)
-* 18 (18/10/22)
-* 17 - (17/10/22)
-    * [L'interfaccia Java per vector](https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java) -->
+<!--
+* 20 - (24/10/22)
+* 19 - LAB: (19/10/22) 
+    * Documentazione generale e [UML]({{< ref 03-uml >}})
+    * Javadoc
+        * Esempio per la classe [IVector]((https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java)) -->
+* 18 - Documentare una API (18/10/22)
+    * Definizione di ADT per un *dizionario*
+    * Formazione gruppi
+* 17 - Abstract Data Type e API (17/10/22)
+    * [Il concetto di Abstract Data Type]({{< ref 02-adt.md >}})
+    * [L'interfaccia Java per vector](https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java) 
+    * [Il concetto di API](https://en.wikipedia.org/wiki/API)
 * 16 - LAB: Programmazione ad oggetti (14/10/22)
     * Esperienze [Cronometro Pro](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU0OTMwMDcyMDUx/details)
     * [Esercizio di preparazione alla verifica di laboratorio](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU2MTI4NzQ1NjA2/details)

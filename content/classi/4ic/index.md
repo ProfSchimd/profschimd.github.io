@@ -7,7 +7,10 @@ menu:
 ---
 
 ## Lezioni
-
+* 14 - Verifica scritta (18/10/22)
+    * Verifica su capitoli 1 e 3 CCNA 
+* 13 - LAB: Arduino (17/10/22)
+    * [Esercitazione con servomotori](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/a/NTU3MTYyNjQ1Mjk4/details)
 * 12 - I modelli a strati delle reti (14/10/22)
     * CCNA 3.5 "Modelli di riferimento"
     * Lista degli argomenti per la verifica scritta
