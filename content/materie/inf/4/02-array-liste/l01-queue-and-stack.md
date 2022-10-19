@@ -111,7 +111,13 @@ dei risultati**, in questa parte si possono usare tabelle e grafici se opportuno
 risolverli nonché cosa fare migliorare la soluzione proposta.
 
 ### Parte 5: Presentazione della soluzione e dei risultati
+Preparare una presentazione orale per spiegare il problema, la soluzione e i risultati
+ottenuti, una presentazione **non** la trascrizione in un *power point* della relazione
 
+* una presentazione deve essere accompagnata da slide che siano una *guida* non un *copione*;
+* una presentazione (e le slide) *riassume* l'informazione presente nella relazione;
+* una presentazione va condotta entro un *tempo limitato*;
+* la capacità di parlare e di catturare l'attenzione è fondamentale.
 
 ---
 
