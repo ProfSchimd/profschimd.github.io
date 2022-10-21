@@ -34,7 +34,7 @@ protocollo. Il comando dell'esempio a destra:
 * chiede il path `/`
 * utilizza la version `1.1` del protocollo `HTTP`.
 
-Dopo il comando, la richiesta HTTP può contenere un header opzionale composta da una
+Dopo il comando, la richiesta HTTP può contenere un header composta da una
 lista di coppie chiave/valore (sia la chiave che il valore sono stringhe). Nell'esempio
 a destra ci sono due coppie:
 * chiave `Host` valore `developer.mozilla.org`,
@@ -43,6 +43,19 @@ a destra ci sono due coppie:
 La richiesta HTTP termina con due caratteri di fine righe (un fine riga è `CR+LF`: *carriage return*
 più *line feed*).
 {{</column/two-cols>}}
+
+{{<attention>}}
+Nella versione 1.1 di HTTP, l'header deve contenere l'indicazione dell'`Host` che indica
+indirizzo (e porta opzionalmente) del server. In caso di mancato inserimento di questo
+campo nell'header, la richiesta può essere rifiutata con un messaggio simile al seguente
+
+    HTTP/1.1 400 Bad Request: missing required Host header
+    Content-Type: text/plain; charset=utf-8
+    Connection: close
+
+    400 Bad Request: missing required Host header
+
+{{</attention>}}
 
 #### Comandi
 Il comando spedito nella richiesta HTTP può essere uno tra quelli definiti nel corrispondente RFC
@@ -98,10 +111,99 @@ di codice (alcuni codici importanti vengono riportati).
     * `500` Internal Server Error
     * `503` Service Unavailable
 
+## Sessione HTTP
+Il protocollo HTTP è un protocollo *stateless* nel senso che due connessione tra gli
+stessi client e server, non viene ricordata dal server. Nel caso di *autenticazione*
+(operazione estremamente frequente nel Web di oggi), ogni nuova richiesta (esempio
+ogni nuova pagina) finirebbe con il richiedere le credenziali di accesso, cosa che
+renderebbe inutilizzabile un sito.
+
+Per ovviare a questo problema, le applicazioni web, che utilizzano quasi esclusivamente
+il protocollo HTTP, utilizzano un meccanismo di *sessione*, solitamente basato su
+token memorizzati nella cache le browser mediante i cosiddetti **cookies**.
+
+### Cookies
+I **cookie** sono dei dati che vengono spediti da un server mediante il protocollo HTTP
+e che vengono salvati dal client. Una volta memorizzati (ad esempio nel *browser*) ogni
+volta che una richiesta viene spedita al server che ha creato il cookie, il client aggiunge
+i dati alla richiesta HTTP. In questo modo il server può *tracciare* le richieste
+provenienti da uno stesso client, cosa che non sarebbe possibile utilizzando HTTP senza
+i cookie.
+
+#### Scambio di cookie
+I cookie vengono gestiti mediante l'header dei messaggi HTTP:
+* in una *risposta* dal server, si usa la chiave `Set-Cookie: DATA` per impostare (salvare)
+un cookie nel client;
+* in una *richiesta* dal client, si usa la chiave `Cookie: DATA` per spedire al
+server un cookie salvato.
+
+I cookie sono stringhe contenenti delle coppie `nome=valore`, ad esempio il server
+potrebbe inviare una risposta del tipo
+
+    HTTP/2.0 200 OK
+    Content-Type: text/html
+    Set-Cookie: yummy_cookie=choco
+    Set-Cookie: tasty_cookie=strawberry
+
+con la quale chiede al cliente di memorizzare due cookie: `yummy_cookie` con valore `choco`
+e `tasty_cookie` con valore `strawberry`.
+
+Ogni successiva richiesta al server da parte del client conterrà i cookie nell'header
+della richiesta, ad esempio i due cookie sopra impostati saranno rispediti con una
+richiesta HTTP simile alla seguente
+
+    GET /sample_page.html HTTP/2.0
+    Host: www.example.org
+    Cookie: yummy_cookie=choco; tasty_cookie=strawberry
+
+dove il campo `Host:` dell'header sarà quello associato al server che ha precedentemente
+spedito i cookie.
+
+#### Durata dei cookie
+La durata in un cookie può essere di due tipi
+* *session cookie* (cookie di sessione) che vengono eliminati alla chiusura del browser e
+* *permanent cookie* (cookie permanenti) che rimangono impostati anche dopo la chiusura del
+browser, questi cookie, tuttavia, hanno una *data di scadenza* (*expire date*) che viene
+impostata dal server quando viene spedito il cookie.
+
+Per indicare la scadenza di un cookie, si imposta `Expire=SCADENZA` dopo il valore del cookie,
+ad esempio
+
+    Set-Cookie: id=a3fWa; Expires=Thu, 31 Oct 2021 07:28:00 GMT;
+
+È possibile cancellare un cookie indicando una scadenza nel passato, in questo modo il client
+considererà il cookie scaduto e, di conseguenza, lo eliminerà dalla propria memoria.
+
+{{<attention>}}
+Per indicare un cookie di sessione, il server invia il cookie **senza indicare la scadenza**,
+se un cookie viene spedito con una scadenza, allora il cookie viene gestito dal client come
+un cookie permanente.
+{{</attention>}}
+
+#### Cookie e sicurezza
+Oltre ad `Expire` ci sono altri valori che possono essere impostati su un cookie, molti di
+questi hanno a che fare con la sicurezza.
+* `SameSite` (possibili valori: `Strict`, `Lax` e `None`) indica se il client accetta cookie
+provenienti solo dall'host verso cui ha indirizzato la richiesta oppure se accetta anche i
+*cookie di terze parti* (*third parties cookie*).
+* `HttpOnly` impedisce l'accesso al cookie mediante Javascript, in questo modo gli script
+(anche di malintenzionati) non possono accedere ai cookie.
+* `Secure` impone che il cookie venga trasmesso utilizzando una connessione sicura mediante
+HTTPS.
+
+{{<observe>}}
+I cookie possono contenere informazioni sensibili e sono quindi soggetti ai vari regolamenti
+di protezione dei dati come, ad esempio, il [GDPR europeo](https://gdpr.eu/cookies).
+{{</observe>}}
+
 ## Link utili
 * [HTTP (Wikipedia, EN)][1]
 * [HTTP Overview (Mozilla MDN)][2]
+* [Cookie (Wikipedia, EN)][3]
+* [Using HTTP Cookies (Mozilla MDN)][4]
 
 [1]: https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 [2]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
+[3]: https://en.wikipedia.org/wiki/HTTP_cookie
+[4]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 
