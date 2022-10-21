@@ -1,5 +1,6 @@
 ---
 title: Protocollo HTTP
+type: lecture
 weight: 300
 ---
 
@@ -78,10 +79,17 @@ Dopo aver decodificato (*parsing*) la richiesta ed eseguite le opportune operazi
 (ad esempio recuperato il file richiesto), il server costruisce una *riposta HTTP* che
 spedisce al client utilizzando il flusso `Server -> Client` della connessione TCP.
 
-La riposta ha un formato simile alla richiesta ed è composta di uno *stato* e da un
-*header* opzionale. Lo stato contiene
+La riposta ha un formato simile alla richiesta ed è composta di uno *stato*, da un
+*header* opzionale e da un *corpo* (*body*). Lo stato contiene
 * la **versione** (*version*) del protocollo HTTP utilizzata,
 * uno **status code** che indica lo stato della richiesta (vedi [sotto]({{< ref "#status-code">}}))
+* uno **status message** che fornisce una descrizione dello status code
+
+Come per la richiesta, l'header contiene una lista di coppie chiave/valore al termine
+della quale. Dopo l'header, il messaggio può contenere una linea vuota prima che vi
+sia il *corpo* del messaggio (ad esempio il contenuto del file HTML) che termina con
+due righe vuote.
+
 {{</column/two-cols>}}
 
 #### Status code 
