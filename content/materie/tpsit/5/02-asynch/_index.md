@@ -4,4 +4,4 @@ weight: 30
 ---
 
 Fondamentale per un'interfaccia grafica *responsiva* è la possibilità
-di effettuare chiamate **asincrone**.
+di effettuare chiamate **asincrone**. La programmazione 

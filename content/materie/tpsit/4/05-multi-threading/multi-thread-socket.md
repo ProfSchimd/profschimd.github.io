@@ -1,5 +1,7 @@
 ---
 title: Socket e multi-threading
+type: lecture
+weight: 40
 ---
 
 Un utilizzo frequente dei thread è in combinazione con i socket. Si pensi ad un Web Server
