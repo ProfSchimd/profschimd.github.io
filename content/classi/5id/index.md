@@ -8,12 +8,16 @@ menu:
 
 ## Lezioni
 
-<!-- 
-* 13 - Programmazione asincrona in Dart
-    * [Ripasso thread e multi-threading]({{< ref 01-processi-thread >}})
+<!--
+* 14 - Assemblea di classe (27/10/22)
+-->
+* 13 - Programmazione asincrona in Dart (24/10/22)
+    * Interrogazioni
     * [`async` e `await`][1]
+    * La classe [`Future`](https://api.dart.dev/be/175791/dart-async/Future-class.html) e il suo [utilizzo]({{< ref "01-dart-async-await.md" >}})
+    * [Asynchronous programming codelabs](https://dart.dev/codelabs/async-await)
 * 12 - LAB: Applicazioni flutter (20/10/22)
-    * Applicazione calcolatrice in flutter --> 
+    * Applicazione calcolatrice in flutter
 * 11 - Il linguaggio Dart (19/10/22)
     * Interrogazioni
     * Factory design pattern

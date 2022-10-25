@@ -8,8 +8,14 @@ menu:
 
 ## Lezioni
 
-<!-- * 11 Livello applicativo (20/10/22)
-    * CCNA: -->
+<!-- * 13? - LAB (28/10/22)
+    * Verifiche di recupero insufficienze
+    * Configurazione di VLAN mediante switch
+* 12 - Protocollo HTTP (27/10/22)
+    * [La gestione dei Cookie]({{< ref "http.md#cookies" >}}) -->
+* 11 - Protocollo HTTP (20/10/22)
+    * CCNA: 10.2.1.1 - 10.2.1.2
+    * [Il formato delle richieste e risposte HTTP]({{< ref "http.md" >}})
 * 10 - Livello applicativo (18/10/22)
     * Riconsegna delle verifiche
     * CCNA: 10.1.1.1 - 10.1.1.2

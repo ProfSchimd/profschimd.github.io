@@ -7,6 +7,8 @@ menu:
 ---
 
 ## Lezioni
+* 15 - LAB: Arduino (24/10/22)
+    * Realizzazione circuito per comandi di un servomotore con Arduino
 * 14 - Verifica scritta (18/10/22)
     * Verifica su capitoli 1 e 3 CCNA 
 * 13 - LAB: Arduino (17/10/22)

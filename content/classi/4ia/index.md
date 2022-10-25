@@ -8,12 +8,21 @@ menu:
 
 ## Lezioni
 <!--
-* 20 - (24/10/22)
-* 19 - LAB: (19/10/22) 
+* 22 - LAB: (28/19/22)
+    * Pair programming
+    * Abstract Data Type: *queue* e *stack*
+    * Le interfacce `IQueue` e `IStack`
+* 21 - LAB: Verifica programmazione Java (26/10/22)
+    * 
+-->
+* 20 - Documentare una API e ADT (24/10/22)
     * Documentazione generale e [UML]({{< ref 03-uml >}})
-    * Javadoc
-        * Esempio per la classe [IVector]((https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java)) -->
-* 18 - Documentare una API (18/10/22)
+    * [Javadoc](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NTU2NjYwODAxMjQ0/details)
+        * Esempio per la classe [IVector](https://github.com/ProfSchimd/teaching-material/blob/main/inf/datastructure/operations/IVector.java)
+* 19 - LAB: Programmazione Java (19/10/22) 
+    * [Pila in Java](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU3ODM0NzQzMTc0/details)
+    * Ripasso per la verifica
+* 18 - Abstract Data Type e API (18/10/22)
     * Definizione di ADT per un *dizionario*
     * Formazione gruppi
 * 17 - Abstract Data Type e API (17/10/22)
