@@ -1,7 +1,7 @@
 ---
 title: "Array e Liste"
 heading: Lezioni
-weight: 20
+weight: 30
 ---
 
 Nell'ambito delle *strutture dati* due dei concetti più importanti sono quelli di
