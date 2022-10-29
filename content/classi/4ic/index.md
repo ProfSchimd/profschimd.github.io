@@ -7,6 +7,10 @@ menu:
 ---
 
 ## Lezioni
+* 16 - Livello fisico (28/10/22)
+    * Recupero verifiche scritte
+    * Organizzazione delle interrogazioni
+    * Il livello fisico i tipi di mezzi (Cisco CCNA 4.1.1)
 * 15 - LAB: Arduino (24/10/22)
     * Realizzazione circuito per comandi di un servomotore con Arduino
 * 14 - Verifica scritta (18/10/22)

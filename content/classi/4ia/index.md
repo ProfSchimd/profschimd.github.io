@@ -8,13 +8,17 @@ menu:
 
 ## Lezioni
 <!--
-* 22 - LAB: (28/19/22)
+* 23 - LAB: Attività di gruppo Queue e Stack (02/11/22)
     * Pair programming
     * Abstract Data Type: *queue* e *stack*
     * Le interfacce `IQueue` e `IStack`
-* 21 - LAB: Verifica programmazione Java (26/10/22)
-    * 
 -->
+* 22 - LAB: GitHub e Verifica (28/19/22)
+    * [Organizzazione del repository per le consegne](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU5MjczNzczNDE1/details)
+    * Verifica di programmazione ad oggetti ed uso `ArrayList`
+* 21 - LAB: Ripasso Java (26/10/22)
+    * Ripasso programmazione per la verifica
+    * Incontro IMUN (verifica spostata)
 * 20 - Documentare una API e ADT (24/10/22)
     * Documentazione generale e [UML]({{< ref 03-uml >}})
     * [Javadoc](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NTU2NjYwODAxMjQ0/details)

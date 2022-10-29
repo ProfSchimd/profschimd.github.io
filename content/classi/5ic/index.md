@@ -8,11 +8,11 @@ menu:
 
 ## Lezioni
 
-<!-- * 13? - LAB (28/10/22)
+<!-- * 13? - Protocollo HTTP (03/11/22)
+    * [La gestione dei Cookie]({{< ref "http.md#cookies" >}})-->
+* 12 - LAB (28/10/22) 
     * Verifiche di recupero insufficienze
-    * Configurazione di VLAN mediante switch
-* 12 - Protocollo HTTP (27/10/22)
-    * [La gestione dei Cookie]({{< ref "http.md#cookies" >}}) -->
+    * Esercitazioni packet tracer: 
 * 11 - Protocollo HTTP (20/10/22)
     * CCNA: 10.2.1.1 - 10.2.1.2
     * [Il formato delle richieste e risposte HTTP]({{< ref "http.md" >}})
