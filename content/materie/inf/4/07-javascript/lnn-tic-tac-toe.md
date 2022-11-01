@@ -1,0 +1,130 @@
+---
+title: "Laboratorio NN: Tic Tac Toe (Tris) con Canvas HTML5"
+type: lecture
+---
+
+## Descrizione del laboratorio
+In questo laboratorio verrà sviluppato il classico gioco *Tic Tac Toe* (in Italia
+meglio noto come *Tris*). Il gioco verrà sviluppato nella sua interezza a partire
+dalla rappresentazione in memoria della scacchiera di gioco, fino alla realizzazione
+dei controlli per renderlo pienamente funzionante. La parte più importante del
+laboratorio è l'utilizzo dell'elemento `<canvas>` di HTML5 spiegato meglio nella
+[lezione dedicata]().
+
+Il laboratorio è diviso in tre parti principali:
+1. modello,
+2. interfaccia,
+3. controllo.
+
+Ogni parte aggiunge una funzionalità al gioco di modo che, alla fine delle tre
+parti, si avrà un gioco pienamente funzionante.
+
+{{<attention>}}
+Questo laboratorio ha lo scopo di guidare lo studente nella scrittura da zero del
+gioco Tic Tac Toe. Per questo motivo non è presente codice (se non in minima parte
+e per indicare specifiche *feature* del linguaggio) e non vi è alcun repository
+associato.
+
+Per ottenere il massimo da questo laboratorio, **ogni studente dovrebbe sviluppare,
+in piena autonomia, il gioco da zero**. Lo studente può chiedere aiuto al docente o
+al tutor (se presente) i quali possono aiutare lo studente a pensare la soluzione,
+in ogni caso i
+{{</attention>}}
+
+## 1 - Il modello (*model*)
+In questa parte vedremo come rappresentare in memoria lo *stato* del gioco, cioè
+la situazione sulla scacchiera di gioco. È importante capire che questo aspetto
+è diverso (anche se fortemente collegato) da quello che viene visualizzato
+dall'interfaccia (questo aspetto è più evidente in giochi più complessi dove non
+tutto lo stato del gioco è mostrato sullo schermo).
+
+### 1.1 - Rappresentazione della scacchiera
+Il primo passo è individuare cosa e come rappresentare del gioco. Nel caso di Tic
+Tac Toe, lo stato è formato da:
+* ogni singola cella della scacchiera \\(3 \times 3\\), cioè cosa c'è (`Vuoto`, `X` o `O`)
+su ognuna delle 9 celle e
+* il turno del prossimo giocatore o lo stato di fine del gioco.
+
+{{<exercise title="Stato del gioco" >}}
+Creare un oggetto `State` che contenga due variabili: una per lo stato della
+scacchiera ed uno per indicare il turno (prossimo giocatore).
+
+**Suggerimento** per indicare lo stato della scacchiera si può usare una
+struttura bidimensionale indicando per ogni posizione un intero che rappresenta
+lo stato (ad esempio: `0->Vuoto`, `1->X`, `2->O`).
+{{</exercise>}}
+
+## 2 - L'interfaccia (*view*)
+L'interfaccia rappresenta ciò che l'utente vede e ciò con cui l'utente interagisce
+(scacchiera, bottoni, informazioni, ...), per questo motivo il ruolo dell'interfaccia
+in gioco è fondamentale.
+
+In questa seconda parte del laboratorio costruiremo l'interfaccia del gioco Tic Tac
+Toe a partire dal *modello dati* che abbiamo sviluppato nella parte precedente. Lo
+sviluppo dell'interfaccia avverrà in due parti
+1. Disegno della [scacchiera](#21---la-scacchiera) vuota e dei controlli ad un valore di *default* e
+2. Disegno delle [mosse](#22---visualizzare-le-mosse) intese come simboli eventualmente presenti sulla scacchiera.
+
+### 2.1 - La scacchiera
+
+{{<column/two-cols wl=8 wr=4 content="left" embed="img/tic-tac-toe-grid.html">}}
+Nel disegnare l'interfaccia iniziamo dalla *scacchiera* di gioco che nel caso di Tic
+Tac Toe è una griglia \\(3 \times 3\\) inizialmente vuota.
+
+Nella figura a destra vediamo uno screenshot di una griglia di base (senza particolare
+attenzione alla bellezza della griglia stessa). In questo esempio, la griglia occupa
+l'intera area del canvas, ma spesso può essere necessario lasciare dello spazio attorno
+all'area principale per inserire varie informazioni come controlli, punteggio, ...
+
+In questo laboratorio controlli ed altre informazioni (ad esempio il giocatore che deve
+fare la prossima mossa) vengono indicati utilizzando elementi HTML esterni al canvas.
+{{</column/two-cols>}}
+
+{{<exercise>}}
+Utilizzare i metodi per disegnare rettangoli su un canvas per disegnare una griglia
+\\(3 \times 3 \\) al suo interno. Inizialmente la griglia deve occupare l'intero
+canvas, per farlo utilizzare uno dei due modi seguenti per recuperare `height` e
+`width` del canvas.
+
+*Modo 1:* proprietà dell'elemento `<canvas>`
+{{<highlight javascript>}}
+const canvas = document.querySelector('#canvas');
+const width = canvas.width;
+const height = canvas.height;
+{{</highlight>}}
+
+*Modo 2:* usare l'oggetto *context* ele sue proprietà `offsetX` e `offsetY`
+{{<highlight javascript>}}
+const canvas = document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
+const width = ctx.offsetY;
+const height = ctx.offsetX;
+{{</highlight>}}
+{{</exercise>}}
+
+{{<exercise title="Scacchiera con sfondo">}}
+Una versione più bella della scacchiera si può ottenere utilizzando uno sfondo
+(ad esempio un'immagine) del canvas (in alternativa si può usare *un gradiente*)
+e lasciando un margine tra il bordo del canvas e la scacchiera.
+1. Disegnare uno sfondo (immagine o gradiente) sull'intero canvas
+2. Disegnare la scacchiera lasciando un margine tra questa e i bordi del canvas, il
+margine può essere dato in termini assoluti (ad esempio 10 px) oppure in termini
+relativi (ad esempio il 5% della larghezza e dell'altezza).
+{{</exercise>}}
+
+### 2.2 - Visualizzare le mosse
+
+{{<column/two-cols wl=8 wr=4 content="left" embed="img/tic-tac-toe-game.html">}}
+SS
+{{</column/two-cols>}}
+
+## 3 - L'interazione (*control*)
+
+### 3.1 - Il turno di gioco
+
+### 3.2 - Controllo delle mosse valide
+
+### 3.3 - Controllo della condizione di fine partita
+
+### 3.4 - Reset del gioco
+
