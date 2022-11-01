@@ -9,8 +9,12 @@ menu:
 ## Lezioni
 
 <!--
-* 14 - Assemblea di classe (27/10/22)
+* 15
 -->
+
+* 14 - Programmazione asincrona (03/11/22)
+    * Interrogazioni
+    * Esempio async await con `http`
 * 13 - Programmazione asincrona in Dart (24/10/22)
     * Interrogazioni
     * [`async` e `await`][1]
@@ -63,4 +67,16 @@ menu:
     * Slide programma TPSIT di Quinta
     * Discussione esperienza di stage 
 
+## Link Utili
+
+* [Dart Language Tour][1]
+* [DartPad][2]
+* [Flutter][3]
+* [FlutLab: online flutter][4]
+* [Esempi Prof. Morettin][5]
+
 [1]: https://dart.dev/guides/language/language-tour
+[2]: https://dartpad.dev/
+[3]: https://flutter.dev/
+[4]: https://flutlab.io/
+[5]: https://gitlab.com/divino.marchese/flutter

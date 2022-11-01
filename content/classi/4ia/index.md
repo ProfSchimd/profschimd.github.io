@@ -8,11 +8,12 @@ menu:
 
 ## Lezioni
 <!--
+* 24 - LAB: Attività di gruppo Queue e Stack (04/11/22)
+-->
 * 23 - LAB: Attività di gruppo Queue e Stack (02/11/22)
-    * Pair programming
+    * [Pair programming]()
     * Abstract Data Type: *queue* e *stack*
     * Le interfacce `IQueue` e `IStack`
--->
 * 22 - LAB: GitHub e Verifica (28/19/22)
     * [Organizzazione del repository per le consegne](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU5MjczNzczNDE1/details)
     * Verifica di programmazione ad oggetti ed uso `ArrayList`

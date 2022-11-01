@@ -73,13 +73,13 @@ spedizione dei dati inseriti un u *form HTML*.
 esempio, per sapere se un file (magari di dimensioni notevoli) è stato modificato e quindi necessita
 di essere ri-scaricato.
 
-### La riposta HTTP
+### La risposta HTTP
 {{<column/two-cols wl=6 wr=6 content="left" embed="img/http_reply_mdn.html">}}
 Dopo aver decodificato (*parsing*) la richiesta ed eseguite le opportune operazioni
-(ad esempio recuperato il file richiesto), il server costruisce una *riposta HTTP* che
+(ad esempio recuperato il file richiesto), il server costruisce una *risposta HTTP* che
 spedisce al client utilizzando il flusso `Server -> Client` della connessione TCP.
 
-La riposta ha un formato simile alla richiesta ed è composta di uno *stato*, da un
+La risposta ha un formato simile alla richiesta ed è composta di uno *stato*, da un
 *header* opzionale e da un *corpo* (*body*). Lo stato contiene
 * la **versione** (*version*) del protocollo HTTP utilizzata,
 * uno **status code** che indica lo stato della richiesta (vedi [sotto]({{< ref "#status-code">}}))
