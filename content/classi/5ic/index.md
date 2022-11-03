@@ -8,11 +8,22 @@ menu:
 
 ## Lezioni
 
-<!-- * 13? - Protocollo HTTP (03/11/22)
-    * [La gestione dei Cookie]({{< ref "http.md#cookies" >}})-->
-* 12 - LAB (28/10/22) 
+<!-- 
+* 16 - (10/11/12)
+    *
+* 15 - Cookie HTTP (08/11/22)
+    * Interrogazioni
+    * Tipi e scadenza dei cookie
+* 14 - LAB: (04/11/22)
+    *
+-->
+* 13 - Protocollo HTTP (03/11/22)
+    * Interrogazioni
+    * [La gestione dei Cookie]({{< ref "http.md#cookies" >}})
+* 12 - LAB: Packet Tracer (28/10/22) 
     * Verifiche di recupero insufficienze
-    * Esercitazioni packet tracer: 
+    * [Attività CCNA: 6.4.1.3, 6.4.3.3 e 6.4.3.4](https://classroom.google.com/c/NTI4MDk2ODM5MjQw/a/NDkwODY4ODY5MjE2/details)
+    * [Attività CCNA: 9.3.1.2](https://classroom.google.com/w/NTI4MDk2ODM5MjQw/tc/NTUxMjM4NDU5NTM1)
 * 11 - Protocollo HTTP (20/10/22)
     * CCNA: 10.2.1.1 - 10.2.1.2
     * [Il formato delle richieste e risposte HTTP]({{< ref "http.md" >}})

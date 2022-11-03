@@ -146,5 +146,5 @@ sequenziale
 (*breadth-first*, *depth-first*, ...)
 * ...
 
-In alcuni casi (ad esempio [code e pile]({{<ref 03-queue-and-stack.md>}})) può non essere
+In alcuni casi (ad esempio [code e pile]({{<ref 01-queue-and-stack.md>}})) può non essere
 possibile iterare su tutti gli elementi.

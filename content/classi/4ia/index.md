@@ -8,12 +8,20 @@ menu:
 
 ## Lezioni
 <!--
+* 26 - Liste (08/11/22)
+    * Interrogazioni
+    * Liste singolarmente concatenate
+* 25 - Liste (07/11/22)
+    * Interrogazioni
+    * Abstract Data Type: List (operazioni)-->
 * 24 - LAB: Attività di gruppo Queue e Stack (04/11/22)
--->
+    * Interrogazioni
+    * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)
 * 23 - LAB: Attività di gruppo Queue e Stack (02/11/22)
-    * [Pair programming]()
-    * Abstract Data Type: *queue* e *stack*
-    * Le interfacce `IQueue` e `IStack`
+    * [Pair programming](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)
+    * [Descrizione attività]({{< ref "l01-queue-and-stack.md" >}})
+    * Abstract Data Type: [*queue* e *stack*]({{< ref "01-queue-and-stack.md" >}})
+    * Le interfacce [`IQueue` e `IStack`](https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/queue-and-stack)
 * 22 - LAB: GitHub e Verifica (28/19/22)
     * [Organizzazione del repository per le consegne](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU5MjczNzczNDE1/details)
     * Verifica di programmazione ad oggetti ed uso `ArrayList`

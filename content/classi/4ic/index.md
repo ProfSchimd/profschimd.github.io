@@ -7,6 +7,15 @@ menu:
 ---
 
 ## Lezioni
+<!-- 
+* 19 - Livello fisico (08/11/22)
+    * Codifica
+* 18 - LAB: Packet Tracer (07/11/22)
+    * CCNA Capitolo 2 "Configurazione switch con Packet tracer"
+-->
+* 17 - Livello fisico (03/11/11)
+    * Interrogazioni
+    * CCNA 4.1.2, 4.2.1 - 4.2.3
 * 16 - Livello fisico (28/10/22)
     * Recupero verifiche scritte
     * Organizzazione delle interrogazioni

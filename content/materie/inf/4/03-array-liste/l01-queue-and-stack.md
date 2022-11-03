@@ -8,7 +8,7 @@ summary: "In questo laboratorio, si procede all'implementazione in Java delle in
 
 ## Le interfacce `IQueue` e `IStack`
 Vediamo qui una breve definizione dell *strutture dati astratte* chiamate *queue* (*coda*)
-e *stack* (*pila*), più dettagli sono forniti nella [Lezione su queue e stack]({{<ref 03-queue-and-stack.md>}}).
+e *stack* (*pila*), più dettagli sono forniti nella [Lezione su queue e stack]({{<ref 01-queue-and-stack.md>}}).
 
 ### Queue (coda)
 La struttura dati *queue* (in italiano *coda*) descrive, in termini informatici, quello che

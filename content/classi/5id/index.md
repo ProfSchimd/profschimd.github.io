@@ -9,12 +9,19 @@ menu:
 ## Lezioni
 
 <!--
-* 15
+* 17 - Sviluppo  (10/11/22)
+    * Interrogazioni
+    * Programmazione asincrona con `Stream`
+* 16 - Sviluppo dart e flutter (07/11/22)
+    * Interrogazioni
+    * Flutter: stateful widget
+    * Richieste HTTP e CORS
 -->
-
+* 15 - LAB: Applicazione flutter (03/11/22)
+    * Applicazione calcolatrice in flutter
 * 14 - Programmazione asincrona (03/11/22)
     * Interrogazioni
-    * Esempio async await con `http`
+    * Esempio async await con [`dart.http`](https://pub.dev/packages/http)
 * 13 - Programmazione asincrona in Dart (24/10/22)
     * Interrogazioni
     * [`async` e `await`][1]
