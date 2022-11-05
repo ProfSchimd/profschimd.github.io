@@ -1,6 +1,7 @@
 ---
 title: Mezzi fisici
 weight: 10
+type: lecture
 summary: "Descrizione dei principali mezzi fisici utilizzati oggi e confronto tra di essi."
 ---
 
@@ -31,13 +32,5 @@ Recentemente le connessioni in fibra ottica sono diventate di uso comune sia nel
 
 ## Etere
 Nelle trasmissione su mezzo **etere** (aria), chiamate anche *wireless*), le informazioni vengono trasmesse mediante *variazioni di campi elettromagnetici*. Il modo in cui questo avviene risulta complesso e non possibile dare direttamente una indicazione di come bit 0 e bit 1 vengono rappresentati. Le tecnologie wireless stanno diventando sempre più importanti in quanto permettono una più facile realizzazione (es. non bisogna stendere cavi) e permettono ai dispositivi connessi alla rete di muoversi liberamente entro un range che, nel caso delle reti cellulari, può essere anche di diversi chilometri.
-
-## Caratteristiche del mezzo
-
-### Larghezza di banda (bandwidth)
-
-### Latenza (latency)
-
-### Throughput
 
 

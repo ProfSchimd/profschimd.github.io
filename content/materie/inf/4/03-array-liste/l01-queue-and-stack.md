@@ -42,7 +42,7 @@ che accade ogni volta che impiliamo degli oggetti (ad esempio i piatti, le magli
 i fogli, ...). Gli elementi "entrano" nella pila sulla sommità di essa, detta *top*, ed
 "escono" sempre dalla sommità.
 
-Da questo comportamento deriva la politica note come **LIFO: Last In Firs Out** cioè
+Da questo comportamento deriva la politica note come **LIFO: Last In First Out** cioè
 l'ultimo elemento inserito (l'ultima maglia impilata) sarà anche il primo elemento elemento
 ad essere recuperato (la prima maglia che prenderò dall'armadio).
 
@@ -69,7 +69,7 @@ Creare due classi Java
 
 1. `ArrayQueue` che implementa l'interfaccia `IQueue` e che realizza la politica FIFO
 utilizzando **esclusivamente array Java del tipo `Object[]`**
-2. `ArrayStack` che implementa l'interfaccia `IStack` e che realizza la politica FIFO
+2. `ArrayStack` che implementa l'interfaccia `IStack` e che realizza la politica LIFO
 utilizzando **esclusivamente array Java del tipo `Object[]`**
 
 è possibile usare variabili di tipo primitivi `int`, `double`, ... o di tipo `String`,
