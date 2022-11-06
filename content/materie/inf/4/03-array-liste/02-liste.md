@@ -50,8 +50,39 @@ in questo caso).
 
 ### Il concetto di *posizione* nella lista
 Come visto sopra, le operazioni su una lista possono essere basate su uno specifico
-elemento della lista, in realtà parlare di elemento è generico e rischio di confondersi
+elemento della lista, parlare di elementi è troppo generico e rischio di confondersi
 con il contenuto, per questo è meglio parlare di **posizione** nella lista.
+
+{{<def title="Posizione e Valore">}}
+Una **posizione** in una lista è la rappresentazione di un "posto" all'interno del
+quale possiamo inserire un **valore** (o contenuto). Ad una posizione nelle liste,
+inoltre, si associa anche una posizione **precedente** (*predecessor*) e una
+posizione **successiva** (*successor*).
+Esempi di posizione sono
+* *prima*, 
+* *ultima*, 
+* *penultima*, 
+* *la prima posizione con valore `123`*, 
+* *la precedente alla prima posizione con valore `123`*, 
+* *la prima posizione dalla fine con valore `123`*, 
+* ...
+{{</def>}}
+
+Cerchiamo di capire meglio il concetto di posizione con qualche esempio.
+{{<example>}}
+Consideriamo la seguente lista
+
+    10 -> -2 -> 120 -> 0 -> 123 -> 0 -> 11
+
+* valore della *prima posizione*: `10`
+* valore dell'*ultima posizione*: `11`
+* valore della *penultima posizione*: `0`
+{{</example>}}
+
+Nelle liste come negli array, le posizioni possono anche essere associate a degli
+indici, ad esempio la prima posizione ha indice `0`, la seconda ha indice `1` e
+così via. In effetti gli array sono strutture dati in cui le posizioni vengono
+indicate da indici.
 
 {{<attention>}}
 L'uso del termine *posizione* può generare confusione soprattutto le prime volte che
@@ -63,6 +94,24 @@ Inoltre, bisogna stare attenti a non confondere la posizione con il contenuto, a
 esempio in una lista di interi il numero `12` può comparire più di una volta, ma
 **in posizioni diverse**, inoltre `12` in questo caso non è necessariamente l'indice.
 {{</attention>}}
+
+#### Posizione in Java
+Il concetto di *posizione nella lista* sopra definito può essere espresso in una
+interfaccia Java nel seguente modo
+
+```java
+public interface IListPosition {
+    Object value();
+    IListPosition next();
+    IListPosition prev();
+}
+```
+
+Si noti che:
+* il valore (*value*) è di tipo `Object` per poter indicare qualsiasi tipo,
+* ogni posizione permette di accedere al successore mediante `next()` ed
+al predecessore mediante `prev()`,
+* i metodi `prev` e `next` restituiscono a loro volta una posizione.
 
 ## Liste singolarmente concatenate
 
