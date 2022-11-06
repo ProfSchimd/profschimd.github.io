@@ -1,6 +1,7 @@
 ---
 title: "Hello Flutter!"
 type: lecture
+weight: 10
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/tpsit/flutter/01_hello_flutter
 summary: "Questa presentazione presenta il classico 'Hello World!' in Flutter"
 ---
