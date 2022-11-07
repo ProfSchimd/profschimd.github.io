@@ -9,17 +9,23 @@ menu:
 ## Lezioni
 
 <!--
-* 17 - Sviluppo  (10/11/22)
-    * Interrogazioni
-    * Programmazione asincrona con `Stream`
-* 16 - Sviluppo dart e flutter (07/11/22)
-    * Interrogazioni
+* 20 - (17/11/22)
+    * 
+* 19 - Programmazione in Flutter (14/11/22)
+    * Interrogazione
     * Flutter: stateful widget
-    * Richieste HTTP e CORS
--->
+    * Richieste HTTP e CORS -->
+* 18 - LAB: Applicazione flutter (11/12/22)
+    * Conclusione [Applicazione "Calcolatrice"](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU2MzgzMTYwODM0)
+* 17 - Programmazione asincrona in Dart (10/11/22)
+    * Interrogazioni
+    * [Programmazione asincrona con `Stream`]({{< ref "02-stream-dart.md" >}})
+* 16 - Programmazione asincrona in Dart (07/11/22)
+    * Interrogazioni
+    * [Programmazione asincrona con `Stream`]({{< ref "02-stream-dart.md" >}})
 * 15 - LAB: Applicazione flutter (03/11/22)
-    * Applicazione calcolatrice in flutter
-* 14 - Programmazione asincrona (03/11/22)
+    * [Applicazione "Calcolatrice"](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU2MzgzMTYwODM0)
+* 14 - Programmazione asincrona in Dart (03/11/22)
     * Interrogazioni
     * Esempio async await con [`dart.http`](https://pub.dev/packages/http)
 * 13 - Programmazione asincrona in Dart (24/10/22)
@@ -28,7 +34,7 @@ menu:
     * La classe [`Future`](https://api.dart.dev/be/175791/dart-async/Future-class.html) e il suo [utilizzo]({{< ref "01-dart-async-await.md" >}})
     * [Asynchronous programming codelabs](https://dart.dev/codelabs/async-await)
 * 12 - LAB: Applicazioni flutter (20/10/22)
-    * Applicazione calcolatrice in flutter
+    * [Applicazione "Calcolatrice"](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU2MzgzMTYwODM0)
 * 11 - Il linguaggio Dart (19/10/22)
     * Interrogazioni
     * Factory design pattern

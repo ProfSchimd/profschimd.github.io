@@ -1,6 +1,7 @@
 {{ define "title" }}
   {{ .Title }} &ndash; {{ .Site.Title }}
 {{ end }}
+{{ define "breadcrumb" }}{{ partial "breadcrumb.html" . }}{{ end }}
 {{ define "main" }}
 <main>
   {{ partial "single-content-head.html" . }}

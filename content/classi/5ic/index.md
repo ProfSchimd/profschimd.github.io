@@ -13,10 +13,10 @@ menu:
     *
 * 15 - Cookie HTTP (08/11/22)
     * Interrogazioni
-    * Tipi e scadenza dei cookie
-* 14 - LAB: (04/11/22)
-    *
--->
+    * Tipi e scadenza dei cookie-->
+* 14 - LAB: VLAN (04/11/22)
+    * Configurazione e backup di switch fisici
+    * Impostazione di VLAN su switch fisici
 * 13 - Protocollo HTTP (03/11/22)
     * Interrogazioni
     * [La gestione dei Cookie]({{< ref "http.md#cookies" >}})

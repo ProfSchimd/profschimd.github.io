@@ -1,5 +1,6 @@
 ---
 title: "Concetti base programmazione ad oggetti"
+running_title: "Basi OOP"
 type: lecture
 weight: 10
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/oop/bank
