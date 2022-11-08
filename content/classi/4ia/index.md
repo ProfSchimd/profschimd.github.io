@@ -8,12 +8,19 @@ menu:
 
 ## Lezioni
 <!--
+* 28 - LAB: Attività di gruppo Queue e Stack (11/11/22)
+    * Interrogazioni
+    * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)
+    -->
+* 27 - LAB: Java e Strutture dati (09/11/22)
+    * Correzione compito di laboratorio
+    * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)
 * 26 - Liste (08/11/22)
     * Interrogazioni
-    * Liste singolarmente concatenate -->
+    * Il concetto di [*posizione nelle liste*]({{< ref "02-liste.md" >}})
 * 25 - Liste (07/11/22)
     * Interrogazioni
-    * Abstract Data Type: List (operazioni)
+    * [Abstract Data Type: List (operazioni)]({{< ref "02-liste.md" >}})
 * 24 - LAB: Attività di gruppo Queue e Stack (04/11/22)
     * Interrogazioni
     * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)

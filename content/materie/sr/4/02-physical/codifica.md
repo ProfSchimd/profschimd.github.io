@@ -49,6 +49,15 @@ il bit con la seconda regola:
 
 {{<include "img/codifica_nrzi.html" >}}
 
+{{<attention>}}
+Sia la codifica NRZ che la codifica NRZI necessitano che le due parti comunicanti
+si scambino anche il *segnale di clock*. Questo è spesso un problema perché richiede
+l'utilizzo di un ulteriore canale di comunicazione dedicato al clock oltre che ad
+un meccanismo di *sincronizzazione* del clock. Proprio per evitare la necessità di
+un segnale di clock condiviso, sono state proposte diverse codifiche tra cui la
+codifica Manchester che è l'argomento del prossimo paragrafo.
+{{</attention>}}
+
 ### Manchester
 Nella codifica Manchester, i valori `0` e `1` vengono associate alle *transizioni*
 del segnale da un livello ad un altro. In pratica il segnale viene interpretato
@@ -58,6 +67,11 @@ nel seguente modo:
 
 {{<include "img/codifica_manchester.html" >}}
 
-<div class="text-danger">
-ss
-</div>
+{{<observe>}}
+Nella codifica Manchester descritta sopra il passaggio da basso ad alto
+si associa ad un valore `1`, tuttavia sarebbe possibile associare tale
+transizione al bit `0` (e la transizione opposta al bit `1`). 
+
+In questa lezione abbiamo scelto la prima convenzione che è quella
+adottata dagli standard IEEE (ad esempio IEEE 802.3).
+{{</observe>}}

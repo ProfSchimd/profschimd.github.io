@@ -1,5 +1,6 @@
 ---
 title: Protocollo HTTP
+running_title: HTTP
 type: lecture
 weight: 300
 ---

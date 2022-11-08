@@ -1,5 +1,6 @@
 ---
 title: "Sistemi e Reti - Quarto Anno"
+running_title: "Quarto anno"
 heading: Moduli
 weight: 4
 ---

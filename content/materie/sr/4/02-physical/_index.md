@@ -1,5 +1,6 @@
 ---
 title: Livello fisico (physical layer)
+running_title: Livello fisico
 weight: 2
 ---
 

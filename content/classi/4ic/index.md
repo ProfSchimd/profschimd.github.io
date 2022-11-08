@@ -8,11 +8,14 @@ menu:
 
 ## Lezioni
 <!-- 
+* 20 - Livello fisico (11/11/22)
+    * -->
 * 19 - Livello fisico (08/11/22)
     * Interrogazioni
-    * Codifica -->
+    * [Codifica]({{< ref "codifica.md" >}}) 
 * 18 - LAB: Packet Tracer (07/11/22)
     * CCNA Capitolo 2 "Configurazione switch con Packet tracer"
+    * [Attività 2.3.7: "Navigare in IOS"](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/a/NTY4NTE1MDYzMTAy/details)
 * 17 - Livello fisico (03/11/11)
     * Interrogazioni
     * CCNA 4.1.2, 4.2.1

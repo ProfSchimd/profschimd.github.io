@@ -113,6 +113,12 @@ Si noti che:
 al predecessore mediante `prev()`,
 * i metodi `prev` e `next` restituiscono a loro volta una posizione.
 
+{{<exercise>}}
+Realizzare una classe Java `ListPosition` che implementa l'interfaccia `IListPosition`
+definita sopra. Prevedere oltre ai metodi dell'interfaccia anche dei metodi per
+impostare: *valore*, *predecessore* e *successore*.
+{{</exercise>}}
+
 ## Liste singolarmente concatenate
 
 ## Liste doppiamente concatenate

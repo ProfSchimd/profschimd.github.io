@@ -9,11 +9,14 @@ menu:
 ## Lezioni
 
 <!-- 
-* 16 - (10/11/12)
-    *
+* 17 - LAB:  (11/11/22) -->
+* 16 - DNS (10/11/22)
+    * Interrogazioni
+    * [Domain Name System]({{<ref "dns.md" >}})
 * 15 - Cookie HTTP (08/11/22)
     * Interrogazioni
-    * Tipi e scadenza dei cookie-->
+    * [Tipi e scadenza dei cookie]({{< ref "http.md#cookies" >}})
+    * Cenni GDPR e Cookie
 * 14 - LAB: VLAN (04/11/22)
     * Configurazione e backup di switch fisici
     * Impostazione di VLAN su switch fisici

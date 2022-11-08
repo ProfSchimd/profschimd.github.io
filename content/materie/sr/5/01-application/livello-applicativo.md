@@ -1,6 +1,8 @@
 ---
-title: Livello applicativo
+title: Caratteristiche del livello applicativo
+type: lecture
 weight: 100
+summary: "In questa lezione vediamo le principali caratteristiche del livello mettendolo in relazione con il sottostante livello di trasporto."
 ---
 
 Il **livello applicativo** (*application layer*) è l'ultimo (settimo) livello dell'[architettura ISO/OSI]({{< ref "02-architettura-rete.md">}}). Il suo ruolo è quello di fornire i *servizi* necessari alla realizzazione di un'applicazione di rete quali posta, World Wide Web, streaming e molte altro.

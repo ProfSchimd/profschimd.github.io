@@ -1,5 +1,6 @@
 ---
 title: Programmare
+type: lecture
 weight: 1
 ---
 

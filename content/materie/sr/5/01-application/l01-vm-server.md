@@ -1,5 +1,6 @@
 ---
 title: "Laboratorio: Server su macchina virtuale"
+type: lecture
 weight: 1000
 summary: "In questo laboratorio si installeranno diversi server su macchina virtuale Linux."
 ---
