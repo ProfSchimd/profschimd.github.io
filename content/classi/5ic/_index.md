@@ -1,6 +1,7 @@
 ---
 title: 5IC
 subject_s: SR
+heading: Materiale
 menu:
     main:
         parent: "classi"

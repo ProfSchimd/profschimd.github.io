@@ -1,6 +1,7 @@
 ---
 title: 4IC
 subject_s: SR
+heading: Materiale
 menu:
     main:
         parent: "classi"

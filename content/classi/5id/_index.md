@@ -1,13 +1,14 @@
 ---
 title: 5ID
 subject_s: TPSIT
+heading: Materiale
 menu:
     main:
         parent: "classi"
 ---
 
 ## Lezioni
-
+[App Contest]({{<ref "app-contest-calc.md" >}})
 <!--
 * 20 - (17/11/22)
     * 
