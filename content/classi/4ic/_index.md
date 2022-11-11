@@ -9,8 +9,11 @@ menu:
 
 ## Lezioni
 <!-- 
-* 20 - Livello fisico (11/11/22)
+* 21 - LAB (14/11/22)
     * -->
+* 20 - Livello fisico (11/11/22)
+    * Interrogazioni
+    * Concetti di banda latenza e throughput (Cisco CCNA v7: 4.2.5, 4.2.6)
 * 19 - Livello fisico (08/11/22)
     * Interrogazioni
     * [Codifica]({{< ref "codifica.md" >}}) 

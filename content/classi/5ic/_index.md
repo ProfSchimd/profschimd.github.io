@@ -10,10 +10,18 @@ menu:
 ## Lezioni
 
 <!-- 
-* 17 - LAB:  (11/11/22) -->
-* 16 - DNS (10/11/22)
+* 19 - Livello applicativo (17/11/22)
     * Interrogazioni
-    * [Domain Name System]({{<ref "dns.md" >}})
+    * DHCP -->
+* 18 - Livello applicativo (15/11/22) 
+    * Interrogazioni 
+    * DNS
+* 17 - LAB:  (11/11/22) 
+    * Configurazione e backup di switch fisici
+    * Impostazione di VLAN su switch fisici
+* 16 - Livello applicativo (10/11/22)
+    * Interrogazioni
+    * Domain Name System: Cisco CCNA v6 10.2.2.1 - 10.2.2.3
 * 15 - Cookie HTTP (08/11/22)
     * Interrogazioni
     * [Tipi e scadenza dei cookie]({{< ref "http.md#cookies" >}})

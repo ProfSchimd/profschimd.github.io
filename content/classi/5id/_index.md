@@ -13,7 +13,7 @@ menu:
 * 20 - (17/11/22)
     * 
 * 19 - Programmazione in Flutter (14/11/22)
-    * Interrogazione
+    * Interrogazioni
     * Flutter: stateful widget
     * Richieste HTTP e CORS -->
 * 18 - LAB: Applicazione flutter (11/12/22)

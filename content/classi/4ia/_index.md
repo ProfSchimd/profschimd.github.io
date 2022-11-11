@@ -9,10 +9,20 @@ menu:
 
 ## Lezioni
 <!--
+* 30 - Liste (15/11/22)
+    * Interrogazioni
+    * Liste singolarmente concatenate 
+        * Operazioni: accesso e ricerca
+* 29 - Liste (14/11/22)
+    * Interrogazioni 
+    * Liste singolarmente concatenate 
+        * Struttura
+        * Operazioni di inserimento e cancellazione
+        -->
 * 28 - LAB: Attività di gruppo Queue e Stack (11/11/22)
     * Interrogazioni
     * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)
-    -->
+    
 * 27 - LAB: Java e Strutture dati (09/11/22)
     * Correzione compito di laboratorio
     * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)

@@ -1,5 +1,6 @@
 ---
 title: Requisiti di sicurezza
+type: lecture
 weight: 10
 ---
 
