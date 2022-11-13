@@ -120,5 +120,46 @@ impostare: *valore*, *predecessore* e *successore*.
 {{</exercise>}}
 
 ## Liste singolarmente concatenate
+Una *lista singolarmente concatenata* è una lista in cui ogni posizione è collegata
+alla successiva, ma non alla precedente.
+{{<column/two-cols wl=6 wr=6 content="left" embed="img/single_list.html">}}
+Nello schema a fianco, ogni posizione è rappresentata da un oggetto con due parti:
+un *content* per memorizzare il valore ed un *next* per collegare una posizione alla
+successiva.
+
+Per segnalare la "fine della lista" (una posizione senza una posizione
+seguente), è sufficiente impostare il valore di *next* a `null`. L'inizio della
+lista, invece, viene individuato mediante un riferimento al primo elemento che
+spesso chiamiamo *head* (o *first*).
+{{</column/two-cols>}}
 
 ## Liste doppiamente concatenate
+Una *lista doppiamente concatenata* è una lista in cui ogni posizione è collegata
+sia alla successiva sia alla precedente.
+{{<column/two-cols wl=6 wr=6 content="left" embed="img/double_list.html">}}
+Nello schema a fianco, ogni posizione è rappresentata da un oggetto con tre parti:
+un *content* per memorizzare il valore, un *next* per collegare una posizione alla
+successiva, ed un *prev* per collegare una posizione alla precedente.
+
+Per segnalare la "fine della lista" (una posizione senza una posizione
+seguente), è sufficiente impostare il valore di *next* a `null`. L'inizio della
+lista, invece, viene individuato mediante un riferimento al primo elemento che
+spesso chiamiamo *head* (o *first*). Nel caso di liste doppiamente concatenate
+abbiamo anche la necessità di segnalare che il primo elemento non ha alcun
+predecessore, anche in questo caso si può usare una riferimento impostate al valore
+`null`.
+{{</column/two-cols>}}
+
+{{<attention>}}
+La presenza di *head* può sembrare superflua, infatti la prima posizione della
+lista si riconosce dal fatto che *prev* è `null` e l'ultimo dal fatto che
+*next* è `null`. La necessità del riferimento *head* deriva dal problema di
+tenere un "punto di accesso" alla lista. In pratica *head* è un riferimento
+che ci permette di "accedere" alla lista.
+{{</attention>}}
+
+{{<observe title="Lista vuota">}}
+Ci si può chiedere come indicare che una lista è vuota, cioè non contiene
+elementi. Il modo semplice (valido per liste singolarmente e doppiamente
+concatenate) è avere il riferimento *head* impostato a `null`.
+{{</observe>}}
