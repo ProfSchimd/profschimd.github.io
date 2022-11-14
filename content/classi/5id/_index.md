@@ -10,17 +10,22 @@ menu:
 ## Lezioni
 
 <!--
-* 20 - (17/11/22)
+Richieste HTTP e CORS
+* 21 - LAB: (17/11/22)
     * 
-* 19 - Programmazione in Flutter (14/11/22)
+* 20 - Programmazione in Flutter (16/11/22)
     * Interrogazioni
-    * Flutter: stateful widget
-    * Richieste HTTP e CORS -->
+    * Utilizzo di `ListView`
+    * Utilizzo di `Navigator` per transizione di pagina -->
+* 19 - Programmazione in Dart (14/11/22)
+    * Interrogazioni
+    * Cenni su `ListView.builder` e `Navigator`
 * 18 - LAB: Applicazione flutter (11/12/22)
     * Conclusione [Applicazione "Calcolatrice"](https://classroom.google.com/w/NTQ4NzcyMDM2MDMy/tc/NTU2MzgzMTYwODM0)
 * 17 - Programmazione asincrona in Dart (10/11/22)
     * Interrogazioni
     * [Programmazione asincrona con `Stream`]({{< ref "02-stream-dart.md" >}})
+    * Flutter: stateful widget
 * 16 - Programmazione asincrona in Dart (07/11/22)
     * Interrogazioni
     * [Programmazione asincrona con `Stream`]({{< ref "02-stream-dart.md" >}})

@@ -9,11 +9,16 @@ menu:
 
 ## Lezioni
 <!-- 
-* 21 - LAB (14/11/22)
-    * -->
+* 23 - Livello fisico (18/11/22)
+    * Cablaggio in rame
+* 22 - Livello fisico (15/11/22)
+    * Interrogazioni 
+    * Banda e latenza con esercizi -->
+* 21 - LAB: Packet Tracer (14/11/22)
+    * Configurazione di dispositivi Cisco
 * 20 - Livello fisico (11/11/22)
     * Interrogazioni
-    * Concetti di banda latenza e throughput (Cisco CCNA v7: 4.2.5, 4.2.6)
+    * Concetti di [banda latenza e throughput]({{< ref "banda-latenza.md" >}}) (Cisco CCNA v7: 4.2.5, 4.2.6)
 * 19 - Livello fisico (08/11/22)
     * Interrogazioni
     * [Codifica]({{< ref "codifica.md" >}}) 

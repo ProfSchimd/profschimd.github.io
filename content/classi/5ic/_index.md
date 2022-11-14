@@ -10,16 +10,18 @@ menu:
 ## Lezioni
 
 <!-- 
-* 19 - Livello applicativo (17/11/22)
+* 20 - LAB (18/11/22)
+    *
+* 19 - Livello applicativo: DHCP (17/11/22)
     * Interrogazioni
-    * DHCP -->
-* 18 - Livello applicativo (15/11/22) 
+    * Dynamic Host Configuration Protocol (DHCP): Cisco CCNA v6 -->
+* 18 - Livello applicativo: DNS (15/11/22) 
     * Interrogazioni 
-    * DNS
-* 17 - LAB:  (11/11/22) 
+    * DNS: Cisco CCNA v6: 10.2.2.4
+* 17 - LAB: Configurazione di switch cisco (11/11/22) 
     * Configurazione e backup di switch fisici
     * Impostazione di VLAN su switch fisici
-* 16 - Livello applicativo (10/11/22)
+* 16 - Livello applicativo: DNS (10/11/22)
     * Interrogazioni
     * Domain Name System: Cisco CCNA v6 10.2.2.1 - 10.2.2.3
 * 15 - Cookie HTTP (08/11/22)
