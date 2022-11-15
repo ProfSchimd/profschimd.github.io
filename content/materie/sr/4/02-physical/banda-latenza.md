@@ -112,7 +112,7 @@ la quantità massima di bit trasferibili nell'unità di tempo, tuttavia il picco
 di prestazione non quasi mai raggiunto. 
 
 Il numero di bit che *veramente* attraversa un segmento della rete nell'unità
-di tempo viene detto *throughput* \\(T)\\ e può solo essere misurato. L'unica
+di tempo viene detto *throughput* \\( T \\) e può solo essere misurato. L'unica
 cosa sicuramente vera è che *il throughput non può essere maggiore della banda*:
 
 $$ T \leq B $$
@@ -129,11 +129,12 @@ corredata dalle informazioni sui dati
 * I collegamenti wireless sono a \\( 50~Mbps \\) con latenza \\( 45~ms \\)
 * I collegamento tra router e Switch e AP sono a \\( 10~Gbps \\) con latenza \\( 15~ms \\)
 * I collegamenti `SER <-> Router` sono a \\( 1~Gbps \\) con latenza \\( 10~ms \\)
-* Router, Access Point e switch sono store and forward (inoltrano dopo aver ricevuto l’intero pacchetto)
+* Router, Access Point e switch sono *store and forward* (inoltrano dopo aver ricevuto l’intero pacchetto)
 * Tutti i pacchetti hanno dimensione \\( 1500~byte \\) con header di \\( 40~byte \\).
 {{</column/two-cols>}}
 
-1. Quale è il Round-Trip-Time (RTT) tra PC1 e SER3 se sia messaggio che conferma sono inviati mediante pacchetti da 1500 Byte? Giustifica la risposta
-2. Quale è il Round-Trip-Time (RTT) tra NB1 e SER1 se sia messaggio che conferma sono inviati mediante pacchetti da 1500 Byte? Giustifica la risposta
-3. PH1 deve trasferire 5840 Byte sul server SER2, quanti pacchetti deve spedire? NB1 deve spedire 8760 Byte su SER3, quanti pacchetti deve spedire? AP1 riceve contemporaneamente i pacchetti da NB1 e PH1 e li inoltra alternatamente (prima un pacchetto di NB1 poi un pacchetto di PH1 e così via) quanti pacchetti totali AP1 inoltra verso ROUTER1 e quanto tempo impiega complessivamente?  Giustifica tutte le risposte.
-4. Oltre ai pacchetti della domanda precedente, ROUTER1 riceve altri pacchetti da SWITCH1 per complessivi (header e dati) 12000 Byte (tutti direzionati a SER1). Quanti pacchetti complessivamente riceve ROUTER1? Tenendo conto del fatto che ROUTER1 è store-and-forward e che esso può trasmettere in uscita (cioè verso i server) non appena riceve completamente un pacchetto. Se tutti i pacchetti iniziano ad arrivare allo stesso momento, quanto impiega ROUTER1 a consegnare il primo pacchetto a SER1, SER2 e SE3? Quanto impiega a consegnare tutti i pacchetti a SER1, SER2 e SER3?
+#### Domande
+1. Quale è il Round Trip Time (RTT) tra `PC1` e `SER3` se sia messaggio che conferma sono inviati mediante pacchetti da 1500 Byte?
+2. Quale è il Round Trip Time (RTT) tra `NB1` e `SER1` se sia messaggio che conferma sono inviati mediante pacchetti da 1500 Byte?
+3. `PH1` deve trasferire 5840 Byte sul server `SER2`, quanti pacchetti deve spedire? `NB1` deve spedire 8760 Byte su `SER3`, quanti pacchetti deve spedire? `AP1` riceve contemporaneamente i pacchetti da `NB1` e `PH1` e li inoltra alternatamente (prima un pacchetto di `NB1` poi un pacchetto di `PH1` e così via) quanti pacchetti totali `AP1` inoltra verso `ROUTER1` e quanto tempo impiega complessivamente?  Giustifica tutte le risposte.
+4. Oltre ai pacchetti della domanda precedente, `ROUTER1` riceve altri pacchetti da `SWITCH1` per complessivi (header e dati) 12000 Byte (tutti direzionati a `SER1`). Quanti pacchetti complessivamente riceve `ROUTER1`? Tenendo conto del fatto che `ROUTER1` è *store-and-forward* e che esso può trasmettere in uscita (cioè verso i server) non appena riceve completamente un pacchetto. Se tutti i pacchetti iniziano ad arrivare allo stesso momento, quanto impiega `ROUTER1` a consegnare il primo pacchetto a `SER1`, `SER2` e `SE3`? Quanto impiega a consegnare tutti i pacchetti a `SER1`, `SER2` e `SER3`?

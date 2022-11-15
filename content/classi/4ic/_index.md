@@ -10,10 +10,10 @@ menu:
 ## Lezioni
 <!-- 
 * 23 - Livello fisico (18/11/22)
-    * Cablaggio in rame
+    * Cablaggio in rame -->
 * 22 - Livello fisico (15/11/22)
     * Interrogazioni 
-    * Banda e latenza con esercizi -->
+    * [Banda e latenza]({{< ref "banda-latenza.md" >}}) con [esercizi](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTcwNzAxNzYxNTUw/details) 
 * 21 - LAB: Packet Tracer (14/11/22)
     * Configurazione di dispositivi Cisco
 * 20 - Livello fisico (11/11/22)

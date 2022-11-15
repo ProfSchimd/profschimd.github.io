@@ -11,17 +11,17 @@ menu:
 <!--
 * 32 - LAB: (18/11/22)
     * Interrogazioni
+    * Operazioni: accesso e ricerca 
+    * Operazioni di inserimento e cancellazione
 * 31 - LAB: Attività di gruppo (16/11/22)
-    * Guida alla stesura della relazione e della presentazione
+    * Guida alla stesura della relazione e della presentazione -->
 * 30 - Liste (15/11/22)
     * Interrogazioni
-    * Liste singolarmente concatenate 
-        * Operazioni: accesso e ricerca -->
+    * Ripasso *reference type*
 * 29 - Liste (14/11/22)
     * Interrogazioni 
     * [Liste singolarmente concatenate]({{< ref "02-liste.md#liste-singolarmente-concatenate" >}})
         * Struttura
-        * Operazioni di inserimento e cancellazione
 * 28 - LAB: Attività di gruppo Queue e Stack (11/11/22)
     * Interrogazioni
     * [Prosecuzione lavoro di gruppo](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTU1MzU3NDc5MTk1/details)
