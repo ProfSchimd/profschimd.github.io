@@ -12,9 +12,9 @@ menu:
 * 32 - LAB: (18/11/22)
     * Interrogazioni
     * Operazioni: accesso e ricerca 
-    * Operazioni di inserimento e cancellazione
+    * Operazioni di inserimento e cancellazione -->
 * 31 - LAB: Attività di gruppo (16/11/22)
-    * Guida alla stesura della relazione e della presentazione -->
+    * Guida alla stesura della [relazione](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NDkyMzE0NTcyMDM1/details) e della presentazione
 * 30 - Liste (15/11/22)
     * Interrogazioni
     * Ripasso *reference type*
