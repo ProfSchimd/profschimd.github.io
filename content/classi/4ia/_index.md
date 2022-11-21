@@ -9,10 +9,17 @@ menu:
 
 ## Lezioni
 <!--
-* 32 - LAB: (18/11/22)
+* 25 - LAB: Liste in Java
     * Interrogazioni
-    * Operazioni: accesso e ricerca 
+* 34 - LAB: Liste in Java (23/11/22)
+    * Operazioni: accesso e ricerca
+* 33 - Liste (22/11/22)
+    * Interrogazioni
     * Operazioni di inserimento e cancellazione -->
+* 32 - LAB: Liste in Java (18/11/22)
+    * Interrogazioni
+    * Contest di velocità sul codice per "Queue e Stack"
+    * Lista in Java per la classe Persona
 * 31 - LAB: Attività di gruppo (16/11/22)
     * Guida alla stesura della [relazione](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NDkyMzE0NTcyMDM1/details) e della presentazione
 * 30 - Liste (15/11/22)

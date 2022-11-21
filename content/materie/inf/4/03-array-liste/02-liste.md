@@ -103,7 +103,9 @@ interfaccia Java nel seguente modo
 public interface IListPosition {
     Object value();
     IListPosition next();
+    public void setNext(IListPosition newNext);
     IListPosition prev();
+    public void setPrev(IListPosition newPrev);
 }
 ```
 
@@ -163,3 +165,313 @@ Ci si può chiedere come indicare che una lista è vuota, cioè non contiene
 elementi. Il modo semplice (valido per liste singolarmente e doppiamente
 concatenate) è avere il riferimento *head* impostato a `null`.
 {{</observe>}}
+
+## Operazioni su liste
+La struttura dati lista può, ovviamente, essere utilizzata per tutte le usuali
+[operazioni]({{< ref "01-operazione.md" >}}) di accesso e manipolazione dei dati.
+Inoltre le liste, a differenza degli array, permettono di eseguire alcune operazione, come
+il [*merge*](#merge) e lo [*split*](#splicing) (chiamato *splicing*), in maniera molto efficiente.
+
+In questa lezione vedremo il codice Java per alcune 
+operazioni utilizzando l'interfaccia `IListPosition` discussa sopra.
+Per rappresentare una lista useremo una semplice classe contenente:
+* un riferimento, chiamato `head`, che punti alla *testa della lista*;
+* un intero `n` che conta gli elementi attualmente memorizzati nella
+lista;
+* un riferimento, chiamato `tail`, che punti alla coda della lista, **solo nel
+caso di liste doppiamente concatenate**.
+
+{{<column/columns>}}
+{{<column/col>}}
+```java
+// SinglyLinkedList.java
+public class SinglyLinkedList {
+    private IListPosition head;
+    private int n;
+    public SinglyLinkedList() {
+        head = null;
+        n = 0;
+    }
+}
+ 
+```
+{{</column/col>}}
+{{<column/col>}}
+```java
+// DoublyLinkedList.java
+public class DoublyLinkedList {
+    private IListPosition head;
+    private IListPosition tail;
+    private int n;
+    public DoublyLinkedList() {
+        head = tail = null;
+        n = 0;
+    }
+}
+```
+{{</column/col>}}
+{{</column/columns>}}
+
+Nel codice sotto, inoltre, faremo uso della classe concreta `ListPosition` che implementa
+l'interfaccia `IListPosition` e che prevede il seguente costruttore per inizializzare
+tutti i tre parametri `content`, `next` e `prev` (per evitare confusione con i nomi dei
+metodi i campi per `next` e `prev` sono chiamati `predecessor` e `successor`, rispettivamente).
+
+```java
+public class ListPosition implements IListPosition {
+    private Object content;
+    private IListPosition successor;
+    private IListPosition predecessor;
+
+    public ListPosition(Object c, IListPosition n, IListPosition p) {
+        content = c;
+        successor = n;
+        predecessor = p;
+    }
+    // Implementazione (ovvia) di IListPosition
+    // ...
+}
+```
+
+### Inserimento e cancellazione
+Vediamo quattro tipi di operazione di inserimento/cancellazione
+1. inserimento/cancellazione in *testa*
+2. inserimento/cancellazione in *coda* (solo *doubly linked*)
+3. inserimento/cancellazione *dopo* una data posizione
+4. inserimento/cancellazione *prima* di una data posizione (solo *doubly linked*)
+
+#### Inserimento in testa
+L'inserimento in testa è possibile sia per le singly che per le doubly linked list,
+tuttavia bisogna fare attenzione al caso di liste vuote (e doppia attenzione nel caso
+di doubly linked list).
+
+```java
+public void insertAtHead(Object o) {
+    // crea IListPosition per l'oggetto da inserire
+    // Il suo 'next' sarà quello che è adesso in testa
+    // Funziona anche se la lista è vuota, perché?
+    ListPosition newPosition = new ListPosition(o, head, null);
+    // Inserisco la 'posizione' appena creata come nuova testa
+    head = newPosition;
+    // aggiorno il conteggio degli elementi
+    n++;
+} 
+```
+
+Lo stesso metodo nelle *doubly* linked list va modificato per tenere conto:
+* del riferimento alla coda `tail` (solo se la lista è vuota prima dell'inserimento) e
+* del puntatore `prev` della *vecchia testa* (se la lista non è vuota).
+
+```java
+public void insertAtHead(Object o) {
+    ListPosition newPosition = new ListPosition(o, head, null);
+    head = newPosition;
+    if(tail == null) { // la lista era vuota (tail -> null)
+        tail = newPosition;
+    } else { // esisteva una head e quindi aggiorno il suo prev
+        newPosition.next().setPrev(newPosition); // !!!
+    }
+    n++;
+} 
+```
+
+La seguente riga
+
+```java
+newPosition.next().setPrev(newPosition);
+```
+
+non fa altro che accedere alla vecchia testa (che adesso è il successore della nuova testa)
+e modificare il suo `prev` in modo da puntare alla nuova testa.
+
+#### Inserimento in coda
+
+{{<exercise>}}
+L'inserimento in coda per una *doubly* linked list è la versione "speculare" dell'inserimento
+in testa sempre per la *doubly* linked list. Realizzare il codice Java è un buon esercizio per
+comprendere meglio quanto discusso sopra sull'inserimento in testa.
+{{</exercise>}}
+
+{{<exercise>}}
+Non avendo un riferimento diretto alla coda della lista, la *singly* linked list non permette
+l'inserimento allo stesso modo della *doubly* linked list. Tuttavia, è possibile comunque
+fare l'inserimento in coda ottenendo prima il riferimento all'ultimo elemento della lista (il
+riferimento `tail` se ci fosse) e poi inserendo successivamente a questo. Realizzare il codice
+Java per l'inserimento in coda in una lista singolarmente concatenata.
+{{</exercise>}}
+
+#### Inserimento dopo
+Un'altra possibilità per l'inserimento in una lista è indicare la posizione del
+nuovo elemento rispetto ad un elemento già esistente. Il caso più semplice è
+l'inserimento *dopo* la posizione `pos`.
+
+```java
+public void insertAfter(Object o, IListPosition pos) {
+    IListPosition newPos = new ListPosition(o, pos.next(), null);
+    pos.setNext(newPos);
+    n++;
+}
+```
+
+{{<exercise>}}
+Come nel caso di `insertAtHead` il caso di *doubly linked list* richiede un po'
+più di attenzione data la presenza dei riferimenti `prev` e del riferimento  `tail`
+alla coda della lista. Realizzare il metodo
+
+```java
+public void insertAfter(Object o, IListPosition pos);
+```
+
+in una *doubly linked list*.
+{{</exercise>}}
+
+#### Inserimento prima
+Data una posizione all'interno della lista, si può immaginare all'inserimento di
+un nuovo elemento nella posizione precedente. Nel caso si liste singolarmente
+concatenate questa operazione è lievemente più complessa di `insertAfter` poiché
+manca il riferimento `prev` che indica la posizione precedente (è comunque
+possibile tale operazione , vedi esercizio sotto). 
+
+{{<exercise>}}
+Realizzare il codice Java per l'inserimento in una *doubly linked list* di un nuovo
+elemento che sia nella posizione precedente ad un elemento dato. La firma del metodo
+da implementare è la seguente
+
+```java
+public void insertBefore(Object o, IListPosition pos);
+```
+{{</exercise>}}
+
+{{<exercise>}}
+L'inserimento *prima* di una posizione data può essere fatto anche in una *singly linked
+list*, tuttavia questa operazione richiede di individuare la posizione all'interno della
+lista ed anche la posizione che precede quest'ultima. Realizzare il metodo
+```java
+public void insertBefore(Object o, IListPosition pos);
+```
+nella classe `SinglyLinkedList`.
+
+**Suggerimento** Iniziare cercando una posizione `p` tale che (`p == pos`), durante
+questa ricerca tenere traccia anche della posizione che precede `p` (attenzione che
+`p` potrebbe anche essere `head`).
+{{</exercise>}}
+
+{{<important>}}
+Le operazione `insertBefore` e `removeBefore` possono essere realizzate anche in *singly
+linked list*, ma questo risulta più complicato rispetto ad `insertAfter` e `removeAfter`.
+Per questo motivo tali operazioni sono **raramente** implementate in una *singly linked
+list*. Nel caso la struttura utilizzata richiedesse frequenti utilizzo di `insertBefore`
+e/o `removeBefore` è consigliabile usare una *doubly linked list*.
+{{</important>}}
+
+### Cancellazione in testa
+Dagli esempi sopra si può vedere come l'inserimento sia un operazione "semplice"
+nelle liste, anche la cancellazione, come vederemo, richiede poche istruzioni.
+
+Iniziamo vedendo la cancellazione dell'elemento che si trova nelle testa della
+lista. In questo caso per cancellazione si intende che la posizione viene rimossa
+dalla lista e che l'elemento che seguiva quello rimosso, diventa la nuova testa
+della lista.
+
+Il codice Java qui sotto mostra la rimozione in testa per una *singly* linked
+list.
+```java
+public Object removeAtHead() {
+    if (head == null) {
+        return null; // Rimozione da una lista vuota, errore?
+    }
+    IListPosition removed = head;
+    head = head.next();
+    n--;
+    return removed.value();
+}
+```
+
+Si noti che il codice restituisce anche il *valore* dell'elemento eliminato,
+senza questa restituzione il contenuto verrebbe perso a meno che non fosse
+stato precedentemente memorizzato.
+
+Nel caso di *doubly* linked list è necessario aggiustare anche i riferimenti
+`prev` ed eventualmente la coda.
+{{<exercise>}}
+Realizzare il metodo java
+
+```java
+public Object removeAtHead();
+```
+
+in una lista doppiamente concatenata.
+{{</exercise>}}
+
+### Ricerca
+
+```java
+public IListPosition search(Object o) {
+    IListPosition iterator = head;
+    while(iterator != null) {
+        if(iterator.value().equals(o)) {
+            return iterator;
+        }
+        iterator = iterator.next();
+    }
+    return null;
+}
+```
+### *Splicing*
+Una operazione molto semplice da eseguire su una lista è la sua divisione in due
+o più sottoliste. Questa operazione viene definita *splicing* (o *split*) della
+lista, ovviamente per effettuare lo splicing dobbiamo sapere in quale posizione
+dovrà avvenire lo spezzamento.
+
+```java
+public SinglyLinkedList splice(IListPosition splicePosition) {
+    SinglyLinkedList tailList = new SinglyLinkedList();
+    tailList.head = splicePosition.next();
+    splicePosition.setNext(null);
+    IListPosition iterator = tailList.head;
+    while(iterator != null) {
+        tailList.n++;
+        iterator = iterator.next();
+    }
+    n -= tailList.n;
+    return tailList;
+}
+```
+
+### Merge
+
+```java
+public SinglyLinkedList merge(SinglyLinkedList other) {
+    // current list is empty
+    if (head == null) {
+        head = other.head;
+        n = other.n;
+        return this;
+    }
+    // Finds the tail of the current list
+    IListPosition last = head;
+    while(last.next() != null) {
+        last = last.next();
+    }
+    last.setNext(other.head);
+    n+= other.n;
+    return this;
+}
+```
+
+## Esercizi su liste
+
+{{<exercise title="Elemento di indice">}}
+Anche se le liste sono strutture dati che non prevedono in modo naturale
+l'indicizzazione (`0,1,...`) dei propri elementi, è possibile (a volte utile)
+scrivere un metodo che acceda all'elemento di indice \\(i\\) della lista.
+L'indice rappresenta (solitamente partendo da \\(0\\)) l'ordine all'interno
+della lista a partire dalla testa.
+
+Scrivere un metodo
+```java
+public IListPosition positionAtIndex(int i); 
+```
+
+che restituisce la posizione che si trova nella posizione `i` della lista.
+{{</exercise>}}

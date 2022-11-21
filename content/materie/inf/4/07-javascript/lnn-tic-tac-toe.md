@@ -12,9 +12,9 @@ laboratorio è l'utilizzo dell'elemento `<canvas>` di HTML5 spiegato meglio nell
 [lezione dedicata]().
 
 Il laboratorio è diviso in tre parti principali:
-1. modello,
-2. interfaccia,
-3. controllo.
+1. modello (*Model*),
+2. interfaccia (*View*),
+3. controllo (*Control*).
 
 Ogni parte aggiunge una funzionalità al gioco di modo che, alla fine delle tre
 parti, si avrà un gioco pienamente funzionante.
@@ -93,7 +93,7 @@ const width = canvas.width;
 const height = canvas.height;
 {{</highlight>}}
 
-*Modo 2:* usare l'oggetto *context* ele sue proprietà `offsetX` e `offsetY`
+*Modo 2:* usare l'oggetto *context* e le sue proprietà `offsetX` e `offsetY`
 {{<highlight javascript>}}
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
@@ -115,8 +115,37 @@ relativi (ad esempio il 5% della larghezza e dell'altezza).
 ### 2.2 - Visualizzare le mosse
 
 {{<column/two-cols wl=8 wr=4 content="left" embed="img/tic-tac-toe-game.html">}}
-SS
+Il passo successivo è riportare sull'interfaccia (sulla scacchiera disegnata) la
+situazione del gioco che è rappresentata dalla variabile usata nel modello. In
+altra parole dobbiamo riempire le caselle (o lasciarle vuote) sulla base del valore
+che vediamo nella variabile di stato.
+
+Supponiamo di avere la variabile `board` che è un array bidimensionale \\(3 \times 3\\),
+se abbiamo usato il valore `1` per il giocatore `X`, il valore `2` per il giocatore `O`
+e il valore `0` per la casella vuota, allora l'immagine a destra sarà la rappresentazione
+del seguente stato
+```
+2 0 1
+1 2 0
+0 0 1
+```
+
+Anche se non è obbligatorio, conviene avere una funzione che si in grado di
+disegnare una `X` nella posizione centrale della casella ed una funzione
+analoga per il disegno di una `O`.
 {{</column/two-cols>}}
+
+{{<exercise>}}
+Scrivere le due funzioni
+
+```javascript
+function drawCrossCenteredAt(...) { ... }
+function drawCircleCenteredAt(...) { ... }
+```
+Che prendono un punto *centro* del `canvas` ed un *raggio* e disegnano il
+simbolo centrato nel punto dato e con il raggio dato.
+{{</exercise>}}
+
 
 ## 3 - L'interazione (*control*)
 
@@ -127,4 +156,36 @@ SS
 ### 3.3 - Controllo della condizione di fine partita
 
 ### 3.4 - Reset del gioco
+
+## 4 - Tic Tac Toe PRO
+Il gioco del Tic Tac Toe è molto semplice e magari noioso per qualcuno, perché
+non renderlo più interessante con una versione *Pro* con nuove feature, ecco
+alcune idee.
+
+### 4.1 - Più di 3...
+Il classico Tic Tac Toe si gioca su una scacchiera \\(3 \times 3\\), ma nulla vieta
+di far diventare la scacchiera \\(4 \times 4, 5 \times 5, \ldots \\), insomma
+la versione Pro potrebbe contenere uno slider (elemento [HTML Range](https://www.w3schools.com/tags/att_input_type_range.asp))
+per selezionare la dimensione della scacchiera (ad esempio da \\(3 \times 3\\) a
+\\( 8 \times 8 \\)) in questo modo il gioco sarà molto più accattivante e meno
+noioso!
+
+### 4.2 - Simbolo, colore e nome
+Anche l'occhio vuole la sua parte, perché non dare ai giocatori di scegliersi
+un simbolo di gioco (non solo X e O) ed un colore? Fatto questo perché non dare
+anche l'opportunità di avere un nome anziché `Player 1` e `Player 2`? Attenzione
+però, che non ci possono essere giocatori con lo stesso simbolo e colore e nemmeno
+due giocatori con lo stesso nome!
+
+### 4.3 - Classifica e torneo
+Non sarebbe bello organizzare un bel torneo di Tic Tac Toe PRO? Si potrebbe
+aggiungere una classifica delle partite (\\(+3\\) per la vittoria \\(+1\\) per
+il pareggio e \\(0\\) per la sconfitta). Si può anche prevedere un *torneo ad
+eliminazione* (scontro diretto o alla meglio delle 5?) che preveda
+gironi, ottavi, quarti, ..., 
+
+### 4.4 - Meglio si soli che mal accompagnati...
+A volte non c'è nessuno che ci sfidi a Tic Tac Toe, se solo ci fosse un'AI
+che ci sfida! Si potrebbe pensare di creare un semplice AI che ci sfidi il
+giocatore umano (e se facessimo giocare l'AI contro sè stessa?)
 
