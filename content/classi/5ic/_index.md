@@ -10,11 +10,24 @@ menu:
 ## Lezioni
 
 <!-- 
-* 20 - LAB (18/11/22)
-    *
+* 25 - Protocolli per la posta elettronica (01/12/22)
+    * Interrogazioni
+    * IMAP: Cisco CCNA v6 10.2.1.6
+* 24 - Protocolli per la posta elettronica (29/11/22)
+    * Interrogazioni
+    * POP3: Cisco CCNA v6 10.2.1.5
+* 23 - LAB: Switch e router (25/11/22) -->
+* 22 - Protocolli per la posta elettronica (24/11/22)
+    * Interrogazioni
+    * SMTP: Cisco CCNA v6 10.2.1.4
+* 21 - DHCP (22/11/22)
+    * Interrogazioni
+    * DHCP su reti diverse
+* 20 - LAB: VLAN e Routing (18/11/22)
+    * Inter-VLAN routing
 * 19 - Livello applicativo: DHCP (17/11/22)
     * Interrogazioni
-    * Dynamic Host Configuration Protocol (DHCP): Cisco CCNA v6 -->
+    * Dynamic Host Configuration Protocol (DHCP): Cisco CCNA v6 10.2.2.5, 10.2.2.6 
 * 18 - Livello applicativo: DNS (15/11/22) 
     * Interrogazioni 
     * DNS: Cisco CCNA v6: 10.2.2.4

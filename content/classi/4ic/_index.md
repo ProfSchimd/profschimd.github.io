@@ -9,9 +9,20 @@ menu:
 
 ## Lezioni
 <!-- 
-* 
+* 27 - Verifica scritta (29/11/22)
+    * Verifica scritta su
+        * Cisco CCNA v7 capitoli 2 e 4
+        * Esercizio su banda e latenza
+* 26 - LAB: (28/11/22)
+    * -->
+* 25 - Banda e latenza (24/11/22)
+    * Interrogazioni
+    * Esercizi su banda e latenza
+* 24 - Livello fisico (22/11/22)
+    * Interrogazioni (esercizio su banda e latenza)
+    * Supporti wireless: Cisco CCNA v7 4.6
 * 23 - Livello fisico (18/11/22)
-    * Cablaggio in rame -->
+    * Cablaggio in rame
 * 22 - Livello fisico (15/11/22)
     * Interrogazioni 
     * [Banda e latenza]({{< ref "banda-latenza.md" >}}) con [esercizi](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTcwNzAxNzYxNTUw/details) 

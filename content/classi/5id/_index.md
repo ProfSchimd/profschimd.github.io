@@ -11,12 +11,28 @@ menu:
 
 <!--
 Richieste HTTP e CORS
-* 21 - LAB: (17/11/22)
-    * 
+* 27 - Verifica scritta (05/12/22)
+    * Verifica scritta su programmazione Dart
+* 26 - LAB: Client REST in Flutter (01/12/22)
+    * Inizio sviluppo client REST
+    * Comunicazione delle API utilizzate
+* 25 - Client REST in Flutter (29/11/22)
+    * Interrogazioni
+    * Esempio App su due pagine con client API REST -->
+* 24 - Sviluppo Flutter (28/11/22)
+    * Interrogazioni
+    * `Navigator`
+* 23 - LAB: visite della classi seconde (24/11/22)
+    * Demo di app e giochi mobile
+* 22 - Programmazione in Flutter (23/11/22)
+    * Interrogazioni
+    * Creazione di `ListView`
+* 21 - LAB: Sviluppo in Flutter (17/11/22)
+    * Revisione app calcolatrice
+    * Attività su libreria flame per videogiochi in Flutter
 * 20 - Programmazione in Flutter (16/11/22)
     * Interrogazioni
-    * Utilizzo di `ListView`
-    * Utilizzo di `Navigator` per transizione di pagina -->
+    * Creazione di una classe da JSON
 * 19 - Programmazione in Dart (14/11/22)
     * Interrogazioni
     * Cenni su `ListView.builder` e `Navigator`

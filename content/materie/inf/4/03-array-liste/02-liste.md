@@ -375,6 +375,7 @@ della lista.
 
 Il codice Java qui sotto mostra la rimozione in testa per una *singly* linked
 list.
+
 ```java
 public Object removeAtHead() {
     if (head == null) {
@@ -404,6 +405,14 @@ in una lista doppiamente concatenata.
 {{</exercise>}}
 
 ### Ricerca
+Come già visto negli array, anche nelle liste è possibile *cercare* uno specifico
+valore all'interno di una lista. A differenza degli array in cui l'accesso avviene
+mediante indicizzazione (cioè con la posizione), nelle liste l'accesso è *sequenziale*,
+utilizzando i riferimenti `next` e `prev`.
+
+Per cercare all'interno di un lista, si usa il concetto di *iteratore* che rappresenta
+un "puntatore" all'elemento attuale della lista, durante la ricerca l'iteratore viene
+spostato in avanti ad ogni ciclo, fino a raggiungere la fine della lista.
 
 ```java
 public IListPosition search(Object o) {
@@ -417,6 +426,14 @@ public IListPosition search(Object o) {
     return null;
 }
 ```
+
+{{<attention>}}
+Nel codice sopra il confronto tra l'elemento cercato `o` e il valore di una posizione
+avviene con il metodo `equals`. Questo perché in Java (come in molti altri linguaggi),
+l'operatore di uguaglianza `==` interroga l'uguaglianza dei riferimenti e non del loro
+contenuto.
+{{</attention>}}
+
 ### *Splicing*
 Una operazione molto semplice da eseguire su una lista è la sua divisione in due
 o più sottoliste. Questa operazione viene definita *splicing* (o *split*) della
@@ -439,6 +456,11 @@ public SinglyLinkedList splice(IListPosition splicePosition) {
 ```
 
 ### Merge
+Oltre a spezzare una lista, è possibile anche unire due o più liste utilizzando
+l'operazione di *merge* (fusione) di due liste.
+
+Il seguente codice Java aggiunge alla fine della lista corrente una lista `other`
+restituendo la nuova lista.
 
 ```java
 public SinglyLinkedList merge(SinglyLinkedList other) {
@@ -461,6 +483,7 @@ public SinglyLinkedList merge(SinglyLinkedList other) {
 
 ## Esercizi su liste
 
+### Ricerca e indicizzazione
 {{<exercise title="Elemento di indice">}}
 Anche se le liste sono strutture dati che non prevedono in modo naturale
 l'indicizzazione (`0,1,...`) dei propri elementi, è possibile (a volte utile)
@@ -469,9 +492,42 @@ L'indice rappresenta (solitamente partendo da \\(0\\)) l'ordine all'interno
 della lista a partire dalla testa.
 
 Scrivere un metodo
+
 ```java
 public IListPosition positionAtIndex(int i); 
 ```
 
 che restituisce la posizione che si trova nella posizione `i` della lista.
 {{</exercise>}}
+
+### Inserimento, Merge e split
+{{<exercise title="Merge in posizione">}}
+Scrivere un metodo Java che inserisce un'intera lista all'interno di
+un'altra, a partire da una posizione data.
+
+```java
+public void insertAllAt(SinglyLinkedList other, IListPosition pos);
+```
+
+Se la lista di partenza è
+
+```
+1 -> 2 -> 5 ->
+```
+
+e la lista `other` è
+
+```
+3 -> 4 ->
+```
+
+la chiamata a `insertAllAt` con la posizione contenente `2` cambierà la lista
+originale in
+
+```
+1 -> 2 -> 3 -> 4 -> 5 ->
+```
+
+{{</exercise>}}
+
+

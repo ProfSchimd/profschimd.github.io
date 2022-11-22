@@ -9,13 +9,32 @@ menu:
 
 ## Lezioni
 <!--
-* 25 - LAB: Liste in Java
+* 32 - Verifica scritta (12/12/22)
+    * Verifica su "algoritmi su liste"
+* 31 - Grafi (06/12/22)
+    * 
+* 30 - Grafi (05/12/22)
+    * 
+* 29 - LAB: Liste (02/11/22)
+    * 
+* 28 - LAB: Liste (30/11/22)
+    * 
+* 27 - Liste (29/11/22)
     * Interrogazioni
+    * Esercizi
+* 26 - Liste (28/11/22)
+    * Interrogazioni
+    * Esercizi-->
+* 25 - LAB: Liste in Java (25/11/22)
+    * Interrogazioni
+    * [Operazioni di ricerca](({{< ref "02-liste.md#ricerca" >}}))
+    * Assemblea di Istituto in Aula Magna
 * 34 - LAB: Liste in Java (23/11/22)
-    * Operazioni: accesso e ricerca
+    * [Operazioni di cancellazione](({{< ref "02-liste.md#inserimento-e-cancellazione" >}}))
 * 33 - Liste (22/11/22)
     * Interrogazioni
-    * Operazioni di inserimento e cancellazione -->
+    * [Ripasso reference type](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NTcyNzkyMTk2NzY1/details)
+    * [Operazioni di inserimento]({{< ref "02-liste.md#inserimento-e-cancellazione" >}})
 * 32 - LAB: Liste in Java (18/11/22)
     * Interrogazioni
     * Contest di velocità sul codice per "Queue e Stack"
