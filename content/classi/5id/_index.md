@@ -21,12 +21,12 @@ Richieste HTTP e CORS
     * Esempio App su due pagine con client API REST -->
 * 24 - Sviluppo Flutter (28/11/22)
     * Interrogazioni
+    * Creazione di `ListView`
     * `Navigator`
 * 23 - LAB: visite della classi seconde (24/11/22)
     * Demo di app e giochi mobile
 * 22 - Programmazione in Flutter (23/11/22)
     * Interrogazioni
-    * Creazione di `ListView`
 * 21 - LAB: Sviluppo in Flutter (17/11/22)
     * Revisione app calcolatrice
     * Attività su libreria flame per videogiochi in Flutter

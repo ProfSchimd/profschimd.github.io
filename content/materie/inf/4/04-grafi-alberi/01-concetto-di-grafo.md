@@ -42,6 +42,30 @@ rappresentazione con una struttura a lista.
 
 ## Definizione di grafo
 
+{{<def title="Grafo">}}
+Un grafo è un insieme di **nodi** (*nodes*) collegati tra di loro mediante **lati**
+(*edges*) o **archi** (*arcs*), ogni lato o arco mette in collegamento due nodi
+diverso oppure un nodo con sé stesso. Se il collegamento ha una direzione (c'è una
+partenza ed un arrivo), allora diciamo che il grafo è *direzionato* (*directed*),
+e chiamiamo i collegamenti *archi* altrimenti diciamo che il grafo è *non
+direzionato* (*undirected*) e chiamiamo i collegamenti *lati*
+{{</def>}}
+
+{{<attention>}}
+È importante non confondere il modo grafico di rappresentare un grafo mediante
+punti (cerchi) e segmenti con i concetti di nodi e archi. Ovviamente, ogni
+punto rappresenta un nodo ed ogni segmento un arco, **ma sono possibile altre
+rappresentazioni**. Una rappresentazione spesso usata in informatica è quella
+[mediante matrici](#rappresentazione-mediante-matrici) (che tratteremo sotto).
+In matematica, i grafi sono spesso rappresentati mediante insiemi, ad esempio,
+il grafo dell'immagine sopra sarà composta da:
+* l'insieme dei *nodi*:
+$$ \lbrace A, B, C, D, E, F, Z\rbrace $$
+* l'insieme dei *lati*:
+$$ \lbrace (A, B), (A, C), (A, D), (A,F), (B, F), (C,D), (C,E), (D,F), (F,E)\rbrace $$
+
+{{</attention>}}
+
 ## Rappresentazione di grafi
 
 ### Rappresentazione mediante nodi

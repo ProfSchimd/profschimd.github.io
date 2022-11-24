@@ -10,16 +10,17 @@ menu:
 ## Lezioni
 
 <!-- 
-* 25 - Protocolli per la posta elettronica (01/12/22)
+* 25 - LAB:
+    *
+* 24 - Protocolli per la posta elettronica (01/12/22)
     * Interrogazioni
-    * IMAP: Cisco CCNA v6 10.2.1.6
-* 24 - Protocolli per la posta elettronica (29/11/22)
-    * Interrogazioni
-    * POP3: Cisco CCNA v6 10.2.1.5
-* 23 - LAB: Switch e router (25/11/22) -->
-* 22 - Protocolli per la posta elettronica (24/11/22)
+    * IMAP: Cisco CCNA v6 10.2.1.6 -->
+* 23 - Protocolli per la posta elettronica (29/11/22)
     * Interrogazioni
     * SMTP: Cisco CCNA v6 10.2.1.4
+    * POP3: Cisco CCNA v6 10.2.1.5
+* 22 - LAB: Switch e router (25/11/22) 
+    * 
 * 21 - DHCP (22/11/22)
     * Interrogazioni
     * DHCP su reti diverse

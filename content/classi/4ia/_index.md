@@ -14,9 +14,10 @@ menu:
 * 31 - Grafi (06/12/22)
     * 
 * 30 - Grafi (05/12/22)
-    * 
+    * Interrogazioni
+    * Il [concetto di grafo]() e motivazione
 * 29 - LAB: Liste (02/11/22)
-    * 
+    * Interrogazioni
 * 28 - LAB: Liste (30/11/22)
     * 
 * 27 - Liste (29/11/22)
@@ -24,13 +25,14 @@ menu:
     * Esercizi
 * 26 - Liste (28/11/22)
     * Interrogazioni
-    * Esercizi-->
+    * Operazione di splicing e merging-->
 * 25 - LAB: Liste in Java (25/11/22)
     * Interrogazioni
     * [Operazioni di ricerca](({{< ref "02-liste.md#ricerca" >}}))
     * Assemblea di Istituto in Aula Magna
 * 34 - LAB: Liste in Java (23/11/22)
     * [Operazioni di cancellazione](({{< ref "02-liste.md#inserimento-e-cancellazione" >}}))
+    * Implementazione in Java di operazioni su liste
 * 33 - Liste (22/11/22)
     * Interrogazioni
     * [Ripasso reference type](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NTcyNzkyMTk2NzY1/details)
