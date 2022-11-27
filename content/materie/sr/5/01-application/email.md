@@ -2,6 +2,7 @@
 title: "Protocolli per la posta elettronica: SMTP, POP e IMAP"
 running_title: "SMTP, POP, IMAP"
 type: lecture
+weight: 500
 summary: "Uno degli strumenti più usati è la posta elettronica (email). I protocolli SMTP, POP e IMAP che permettono l'utilizzo di questo servizio sono l'argomento di questa lezione"
 ---
 
@@ -128,14 +129,28 @@ S: 221 Bye
 {The server closes the connection}
 ```
 
-
 ## POP
+Il *Post Office Protocol (POP)* è utilizzato per recuperare da una casella di posta
+i messaggi in essa contenuti. Attualmente la versione utilizzata è *POP3* definita
+nell'[RFC 5024][4].
+
+### Porte note POP3
+
+### Funzionamento di POP3
 
 ## IMAP
+
+### Porte note IMAP
+
+### Funzionamento di IMAP
 
 ## Riferimenti
 * [SMTP Wikipedia (EN)][2]
 * [RFC 5321: Simple Mail Transfer Protocol][1]
+* [POP Wikipedia (EN)][3]
+* [RFC 5034: The Posto Office Protocol (POP3)][4]
 
 [1]: https://datatracker.ietf.org/doc/html/rfc5321
 [2]: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
+[3]: https://en.wikipedia.org/wiki/Post_Office_Protocol
+[4]: https://datatracker.ietf.org/doc/html/rfc5034
