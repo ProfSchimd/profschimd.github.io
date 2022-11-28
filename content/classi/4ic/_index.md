@@ -9,12 +9,23 @@ menu:
 
 ## Lezioni
 <!-- 
+* 31 - LAB (12/12/22)
+    *
+* 30 - Rappresentazione numerica (06/12/22)
+    * Interrogazioni
+    * Rappresentazione binaria e esadecimale
+    * Indirizzi IP e indirizzi MAC
+* 29 - LAB (05/12/22)
+    * -->
+* 28 - Rappresentazione numerica (02/12/22)
+    * Interrogazioni
+    * Codifica binaria e esadecimale CCNA Cap 5
 * 27 - Verifica scritta (29/11/22)
     * Verifica scritta su
         * Cisco CCNA v7 capitoli 2 e 4
         * Esercizio su banda e latenza
-* 26 - LAB: (28/11/22)
-    * -->
+* 26 - LAB: Packet Tracer (28/11/22)
+    * Impostazione di indirizzi IP (PC e VLAM) su Packet Tracer
 * 25 - Banda e latenza (24/11/22)
     * Interrogazioni
     * Esercizi su banda e latenza

@@ -10,19 +10,26 @@ menu:
 ## Lezioni
 
 <!--
-Richieste HTTP e CORS
+* 31 - LAB: (15/12/22)
+    *
+* 30 - Educazione civica (14/12/22)
+    * I dati
+* 29 - Educazione civica (12/12/22)
+    * I dati
+* 28 - Design pattern (07/12/22)
+    * Factory patterns
+    * Observer -->
 * 27 - Verifica scritta (05/12/22)
-    * Verifica scritta su programmazione Dart
+    * Verifica scritta su programmazione Dart 
 * 26 - LAB: Client REST in Flutter (01/12/22)
     * Inizio sviluppo client REST
     * Comunicazione delle API utilizzate
-* 25 - Client REST in Flutter (29/11/22)
-    * Interrogazioni
-    * Esempio App su due pagine con client API REST -->
+* 25 - Esercitazione (29/11/22)
+    *  Esercizio di preparazione alla verifica 
 * 24 - Sviluppo Flutter (28/11/22)
     * Interrogazioni
-    * Creazione di `ListView`
     * `Navigator`
+    Esempio "App Marea" su due pagine con client API REST
 * 23 - LAB: visite della classi seconde (24/11/22)
     * Demo di app e giochi mobile
 * 22 - Programmazione in Flutter (23/11/22)

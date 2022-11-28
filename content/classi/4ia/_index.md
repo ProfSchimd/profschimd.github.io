@@ -18,14 +18,19 @@ menu:
     * Il [concetto di grafo]() e motivazione
 * 29 - LAB: Liste (02/11/22)
     * Interrogazioni
-* 28 - LAB: Liste (30/11/22)
     * 
+* 28 - LAB: Liste (30/11/22)
+    * -->
 * 27 - Liste (29/11/22)
     * Interrogazioni
     * Esercizi
+        * Inversione lista (completa)
+        * Splicing e merging
 * 26 - Liste (28/11/22)
     * Interrogazioni
-    * Operazione di splicing e merging-->
+    * Esercizi su liste
+        * Conteggio elementi 
+        * Inversione lista
 * 25 - LAB: Liste in Java (25/11/22)
     * Interrogazioni
     * [Operazioni di ricerca](({{< ref "02-liste.md#ricerca" >}}))
