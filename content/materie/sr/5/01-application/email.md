@@ -135,22 +135,149 @@ i messaggi in essa contenuti. Attualmente la versione utilizzata è *POP3* defin
 nell'[RFC 5024][4].
 
 ### Porte note POP3
+Al protocollo POP3 sono riservate due *porte note*, la porta TCP numero `110` e la
+porta TCP numero `995`. La seconda delle due porte note è riservata alla versione
+*secure* del protocollo chiamata *POP3S* (simile ad [http]({{< ref "http.md" >}})).
 
 ### Funzionamento di POP3
+Una volta stabilita la connessione TCP tra client (`C`) e server (`S`), i due
+instaurano un "dialogo" attraverso comandi impartiti dal client a cui il server
+risponde. I principali comandi POP3 sono i seguenti:
+* `USER` il client si identifica presso il server (primo comando)
+* `PASS` il client fornisce la propria password (secondo comando)
+* `STAT` richiede il numero e la dimensione totale dei messaggi
+* `LIST` restituisce la lista dei messaggi
+* `RETR` restituisce il messaggio con indice indicato
+* `DELE` elimina il messaggio con indice indicato
+* `QUIT` chiude la connessione
+
+Qui sotto vediamo un esempio di comunicazione tra client e server durante la quale
+due messaggi vengono recuperate e cancellati (Fonte: [Wikipedia POP (EN)][3]).
+
+```
+C:    STAT
+S:    +OK 2 320
+C:    LIST
+S:    +OK 2 messages (320 octets)
+S:    1 120
+S:    2 200
+S:    .
+C:    RETR 1
+S:    +OK 120 octets
+S:    <the POP3 server sends message 1>
+S:    .
+C:    DELE 1
+S:    +OK message 1 deleted
+C:    RETR 2
+S:    +OK 200 octets
+S:    <the POP3 server sends message 2>
+S:    .
+C:    DELE 2
+S:    +OK message 2 deleted
+C:    QUIT
+S:    +OK dewey POP3 server signing off (maildrop empty)
+```
+
+{{<attention title="Limiti di POP3">}}
+Il protocollo POP3 non prevede la differenziazione tra messaggi letti e messaggi
+non letti, dal punto di vista di POP3 la casella di posta è una sequenza di messaggi
+numerati `1,2,...`. 
+
+Inoltre POP3 non prevede alcun tipo di organizzazione dei messaggi all'interno
+della casella, non sono quindi previste cartelle, posta in arrivo, posta inviati
+né altre modalità di organizzazione e classificazione dei messaggi.
+
+Per questi motivi, la gestione di una casella di posta con accesso mediante POP3
+risulta difficoltosa. Il protocollo [IMAP](#imap) è stato creato proprio per
+sopperire a queste mancanze del protocollo POP3.
+{{</attention>}}
 
 ## IMAP
+Il protocollo *Internet Message Access Protocol (IMAP)* è utilizzato per recuperare
+da una casella di posta i messaggi oltre che ad organizzarli nella stessa casella.
+Il protocollo IMAP è definito nell'[RFC 9051][6] (attualmente la revisione 2 della
+versione 4 del protocollo).
 
 ### Porte note IMAP
+Al protocollo IMAP sono riservate due *porte note*, la porta TCP numero `143` e la
+porta TCP numero `993`. La seconda delle due porte note è riservata alla versione
+*secure* del protocollo chiamata *IMAPS* (simile a [POP](#pop)).
 
 ### Funzionamento di IMAP
+Il funzionamento di IMAP assomiglia a quello di POP3, ma con l'importante differenza
+rappresentata dal concetto di **cartella** o **mailbox**. Le cartelle sono dei modi
+di organizzare logicamente i messaggi all'interno del server. È perciò possibile
+tener traccia di varie cose non possibili in POP: messaggi non letti, messaggi archiviati,
+cestino, ... Altra differenza importante è la possibilità di recuperare (`FETCH`)
+solo i messaggi di una specifica cartella.
+
+Di seguito presentiamo una breve lista dei principali comandi IMAP.
+* `LOGIN` procede all'autenticazione presso il server
+* `SELECT` seleziona una cartella
+* `CREATE` crea una nuova cartella sul server
+* `DELETE` elimina una cartella
+* `LIST` restituisce l'elenco della cartella selezionata
+* `CLOSE` chiude la cartella selezionata
+* `FETCH` recupera i messaggi da una cartella
+* `LOGOUT` chiude l'attuale sessione
+
+```
+S:   * OK IMAP4rev1 Service Ready
+C:   a001 login mrc secret
+S:   a001 OK LOGIN completed
+C:   a002 select inbox
+S:   * 18 EXISTS
+S:   * FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+S:   * 2 RECENT
+S:   * OK [UNSEEN 17] Message 17 is the first unseen message
+S:   * OK [UIDVALIDITY 3857529045] UIDs valid
+S:   a002 OK [READ-WRITE] SELECT completed
+C:   a003 fetch 12 full
+S:   * 12 FETCH (FLAGS (\Seen) INTERNALDATE "17-Jul-1996 02:44:25 -0700"
+      RFC822.SIZE 4286 ENVELOPE ("Wed, 17 Jul 1996 02:23:25 -0700 (PDT)"
+      "IMAP4rev1 WG mtg summary and minutes"
+      (("Terry Gray" NIL "gray" "cac.washington.edu"))
+      (("Terry Gray" NIL "gray" "cac.washington.edu"))
+      (("Terry Gray" NIL "gray" "cac.washington.edu"))
+      ((NIL NIL "imap" "cac.washington.edu"))
+      ((NIL NIL "minutes" "CNRI.Reston.VA.US")
+      ("John Klensin" NIL "KLENSIN" "MIT.EDU")) NIL NIL
+      "<B27397-0100000@cac.washington.edu>")
+      BODY ("TEXT" "PLAIN" ("CHARSET" "US-ASCII") NIL NIL "7BIT" 3028
+      92))
+S:   a003 OK FETCH completed
+C:   a004 fetch 12 body[header]
+S:   * 12 FETCH (BODY[HEADER] {342}
+S:   Date: Wed, 17 Jul 1996 02:23:25 -0700 (PDT)
+S:   From: Terry Gray <gray@cac.washington.edu>
+S:   Subject: IMAP4rev1 WG mtg summary and minutes
+S:   To: imap@cac.washington.edu
+S:   cc: minutes@CNRI.Reston.VA.US, John Klensin <KLENSIN@MIT.EDU>
+S:   Message-Id: <B27397-0100000@cac.washington.edu>
+S:   MIME-Version: 1.0
+S:   Content-Type: TEXT/PLAIN; CHARSET=US-ASCII
+S:
+S:   )
+S:   a004 OK FETCH completed
+C    a005 store 12 +flags \deleted
+S:   * 12 FETCH (FLAGS (\Seen \Deleted))
+S:   a005 OK +FLAGS completed
+C:   a006 logout
+S:   * BYE IMAP4rev1 server terminating connection
+S:   a006 OK LOGOUT completed
+```
 
 ## Riferimenti
 * [SMTP Wikipedia (EN)][2]
 * [RFC 5321: Simple Mail Transfer Protocol][1]
 * [POP Wikipedia (EN)][3]
-* [RFC 5034: The Posto Office Protocol (POP3)][4]
+* [RFC 5034: The Post Office Protocol (POP3)][4]
+* [IMAP Wikipedia (EN)][5]
+* [RFC 9051: Internet Message Access Protocol (IMAP) - Version 4rev2][6]
 
 [1]: https://datatracker.ietf.org/doc/html/rfc5321
 [2]: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
 [3]: https://en.wikipedia.org/wiki/Post_Office_Protocol
 [4]: https://datatracker.ietf.org/doc/html/rfc5034
+[5]: https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol
+[6]: https://datatracker.ietf.org/doc/html/rfc9051
