@@ -107,20 +107,114 @@ l'**altezza di un albero** (*tree height*) è l'altezza del nodo radice.
 {{</def>}}
 
 ### ADT Albero
+Una struttura dati astratta per gli alberi dovrebbe comprendere alcune
+operazioni per l'accesso ai nodi dell'albero. Le modifiche ad un albero
+solitamente si fanno accedendo direttamente ai nodi coinvolti
 
-* `Root`
-* `Size`
-* `Leaves`
-* `Add`
-* `Remove`
+* `Root` restituisce la radice dell'albero.
+* `Size` restituisce il numero totale di nodi dell'albero.
+* `AllNodes` restituisce tutti i nodi dell'albero.
+* `InternalNodes` restituisce i nodi *interni* dell'albero.
+* `Leaves` restituisce i nodi *foglia* dell'albero.
+* `Search` restituisce, se esiste, il nodo con valore dato.
+* `SetRoot` imposta il nodo radice dell'albero.
 
 ### Alberi in Java
+Come nel caso delle liste, anche le strutture dati ad albero utilizzando il concetto
+di posizione che chiamiamo *nodo*. I nodi sono collegati tra di loro in modo da
+formare la struttura di albero. Negli alberi i collegamenti esistono tra un nodo
+e i suoi figli, nella pratica viene anche utilizzato un collegamento da un nodo
+verso il proprio padre. Ovviamente le foglie non hanno collegamento verso i figli
+mentre la radice non ha collegamento al padre.
+
+Il nodo contiene anche un *valore* che rappresenta l'informazione che si vuole
+memorizzare. Nell'esempio sopra il nodo radice (colorato di rosso) conterrà il
+valore `Alice` ed avrà il collegamento ai figli che sono tre nodi contenenti i
+valori `Bob`, `David` e `Gill`.
+
+L'interfaccia Java per un nodo dell'albero viene mostrata di seguito.
 
 #### La classe `TreeNode`
 
+```java
+public interface ITreeNode {
+    Object value();
+    ITreeNode parent();
+    ITreeNode[] children();
+    void setValue(Object val);
+    void setParent(ITreeNode parent);
+    void addChild(ITreeNode child);
+    void removeChild(ITreeNode child);
+    boolean isRoot();
+    boolean isLeaf();
+    boolean isInternal();
+}
+```
+
+L'interfacci contiene diversi metodi per:
+* interrogare il nodo
+    * `value()` restituisce il valore
+    * `parent()` restituisce il padre
+    * `children()` restituisce tutti i figli
+* modificare il nodo
+    * `setParent()` imposta il collegamento al padre
+    * `addChild()` aggiunge il collegamento ad un nuovo figlio
+    * `removeChild()` rimuove il collegamento ad un figlio esistente
+* utili informazioni
+    * `isRoot()` determina se il nodo è radice
+    * `isLeaf()` determina se il nodo è una foglia
+    * `isInternal()` determina se il nodo è interno
+
+L'implementazione in Java dell'interfaccia `ITreeNode` viene lasciata come
+esercizio in quanto non richiede particolari accorgimenti (ad eccezione do
+`addChild` e `removeChild` che devono mantenere la struttura ad albero).
+
 #### La classe `Tree`
+In pratica la struttura ad albero è interamente determinata dai collegamenti
+tra i nodi. Per questo motivo l'interfaccia `ITree` sotto dichiarata non contiene
+metodi per la modifica, ma solo per la sua interrogazione. L'unica eccezione
+è rappresentata dal metodo `setRoot` che permette di impostare il nodo radice
+
+```java
+public interface ITree {
+    ITreeNode getRoot();
+    void setRoot(ITreeNode root);
+    ITreeNode[] getNodes();
+    ITreeNode[] getLeaves();
+    ITreeNode[] getInternalNodes();
+    int size();
+    boolean isEmpty();
+    ITreeNode search(Object o);
+}   
+```
+
+Notiamo anche l'esistenza di un metodo `search` che permette di cercare un
+dato oggetto all'interno dell'albero. La ricerca in un albero è un problema
+che merita di essere trattato a parte, in particolare quando si parlerà di
+[visite di un albero](#visite-di-un-albero).
+
+{{<observe>}}
+Le interfacce `ITreeNode` e `ITree` sopra sono state definite in modo che
+per indicare un albero sia sufficiente dire chi è il nodo radice. Una volta
+ottenuto un collegamento alla radice è possibile navigare l'albero in modo
+da raggiungere tutti i suoi nodi.
+
+In realtà un qualsiasi nodo dell'albero sarebbe sufficiente per poter
+raggiungere tutti i nodi. Infatti è sempre possibile seguire i collegamenti
+al padre fino a raggiungere la radice dalla quale si può poi raggiungere
+ogni altro nodo.
+{{</observe>}}
 
 ## Alberi binari
+
+```java
+public interface IBinaryTreeNode extends ITreeNode {
+    ITreeNode getLeftChild();
+    void setLeftChild(ITreeNode child);
+    ITreeNode getRightChild();
+    void setRightNode(ITreeNode child);
+}
+```
 
 ### Alberi di ricerca binari
 
