@@ -1,7 +1,7 @@
 ---
 title: "Il concetto di grafo"
 type: lecture
-weight: 10
+weight: 200
 ---
 
 Consideriamo il problema di rappresentare i collegamento tra gli utenti iscritti
