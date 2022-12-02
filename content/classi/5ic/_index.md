@@ -9,19 +9,22 @@ menu:
 
 ## Lezioni
 <!-- 
-* 28 - Verifica scritta
+* 29 - Educazione civica (22/12/22)
+    * 
+* 28 - Educazione civica (20/12/22)
+    *
+* 27 - Verifica scritta (15/12/22)
     * Cisco CCNA v6 Capitolo 10
     * Comandi Packet Tracer
-* 27 - Educazione civica (13/12/22)
-    * Cookie policy
-* 26 - Livello applicativo (06/12/22)
-    * Interrogazioni
-    * Protocolli FTP e TFTP: Cisco CCNA v6 ... -->
-* 25 - LAB: VLAN e Routing (02/12/22)
-    * Inter-VLAN routing
-* 24 - Protocolli per la posta elettronica (01/12/22)
+* 26 - Educazione civica (13/12/22)
+    * Cookie policy -->
+* 25 - Livello applicativo (06/12/22)
+    * Interrogazioni 
+    * Ripasso capitolo 10 per verifica
+* 24 - Livello applicativo (01/12/22)
     * Interrogazioni
     * IMAP: Cisco CCNA v6 10.2.1.6 e [appunti]({{< ref "email.md#imap" >}})
+    * FTP e SMB: Cisco CCNA v6 10.2.3
 * 23 - Protocolli per la posta elettronica (29/11/22)
     * Interrogazioni
     * SMTP: Cisco CCNA v6 10.2.1.4 e [appunti]({{< ref "email.md#smtp" >}})

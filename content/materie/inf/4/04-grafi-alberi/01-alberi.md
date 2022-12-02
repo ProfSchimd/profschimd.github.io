@@ -2,6 +2,7 @@
 title: "Alberi"
 type: lecture
 weight: 100
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/tree
 summary: "Le strutture dati ad albero rappresentano un valido strumento per rappresentare informazione gerarchica. Gli alberi sono usati spesso per operazioni di ricerca in quanto permettono di strutturare l'informazione in modo da agevolare la ricerca."
 ---
 

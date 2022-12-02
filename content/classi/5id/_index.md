@@ -10,15 +10,12 @@ menu:
 ## Lezioni
 
 <!--
-* 31 - LAB: (15/12/22)
+* 30 - LAB: (15/12/22)
     *
-* 30 - Educazione civica (14/12/22)
+* 29 - Educazione civica (14/12/22)
     * I dati
-* 29 - Educazione civica (12/12/22)
-    * I dati
-* 28 - Design pattern (07/12/22)
-    * Factory patterns
-    * Observer -->
+* 28 - Educazione civica (12/12/22)
+    * I dati -->
 * 27 - Verifica scritta (05/12/22)
     * Verifica scritta su programmazione Dart 
 * 26 - LAB: Client REST in Flutter (01/12/22)

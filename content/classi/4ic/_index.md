@@ -9,17 +9,27 @@ menu:
 
 ## Lezioni
 <!-- 
-* 31 - LAB (12/12/22)
+* 36 Educazione Civica (23/12/22)
     *
+* 35 Educazione Civica (20/12/22)
+    * L'Agenda 2030
+* 34 - LAB: (19/12/22)
+    * 
+* 33 - PCTO (16/12/22)
+    * Laboratorio di orientamento in uscita
+* 32 - Educazione civica (13/12/22)
+    * Cos'è l'AI
+* 31 - LAB (12/12/22)
+    * -->
 * 30 - Rappresentazione numerica (06/12/22)
     * Interrogazioni
     * Rappresentazione binaria e esadecimale
     * Indirizzi IP e indirizzi MAC
-* 29 - LAB (05/12/22)
-    * -->
+* 29 - LAB: Packet Tracer (05/12/22)
+    * Configurazione di dispositivi IOS 
 * 28 - Rappresentazione numerica (02/12/22)
     * Interrogazioni
-    * Codifica binaria e esadecimale CCNA Cap 5
+    * Codifica binaria ed esadecimale CCNA Cap 5
 * 27 - Verifica scritta (29/11/22)
     * Verifica scritta su
         * Cisco CCNA v7 capitoli 2 e 4

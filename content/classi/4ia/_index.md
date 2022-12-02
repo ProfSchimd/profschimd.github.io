@@ -9,18 +9,29 @@ menu:
 
 ## Lezioni
 <!--
-* 32 - Verifica scritta (12/12/22)
-    * Verifica su "algoritmi su liste"
-* 31 - Grafi (06/12/22)
-    * 
-* 30 - Grafi (05/12/22)
+* 36 - LAB: (16/12/22)
+    *
+* 35 - LAB: (14/12/22)
+    *
+* 34 - Alberi (13/12/22)
+    * Esercizi e algoritmi su alberi
+* 33 - Verifica scritta (12/12/22)
+    * Verifica su "algoritmi su liste" -->
+* 32 - LAB: Liste (07/12/22)
+    * Ripasso ed esercizi su liste
+* 31 - Alberi (06/12/22)
     * Interrogazioni
-    * Il [concetto di grafo]() e motivazione
-* 29 - LAB: Liste (02/11/22)
+    * [Visite su alberi]({{< ref "01-alberi.md" >}})
+* 30 - Alberi (05/12/22)
     * Interrogazioni
-    * 
+    * [Alberi binari]({{< ref "01-alberi.md" >}}) 
+* 29 - LAB: Alberi (02/11/22)
+    * Interrogazioni
+    * [Alberi]({{< ref "01-alberi.md" >}})
+        * Concetti fondamentali
+        * Interfaccia `ITreeNode` e sua implementazione
 * 28 - LAB: Liste (30/11/22)
-    * -->
+    * 
 * 27 - Liste (29/11/22)
     * Interrogazioni
     * Esercizi
