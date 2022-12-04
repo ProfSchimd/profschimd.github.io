@@ -206,7 +206,125 @@ al padre fino a raggiungere la radice dalla quale si può poi raggiungere
 ogni altro nodo.
 {{</observe>}}
 
+{{<exercise>}}
+Implementare in Java l'interfaccia `ITreeNode` descritta sopra mediante una
+classe concreta di nome `TreeNode`. Oltre ai metodi dell'interfaccia la classe
+deve prevedere un costruttore che imposti il *valore* (`value`) del node, il riferimento
+al *nodo padre* (`parent`) e la *lista dei figli* (`children`). La firma del
+costruttore sarà quindi:
+```java
+public TreeNode(Object value, ITreeNode parent, ITreeNode[] children)
+```
+{{</exercise>}}
+
+{{<exercise>}}
+Implementare in Java l'interfaccia `ITree` descritta sopra mediante una
+classe concreta di nome `Tree`. Oltre ai metodi dell'interfaccia, la
+classe deve prevedere un costruttore senza parametri che crea un albero
+vuoto.
+{{</exercise>}}
+
+{{<attention>}}
+Il metodo `size()` della classe deve restituire il numero di nodi complessivamente
+memorizzati nell'albero. Questa operazione potrebbe essere realizzata tenendo
+traccia dei nodi presenti con una variabile `n`, tuttavia risulta difficile
+aggiornare tale variabile in quanto operazioni su alcuni nodi potrebbero cambiare
+il numero `n` senza che la classe `Tree` sia in grado di aggiornarlo. Ad esempio
+il codice
+```java
+Tree tree = new Tree();
+// aggiunge radice ed altri nodi a 'tree'
+// ...
+tree.getRoot().addChild(new TreeNode());
+```
+aggiunge un figlio alla radice usando il metodo `addChild` che, appartiene ad
+`ITreeNode` e non ad `ITree`, come si fa, quindi, ad aggiornare `n`?
+{{</attention>}}
+
+{{<attention>}}
+La *ricerca* (`search`) all'interno di un albero verrà
+discussa sotto nella sezione [visite di un albero](#visite-di-un-albero).
+Lo studente può comunque provare a realizzare una propria idea di ricerca
+come utile esercizio di pratica.
+{{</attention>}}
+
+### Semplici algoritmi su alberi
+Vediamo qui alcuni semplici algoritmi su alberi.
+#### Profondità di un nodo 
+Abbiamo visto sopra che la *profondità* di un nodo è il numero di antenati di quel
+nodo, dato un `ITreeNode` come possiamo calcolare la sua profondità? La strategia
+risolutiva è molto semplice e sfrutta la ricorsione.
+
+{{<highlight java "linenos=table">}}
+public static int getDepth(ITreeNode node) {
+    if (node.parent() == null) {
+        return 0;
+    }
+    return 1 + getDepth(node.parent());
+}
+{{</highlight>}}
+
+L'algoritmo è semplice:
+* se il nodo è la radice (`node.parent() == null`), allora la sua profondità è `0`,
+* altrimenti la sua profondità sarà uno più della profondità del padre per calcolare
+la quale usiamo la ricorsione (`getDepth(node.parent())`).
+
+#### Altezza di un nodo
+Il calcolo dell'altezza di un nodo utilizza un approccio simile al calcolo della
+profondità, tuttavia ci sono due importanti differenze:
+* la ricorsione sarà sui figli anziché sul padre e quindi *ci saranno tante chiamate
+ricorsive quanti sono i figli*;
+* una volta che conosco l'altezza dei figli devo prendere il massimo di queste per
+calcolare l'altezza del nodo.
+
+{{<highlight java "linenos=table">}}
+public static int getHeight(ITreeNode node) {
+    // 'node' is a leaf, its height is 0
+    if (node.isLeaf()) {
+        return 0;
+    }
+    // get the height of each children
+    ITreeNode[] children = node.children();
+    int[] childrenHeights = new int[children.length];
+    for (int i = 0; i < children.length; i++) {
+        childrenHeights[i] = getHeight(children[i]);
+    }
+    // get the height of the highest child
+    int maxHeight = childrenHeights[0];
+    for (int i = 1; i < childrenHeights.length; i++) {
+        maxHeight = (maxHeight > childrenHeights[i]) ? maxHeight : childrenHeights[i];
+    }
+    return maxHeight + 1;
+}
+{{</highlight>}}
+
 ## Alberi binari
+Finora abbiamo visto che non c'è limite al numero di figli che un nodo di un albero
+può avere. Se prendiamo l'intero albero chiamiamo **arietà** (*arity*) il numero di
+figli del suo nodo con il maggior numero di figli. Nell'esempio sopra l'albero ha
+arietà 3 in quanto sia `Alice` che `Jean` hanno tre figli mentre gli altri nodi
+interni ne hanno meno di 3.
+
+Per avere una struttura ad albero e non una semplice lista (che è un albero con
+arietà 1), l'albero deve avere almeno arietà 2. Cioè deve esistere almeno un nodo
+con almeno due figli. Chiamiamo **albero binario** (*binary tree*) un albero in
+cui tutti i nodi hanno *al massimo due figli* (tuttavia, possono averne uno o zero).
+
+In un albero binario possiamo semplificare la gestione dei figli di un nodo in
+quanto questi possono essere 0, 1 o 2. Spesso si fa riferimento ai figli *sinistro*
+(*left child*) e *destro* (*right child*) immaginando l'albero disegnato nel modo
+che abbiamo visto sopra.
+
+{{<example>}}
+Come già detto, l'albero dell'esempio sopra non è binario poiché ci sono due
+nodi con tre figli. Se però consideriamo il sottoalbero la cui radice è `Bob`,
+allora vediamo che si tratta di un albero binario con `Bob` che come unico
+figlio `Carol` (che può essere sia destro che sinistro) il quale ha due figli
+`Henry` (figlio sinistro) e `Ian` (figlio destro).
+{{</example>}}
+
+La seguente interfaccia estende `ITreeNode` e definisce l'interfaccia `BinaryTreeNode`
+che aggiunge i metodi per recuperare ed impostare i figli sinistro e destro.
 
 ```java
 public interface IBinaryTreeNode extends ITreeNode {
@@ -217,9 +335,16 @@ public interface IBinaryTreeNode extends ITreeNode {
 }
 ```
 
-### Alberi di ricerca binari
-
-#### Ricerca binaria
+{{<exercise>}}
+Partendo dall'implementazione di `ITreeNode`, realizzare un'implementazione
+dell'interfaccia `IBinaryTreeNode`. Fare attenzione alla gestione dei metodi
+`addChild` e `removeChild` ereditati da `TreeNode`. Questa implementazione
+deve preveder un costruttore con quattro parametri:
+1. il valore (`value`)
+2. il nodo padre (`parent`)
+3. il figlio sinistro (`left`) e
+4. il figlio destro (`right`).
+{{</exercise>}}
 
 ## Visite di un albero
 
@@ -230,5 +355,9 @@ public interface IBinaryTreeNode extends ITreeNode {
 ### In-order
 
 ### Breadth-first
+
+## Alberi di ricerca binari
+
+### Ricerca binaria
 
 ## Riferimenti
