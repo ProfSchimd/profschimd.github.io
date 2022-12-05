@@ -323,6 +323,31 @@ figlio `Carol` (che può essere sia destro che sinistro) il quale ha due figli
 `Henry` (figlio sinistro) e `Ian` (figlio destro).
 {{</example>}}
 
+{{<column/two-cols wl=6 wr=6 content="left" embed="img/albero-binario-ricerca.html">}}
+Vediamo un esempio di albero binario dove il contenuto di ogni nodo è un intero
+anziché una stringa (utilizzando le interfacce Java definite sopra si dovrà usare
+la classe `Integer`, perché?).
+
+A destra troviamo un esempio in cui ci sono nodo con 0, 1 e 2 figli mentre non ci
+sono nodi con 3 o più figli, ne segue che l'albero a destra è un albero binario.
+
+La radice dell'albero contiene il valore `53` ed ha due figli, il figlio sinistro
+che contiene il valore `42` ed il figlio destro che contiene il valore `56`.
+Vediamo inoltre come il nodo con valore `21` ha un solo figlio, dal disegno possiamo
+dedurre che si tratti del nodo destro. L'albero, inoltre, contiene complessivamente
+9 foglie.
+
+Abbiamo già detto che un nodo qualsiasi si può considerare come radice di un sottoalbero,
+negli alberi binari per ogni nodo possiamo avere due sottoalberi uno con radice il figlio
+sinistro ed uno con radice il figlio destro. 
+{{</column/two-cols>}}
+
+In un albero binario un *cammino* (*path*) può essere indicato semplicemente indicando,
+per ogni nodo, se si segue il figlio destro o il figlio sinistro. Ad esempio, il cammino
+dalla radice (`53`) alla foglia `55` può essere descritto indicando il nodo di partenza
+(in questo caso la radice) e successivamente indicando i figli attraversati in questo
+case: destro (`56`), sinistro (`55`) e destro (`55`).
+
 La seguente interfaccia estende `ITreeNode` e definisce l'interfaccia `BinaryTreeNode`
 che aggiunge i metodi per recuperare ed impostare i figli sinistro e destro.
 
@@ -347,12 +372,30 @@ deve preveder un costruttore con quattro parametri:
 {{</exercise>}}
 
 ## Visite di un albero
+La **visita** (*visit*) di un albero è l'operazione che attraverso (visita)
+tutti i nodi esattamente una volta. Normalmente durante la visita ad un nodo
+viene effettuata un'operazione, ad esempio la stampa a video del suo valore.
+Tuttavia rimane il problema dell'*ordine in cui visitare* i nodi.
+
+{{<column/two-cols wl=8 wr=4 content="left" embed="img/albero-binario-piccolo.html">}}
+Consideriamo l'albero a destra costituito dalla radice e dai suoi due figli.
+È possibile visitare tale albero in almeno tre modi diversi.
+1. Visito prima la radice, poi il figlio sinistro ed infine il figlio destro,
+l'output ottenuto stampando i valori secondo questa visita è `8 3 16`, questa
+visita si chiama [**pre-order visit**](#pre-order).
+2. Visito prima il figlio sinistro, poi la radice poi il figlio destro, l'output
+in questo caso sarà `3 8 16`, questa visita si chiama [**in-order visit**](#in-order).
+3. Visito prima il figlio sinistro, poi il figlio destro ed infine la radice, l'output
+in questo caso sarà `3 16 8`, questa visita si chiama [**post-order visit**](#post-order).
+
+Vediamo più in dettaglio come implementare in Java tutte queste visite.
+{{</column/two-cols>}}
 
 ### Pre-order
 
-### Post-order
-
 ### In-order
+
+### Post-order
 
 ### Breadth-first
 
