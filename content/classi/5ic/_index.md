@@ -9,15 +9,19 @@ menu:
 
 ## Lezioni
 <!-- 
-* 29 - Educazione civica (22/12/22)
-    * 
-* 28 - Educazione civica (20/12/22)
-    *
+* 31 - LAB: (23/12/22)
+    * Verifica lab??
+* 30 - Educazione civica (22/12/22)
+    * Cookie policy e GDPR
+* 29 - Educazione civica (20/12/22)
+    * Cookie policy e GDPR
+* 28 - LAB (16/12/22)
+    * Inter VLAN routing
 * 27 - Verifica scritta (15/12/22)
     * Cisco CCNA v6 Capitolo 10
     * Comandi Packet Tracer
 * 26 - Educazione civica (13/12/22)
-    * Cookie policy -->
+    * GDPR -->
 * 25 - Livello applicativo (06/12/22)
     * Interrogazioni 
     * Ripasso capitolo 10 per verifica

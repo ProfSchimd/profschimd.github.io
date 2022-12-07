@@ -14,15 +14,15 @@ menu:
 * 35 Educazione Civica (20/12/22)
     * L'Agenda 2030
 * 34 - LAB: (19/12/22)
-    * 
+    * -->
 * 33 - PCTO (16/12/22)
     * Laboratorio di orientamento in uscita
 * 32 - Educazione civica (13/12/22)
     * Cos'è l'AI
 * 31 - LAB (12/12/22)
-    * -->
+    * Configurazione di dispositivi IOS 
 * 30 - Rappresentazione numerica (06/12/22)
-    * Interrogazioni
+    * Interrogazioni con correzione verifica
     * Rappresentazione binaria e esadecimale
     * Indirizzi IP e indirizzi MAC
 * 29 - LAB: Packet Tracer (05/12/22)

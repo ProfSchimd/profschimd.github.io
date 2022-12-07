@@ -9,14 +9,22 @@ menu:
 
 ## Lezioni
 <!--
-* 36 - LAB: (16/12/22)
-    *
-* 35 - LAB: (14/12/22)
-    *
+* 40 - LAB: Alberi (23/12/22)
+    * Presentazioni lavoro "Queue e Stack"
+* 39 - LAB: Alberi (21/12/22)
+    * Presentazioni lavoro "Queue e Stack"
+* 38 - Educazione Civica (20/12/22)
+    * AI for Good
+* 37 - Alberi (19/12/22)
+    * Gli alberi e l'intelligenza artificiale -->
+* 36 - LAB: Alberi (16/12/22)
+    * Presentazioni lavoro "Queue e Stack"
+* 35 - LAB: Alberi (14/12/22)
+    * Scheduling delle presentazioni
 * 34 - Alberi (13/12/22)
     * Esercizi e algoritmi su alberi
 * 33 - Verifica scritta (12/12/22)
-    * Verifica su "algoritmi su liste" -->
+    * Verifica su "algoritmi su liste" 
 * 32 - LAB: Liste (07/12/22)
     * Ripasso ed esercizi su liste
 * 31 - Alberi (06/12/22)

@@ -10,16 +10,23 @@ menu:
 ## Lezioni
 
 <!--
-* 30 - LAB: (15/12/22)
-    *
+* 33 - LAB: Client REST in Flutter (22/12/22)
+    * Sviluppo client REST in Flutter
+* 32 - Educazione Civica (21/12/22)
+    * I dati e il GDPR
+* 31 - Educazione Civica (19/12/22)
+    * I dati e il GDPR -->
+* 30 - LAB: Client REST in Flutter (15/12/22)
+    * Contest "Best Calcolatrice"
+    * Sviluppo client REST in Flutter
 * 29 - Educazione civica (14/12/22)
-    * I dati
-* 28 - Educazione civica (12/12/22)
-    * I dati -->
+    * I dati e il GDPR
+* 28 - Flutter (12/12/22)
+    * Riconsegna verifiche
+    * Widget lifecycle 
 * 27 - Verifica scritta (05/12/22)
     * Verifica scritta su programmazione Dart 
 * 26 - LAB: Client REST in Flutter (01/12/22)
-    * Inizio sviluppo client REST
     * Comunicazione delle API utilizzate
 * 25 - Esercitazione (29/11/22)
     *  Esercizio di preparazione alla verifica 
