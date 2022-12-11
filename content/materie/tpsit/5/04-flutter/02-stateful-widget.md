@@ -218,4 +218,36 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+## Il ciclo di vita di uno `StatefulWidget`
+Ogni widget possiede un *ciclo di vita* (*lifecycle*) che descrive in che stato
+si trova il widget durante l'esecuzione della App. Vediamo brevemente il ciclo
+di vita di un `StatefulWidget`.
+
+{{<column/two-cols wr=6 wl=6 content="left" embed="img/stateful-lifecycle.html">}}
+Di seguito vediamo quali metodi sono disponibili in un `StatefulWidget` e quando
+questi vengono invocati, ognuno di questi metodi può essere ridefinito se
+necessario (es. `initState()`)
+
+* `createState()`: per prima cosa lo stato deve essere creato 
+* `initState()`: dopo la creazione lo stato deve essere inizializzato
+* `didUpdateWidget()`: c'è stato un update nell'interfaccia che necessita di un ridisegnare il widget
+* `setState()`: lo stato viene esplicitamente cambiato per cui è necessario ridisegnare il widget.
+* `build()`: il widget verrà ridisegnato, `build()` viene chiamato dopo `initState()`,
+`setState()` e `didUpdateWidget()` 
+{{</column/two-cols>}}
+
+Esistono anche metodi che vengono invocati quando lo stato sta per essere eliminato
+* `deactivate()`: il widget non è più visualizzato, ma potrebbe tornare visibile in futuro
+* `dispose()`: il widget sta per essere distrutto definitivamente
+
+Non sempre sempre serve ridefinire gli eventi sopra elencati, tuttavia in alcuni
+casi questo potrebbe risultare necessario.
+* `initState()` può risultare utile inizialmente, quando lo stato deve essere caricato
+e/o impostato a qualche valore di default.
+* `deactivate()` può essere usato quando sia necessario mettere in pausa qualche
+operazione e/o salvare lo stato.
+* `dispose()` può essere utilizzato quando vi sia qualche risorsa che deve essere
+rilasciata prima che il widget venga definitivamente eliminato (lo stato andrebbe
+salvato utilizzando l'evento `deactivate()`).
+
 [1]: https://api.flutter.dev/flutter/widgets/State-class.html

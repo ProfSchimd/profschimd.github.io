@@ -23,7 +23,7 @@ menu:
     * I dati e il GDPR
 * 28 - Flutter (12/12/22)
     * Riconsegna verifiche
-    * Widget lifecycle 
+    * [Widget lifecycle]({{< ref "02-stateful-widget.md#il-ciclo-di-vita-di-uno-statefulwidget" >}})
 * 27 - Verifica scritta (05/12/22)
     * Verifica scritta su programmazione Dart 
 * 26 - LAB: Client REST in Flutter (01/12/22)
