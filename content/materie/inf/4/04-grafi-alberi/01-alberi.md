@@ -390,17 +390,192 @@ in questo caso sarà `3 16 8`, questa visita si chiama [**post-order visit**](#p
 
 Vediamo più in dettaglio come implementare in Java tutte queste visite.
 {{</column/two-cols>}}
+Nel codice Java presentato sotto, si usa la funzione `doOperation` che accetta come
+parametro un `IBinaryTreeNode` ad indicare una qualsiasi operazione che si debba
+eseguire durante la visita. Esempi di `doOperation` sono:
+* `print(node)`: che mostra a console il valore (funzione di comodo al posto di  `System.out.println(node.vaue())`),
+* `arrList.add(node)`: che aggiunge `node` ad una struttura dati, ad esempio un `ArrayList<IBinaryTreeNode>`,
+* `sum += node.value().intValue()`: nel caso si stia eseguendo la somma dei valori nei nodi,
+* ...
+
+Il  modo migliore per provare l'effettivo funzionamento del codice è sostituire
+`doOperation(node)` con `System.out.println(node.value())`.
+
+{{<exercise>}}
+Per creare un metodo Java che si possa usare qualsiasi `doOperation` (anche
+definito dal programmatore), si possono usare le caratteristiche offerte dalla
+programmazione ad oggetti. Seguire i seguenti passi:
+1. Creare un'interfaccia `IOperation` con un metodo `void do(IBinaryTreeNode node)`,
+2. Implementare l'interfaccia `IOperation` definendo il metodo `do` (ad esempio in
+modo che stampi a video il valore),
+3. Ridefinire la firma dei metodi di visita sotto in modo che abbiano come parametro
+anche un oggetto di tipo `IOperation`,
+4. Sostituire `doOperation` con la chiamata al metodo `do` dell'oggetto `IOperation
+dato come parametro.
+{{</exercise>}}
 
 ### Pre-order
+Nella visita **pre-order**, la prima cosa da fare è eseguire
+l'operazione sulla radice e poi, *ricorsivamente* eseguire l'operazione nei sottoalberi
+sinistro e destro.
+
+{{<highlight java "linenos=table">}}
+public static void printPreOrder(IBinaryTreeNode node) {
+    if (node == null) {
+        return;
+    }
+    doOperation(node);
+    printPreOrder(node.getLeftChild());
+    printPreOrder(node.getRightChild());
+}
+{{</highlight>}}
 
 ### In-order
+Nella visita **in-order**, la prima cosa da fare è visitare il sottoalbero
+sinistro, successivamente si visita la radice ed infine il sottoalbero destro.
+
+{{<highlight java "linenos=table">}}
+public static void printInOrder(IBinaryTreeNode node) {
+    if (node == null) {
+        return;
+    }
+    printPreOrder(node.getLeftChild());
+    doOperation(node);
+    printPreOrder(node.getRightChild());
+}
+
+{{</highlight>}}
 
 ### Post-order
+Nella visita **post-order** la prima cosa da fare è visitare i due sottoalberi
+(prima il sinistro poi il destro) e solo alla fine si visita la radice.
 
-### Breadth-first
+{{<highlight java "linenos=table">}}
+public static void printPostOrder(IBinaryTreeNode node) {
+    if (node == null) {
+        return;
+    }
+    printPreOrder(node.getLeftChild());
+    printPreOrder(node.getRightChild());
+    doOperation(node);
+}
+{{</highlight>}}
+
+### Confronto visite
+{{<column/two-cols wl=8 wr=4 embed="img/albero-binario.html" content="left">}}
+Nell'immagine a destra si vede un albero binario che contiene 6 nodi per memorizzare
+interi. Vediamo come risulterebbe l'output delle varie visite se `doOperation`
+fosse una semplice operazione di stampa del valore.
+* *Pre-order*: partendo dalla radice (`15`) si stampa il valore per poi proseguire
+ricorsivamente con il sottoalbero sinistro (di radice `8`). Al nodo `8` viene stampato
+il suo valore e si prosegue con il sottoalbero sinistro (di radice `3`). Si stampa
+quindi il valore `3` e si prosegue con il sottoalbero sinistro di radice `null` arrivando
+al quale non si fa nulla e si torna indietro a `3` (già stampato) per proseguire con 
+il sottoalbero di radice `16`.
+Seguendo questo processo l'output dell'algoritmo sarà la sequenza di valori: `15 8 3 16 21 2`.
+
+* *In-roder*: partendo dalla radice (`15`), prima di stampare si prosegue, ricorsivamente
+con il sottoalbero sinistro (di radice `8`). Dal nodo `8`, prima di stampare il suo valore
+si procede ricorsivamente con
+sottoalbero sinistro (di radice `3`). Un'ulteriore chiamata ricorsiva
+porta ad un nodo `null` essendo `3` una foglia, quindi
+non viene stampato nulla e termina l'ultima chiamata ricorsiva riportando a `3` il cui
+valore viene stampato prima di passare al sottoalbero destro. Seguendo questo processo
+l'output dell'algoritmo sarà la sequenza di valori: `3 8 16 15 21 2`.
+
+* *Post-order* partendo dalla radice (`15`), prima di stampare si prosegue, ricorsivamente
+prima con il sottoalbero sinistro e poi con quello destro. Nel nodo `8`, ricorsivamente
+si visita prima `3` e poi `16` che vengono anche stampati in questo ordine in quanto
+sono foglie. Terminato con i figli si stampa `8` e si ritorna al nodo `15`.
+Seguendo questo processo l'output dell'algoritmo sarà la sequenza di valori: `3 16 8 2 21 15`.
+{{</column/two-cols>}}
+
 
 ## Alberi di ricerca binari
+Uno dei tantissimi utilizzi degli alberi è come una struttura dati per rendere
+efficienti operazioni di *ricerca* (*search*) di valori memorizzati. Anche se
+esistono alberi di ricerca di qualsiasi arietà, tra i più comuni ci sono gli
+**alberi di ricerca binary** (*Binary Search Tree (BST)*) che discuteremo in
+questa sezione.
+
+La ricerca mediante alberi si basa sull'idea che i valori memorizzati non possano
+comparire in qualsiasi nodo, ma che, in base al valore stesso, si possano trovare
+solo in alcune posizioni ben precise. Considerando un tipo di valore che permetta
+il confronto con gli operatori \\(<, =, >\\) (e quindi anche \\(\leq, \neq \geq \\)),
+un albero di ricerca binario è definito nel seguente modo.
+
+{{<def title="Proprietà di albero di ricerca binario">}}
+Un albero è un *albero di ricerca binario* se dato un qualsiasi nodo con valore
+\\(k\\), i nodi del sottoalbero sinistro hanno valore \\(\leq k\\) e i nodi del sottoalbero
+di destra hanno valore \\(\geq k\\).
+{{</def>}}
+
+Quindi dalla definizione si capisce che in base al valore il nodo è posizionato
+in una posizione specifica. Ad esempio supponiamo di avere il valore `20`
+memorizzato nella radice, allora valori più piccoli (ad esempio `10`) possono
+stare in un nodo che sia nell sottoalbero sinistro della radice, mentre valori
+più grandi (ad esempio `30`) possono stare solo nel sottoalbero destro della
+radice. Per quanta riguarda i valori uguali, la regola sopra non fornisce alcun
+vincolo, per cui tale valore può stare sia nel sottoalbero sinistro sia in quello
+destro della radice.
+
+{{<column/columns>}}
+{{<column/col>}}
+I due alberi di fianco sono due alberi binari, ma solo quello più a destra è un
+albero binario di ricerca. Infatti consideriamo il nodo radice dell'albero a
+sinistra il cui valore è `15`. Il suo figlio destro è `21` quindi correttamente
+maggiore o uguale a `15`, ma il figlio destro di `21` (nipote di `15`) ha valore
+`2` che quindi è minore di `15`. Allo stesso modo, nel sottoalbero sinistro della
+radice si trovano nodi con valore più grande del valore della radice (ad esempio
+il nodo `16`).
+{{</column/col>}}
+{{<column/col>}}
+{{<include "img/albero-binario.html">}}
+{{</column/col>}}
+{{<column/col>}}
+{{<include "img/albero-binario-ricerca-piccolo.html">}}
+{{</column/col>}}
+{{</column/columns>}}
+
+Nell'albero di destra, invece, si vede come la proprietà di albero di ricerca
+binario in quanto ogni nodo ha solo nodi con valori \\(\leq\\) a sinistra e solo
+valori \\(\geq\\) a destra. Notiamo anche che l'unico caso di valore uguale
+(`55`) compare nella radice e nell'albero destro.
+
+Il metodo qui sotto mostra come realizzare l'algoritmo di ricerca del valore `key`
+all'interno di un albero di ricerca binario che memorizza `int`.
+
+```java
+private Node recursiveSearch(int key, Node node) {
+    if (node == null || node.value == key) {
+        return node;
+    }
+    if (key < node.value) {
+        return recursiveSearch(key, node.left);
+    } else {
+        return recursiveSearch(key, node.right);
+    }
+}
+```
+
+Come spesso capita l'algoritmo ricorsivo risulta molto semplice e compatto da
+scrivere, riconosciamo:
+* il *caso base* `node == null` oppure `node.value == key`, il primo caso si ha
+dopo aver raggiunto (e oltrepassato) un nodo con figlio `null`, mentre il secondo
+caso si ha quando l'elemento da cercare è stato trovato al nodo attuale;
+* due *chiamate ricorsive* delle quali **solo una viene eseguita** che spostano la
+ricerca sul sottoalbero sinistro se il valore cercato è più piccolo di quello del
+nodo attuale e sul sottoalbero destro in caso contrario.
+
+{{<attention>}}
+La ricerca presentata sopra funziona solamente se l'albero al quale viene applicato
+soddisfa la proprietà di albero di ricerca binario (vedi sopra). In caso contrario
+l'algoritmo può trovare o meno un nodo con chiave \\(k\\) indipendentemente dal fatto
+che questo esista nell'albero.
+{{</attention>}}
 
 ### Ricerca binaria
+La *ricerca binaria* su array ordinati e la ricerca su un albero di ricerca binario
+sono due algoritmi fortemente collegati.
 
 ## Riferimenti
