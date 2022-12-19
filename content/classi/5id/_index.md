@@ -10,12 +10,16 @@ menu:
 ## Lezioni
 
 <!--
+* 34 - (09/01/23)
+    * -->
 * 33 - LAB: Client REST in Flutter (22/12/22)
     * Sviluppo client REST in Flutter
-* 32 - Educazione Civica (21/12/22)
-    * I dati e il GDPR
-* 31 - Educazione Civica (19/12/22)
-    * I dati e il GDPR -->
+* 32 - Design Pattern (21/12/22)
+    * [Builder design pattern]({{< ref "01-creational-patterns.md#builder" >}})
+    * Implementazione in Dart di alcuni design pattern
+* 31 - Design Pattern (19/12/22)
+    * [Introduzione ai design pattern]({{< ref "00-intro-design-pattern.md" >}})
+    * [Constructional design pattern]({{< ref "01-creational-patterns.md" >}})
 * 30 - LAB: Client REST in Flutter (15/12/22)
     * Contest "Best Calcolatrice"
     * Sviluppo client REST in Flutter

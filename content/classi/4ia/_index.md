@@ -9,14 +9,20 @@ menu:
 
 ## Lezioni
 <!--
-* 40 - LAB: Alberi (23/12/22)
-    * Presentazioni lavoro "Queue e Stack"
+* 42 - Educazione civica (10/01/23)
+    * Cos'è l'Intelligenza Artificiale
+* 41 - Educazione civica (09/01/23)
+    * Cos'è l'Agenda 2030 -->
+* 40 - LAB: Javascript (23/12/22)
+    * Accesso al corso Cisco JavaScript Essential
+    * 
 * 39 - LAB: Alberi (21/12/22)
     * Presentazioni lavoro "Queue e Stack"
-* 38 - Educazione Civica (20/12/22)
-    * AI for Good
+    * Esercitazione sugli alberi
+* 38 - Alberi (20/12/22)
+    * Altre applicazione degli alberi
 * 37 - Alberi (19/12/22)
-    * Gli alberi e l'intelligenza artificiale -->
+    * Alberi di ricerca binari
 * 36 - LAB: Alberi (16/12/22)
     * Presentazioni lavoro "Queue e Stack"
 * 35 - LAB: Alberi (14/12/22)

@@ -9,16 +9,19 @@ menu:
 
 ## Lezioni
 <!-- 
+* 37 LAB: (09/01/23)
+    * -->
 * 36 Educazione Civica (23/12/22)
-    *
+    * L'Intelligenza Artificiale
 * 35 Educazione Civica (20/12/22)
     * L'Agenda 2030
-* 34 - LAB: (19/12/22)
-    * -->
+* 34 - LAB: Verifica di laboratorio (19/12/22)
+    * Verifica pratica di Packet Tracer
+    * Educazione Civica: l'Agenda 2030
 * 33 - PCTO (16/12/22)
     * Laboratorio di orientamento in uscita
 * 32 - Educazione civica (13/12/22)
-    * Cos'è l'AI
+    * Cosa può fare l'informatica per il bene sociale e per l'Agenda 2030
 * 31 - LAB (12/12/22)
     * Configurazione di dispositivi IOS 
 * 30 - Rappresentazione numerica (06/12/22)
