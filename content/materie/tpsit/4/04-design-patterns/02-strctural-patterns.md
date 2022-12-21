@@ -15,7 +15,7 @@ Supponiamo che un software gestionale acceda ai dati mediante un *database* e ch
 per fare questo usi una libreria con i seguenti metodi
 
 ```java
-public class DataBaseAccess {
+public class DatabaseAccess {
     public Record[] query(String sqlQuery);
 }
 ```
@@ -25,7 +25,8 @@ seguente modo
 
 ```java
 // ...
-DataBaseAccess db = connect(dbAddress);
+String dbAddress = "db.domain.org";
+DatabaseAccess db = connect(dbAddress);
 String sql = "SELECT * from PRODUCTS WHERE price < 100;";
 for (Record r : db.query(sql)) {
     System.out.println(r);
@@ -38,7 +39,7 @@ database la quale potrebbe avere un'interfaccia un po' diversa, ad esempio
 
 ```java
 // ...
-public class NewDatabaseClass {
+public class NewDatabaseAccess {
     public void submit(String sqlQuery);
     public List<Record> exec() throws DBError;
 }
@@ -46,17 +47,17 @@ public class NewDatabaseClass {
 
 Ovviamente per adattare il codice alla nuova classe si può procedere a cambiare
 tutti i punti in cui si accede al database, in alternativa, tuttavia si può
-creare una classe `DataBaseAccess` con lo stesso nome della libreria originale e
+creare una classe `DatabaseAccess` con lo stesso nome della libreria originale e
 con la stessa interfaccia. La differenza è che l'implementazione sarà "custom"
 e si occuperà di accedere alla nuova libreria.
 
 ```java
 // Questa è una classe "custom"
-public class DataBaseAccess {
-    private NewDatabaseClass db;
+public class DatabaseAccess {
+    private NewDatabaseAccess db;
     // ...
     public Record[] query(String sqlQuery) {
-        List<Record> result = null;
+        List<Record> results = null;
         db.submit(sqlQuery);
         try {
             results = db.exec();
@@ -75,11 +76,11 @@ public class DataBaseAccess {
 
 Una volta creato questo metodo `query()`, l'intero codice client può continuare
 a funzionare senza che vi sia necessità di cambiare una sola riga, semplicemente
-la classe `DataBaseAccess` ora fa riferimento alla nostra classe custom che,
-internamente, utilizza la "nuova" classe `NewDatabaseClass`.
+la classe `DatabaseAccess` ora fa riferimento alla nostra classe custom che,
+internamente, utilizza la "nuova" classe `NewDatabaseAccess`.
 
-La classe `DataBaseAccess` così creata viene classe **adapter** perché funge da
-"adattatore" tra il codice client e la nuova classe `NewDatabaseClass`, un altro
+La classe `DatabaseAccess` così creata viene classe **adapter** perché funge da
+"adattatore" tra il codice client e la nuova classe `NewDatabaseAccess`, un altro
 nome dell'adapter è **wrapper** in quanto la classe "avvolge" al suo interno i
 dettagli della nuova classe.
 
