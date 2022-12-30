@@ -574,8 +574,28 @@ l'algoritmo può trovare o meno un nodo con chiave \\(k\\) indipendentemente dal
 che questo esista nell'albero.
 {{</attention>}}
 
-### Ricerca binaria
-La *ricerca binaria* su array ordinati e la ricerca su un albero di ricerca binario
-sono due algoritmi fortemente collegati.
+Oltre a permettere una ricerca efficiente, gli alberi di ricerca binari possiedono
+altre caratteristiche.
+* Per recuperare il valore *minimo* tra tutti quelli memorizzati è sufficiente
+partire dalla radice e spostarsi al figlio sinistro ricorsivamente, fino a quando
+non si giunge ad un nodo senza figlio sinistro, tale nodo conterrà il valore
+minimo memorizzato nell'albero.
+* In maniera speculare, il valore *massimo* si ottiene seguendo, dalla radice, il
+percorso "più a destra".
+* La visita in-order di un albero di ricerca binario produce la *sequenza ordinata*
+dei valori memorizzati sull'albero.
 
-## Riferimenti
+## Bilanciamento degli alberi
+Gli alberi di ricerca binari permettono la ricerca in modo semplice, la velocità con
+cui avviene la ricerca, tuttavia dipende da come è fatto l'albero (dalla sua *topologia*).
+Un albero di ricerca binario formato da una lista di nodi (ad esempio tutti figli
+sinistri), non è più veloce nella ricerca che una lista di numeri. Quand'è, quindi,
+che la ricerca in un albero è più veloce? L'idea è che l'albero deve essere
+**bilanciato**, vale a dire non ci devono essere dei rami troppo più lunghi di altri
+(la ricerca su quei rami sarebbe lenta).
+
+{{<def>}}
+Un albero binario si dice **bilanciato** se per ogni nodo dell'albero la differenza
+tra l'altezza dei sottolaberi di quel nodo è al massimo uno.
+{{</def>}}
+
