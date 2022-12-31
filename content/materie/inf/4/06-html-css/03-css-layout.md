@@ -6,6 +6,10 @@ weight: 30
 summary: "Uno degli usi importanti di CSS è definire il layout (disposizione degli elementi) in una pagina HTML. Questa lezione present ai principali metodi di layout mediante CSS."
 ---
 
+## Block e inline display
+
+## CSS box model
+
 ## Grid layout
 
 ## Flex layout

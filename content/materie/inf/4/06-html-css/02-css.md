@@ -83,6 +83,54 @@ a {
 }
 ```
 
+CSS mette a disposizioni altri tipi di selettori (consultare i [riferimenti](#riferimenti))
+per una lista completa) alcuni dei quali sono frequentemente usati. Un esempio è il
+selettore `selettore:hover` che si riferisce allo stato di *hovering* (passaggio son il
+mouse) degli elementi indicati dal selettore. Ad esempio il codice sotto rende grassetto
+il testo di ogni elemento con classe `emphasis` quando si passa sopra con il mouse.
+```css
+.emphasis:hover {
+    font-weight: 800;
+}
+```
+
+Un utilizzo molto comune di `hover` è sottolineare un link quando si passa con il mouse
+(ovviamente lo stile di `a` deve essere `text-decoration: none` per poter vedere la
+differenza).
+
+```css
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+```
+
+la seconda regola: `cursor: pointer` cambia il cursore del mouse quando si passa
+sopra ad un link.
+
+### Combinare selettori
+È possibile rendere il CSS più compatto utilizzando la stessa lista di regole per
+diversi selettori, sarà sufficiente elencare i selettori separandoli da una virgola.
+```css
+a:hover, .link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+```
+
+Inoltre è possibile combinare più selettori per indicare situazioni più specifiche.
+* **Discendente** `sel1 sel2` applica la regola a tutti gli elementi `sel2` che si
+trovano dentro `sel1` (a qualsiasi livello).
+* **Figlio** `sel1 > sel2` applica la regola a tutti gli elementi `sel2` che sono
+figli *diretti* (non nipoti, pronipoti, ...) di `sel1`.
+
+{{<attention>}}
+È facile confondere la lista di selettori separati dalla virgola che indica *applica
+a tutti* con la combinazione di due selettori separati da spazi che indica *applica
+al secondo se è all'interno del primo*.
+{{</attention>}}
+
+
 ## Proprietà
 La lista di proprietà disponibili in CSS è estremamente vasta, nei [riferimenti](#riferimenti)
 si possono trovare diverse risorse dove reperire informazioni su proprietà, qui
@@ -145,6 +193,109 @@ h1 {
     text-align: center;
 }
 ```
+
+### Menù di navigazione (*navigation bar*)
+Un utilizzo importante e frequente degli stili CSS riguarda la creazione del tipico
+menù in una pagina HTML. In [questo tutorial](https://www.w3schools.com/css/css_navbar.asp)
+viene spiegato passo-passo la creazione di una *navigation bar*, quin vediamo solo
+un breve riassunto (è).
+
+Prima di discutere le varie regole CSS, riportiamo codice HTML con il CSS nel tag `style`.
+Si noti come il menù venga descritto utilizzando un `ul`, essendo ogni item del menù un
+`li`. Anche se non indicato nel codice sotto, è comune inserire il menù all'interno di 
+un elemento `nav`.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
+
+</body>
+</html>
+```
+
+Per prima cosa si applica lo stile ad `ul`
+```css
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+```
+
+oltre allo sfondo, padding e margine, questo stile elimina i punti dall'elenco
+(ricordiamo che `ul` di norma crea un elenco puntato) ed utilizza `overflow: hidden`
+che è necessario altrimenti gli elementi `li` sarebbero "invisibili".
+
+Per quanto riguarda `li` e gli `a` in essi contenuti
+
+```css
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+```
+
+notiamo che vi sono diverse proprietà di *layout*: `float: left` e `display: block`
+(maggiori dettagli in [questa lezione]({{< ref "03-css-layout.md" >}})).
+
+Infine per le proprietà `hover` abbiamo la seguente regola
+
+```css
+li a:hover:not(.active) {
+  background-color: #111;
+}
+```
+
+che, apparentemente strana, si applica agli elementi `a` all'interno di `li` quando
+il mouse è `hover`, ma la classe non è `active`.
 
 ## Riferimenti
 
