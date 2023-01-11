@@ -9,8 +9,18 @@ menu:
 
 ## Lezioni
 <!-- 
-* 31 - (09/01/23)
+* 36 - LAB: (20/01/23)
+    * 
+* 35 - Educazione Civica (19/01/23)
+    * Test su Cookie e GDPR
+* 34 - Progettazione reti (17/01/23)
+    * 
+* 33 - LAB: (13/01/23)
     * -->
+* 32 - Educazione Civica: Cookie (12/01/23)
+    * Ripasso argomenti Test
+* 31 - Educazione Civica: Cookie (09/01/23)
+    * - Revisione lavori per le vacanze 
 * 31 - LAB: Switch e router (23/12/22)
     * Attivazione DHCP su router  
 * 30 - Educazione civica (22/12/22)

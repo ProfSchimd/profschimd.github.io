@@ -10,8 +10,15 @@ menu:
 ## Lezioni
 
 <!--
-* 34 - (09/01/23)
-    * -->
+* 37 - Design Pattern (16/01/23)
+    * Esercitazione su [*creational design pattern*]({{< ref "01-creational-patterns.md" >}})
+    *[Design pattern strutturali]({{< ref "02-structural-patterns.md" >}}): -->
+* 36 - Flutter (12/01/23)
+    * Consegna lavori "Client REST in Flutter"
+* 35 - Design pattern (11/01/23)
+    * Esercitazione su [*creational design pattern*]({{< ref "01-creational-patterns.md" >}})
+* 34 - Design pattern (09/01/23)
+    * Esercitazione su *creational design pattern*
 * 33 - LAB: Client REST in Flutter (22/12/22)
     * Sviluppo client REST in Flutter
 * 32 - Design Pattern (21/12/22)
@@ -19,7 +26,7 @@ menu:
     * Implementazione in Dart di alcuni design pattern
 * 31 - Design Pattern (19/12/22)
     * [Introduzione ai design pattern]({{< ref "00-intro-design-pattern.md" >}})
-    * [Constructional design pattern]({{< ref "01-creational-patterns.md" >}})
+    * [Creational design pattern]({{< ref "01-creational-patterns.md" >}})
 * 30 - LAB: Client REST in Flutter (15/12/22)
     * Contest "Best Calcolatrice"
     * Sviluppo client REST in Flutter

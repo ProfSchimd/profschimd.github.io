@@ -9,13 +9,33 @@ menu:
 
 ## Lezioni
 <!--
+* 48 - LAB: Educazione Civica
+    * [Sito Web AI4Good](https://profschimd.github.io/4ia-2022-2023-ai4good/) con HTML e CSS
+    * Consegna lavoro su [Informatica e Agenda 2030](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTgxNzU3Mjc0NTQ1/details)
+* 47 - LAB: Grafi (18/01/23)
+    * Algoritmi noti
+        * Algoritmo di Dijkstra
+        * Algoritmo di Ford-Fulkerson
+* 46 - Grafi (17/01/23)
+    * Rappresentazione mediante matrice di adiacenza e di incidenza
+    * Algoritmi di visita
+* 45 - Grafi (16/01/23)
+    * Concetti base e terminologia
+    * Rappresentazione mediante liste concatenate -->
+* 44 - LAB: Educazione Civica (13/01/23)
+    * [Sito Web AI4Good](https://profschimd.github.io/4ia-2022-2023-ai4good/) con HTML e CSS
+* 43 - LAB: Alberi e HTML (11/01/23)
+    * Ricerca in un albero di ricerca binario
+    * Introduzione ad HTML e CSS
+        * Tag di base [HTML]({{< ref "01-html.md" >}}): `html`, `head`, `body`, `h*`, `a`, `p`
+        * Tag semantici [HTML]({{< ref "01-html.md" >}}): `header`, `main`, `footer`
+        * Selettori [CSS]({{< ref "02-css.md" >}}): elemento, id, classe
 * 42 - Educazione civica (10/01/23)
-    * Cos'è l'Intelligenza Artificiale
+    * [Cos'è l'Intelligenza Artificiale](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/m/NTgxNzU3NzA3NTk5/details)
 * 41 - Educazione civica (09/01/23)
-    * Cos'è l'Agenda 2030 -->
+    * [Cos'è l'Agenda 2030](https://classroom.google.com/w/NTQ2OTYxODYzNTg3/tc/NTQwODM5NzgxMDA1)
 * 40 - LAB: Javascript (23/12/22)
     * Accesso al corso Cisco JavaScript Essential
-    * 
 * 39 - LAB: Alberi (21/12/22)
     * Presentazioni lavoro "Queue e Stack"
     * Esercitazione sugli alberi

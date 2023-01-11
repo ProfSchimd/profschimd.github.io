@@ -8,13 +8,28 @@ menu:
 ---
 
 ## Lezioni
-<!-- 
-* 37 LAB: (09/01/23)
-    * -->
-* 36 Educazione Civica (23/12/22)
-    * L'Intelligenza Artificiale
-* 35 Educazione Civica (20/12/22)
-    * L'Agenda 2030
+<!--
+* 43 - LAB: (23/01/23)
+    *
+* 42 - Livello Data Link (20/01/23)
+    * Topologie [CCNA v7 6.2](https://contenthub.netacad.com/itn/6.2.1)
+    * Frame di collegamento [CCNA v7 6.3](https://contenthub.netacad.com/itn/6.3.1)
+-->
+* 41 - Educazione Civica (17/01/23)
+    * Testi su [Agenda 2030](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTc4OTAwNDgzOTc4/details), [AI e Big Data](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTc5OTE2NDE0MjE1/details)
+* 40 - LAB: RFID con Arduino (16/01/23)
+    * Lettura di schede MIFARE classic con RFID e Arduino
+* 39 - Livello Data Link (13/01/23)
+    * Ruoli del livello di collegamento [CCNA v7 6.1](https://contenthub.netacad.com/itn/6.1.1)
+    * Sottolivelli LLC e MAC [CCNA v7 6.1](https://contenthub.netacad.com/itn/6.1.1)
+* 38 - Educazione Civica (10/01/23)
+    * [L'Intelligenza Artificiale](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTc5OTE2NDE0MjE1/details) 
+* 37 - LAB: RFID con Arduino (09/01/23)
+    * Lettura di schede MIFARE classic con RFID e Arduino 
+* 36 - Educazione Civica (23/12/22)
+    * [L'Agenda 2030](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTc4OTAwNDgzOTc4/details)
+* 35 - Educazione Civica (20/12/22)
+    * [Informatica e Agenda 2030](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/a/NTc5OTk2MTQxNzQ3/details)
 * 34 - LAB: Verifica di laboratorio (19/12/22)
     * Verifica pratica di Packet Tracer
     * Educazione Civica: l'Agenda 2030
