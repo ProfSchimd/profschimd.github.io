@@ -84,12 +84,86 @@ La classe `DatabaseAccess` così creata viene classe **adapter** perché funge d
 nome dell'adapter è **wrapper** in quanto la classe "avvolge" al suo interno i
 dettagli della nuova classe.
 
-## Composite
-Compose objects into tree structures to represent part-whole hierarchies. Com- posite lets clients treat individual objects and compositions of objects uniformly.
-
 ## Facade
-Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+Il pattern **facade** prevede la creazione di un'interfaccia unica componendo
+diverse interfacce di un sistema complesso. In questo caso non bisogna intendere
+il termine *interfaccia* come un `interface` Java, bensì nel senso di una API
+(*Application Programming Interface*).
+
+Supponiamo, ad esempio, di progettare un gioco in cui un personaggio virtuale
+interagisce con gli elementi del mondo virtuale in cui si muove. Questi elementi
+possono essere diversi: la mappa, altri giocatori, l'inventario, ... Dal punto
+di vista della classe `Player`, quindi, potrebbe essere necessario interagire con
+altre classi: `Map`, `Player` (altri giocatori), `Inventory`, ... In questo caso
+può risultare più comodo avere un interfaccia `World` che permette l'interazione
+con un i vari altri oggetti attraverso un'unica *facciata*.
+
+Nell'esempio che segue vediamo una classe `World` offre metodi per l'interazione
+con varie parti del gioco. L'interazione (ad esempio `fight`) può coinvolgere
+diversi aspetti e diverse altre classi, dal punto di vista del codice client,
+questa complessità non è visibile poiché nascosta dalla classe `World` che è, in
+questo esempio, la classe *facade* (facciata).
+
+```java
+public class World {
+    private Player[] players;
+    private Map map;
+
+    public void fight(Player attack, Player defense) {
+        // Perform a fight between two players
+    }
+    public void discoverMap(int x, int y) {
+        // Discover some new parts of the world
+    }
+
+    // ...
+}
+```
 
 ## Proxy
-Provide a surrogate or placeholder for another object to control access to it.
+Il **proxy** pattern prevede una classe che possa fungere da "segnaposto" per
+un'altra classe. Questo può essere utile, ad esempio, per creare la classe da
+sostituire c'è bisogno di tanto tempo oppure di informazione non ancora
+disponibile.
+
+Nelle interfacce grafiche, ad esempio, l'operazione di caricamento delle risorse
+(da remoto o da file) può richiedere del tempo, durante questo periodo l'interfaccia
+potrebbe essere inutilizzabile o non completa poiché in attesa della risorsa
+mancante. Anziché bloccare l'esecuzione fino al completamento della richiesta onerosa,
+si può utilizzare una classe proxy, veloce di istanziare, che prenda il posto della
+classe la cui istanaziazione non è ancora terminata.
+
+The following code shows a `ProxyResource` class and a `TimeConsumiResource` class
+both extending the same `Resource` class. In the constructor of `ProxyResource` a
+download is started for the *original* resource, while it downloads, the instance
+of `ProxyResource` is served. Whenever the original resource is ready, it is used
+when needed.
+
+```java
+public class ProxyResource extends Resource {
+    private Resource res;
+    private TimeConsumingResource original;
+
+    public ProxyResource(String url) {
+        original = new TimeConsumingResource(url);
+        res = this;
+    }
+    Resource get() {
+        if (original.isReady()) {
+            res = original;
+        }
+        return res;
+    }
+}
+
+public class TimeConsumingResource extends Resource {
+    public TimeConsumingResource(String url) {
+        // starti downloading  resource
+    }
+
+    public boolean isReady() {
+        return false;
+    }
+}
+```
 

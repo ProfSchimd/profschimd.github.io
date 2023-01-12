@@ -44,16 +44,16 @@ classe o un'interfaccia venga utilizzata per *adattare* due classi o interfacce
 "incompatibili".
 * **Bridge**: rende un concetto astratto (ad esempio una classe) indipendente
 dalla sua realizzazione concreta in modo che questi possano variare separatamente.
-* [**Composite**]({{< ref "02-structural-patterns.md#composite" >}}): compone
+* **Composite**: compone
 oggetti utilizzato una struttura gerarchica in modo che possano essere utilizzati
 in modo uniforme.
 * **Decorator**: aggiunge ad un oggetto funzionalità in maniera *dinamica* e non
 durante la fase di stesura e compilazione del codice.
 * [**Facade**]({{< ref "02-structural-patterns.md#facade" >}}): crea un'interfaccia
-unica componendo diverse interfacce.
+unica componendo diverse interfacce di un sistema complesso.
 * **Flyweight**: Condivide l'implementazione di funzionalità tra diversi oggetti.
 * [**Proxy**]({{< ref "02-structural-patterns.md#proxy" >}}): Prevede una classe
-che si "interpone" tra due classi.
+che possa fungere da "segnaposto" per un'altra classe.
 
 ### Behavioral pattern
 * **Chain of Responsibility**: definisce in maniera chiara chi è responsabile di
