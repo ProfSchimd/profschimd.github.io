@@ -3,6 +3,8 @@ title: "Il concetto di grafo"
 type: lecture
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/graphs
 weight: 200
+summary: "In questa lezione vengono presentati i concetti base sui grafi e vengono esposte
+le principali tecniche per la loro rappresentazione utilizzando il linguaggio Java."
 ---
 
 Consideriamo il problema di rappresentare i collegamento tra gli utenti iscritti
@@ -90,39 +92,7 @@ Un self-loop in un dato nodo `A` va considerato come un arco entrante ed un arco
 uscente.
 {{</def>}}
 
-### Percorso e connettività
-In un grafo è possibile "muoversi" da un nod ad un altro percorrendo i lati o gli
-archi. Ad esempio nel grafo sopra posso "spostarmi" da `Alice` ad `Eric`, ad esempio,
-attraverso `Carol` oppure attraverso `Fred`. È possibile raggiungere `Eric` da `Alice`
-attraverso `Bob`, `Fred`, `David` e `Carol`. Ognuno di questa sequenza di nodi che
-sono tra loro vicini, viene detta percorso, vediamo meglio la definizione di percorso
-in un grafo.
-
-{{<def title="Percorso">}}
-In un grafo un **percorso** (**path**) è una sequenza di nodi \\(a, b, c, d, \ldots \\)
-a patto che tra due nodi adiacenti nella lista \\(x, y\\) vi sia un lato nel caso di
-grafi non orientati o un arco uscente da \\(x\\) ed entrante in \\(y\\) nel caso di
-grafi orientati.
-{{</def>}}
-
-### Esempio: grafo non orientato
-{{<column/two-cols wr=4 wl=8 content=left embed="img/train-station-graph.html">}}
-Vediamo i concetti esposti sopra con un esempio su un grafo orientato in cui i nodi
-rappresentato stazioni ferroviarie e i lato rappresentano collegamenti ad alta
-velocità (vedi figura a destra).
-
-Ricordiamo che il grado rappresenta il numero totale di lati incidenti, per cui
-il nodo `TO` ha grado 2, il nodo `MI` ha grado 4, `VE` grado 2 `BO` grado 4 e
-così via.
-
-Ci sono diversi percorsi nel grafo a destra, ad esempio `TO, MI, VE` è un percorso
-che parte da `TO` ed arriva `VE` passando per `MI`. Un altro esempio è `BO, FI, GE, MI, BO`
-in questo caso l'inizio e la fine del percorso sono lo stesso nodo `BO`. Anche il seguente
-è un percorso `VE, BO, MI, VE, BO, MI` il quale percorre due volte lo stesso sotto
-percorso `VE, BO, MI`. 
-{{</column/two-cols>}}
-
-### Esempio: grafo orientato
+#### Esempio: grafo orientato
 {{<column/two-cols wr=4 wl=8 content=left embed="img/grafo-orientato.html">}}
 In questo secondo esempio, vediamo i concetti esposti sopra applicati ad un grafo
 orientato (figura a destra).
@@ -141,16 +111,49 @@ Il grado entrante \\(\delta^+\\), uscente \\(\delta^-\\) e complessivo
 {{</table>}}
 {{</column/two-cols>}}
 In un grafo orientato i percorsi devono seguire le frecce affinché siano validi,
-nella figura sopra il percorso `A, B, D` è un percorso valida, ma non lo è il
-seguente percorso `A, C, D` non esiste infatti un arco tra `A` e `C` (ne esiste uno
-tra `C` ed `A`). Il seguente è anche un percorso valido `A, B, B, A`, in questo
-caso si è percorso una volta il loop `(B,B)`, anche il seguente è perciò un
-percorso valido `B, B, B`, si noti però che questo non lo è `A, A, A` in quanto
+nella figura sopra il cammino `A, B, D` è un cammino valida, ma non lo è il
+seguente cammino `A, C, D` non esiste infatti un arco tra `A` e `C` (ne esiste uno
+tra `C` ed `A`). Il seguente è anche un cammino valido `A, B, B, A`, in questo
+caso si è cammino una volta il loop `(B,B)`, anche il seguente è perciò un
+cammino valido `B, B, B`, si noti però che questo non lo è `A, A, A` in quanto
 non c'è un loop `(A,A)`.
 
-Infine notiamo come un qualsiasi percorso che termini in `E`, ad esempio `A, B, D, E`,
+Infine notiamo come un qualsiasi cammino che termini in `E`, ad esempio `A, B, D, E`,
 può unicamente rimanere in attraverso l'unico arco uscente da `E` che riporta d
 `E` stesso (tale arco è un loop).
+
+### Cammino e connettività
+In un grafo è possibile "muoversi" da un nod ad un altro percorrendo i lati o gli
+archi. Ad esempio nel grafo sopra posso "spostarmi" da `Alice` ad `Eric`, ad esempio,
+attraverso `Carol` oppure attraverso `Fred`. È possibile raggiungere `Eric` da `Alice`
+attraverso `Bob`, `Fred`, `David` e `Carol`. Ognuno di questa sequenza di nodi che
+sono tra loro vicini, viene detta cammino, vediamo meglio la definizione di cammino
+in un grafo.
+
+{{<def title="Cammino">}}
+In un grafo un **cammino** (**path**) è una sequenza di nodi \\(a, b, c, d, \ldots \\)
+a patto che tra due nodi adiacenti nella lista \\(x, y\\) vi sia un lato nel caso di
+grafi non orientati o un arco uscente da \\(x\\) ed entrante in \\(y\\) nel caso di
+grafi orientati. Se il cammino inizia e conclude nello stesso nodo si dice **circuito**
+(**cycle**).
+{{</def>}}
+
+### Esempio: grafo non orientato
+{{<column/two-cols wr=4 wl=8 content=left embed="img/train-station-graph.html">}}
+Vediamo i concetti esposti sopra con un esempio su un grafo orientato in cui i nodi
+rappresentato stazioni ferroviarie e i lato rappresentano collegamenti ad alta
+velocità (vedi figura a destra).
+
+Ricordiamo che il grado rappresenta il numero totale di lati incidenti, per cui
+il nodo `TO` ha grado 2, il nodo `MI` ha grado 4, `VE` grado 2 `BO` grado 4 e
+così via.
+
+Ci sono diversi percorsi nel grafo a destra, ad esempio `TO, MI, VE` è un cammino
+che parte da `TO` ed arriva `VE` passando per `MI`. Un altro esempio è `BO, FI, GE, MI, BO`
+in questo caso l'inizio e la fine del cammino sono lo stesso nodo `BO` quindi diciamo
+che questo cammino è un circuito. Anche il seguente è un cammino `VE, BO, MI, VE, BO, MI`
+il quale percorre due volte lo stesso sotto cammino `VE, BO, MI`. 
+{{</column/two-cols>}}
 
 ### Grafi pesati
 I grafi visti finora non differenziano tra i vari lati/archi nel senso che non
