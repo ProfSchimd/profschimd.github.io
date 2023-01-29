@@ -61,14 +61,14 @@ gestire un "messaggio" (ad esempio un comando).
 * **Command**: incapsula una richiesta all'interno di un oggetto.
 * **Interpreter**: prevede un meccanismo di traduzione per uno specifico linguaggio.
 * [**Iterator**]({{< ref "03-behavioral-patterns.md#iterator" >}}): prevede un
-metodo per accedere, in modo sequenziali, agli elementi di una collezione, senza
+metodo per accedere, in modo sequenziale, agli elementi di una collezione, senza
 conoscere i dettagli di memorizzazione di tali elementi.
 * **Mediator**: prevede un oggetto che incapsula il comportamento di un altro
 oggetto permettendo di variare le varie parti in modo indipendente.
 * **Memento**: pur mantenendo l'incapsulamento, cattura lo stato interno di un
 oggetto per il suo salvataggio e successivo ripristino.
 * [**Observer**]({{< ref "03-behavioral-patterns.md#observer" >}}): definisce una
-dipendenza uno-a-molti tra un oggetto che cambia stato e più altri oggetti che
+dipendenza uno-a-molti tra un oggetto che cambia stato ed altri oggetti che
 reagiscono automaticamente a questo cambio di stato.
 * **State**: permette ad un oggetto di cambiare il proprio comportamento in base
 al proprio stato interno (come se cambiasse classe).
