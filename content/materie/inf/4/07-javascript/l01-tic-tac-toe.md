@@ -1,6 +1,7 @@
 ---
-title: "Laboratorio NN: Tic Tac Toe (Tris) con Canvas HTML5"
+title: "Laboratorio 1: Tic Tac Toe (Tris) con Canvas HTML5"
 type: lecture
+weight: 100
 ---
 
 ## Descrizione del laboratorio

@@ -1,4 +1,3 @@
 ---
 title: Javascript
-draft: true
 ---
