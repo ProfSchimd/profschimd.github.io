@@ -245,5 +245,124 @@ e non un array di numeri.
 {{</observe>}}
 
 ## Oggetti
+Uno dei tipi di dato più utilizzato in Javascript è il tipo `Object`, il motivo
+di questo successo è l'enorme flessibilità con cui si definiscono e si utilizzano
+gli oggetti in Javascript. Un secondo aspetto estremamente importante degli object
+è la loro rappresentazione mediante il formato [*JavaScript Object Notation (JSON)*][3]
+che è oggigiorno il formato di riferimento per lo scambio di dati in Server REST.
+Alla [fine](#json) di questa sezione ci occuperemo del formato JSON, prima vediamo
+di comprendere cosa sono, come si definiscono e come si utilizzano gli oggetti in
+Javascript.
+
+{{<important>}}
+Quando si parla di `Object` in Javascript si può essere indotti a pensare alle
+classi `Object` presenti in vari linguaggi OOP come Java, C#, Dart, ... Anche se
+ci sono molte similarità tra questi concetti, gli oggetti Javascript sono molto
+diversi dagli oggetti di altri linguaggi OOP ed è spesso meglio limitari al
+minimo il confronto con gli altri linguaggi.
+{{</important>}}
+
+### Definizione di un oggetto
+In Javascript il modo più diretto per definire un oggetto è attraverso
+l'inizializzazione dello stesso.
+
+```javascript
+const obj = {
+    name: "Alice",
+    age: 42,
+    greet() {
+        return `Hi I'm ${name}`;
+    }
+}
+
+console.log(obj.greet()); // !! "Hi I'm " !!
+```
+
+{{<attention title="Funzioni, non metodi" >}}
+Il meccanismo di associazione di una funzione ad un `object` non è lo stesso del
+meccanismo di definizione dei metodi delle classi. Come si vede dall'esempio
+sopra `greet` **non è un metodo** dell'oggetto `obj`,di conseguenza non ha accesso
+alla proprietà `name`. Inoltre non esiste alcun riferimento all'oggetto tipo `this`
+o `self` che si possa utilizzare allo scopo.  Bisogna quindi ricordarsi che **le
+funzioni definite negli oggetto non sono metodi**.
+{{</attention>}}
+
+### Iterare sulle proprietà di un `Object`
+In certi casi è utile accedere sequenzialmente a tutte le proprietà di un oggetto,
+per fare questo si possono usare il costrutto `for..in..` che ci restituisce le
+*chiavi*.
+
+```javascript
+for (p in obj) {
+    console.log(`${p} -> ${obj[p]}`);
+}
+```
+
+### JSON
+Il formato [*JavaScript Object Notation(JSON)*][3] (pronunciato *geison* o *geson*),
+si utilizza per *serializzare* (trasformare in testo) oggetti Javascript (come il
+nome stesso indica). Un tipico file JSON è formato da coppie *chiave-valore* dove
+la chiave è una stringa. Il formato JSON prevede anche l'indicazioni di array,
+cerchiamo di capirlo attraverso degli esempi pratici.
+
+```json
+{
+    "name": "Alice",
+    "age": 42
+}
+```
+
+Il JSON sopra contiene un solo oggetto le cui proprietà sono racchiuse tra graffe
+e sono:
+* una stringa con chiave `name` e valore `Alice`,
+* un numero con chiave `age` e valore 42.
+
+```json
+{
+    "name": "Alice",
+    "age": 42,
+    "phone": [
+        "+1 123 456 7899",
+        "+1 555 112 2330"
+    ]
+}
+```
+
+in questo secondo esempio allo stesso oggetto è stata aggiunta una terza
+proprietà con chiave `phone` il cui valore è un array, in questo caso l'array
+contiene due stringhe (due distinti numeri di telefono).
+
+```json
+[
+    {
+        "name": "Alice",
+        "age": 42
+    },
+    {
+        "name": "Bob",
+        "age": 58,
+        "address": {
+            "name": "Main Street",
+            "number": 12,
+            "zip": 12312,
+            "state": "CA"
+        }
+    }
+]
+```
+
+Questo ulteriore esempio mostra due cose:
+* il JSON ora è un array contenente due oggetto (si noti le quadre `[]` all'inizio
+e alla fine del file);
+* all'interno del secondo oggetto è stato definito un ulteriore oggetto il quale
+corrisponde alla chiave `address`.
+
+#### Conversione JSON e `Object`
+L'utilizzo del formato JSON in Javascript richiede la conversione dal formato
+all'oggetto e viceversa. Sono disponibili due funzioni apposite per questo scopo.
+* `JSON.parse()` converte un JSON in un oggetto
+* `JSON.stringify()` converte un oggetto in un JSON
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[3]: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
