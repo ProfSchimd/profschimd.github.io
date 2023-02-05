@@ -2,7 +2,7 @@
 title: Canvas
 type: lecture
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/javascript/canvas
-weight: 30
+weight: 300
 ---
 ## L'elemento HTML5 `<canvas>`
 

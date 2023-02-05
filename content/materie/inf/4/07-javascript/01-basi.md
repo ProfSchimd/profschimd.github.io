@@ -2,9 +2,9 @@
 title: Basi di Javascript
 type: lecture
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/javascript/
-weight: 10
+weight: 100
 summary: "In questa lezione presentiamo le basi del linguaggio Javascript. In
-particolare si discute: variabili e tipi, gestione del flusso, array e oggetti"
+particolare si discute: variabili e tipi, gestione del flusso."
 ---
 
 ## Variabili e tipi
@@ -241,5 +241,74 @@ non il costrutto `for..in..`. Spesso si può essere confusi in quanto nella magg
 parte dei linguaggi nei quali il `for..in..` corrisponde a `for..on..` di Javascript.
 {{</attention>}}
 
+## Funzioni
+In Javascript le funzioni si dichiarano utilizzando la parola chiave `function`
+seguita dal *nome* della funzione e, tra parentesi tonde, la lista di argomenti.
+Il tipo di argomenti ed il tipo di valore ritornato dalla funzione non vengono
+indicati in Javascript.
 
+```javascript
+function square(x) {
+  return x*x;
+}
+
+console.log(square(2));
+console.log(square(-1));
+```
+
+### Espressione `function`
+Una funzione dichiarata con `function` è un'*espressione* a tutti gli effetti,
+in particolare Javascript permette di *assegnare* ad una variabile il *valore*
+dell'espressione definita mediante `function`.
+
+```javascript
+square = function(x) {
+  return x*x;
+}
+
+console.log(square(2));
+console.log(square(-1));
+```
+
+### Arrow function
+In un tipico progetto Javascript, si fa spesso uso di funzioni semplici, tipo la
+funzione `square` sopra. A volte queste funzioni vengono utilizzate una volta sola
+nel cui caso la definizione di una funzione con nome o di una variabile funzione
+non sembra la soluzione più efficiente.
+
+Javascript permette di creare funzioni *anonime* (senza nome) utilizzando le
+*arrow function*.
+
+```javascript
+// arrow function con un parametro e un istruzione
+console.log(x => x*x); // function(x)
+// assegna una arrow function ad una variabile
+const square = x => x*x;
+console.log(square); // function(x)
+console.log(square(3)); // 9
+```
+
+Si noti che:
+* quando c'è una singola istruzione, questa definisce anche il valore ritornato;
+* una arrow function è un'*espressione* e perciò si può assegnare ad una variabile.
+
+Un utilizzo molto frequente delle arrow function è come parametro di funzioni che
+richiedono una funzione come parametro (ad esempio [`filter`]({{< ref "02-array-oggetti.md#filter" >}})
+e [`map`]({{< ref "02-array-oggetti.md#map" >}}) per gli array).
+
+Le arrow function possono avere anche più di un parametro e più di un'istruzione,
+in questo caso si utilizzando parentesi tonde per i parametri e graffe per il
+blocco istruzioni.
+
+```javascript
+const maxLen = (a, b) => {
+  if (a.length > b.length) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+maxLen([1], [1,2]); // returns [1,2]
+```
 
