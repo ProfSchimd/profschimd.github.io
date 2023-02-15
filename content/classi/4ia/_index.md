@@ -9,19 +9,63 @@ menu:
 
 ## Lezioni
 <!--
-* 48 - LAB: Educazione Civica
+* 67 - (28/02/23)
+    *
+* 66 - (27/02/23)
+    *
+* 65 - Cogestione (24/02/23)
+    * -->
+* 64 - Verifica di laboratorio (17/02/23)
+    * Verifica su strutture dati e algoritmi in Java
+* 63 - Educazione Civica (15/02/23)
+    * Progetto incontriamoci dentro
+    * Teatro U. Foscolo
+* 62 - Esercizi (14/02/23)
+    * Alberi per memorizzare stringhe
+    * Visita su alberi con arietà qualsiasi
+* 61 - Esercizi (13/02/23)
+    * Creazione di una classe `Tree`
+* 60 - LAB: Canvas (10/02/23)
+    * Prosecuzione progetto su canvas
+    * Educazione Civica: incontro con AVIS
+* 59 - LAB: CSS (08/02/23)
+    * Posizionamento relativo ed assoluto
+    * CSS box model
+    * Progetto incontriamoci dentro
+* 58 - Javascript (07/02/23)
+    * Array: funzioni principali
+* 57 - Javascript (06/02/23)
+    * Array: dichiarazione, utilizzo base, il metodo `map`
+* 56 - LAB: Javascript (03/02/23)
+    * Utilizzo base del canvas
+* 55 - LAB: HTML e CSS (01/02/23)
+    * I principali elementi HTML
+    * CSS base e collegamento ad una pagina HTML
+* 54 - Javascript (31/01/23)
+    * Le basi del linguaggio
+    * Canvas HTML
+* 53 - HTML e Javascript (30/01/23)
+    * Canvas
+* 52 - LAB: Grafi (27/01/23)
+    * Attività "Grafo delle città" e algoritmo di Dijkstra
+* 51 - LAB: Grafi (25/01/23)
+    * Algoritmo di Dijkstra
+    * Albero dei cammini minimi
+* 50 - Grafi (24/01/23)
+    * Esercizi sui grafi
+* 49 - Educazione Civica (23/01/23)
+    * Test di educazione civica su "Intelligenza Artificiale e Agenda 2030"
+* 48 - LAB: Educazione Civica (20/01/23)
     * [Sito Web AI4Good](https://profschimd.github.io/4ia-2022-2023-ai4good/) con HTML e CSS
-    * Consegna lavoro su [Informatica e Agenda 2030](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTgxNzU3Mjc0NTQ1/details)
+    * Consegna lavoro su [Informatica e Agenda 2030](https://classroom.google.com/c/NTQ2OTYxODYzNTg3/a/NTgxNzU3Mjc0NTQ1/details) 
 * 47 - LAB: Grafi (18/01/23)
-    * Algoritmi noti
-        * Algoritmo di Dijkstra
-        * Algoritmo di Ford-Fulkerson
+    * Grafi in Java
+    * Visita in ampiezza
+    * Applicazioni dei grafi alle città
 * 46 - Grafi (17/01/23)
-    * Rappresentazione mediante matrice di adiacenza e di incidenza
-    * Algoritmi di visita
+    * [Matrice di adiacenza e di incidenza]({{< ref "02-concetto-di-grafo.md#rappresentazione-di-grafi" >}})
 * 45 - Grafi (16/01/23)
-    * Concetti base e terminologia
-    * Rappresentazione mediante liste concatenate -->
+    * [Concetti base e terminologia]({{< ref "02-concetto-di-grafo.md" >}})
 * 44 - LAB: Educazione Civica (13/01/23)
     * [Sito Web AI4Good](https://profschimd.github.io/4ia-2022-2023-ai4good/) con HTML e CSS
 * 43 - LAB: Alberi e HTML (11/01/23)

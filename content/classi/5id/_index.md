@@ -10,10 +10,47 @@ menu:
 ## Lezioni
 
 <!--
+* 54 -
+* 53 - 
+* 42 - (27/02/23)
+    * -->
+* 51 - LAB: Flutter (16/02/23)
+    * Prosecuzione progetto App "Trivia"
+* 50 - Testing (15/02/23)
+    * Testing in flutter
+        * Unit testing
+        * Widget testing
+        * Integration testing
+* 49 - Testing (13/02/23)
+    * Prosecuzione attività definizione test
+* 48 - LAB: Flutter (09/02/23)
+    * Prosecuzione progetto App "Trivia"
+* 47 - Testing (08/02/23)
+    * Definizione unit test da diagramma UML delle classi
+* 46 - Testing (06/02/23)
+    * Introduzione al testing
+    * Esempio di unit test in Dart
+* 45 - LAB: Flutter (02/02/23)
+    * Prosecuzione progetto App "Trivia"
+    * App contest per "Client REST"
+* 44 - Design Pattern (01/02/23)
+    * [Observer design pattern]({{< ref "03-behavioral-patterns.md#observer" >}})
+* 43 - Design Pattern (30/01/23)
+    * Discussione sull'Esame di Stato
+    * [Iterator design pattern]({{< ref "03-behavioral-patterns.md#iterator" >}})
+* 42 - LAB: Flutter (26/01/23) 
+    * Prosecuzione progetto App "Trivia"
+* 41 - Recupero (25/01/23)
+    * Interrogazioni di recupero
+* 40 -  (23/01/23)
+    * 
+* 39 - LAB: Flutter (19/01/23)
+    * Assegnata l'attività App "Trivia"
+* 38 - Design pattern (18/01/23)
+    * [Design pattern strutturali]({{< ref "02-structural-patterns.md" >}})
 * 37 - Design Pattern (16/01/23)
     * Esercitazione su [*creational design pattern*]({{< ref "01-creational-patterns.md" >}})
-    *[Design pattern strutturali]({{< ref "02-structural-patterns.md" >}}): -->
-* 36 - Flutter (12/01/23)
+* 36 - LAB: Flutter (12/01/23)
     * Consegna lavori "Client REST in Flutter"
 * 35 - Design pattern (11/01/23)
     * Esercitazione su [*creational design pattern*]({{< ref "01-creational-patterns.md" >}})

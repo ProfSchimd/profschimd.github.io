@@ -439,9 +439,9 @@ public static void printInOrder(IBinaryTreeNode node) {
     if (node == null) {
         return;
     }
-    printPreOrder(node.getLeftChild());
+    printInOrder(node.getLeftChild());
     doOperation(node);
-    printPreOrder(node.getRightChild());
+    printInOrder(node.getRightChild());
 }
 
 {{</highlight>}}
@@ -455,8 +455,8 @@ public static void printPostOrder(IBinaryTreeNode node) {
     if (node == null) {
         return;
     }
-    printPreOrder(node.getLeftChild());
-    printPreOrder(node.getRightChild());
+    printPostOrder(node.getLeftChild());
+    printPostOrder(node.getRightChild());
     doOperation(node);
 }
 {{</highlight>}}

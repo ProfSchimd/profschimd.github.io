@@ -9,14 +9,40 @@ menu:
 
 ## Lezioni
 <!-- 
-* 36 - LAB: (20/01/23)
-    * 
+* 49 - LAB: (17/02/23) -->
+* 48 - LAB: Progettazione di reti (16/02/23) 
+    * Subnetting a lunghezza variabile ([Cisco v8 Cap 8.1.5](https://contenthub.netacad.com/legacy/CCNA/ITN/6.0/it/index.html#8.1.5))
+* 47 - Sicurezza (16/02/23)
+    * Test su CIAA e algoritmi di cifratura
+* 46 - Sicurezza (14/02/23)
+    * Funzioni si hash sicure
+* 45 - LAB: Assenti (10/02/23)
+    * Tutta la classe assente
+* 44 - Progettazione di reti (09/02/23)
+    * Subnetting di reti IPv4 ([Cisco v6 Cap 8.1](https://contenthub.netacad.com/legacy/CCNA/ITN/6.0/it/index.html#8.1.1.1))
+* 43 - Sicurezza (07/02/23)
+    * Crittografia a chiave pubblica con RSA
+* 42 - LAB: Routing (03/02/23)
+    * Protocollo RIP su  dispositivi Cisco
+* 41 - Progettazione di reti (02/02/23)
+    * Cablaggio strutturato
+* 40 - Sicurezza (31/01/23)
+    * Advanced Encryption System (AES)
+* 39 - LAB: Router (27/01/23)
+    * Routing statico su dispositivi Cisco
+    * Recupero insufficienze prova pratica
+* 38 - Progettazione di reti (26/01/23)
+    * Il documento di progetto
+* 37 - Sicurezza (24/01/23)
+    * Schemi di cifratura e algoritmi crittografici
+* 36 - LAB: Prova pratica (20/01/23)
+    * Prova pratica: configurazioni di dispositivi di rete con Packet Tracer
 * 35 - Educazione Civica (19/01/23)
     * Test su Cookie e GDPR
-* 34 - Progettazione reti (17/01/23)
-    * 
-* 33 - LAB: (13/01/23)
-    * -->
+* 34 - Sicurezza (17/01/23)
+    * I requisiti CIAA delle reti
+* 33 - LAB: Switch e Routing (13/01/23)
+    * Esercitazione su DHCP Switch e Router Cisco
 * 32 - Educazione Civica: Cookie (12/01/23)
     * Ripasso argomenti Test
 * 31 - Educazione Civica: Cookie (09/01/23)

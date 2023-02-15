@@ -9,12 +9,38 @@ menu:
 
 ## Lezioni
 <!--
-* 43 - LAB: (23/01/23)
-    *
+* 56 - (28/02/23)
+* 55 - LAB: (27/02/23) -->
+* 54 - Livello di rete (17/02/23)
+    * Livello di rete: pacchetto IPv4 ([Cisco v7 Cap. 8.2](https://contenthub.netacad.com/itn/8.2.1))
+* 53 - Livello di rete (14/02/23)
+    * Il pacchetto TCP con Packet Tracer
+    * Livello di rete: introduzione ([Cisco v7 Cap 8.1](https://contenthub.netacad.com/itn/8.1.1))
+* 52 - LAB: Arduino e Ethernet (13/02/23) 
+    * Breve introduzione sui protocolli di trasporto TCP e UDP
+    * Ethernet Shield per Arduino
+* 51 - Ethernet (10/02/23)
+    * Packet Tracer: le VLAN e il tagging sul frame Ethernet
+* 50 - Safer Internet Day (07/02/23)
+    * Safer Internet Day: Attacchi ransomware
+* 49 - LAB: NFC e Arduino (06/02/23)
+    * Esperienza "Validazione biglietti su carta MIFARE"
+* 48 - Ethernet (03/02/23)
+    * Indirizzi Ethernet ([Cisco v7 7.2](https://contenthub.netacad.com/itn/7.2.1))
+    * Switch e MAC Address Table ([Cisco v7 7.3](https://contenthub.netacad.com/itn/7.3.1))
+* 47 - Ethernet (31/01/23)
+    * Frame Ethernet ([Cisco Cap. 7.1](https://contenthub.netacad.com/itn/7.1.1)) e Packet Tracer
+* 46 - LAB: NFC e Arduino (30/01/23) 
+    * Scrittura su carte MIFARE con Arduino 
+* 45 - Livello Data Link (27/01/23)
+    * Ripasso Capitolo 6 Cisco
+    * Restituzione test di Educazione Civica
+* 44 - Livello Data Link (24/01/23)
+    * Frame di collegamento [CCNA v7 6.3](https://contenthub.netacad.com/itn/6.3.1)
+* 43 - LAB: NFC e Arduino (23/01/23)
+    * Scrittura su carte MIFARE con Arduino
 * 42 - Livello Data Link (20/01/23)
     * Topologie [CCNA v7 6.2](https://contenthub.netacad.com/itn/6.2.1)
-    * Frame di collegamento [CCNA v7 6.3](https://contenthub.netacad.com/itn/6.3.1)
--->
 * 41 - Educazione Civica (17/01/23)
     * Testi su [Agenda 2030](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTc4OTAwNDgzOTc4/details), [AI e Big Data](https://classroom.google.com/c/NTQ3MzU5MjgzNjg5/m/NTc5OTE2NDE0MjE1/details)
 * 40 - LAB: RFID con Arduino (16/01/23)
