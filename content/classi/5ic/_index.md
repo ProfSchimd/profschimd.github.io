@@ -9,9 +9,13 @@ menu:
 
 ## Lezioni
 <!-- 
-* 49 - LAB: (17/02/23) -->
-* 48 - LAB: Progettazione di reti (16/02/23) 
-    * Subnetting a lunghezza variabile ([Cisco v8 Cap 8.1.5](https://contenthub.netacad.com/legacy/CCNA/ITN/6.0/it/index.html#8.1.5))
+* 5? - Progettazione di reti (16/02/23) 
+    * Subnetting a lunghezza variabile ([Cisco v8 Cap 8.1.5](https://contenthub.netacad.com/legacy/CCNA/ITN/6.0/it/index.html#8.1.5)) -->
+* 49 - Sicurezza delle reti (28/02/23)
+  * [Concetti di base su firewall]({{< ref "02-firewall.md" >}})
+* 48 - LAB: Configurazione servizi (17/02/23)
+  * Installazione Linux su macchina virtuale
+  * Installazione e configurazione di server SSH e Apache
 * 47 - Sicurezza (16/02/23)
     * Test su CIAA e algoritmi di cifratura
 * 46 - Sicurezza (14/02/23)
