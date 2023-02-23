@@ -2,6 +2,8 @@
 title: Firewall
 type: lecture
 weight: 20
+summary: "Il firewall è un componente fondamentale per la sicurezza in una rete, in questa
+lezione si discute il funzionamento di un firewall e le principali tipologie di firewall"
 ---
 
 
@@ -43,15 +45,26 @@ termini di sicurezza e di uso della rete.
 {{</column/two-cols>}}
 
 ### Tipi di firewall
+Esistono diverse tipologie di firewall, che si distinguono in base alle analisi
+che effettuano sui pacchetti. Le principali sono.
 
-* Packet filtering
-* Stateful firewall
-* Application gateway
-* NAT firewall
-* Next generation firewall
+* **Packet filtering** agisce sui livelli 3 e 4 dello stack ISO/OSI, il che 
+significa che le regole possono solo analizzare pacchetti IP e TCP/UDP.
+* **[Stateful firewall](#firewall-stateless-e-stateful)** agisce sui livelli 3,4
+e 5 dello stack ISO/OSI, rispetto al *packet filtering* permette di gestire le
+regole considerando anche le connessioni tra host.
+* **Application gateway** agisce livelli 3, 4, 5 e 7 permette quindi di valutare
+i pacchetti anche sulla base dei protocolli di livello applicativo (ad esempio
+HTTP o SMTP).
+* **[NAT firewall]({{< ref "04-nat.md" >}})** prevede in meccanismo di gestione
+delle porte TCP e UDP.
+* **Next generation firewall**: si tratta di un firewall che, oltre a comprendere
+tutte le funzioni precedenti, include anche funzionalità di sicurezza avanzate
+quali *intrusion prevention and detection*, *deep packet inspection*, ...
 
-A next-generation firewall (NGFW) is a part of the third generation of firewall technology, combining a traditional firewall with other network device filtering functions, such as an application firewall using in-line deep packet inspection (DPI), an intrusion prevention system (IPS).
-NGFWs include the typical functions of traditional firewalls such as packet filtering,[3] network- and port-address translation (NAT), stateful inspection, and virtual private network (VPN) support. The goal of next-generation firewalls is to include more layers of the OSI model, improving filtering of network traffic that is dependent on the packet contents.
+Le tipologie di regole che possono essere impostate su un firewall dipendono dal
+tipo di firewall stesso. In altre parole, le politiche di sicurezza che si possono
+implementare a livello di firewall dipendono dal tipo di firewall in uso.
 
 ## Regole e politiche
 Il firewall decide di bloccare o meno un pacchetto attraverso delle **regole**
@@ -197,9 +210,30 @@ In genere, la regola di default viene impostata per bloccare tutto il traffico d
 {{</important>}}
 
 ### Firewall *stateless* e *stateful*
-Un firewall **stateless** analizza ogni pacchetto di dati in modo indipendente, senza tener conto del contesto del pacchetto o della sua relazione con i pacchetti precedenti. Il firewall stateless utilizza regole di sicurezza per determinare se un pacchetto di dati deve essere bloccato o consentito.
+Come visto sopra, esistono diverse tipologie di firewall le quali si distinguono
+principalmente per i livelli dello stack ISO/ISO che vengono considerati in fase
+di analisi del pacchetto. Una distinzione importante riguarda la possibilità o
+meno di analizzare un pacchetto sulla base di pacchetti visti in precedenza, per
+rendere possibile questo, il firewall deve mantenere uno **stato** per permettergli
+di registrare la "storia" di un pacchetto. La capacità o meno di analizzare i
+pacchetti in relazione a pacchetti precedenti distingue tra firewall di tipo
+*stateless* e *stateful*.
 
-Un firewall **stateful**, d'altra parte, tiene traccia dello stato delle connessioni di rete e utilizza questa informazione per prendere decisioni sulle richieste di connessione. Ad esempio, se un pacchetto di dati fa parte di una connessione di rete attiva e autorizzata, il firewall stateful consentirà il pacchetto di dati a passare.
+{{<def>}}
+Un firewall **stateless** analizza ogni pacchetto di dati in modo indipendente,
+senza tener conto del contesto del pacchetto o della sua relazione con i pacchetti
+precedenti.
+{{</def>}}
+
+{{<def>}}
+Un firewall **stateful** tiene traccia dello stato delle connessioni di rete ed
+utilizza questa informazione per prendere decisioni sui pacchetti in transito. 
+{{</def>}}
+
+Ad esempio, se un pacchetto fa parte di una connessione attiva ed autorizzata,
+il firewall stateful consentirà il transito di tale pacchetto. Di contro lo
+stesso pacchetto potrebbe essere bloccato da un firewall stateless che non è
+in grado di riconoscerlo come appartenente ad una connessione autorizzata.
 
 ## Esercizi
 
