@@ -8,9 +8,23 @@ menu:
 ---
 
 ## Lezioni
-<!-- 
-* 5? - Progettazione di reti (16/02/23) 
-    * Subnetting a lunghezza variabile ([Cisco v8 Cap 8.1.5](https://contenthub.netacad.com/legacy/CCNA/ITN/6.0/it/index.html#8.1.5)) -->
+<!--
+* 56 - LAB: (17/03/23)
+  * 
+* 55 - Verifica (16/03/23)
+  * Verifica scritta sulla progettazione di reti
+    * Cablaggio strutturato
+    * Subnetting di reti IPv4
+* 54 - Preparazione alla verifica
+  * Esercizio su cablaggio e subnetting
+* 53 - LAB: (10/03/23)
+  * -->
+* 52 - Progettazione di reti (09/03/23) 
+  * Esercitazione su subnetting 
+* 51 - Progettazione di reti (07/03/23) 
+    * Subnetting a lunghezza variabile ([Cisco v8 Cap 8.1.5](https://contenthub.netacad.com/legacy/CCNA/ITN/6.0/it/index.html#8.1.5))
+* 50 - LAB: (03/03/23)
+  * Firewall con pfSense
 * 49 - Sicurezza delle reti (28/02/23)
   * [Concetti di base su firewall]({{< ref "02-firewall.md" >}})
 * 48 - LAB: Configurazione servizi (17/02/23)

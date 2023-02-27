@@ -9,8 +9,20 @@ menu:
 
 ## Lezioni
 <!--
-* 56 - (28/02/23)
-* 55 - LAB: (27/02/23) -->
+* 60 - (10/03/23)
+* 59 - Livello di rete (07/03/23) 
+  * Riconsegna verifiche 
+  * Protocolli e algoritmi di instradamento -->
+* 58 - Livello di rete (06/03/23)
+  * Interrogazioni
+  * Il problema del routing [Cisco Cap. 8.3](https://contenthub.netacad.com/itn/8.4.1)
+* 57 - Livello di rete (03/03/23)
+  * Gli indirizzi IPv4 
+  * Pacchetto IPv4 [Cisco Cap. 8.2](https://contenthub.netacad.com/itn/8.2.1)
+* 56 - Verifica (28/02/23)
+  * Verifica scritta su MAC table e Cisco capitoli 6 e 7
+* 55 - LAB: Arduino e Ethernet (27/02/23)
+  * Ethernet Shield per Arduino
 * 54 - Livello di rete (17/02/23)
     * Livello di rete: pacchetto IPv4 ([Cisco v7 Cap. 8.2](https://contenthub.netacad.com/itn/8.2.1))
 * 53 - Livello di rete (14/02/23)

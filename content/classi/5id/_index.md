@@ -10,10 +10,22 @@ menu:
 ## Lezioni
 
 <!--
-* 54 -
-* 53 - 
-* 42 - (27/02/23)
-    * -->
+* 58 - LAB: (16/03/23)
+  * 
+* 57 - (15/03/23)
+  * 
+* 56 - (13/03/23) 
+  * -->
+* 55 - LAB: Verifica e recupero (09/03/23)
+  * Verifica di programmazione Dart e design pattern
+* 54 - Esercizi Dart e design pattern (08/03/23)
+  * Iterator e Observer
+* 53 - Esercizi Dart e design pattern (01/03/23)
+  * Implementazioni classi 
+  * Factory patterns
+  * Builder e Singleton
+* 52 - Esercizi Dart e design pattern (27/02/23)
+    * Lettura testo dell'esercizio "Assemblaggio auto" 
 * 51 - LAB: Flutter (16/02/23)
     * Prosecuzione progetto App "Trivia"
 * 50 - Testing (15/02/23)

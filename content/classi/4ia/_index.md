@@ -9,12 +9,23 @@ menu:
 
 ## Lezioni
 <!--
-* 67 - (28/02/23)
-    *
-* 66 - (27/02/23)
-    *
+* 73 - (10/03/23)
+  * 
+* 72 - (08/03/23)
+  * 
+* 71 - (07/03/23)
+  * 
+* 70 - PCTO (06/03/23) 
+  * Orientamento
+* 69 - LAB: (03/03/23)
+  * -->
+* 68 - LAB: (01/03/23)
+  * Riconsegna verifiche e discussione
+* 67 - Javascript (28/02/23)
+    * Oggetti e classi
+* 66 - Javascript (27/02/23)
+    * Oggetti e JSON
 * 65 - Cogestione (24/02/23)
-    * -->
 * 64 - Verifica di laboratorio (17/02/23)
     * Verifica su strutture dati e algoritmi in Java
 * 63 - Educazione Civica (15/02/23)
