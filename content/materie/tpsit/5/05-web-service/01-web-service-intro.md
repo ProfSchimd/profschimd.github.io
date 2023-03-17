@@ -145,6 +145,8 @@ presente su [questo repository GitHub](https://github.com/public-apis/public-api
 * [REST (Wikipedia EN)][3]
 * [RESTful API][4]
 
+{{< youtube -mN3VyJuCjM >}}
+
 [1]: https://en.wikipedia.org/wiki/Web_service
 [2]: https://en.wikipedia.org/wiki/SOAP
 [3]: https://en.wikipedia.org/wiki/Representational_state_transfer
