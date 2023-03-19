@@ -69,6 +69,11 @@ nazione con `name` uguale a `italy`.
 * `http://numbersapi.com/1337/trivia?random` restituisce un fatto (*trivia*) relativo al
 numero `1337` (risultato casuale).
 
+{{<observe>}}
+Quando si accede ad un sito Web mediante HTTP, è frequente che il *path* si riferisca
+ad un file presente nel server
+{{</observe>}}
+
 ### Accesso ed autenticazione
 Le API fornite da un web service possono essere o meno rese disponibili al pubblico,
 è anche possibile che parte delle API siano pubbliche e parte siano accessibili
@@ -79,9 +84,29 @@ I motivi per rendere private le API possono essere varie, le principali sono
 * scarsità di risorse hardware (ad esempio utilizzando *hosting* gratuito o con
 pagamento a volume).
 
+Per garantire l'accesso solo agli utenti autorizzati, esistono diversi meccanismi
+di autenticazione che possono essere utilizzati da un web service. Ecco alcuni dei
+principali:
+1. Autenticazione basata su [*API key*](#api-key) (o *token*): questo metodo prevede
+che l'utente fornisca una chiave di accesso valida per effettuare richieste al web
+service. La chiave viene generata dal server al momento dell'autenticazione
+dell'utente e viene poi utilizzato per identificare l'utente in ogni richiesta
+successiva.
+2. Autenticazione basata su username e password: questo metodo prevede che
+l'utente fornisca un nome utente e una password validi per accedere al web service.
+L'utente viene autenticato tramite la verifica di queste credenziali.
+3. Autenticazione basata su certificati: questo metodo prevede che l'utente fornisca
+un certificato digitale valido per accedere al web service. Il certificato viene
+emesso da un'autorità di certificazione e viene utilizzato per identificare
+l'utente in modo sicuro.
+4. Autenticazione basata su *OAuth*: questo metodo prevede che l'utente fornisca
+un'autorizzazione di accesso tramite un *provider* di identità di *terze parti*,
+ad esempio Google o Facebook. L'utente viene quindi autenticato tramite l'utilizzo
+delle credenziali del provider di identità.
+
 ### API key
 Spesso l'accesso alle API (quindi alle risorse), viene garantito solo se ogni
-richiesta contiene una **API key**, un tale meccanismo può essere utilizzato
+richiesta contiene una **API key** (o *token*), un tale meccanismo può essere utilizzato
 per vari scopi:
 * rendere accessibile parte o tutte le risorse, solo dopo autenticazione,
 * limitare il numero di accessi ad una risorsa (ad esempio solo 100 richieste
@@ -119,3 +144,8 @@ in ambiente di produzione**.
 {{</attention>}}
 
 ## Riepilogo
+Abbiamo visto come in un web service REST le risorse vengono identificate tramite
+URL e scambiate in formati standard come XML e JSON. Successivamente si è discusso
+il ruolo delle API nei servizi REST. L'accesso al servizio e alle API avviene
+utilizzando i comandi HTTP (Create, Read, Update, Delete). Infine si è fatto cenno
+all'utilizzo di autenticazione API key come strumenti per rendere le API private.
