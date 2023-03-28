@@ -69,16 +69,24 @@ nel caso di Facebook, si può ottenere l'accesso ai contatti, ...
 Riferendoci alla figura a fianco, vediamo in dettaglio i passaggi coinvolti in
 un'autenticazione mediante OAuth.
 
-1. L'applicazione di terze parti (il web service) richiede all'utente di accedere
-al server di autorizzazione.
-2. L'utente garantisce l'autorizzazione fornendo le proprie credenziali di accesso.
-3. Una volta che l'autorizzazione è stata fornita al server terzo, questo la comunica
-al server di autorizzazione. 
-4. Il server di autorizzazione, verificati i permessi, restituisce al server terzo
-un *token* di accesso.
-5. Tale token viene utilizzato dal server terzo per accedere ad eventuali risorse
-(esempio email).
+1. Il client del web service richiede un token di accesso all'OAuth Server,
+2. L'utente viene autenticato e...
+3. ...decide le risorse che saranno accessibile da chi possiede il token.
+4. Il server OAuth genera un token che restituisce al client.
+5. Il client ora richiede l'accesso alla risorsa sul web service utilizzando il token
+appena ottenuto.
+6. Il web service verifica la validità del token...
+7. ...che deve essere confermata dall'OAuth server.
+8. Infine, in caso di token validato, il web server restituisce la risorsa richiesta.
 {{</column/two-cols>}}
+
+{{<important>}}
+È importante notare come le credenziali di accesso al server OAuth sono spedite e
+gestite esclusivamente dall'OAuth server stesse. In altre parole, quando utilizzano
+*Login con Google*, le nostre credenziali vengono solo gestite da Google e non dal
+servizio terzo a cui vogliamo accedere. Questo potrà utilizzare unicamente il token
+di accesso fornito da Google.
+{{</important>}}
 
 
 ## Sicurezza per i Web Service
