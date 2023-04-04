@@ -5,7 +5,7 @@ weight: 10
 summary: "Development is a generic term including many aspects of software production, in this lecture, wer are going to discuss some of these aspects"
 ---
 
-To understand *software development*, we will start from the definition that is
+To understand *software development*, we start with its definition as
 given at the beginning of the corresponding Wikipedia page.
 
 {{<def title="Software Development">}}
@@ -15,12 +15,13 @@ maintaining applications, frameworks, or other software components.
 ([Wikipedia EN](https://en.wikipedia.org/wiki/Software_development)) 
 {{</def>}}
 
-This definition shows that *programming* is only one among many operations
-involved in software development.
+Notice that this definition puts *programming* as only among many tasks involved
+in software development, indeed developers are much more than simple code writers.
 
 ## Target Platform
-In today's world, developing software is as diverse as the myriad of platforms
-that are used. These platforms includes:
+Before starting developing a software, we need to know which **platform** we want
+to target. Such choice is made among a vast, always increasing list of *hardware
+platforms*.
 * Desktop and laptop PCs, possibly with different *Operating Systems* (Windows,
 Mac OS, Linux);
 * Mobile devices (smartphones, tablets, ...), possibly with different *Operating
@@ -29,13 +30,11 @@ Systems* (Android, iOS);
 * Small *embedded* devices: Arduino, smartwatches, smartbands, ...
 * Other smart devices: car, fridge, dishwasher, heater, ...
 
-As the above (non-exhaustive) list testifies, developing is, first of all, a matter
-of deciding which *platform* to target. It is in fact impossible do develope once
-and hoping to target all possible platforms. Among the many differences between
-devices the following are some of the most obvious:
+In practice, it is impossible do develope once for every platform. The difference
+between them includes many aspects:
 * Screen size (if any screen is present at all);
 * Computing capabilities: CPU, memory, ...
-* Libraries and framework available
+* Libraries and framework available;
 * Hardware available (mouse, keyboard, GPS, antennas, ...).
 
 {{<exercise>}}
@@ -48,9 +47,8 @@ and a smartphone, list all differences in terms of:
 {{</exercise>}}
 
 ### Native and Web
-When talking about *software development*, there are two broad categories of
-development: *native* and *web* (there are some more which we don't discuss
-here).
+There are two broad categories of *software development*: *native* and *web*.
+Other distinctions can also be made, but we won't discuss them here.
 
 {{<def title="Native Development">}}
 When the target platform is a specific operating system, we talk about **native
@@ -64,14 +62,14 @@ is the web browser (Chrome, Firefox, ...).
 
 {{<def title="Web Development">}}
 When the target platform are the *virtual machines* running inside a Web Browser,
-we talk about **Web Development**. The term Web refers to the usage of Web Browsers
+we talk about **web development**. The term Web refers to the usage of Web Browsers
 and to the fact that the results are (almost always) *websites*, rather then
 native programs.
 {{</def>}}
 
 An example of web development is the creation of a website using HTML/CSS and
 Javascript. We use web applications all the time, for example when accessing our
-GMail inbox or Spaggiari register.
+GMail inbox or Spaggiari register through the browser.
 
 {{<attention>}}
 Many web applications (*e.g.*, GMail, Facebook, ...) have a native App counterpart
@@ -102,14 +100,14 @@ the the advantages and disadvantages of each of them.
   * Web: {{<colored danger Not so good>}} reliability since the code is often on a different machine, thus inaccessible without an Internet connection.
 
 ## Web Development
-Today, we are witnessing a dramatic shift towards web development. While desktop
-Apps are replaced by Web Apps, native development is used mostly for mobile
-platforms (Android and iOS) and **cross-platform** frameworks are becoming
-increasingly popular and adopted.
+Today, we are witnessing a rapid shift towards web development. While desktop
+Apps are replaced by Web Apps, native development is mostly used in mobile
+platforms (Android and iOS). At the same time, **cross-platform** frameworks are becoming
+increasingly popular and widely adopted.
 
 {{<def title="Cross-platform">}}
-We talk about **cross-platform** tools or frameworks when it can be used or it
-targets many platforms (typically many *operating systems*) at once. An example
+We call **cross-platform** tools and frameworks that
+target more platforms (typically more *operating systems*) at once. An example
 of a *cross-platform* technology is Java which is written once and run on many
 platforms (thanks to the *Java Virtual Machine, JVM*).
 {{</def>}}
