@@ -56,7 +56,7 @@ regole considerando anche le connessioni tra host.
 * **Application gateway** agisce livelli 3, 4, 5 e 7 permette quindi di valutare
 i pacchetti anche sulla base dei protocolli di livello applicativo (ad esempio
 HTTP o SMTP).
-* **[NAT firewall]({{< ref "04-nat.md" >}})** prevede in meccanismo di gestione
+* **[NAT firewall]({{< ref "03-nat.md" >}})** prevede in meccanismo di gestione
 delle porte TCP e UDP.
 * **Next generation firewall**: si tratta di un firewall che, oltre a comprendere
 tutte le funzioni precedenti, include anche funzionalità di sicurezza avanzate
