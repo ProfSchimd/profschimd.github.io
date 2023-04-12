@@ -2,7 +2,7 @@
 title: Network Address Translation (NAT)
 running_title: NAT
 type: lecture
-weight: 40
+weight: 30
 ---
 
 ## Cos'è un NAT
