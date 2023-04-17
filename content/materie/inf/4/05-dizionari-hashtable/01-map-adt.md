@@ -7,8 +7,6 @@ weight: 100
 summary: "In questa lezione si presenta il concetto di mappa inteso come struttura dati astratta (ADT). Vengono sottolineata differenze ed analogie con la struttura di tipo array, infine viene discusso il concetto di dizionario che rappresenta un particolare tipo di mappa."
 ---
 
-
-
 ## Il concetto di mappa
 Le strutture [array e liste]({{<ref "03-array-liste">}}) permettono di memorizzare dati in forma lineare, gli array, inoltre, permettono di accedere ai dati con *indici*. In un certo senso possiamo dire che gli array *associano dei dati ai numeri (gli indici)*.
 
@@ -22,9 +20,9 @@ names[42] = "Alice";
 // ...
 ```
 
-Nell'esempio sopra, l'array `names` contiene `Alice` in posizione `0`, `Bob` in posizione `1` e così via. Possiamo dire che `Alice` è associato al numero `0` e che `Bob` è associato al numero `1`. Sempre sulla base del codice presente, possiamo anche dire che `Alice` è associato sia al numero `0` che al numero `42` (e magari ad altri che non vediamo). Quindi lo stesso *valore* (`Alice`) può essere associato a più indici (`0` e `42`), ma per ogni indice esiste un solo valore (`0 -> Alice`, `1 -> Bob`, ...)
+Nell'array `names`, `Alice` *associato* alle posizioni `0` e `42`, `Bob` *associato* alla posizione `1` e così via. Quindi lo stesso *valore* (`Alice`) può essere associato a più indici (`0` e `42`), tuttavia, per ogni indice esiste un solo valore associato (`0 -> Alice`, `1 -> Bob`, ...).
 
-Supponiamo ora di voler gestire il codice per un'*anagrafica* (una raccolta di informazioni anagrafiche tipo nome, cognome, indirizzo, ...) e di voler accedere alle informazioni su `Alice`. L'unico modo per fare questo utilizzando l'array `names` sopra definito è scandirlo dall'inizio alla fine e tenere traccia di tutte le posizioni in cui `Alice` compare.
+Supponiamo ora di dover gestire un'*anagrafica* (una raccolta di informazioni personali: nome, cognome, indirizzo, ...) e di voler accedere alle informazioni su `Alice`. Usando l'array `names` dobbiamo individuare dove compare, sotto il codice Java per tale operazione.
 
 ```java
 for (int i = 0; i < names.length; i++) {
@@ -34,20 +32,7 @@ for (int i = 0; i < names.length; i++) {
 }
 ```
 
-In un'anagrafica reale ci aspettiamo una situazione più complessa, ad esempio si potrebbe definire un oggetto `Person`
-
-```java
-class Person {
-    private String firstName;
-    private String lastName;
-    private String id;
-    private int age;
-    // Needed methods
-    // ... 
-}
-```
-
-a questo punto per gestire tutte le persone si può utilizzare un array di oggetti di tipo `Person`
+In realtà la situazione è più complessa, ad esempio si potrebbe definire un oggetto `Person` contenente un metodo `getId` ed un metodo `getName` ed utilizzare un array di oggetti di tipo `Person`.
 
 ```java
 Person[] people = new Person[10];
@@ -57,19 +42,18 @@ people[2] = new Person("003", "Carol", "McDough", 19);
 // ...
 ```
 
-Come facciamo ad accedere alle informazioni di `Alice`? Come facciamo ad accedere alle informazioni relative alla person con identificavo `002`? L'unica risposta a questa domanda è scandire l'array `people` e cercare la posizione che contiene l'oggetto cercato
+Per accedere, ad esempio alle informazioni della person con identificavo `002` dobbiamo cercare nell'array `people` tale elemento.
 
 ```java
-String idToSearch = "002";
 for (int i = 0; i < people.length; i++) {
-    if (people[i].getId().compareTo(idToSearch) == 0) {
+    if (people[i].getId().compareTo("002") == 0) {
         System.out.println(people[i]);
         break;
     }
 }
 ```
 
-Sarebbe stato molto più comodo utilizzare un'istruzione come la seguente (che non rappresenta un istruzione valida in Java, mentre lo è in altri linguaggi come Javascript e Python).
+Sarebbe stato molto più comoda un'istruzione come la seguente (non presente in Java, ma presente in altri linguaggi come Javascript e Python).
 
 ```java
 System.out.println(people["002"]);
@@ -81,9 +65,31 @@ vedremo come si potrebbe definire una versione semplificata di tale interfaccia 
 ## Map ADT
 Vediamo ora come definire una [struttura dati astratta]({{< ref "02-adt.md" >}}) che permette l'accesso alle informazione utilizzando una **chiave** (**key**) per identificare un corrispondente **valore** (**value**), tale struttura viene chiamata **mappa** (**map**).
 
+{{<def title="Mappa">}}
+Una **mappa** è una struttura che permette di memorizzare informazioni sotto forma di *coppie* `(chiave,valore)`. La chiave rappresenta una sorta di *identificativo* all'interno della mappa, cioè una "posizione" nella mappa si identifica mediante una chiave. Se una data chiave è presente nella mappa, allora ad essa è associato un *valore* che può essere qualsiasi informazione. 
+{{</def>}}
+
 {{<important>}}
-Il temine *mappa* è frequentemente utilizzato, ma non è l'unico, altri termini che si possono incontrare sono *dizionario (*dictionary*), *associative array* o *hash table*. In queste lezioni utilizzeremo e definiremo ognuno di questi termini in modo che sia chiaro cosa indicano.
+Il temine *mappa* è frequentemente utilizzato, ma non è l'unico, altri termini che si possono incontrare sono *dizionario* (*dictionary*), *associative array* o *hash table*. In queste lezioni utilizzeremo e definiremo ognuno di questi termini in modo che sia chiaro cosa indicano.
 {{</important>}}
+
+{{<column/two-cols wl=6 wr=6 content="left" embed="img/map-example.html">}}
+Sostanzialmente, una mappa crea una *funzione* tra le chiavi ed i valori, fornendo ad una mappa una chiave, essa risponde restituendo il valore che è associate alla chiave data, oppure indicando che non esiste alcun elemento con tale chiave.
+
+La figura a fianco mostra una schema di una mappa per memorizzare chiavi di tipo stringa e valori di tipo persona. La mappa deve avere un modo per tenere traccia delle chiavi (*keys*) attraverso le quali si deve poter accedere ai corrispondenti valori (*values*). Il modo in cui queste parti vengono memorizzati dipende dall'implementazione specifica.
+
+Nell'esempio vediamo che la chiave `001` è associata ad un "oggetto" che ha `Alice` e `30` come valori di `name` e `age`, rispettivamente. Allo stesso modo altri valori sono associati alla chiave `002`. In questo specifico esempio le chiavi sono di tipo stringa, per quanto riguarda i valori sono di tipo `Person`.
+{{</column/two-cols>}}
+
+{{<observe>}}
+Un array è in effetti un tipo speciale di mappa in cui le chiavi sono gli interi comprese tra `0` e `n-1` (se l'array contiene `n` posizioni). Ad esempio l'array
+```java
+String[] names = {"Alice", "Bob", "Carol", "David"};
+```
+contiene il dato `Alice` associato alla chiave `0`, il dato `Bob` associato alla chiave `1` e così via.
+{{</observe>}}
+
+Vediamo ora un'interfaccia Java che permette di definire le operazioni fondamentali di una mappa, l'interfaccia utilizza il meccanismo dei *generics* di Java (vedi riquadro sotto).
 
 ```java
 public interface IMap<K,V> {
@@ -92,16 +98,14 @@ public interface IMap<K,V> {
     V get(K key);
     K[] keys();
     V[] values();
+    int size();
+    boolean isEmpty();
 }
 ```
 
 {{<attention>}}
-The interface `IMap` above, uses *generics*, which gives the possibility of
-defining a type which is not specified when the interface/class is created,
-rather when the class is used.
-
-For example the following code defines a specific map that has strings keys
-and integers as values.
+L'interfaccia `IMap` utilizza i *generics* che permettono di specificare il *tipo* al momento in cui la classe viene istanziata anziché al momento della definizione della classe/interfaccia stessa.
+Un esempio di istanziazione dell'interfaccia sopra è dato nel seguente codice.
 
 ```java
 IMap<String, Integer> myMap = ... 
@@ -121,10 +125,17 @@ codice:
 ArrayList<Integer> ages = new ArrayList<Integer>();
 ```
 
-È importante sapere che i tipi specificati dentro le parentesi angolari `< >` devono essere tipi riferimento e **non possono essere tipi fondamentali come `int` o `double`**. Questo è dovuto al modo in cui Java implementa i generics. In pratica, Java sfrutta il fatto che ogni tipo è sottoclasse di `Object`, cosa che non è vera per `int`, `double`, `boolean`, ...
+I tipi specificati dentro le parentesi angolari `< >` **devono essere tipi riferimento** e **non possono essere tipi fondamentali come `int` o `double`**. Questo perché sfrutta il fatto che ogni tipo riferimento è sottoclasse di `Object`, cosa che non vale per i tipi fondamentali (`int`, `double`, `boolean`, ...).
 {{</attention>}}
 
-### Strutture dati associative
+Il nome delle operazioni indica in modo diretto come operano sulla struttura dati.
+* `add` aggiunge un coppia `(key, value)` alla mappa
+* `remove` rimuove la coppia `(key, value)` dalla mappa
+* `get` restituisce, se presente, il `value` associata alla `key` data
+* `keys` restituisce la lista di tutte le chiavi
+* `values` restituisce la lista di tutti i valori
+* `size` restituisce il numero di coppie memorizzate nella mappa
+* `isEmpty` restituisce `true` se la mappa è vuota (non contiene alcuna coppia)
 
 ## Dizionari
 
