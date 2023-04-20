@@ -54,7 +54,7 @@ fetch(jsonUrl)
     .catch(err => console.log(err));
 ```
 
-Vale la pena notare che
+Vale la pena notare che:
 * il metodo `then` accetta come parametro una funzione, nell'esempio si sono
 usate *arrow function*, ma questo non è il solo modo;
 * è stata utilizzata una sequenza di chiamate `.then`  `.catch` per gestire
@@ -275,6 +275,43 @@ classi. Ad esempio, il codice sotto aggiunge la classe `with-border` ad un
  newDiv.classList.add('with-border');
  ```
 
+ ## Interazione
+ All'interno di una pagina Web spesso è possibile interagire con gli elementi
+ per modificare il contenuto visualizzato o per altri scopi. Ad esempio in un
+ sito di commercio elettronico, è auspicabile la possibilità di *filtrare* i
+ contenuti o ri-ordinare secondo qualche criterio di interesse. Un altro esempio
+ in ambito *e-commerce* è la gestione del *carrello*, un sito deve permettere
+ l'aggiunta e la rimozione di oggetti (*item*) dal carrello in modo semplice
+ ed intuitivo.
+
+ ### Gestione eventi
+ Dal punto di vista dello sviluppatore, ogni interazione tra utente e documento
+ genera un *evento*. Un evento viene gestito e segnalato dal browser, è possibile
+ "agganciare" il nostro codice in modo che venga *notificato* quando un evento
+ si verifica. Una funzione che deve essere eseguita quando una evento accade viene
+ definita **event listener**.
+
+ In Javascript è possibile aggiungere uno o più event listener ad ogni elemento
+ del DOM utilizzando il metodo `addEventListener`, l'esempio che segue mostra come
+ aggiungere un event listener all'evento `click` dell'elemento di id `clickme`
+
+ ```javascript
+ const clickMe = document.querySelector('clickme');
+ clickMe.addEventListener('click', () => console.log('clicked!!'));
+ ```
+
+ Il metodo `addEventListener` prende due parametri:
+
+* **type**: indica il tipo di evento che si vuole gestire, come `click` per un click del mouse;
+* **listener**: indica la funzione che deve essere eseguita quando si verifica l'evento specificato,
+nell'esempio sopra questa funzione è una *arrow function*. 
+
+### Implementazione dell'*event listener*
+L'*event listener* che viene invocato ogni volta che si verifica un evento deve
+contenere la logica necessaria a realizzare il comportamento desiderato. Ad
+esempio, in un sito di *e-commerce* il click su `Add to cart` aggiunge l'elemento
+corrispondente al carrello.
+
  ## Riassunto metodi manipolazione DOM
 
 * [`querySelector`][2]
@@ -285,8 +322,9 @@ classi. Ad esempio, il codice sotto aggiunge la classe `with-border` ad un
 
 
 ## Riferimenti
-* [MDN Guida (EN)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+* [MDN Guida DOM (EN)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 * [W3School DOM Tutorial()](https://www.w3schools.com/js/js_htmldom.asp)
+* [MDN Guida eventi (EN)](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
