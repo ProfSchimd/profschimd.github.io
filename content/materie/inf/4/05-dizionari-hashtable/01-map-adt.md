@@ -4,11 +4,11 @@ running_title: "ADT Mappa"
 type: lecture
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/maps
 weight: 100
-summary: "In questa lezione si presenta il concetto di mappa inteso come struttura dati astratta (ADT). Vengono sottolineata differenze ed analogie con la struttura di tipo array, infine viene discusso il concetto di dizionario che rappresenta un particolare tipo di mappa."
+summary: "Questa lezione presenta la struttura dati astratta (ADT) mappa discutendo differenze e analogie con gli array. Successivamente viene presentato il concetto di dizionario come un particolare tipo di mappa."
 ---
 
-## Il concetto di mappa
-Le strutture [array e liste]({{<ref "03-array-liste">}}) permettono di memorizzare dati in forma lineare, gli array, inoltre, permettono di accedere ai dati con *indici*. In un certo senso possiamo dire che gli array *associano dei dati ai numeri (gli indici)*.
+## Perché una nuova struttura dati
+Con [array e liste]({{<ref "03-array-liste">}}) si memorizzano dati in forma lineare, gli array, inoltre, permettono l'accesso ai dati usando *indici*, diciamo che gli array *associano dati a numeri (indici)*.
 
 ```java
 int n = 100;
@@ -20,9 +20,9 @@ names[42] = "Alice";
 // ...
 ```
 
-Nell'array `names`, `Alice` *associato* alle posizioni `0` e `42`, `Bob` *associato* alla posizione `1` e così via. Quindi lo stesso *valore* (`Alice`) può essere associato a più indici (`0` e `42`), tuttavia, per ogni indice esiste un solo valore associato (`0 -> Alice`, `1 -> Bob`, ...).
+Nell'array `names`, la stringa `Alice` è *associata* alle posizioni `0` e `42`, mentre la stringa `Bob` è *associata* alla posizione `1` (anche le rimanenti posizioni saranno associate a qualche valore, che potrebbe anche essere il valore `null`). Vediamo che lo stesso *valore* (`Alice`) può essere associato a più indici (`0` e `42`), tuttavia, per ogni indice esiste un solo valore associato (`0 -> Alice`, `1 -> Bob`, ...).
 
-Supponiamo ora di dover gestire un'*anagrafica* (una raccolta di informazioni personali: nome, cognome, indirizzo, ...) e di voler accedere alle informazioni su `Alice`. Usando l'array `names` dobbiamo individuare dove compare, sotto il codice Java per tale operazione.
+Supponiamo ora di dover gestire un'*anagrafica* (una raccolta di informazioni personali: nome, cognome, indirizzo, ...) e di voler accedere alle informazioni su `Alice`. Usando l'array `names` dobbiamo individuare in che posizione/i compare tale nome.
 
 ```java
 for (int i = 0; i < names.length; i++) {
@@ -32,7 +32,7 @@ for (int i = 0; i < names.length; i++) {
 }
 ```
 
-In realtà la situazione è più complessa, ad esempio si potrebbe definire un oggetto `Person` contenente un metodo `getId` ed un metodo `getName` ed utilizzare un array di oggetti di tipo `Person`.
+Nella realtà la situazione è più complessa, avendo definito un oggetto `Person` con i metodi `getId` e `getName` si può utilizzare un array di `Person`.
 
 ```java
 Person[] people = new Person[10];
@@ -42,7 +42,7 @@ people[2] = new Person("003", "Carol", "McDough", 19);
 // ...
 ```
 
-Per accedere, ad esempio alle informazioni della person con identificavo `002` dobbiamo cercare nell'array `people` tale elemento.
+Ad esempio, per accedere alle informazioni della person con identificavo `002` dobbiamo cercare nell'array `people` tale elemento.
 
 ```java
 for (int i = 0; i < people.length; i++) {
@@ -53,20 +53,19 @@ for (int i = 0; i < people.length; i++) {
 }
 ```
 
-Sarebbe stato molto più comoda un'istruzione come la seguente (non presente in Java, ma presente in altri linguaggi come Javascript e Python).
+Sarebbe più comodo poter indicare direttamente l'identificativo in fase di accesso.
 
 ```java
 System.out.println(people["002"]);
 ```
 
-Anche se Java non supporta la sintassi sopra mostrata, sono disponibili classi che permettono di usare metodi in modo simile. Queste classi implementano l'interfaccia [Map][1] di Java, nel prossimo paragrafo
-vedremo come si potrebbe definire una versione semplificata di tale interfaccia e discuteremo più in generale la struttura dati astratta *mappa*.
+Java non prevede tale sintassi, ma classi che prevedono metodi con utilizzo simile, queste classi implementano l'interfaccia [Map][1]. Nel prossimo paragrafo, vedremo come definire una versione semplificata di tale interfaccia, più in generale discuteremo la struttura dati astratta *mappa*.
 
 ## Map ADT
 Vediamo ora come definire una [struttura dati astratta]({{< ref "02-adt.md" >}}) che permette l'accesso alle informazione utilizzando una **chiave** (**key**) per identificare un corrispondente **valore** (**value**), tale struttura viene chiamata **mappa** (**map**).
 
 {{<def title="Mappa">}}
-Una **mappa** è una struttura che permette di memorizzare informazioni sotto forma di *coppie* `(chiave,valore)`. La chiave rappresenta una sorta di *identificativo* all'interno della mappa, cioè una "posizione" nella mappa si identifica mediante una chiave. Se una data chiave è presente nella mappa, allora ad essa è associato un *valore* che può essere qualsiasi informazione. 
+Una **mappa** è una struttura che permette di memorizzare informazioni sotto forma di *coppie* `(chiave,valore)`. La chiave rappresenta un *identificativo* all'interno della mappa. Se una data chiave è presente nella mappa, allora ad essa è associato un *valore* che può essere qualsiasi tipo di dato.
 {{</def>}}
 
 {{<important>}}
