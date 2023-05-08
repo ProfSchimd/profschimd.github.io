@@ -137,6 +137,22 @@ Il nome delle operazioni indica in modo diretto come operano sulla struttura dat
 * `isEmpty` restituisce `true` se la mappa è vuota (non contiene alcuna coppia)
 
 ## Dizionari
+Con il termine *dizionario* (*dictionary*) si indica solitamente una mappa in cui il tipo della chiave è una stringa, di norma anche il valore è una string. Il nome deriva proprio dal dizionario fisico in cui si ricerca un termine (una stringa) per ottenere la corrispondente definizione (un'altra stringa).
+
+Utilizzando l'interfaccia `IMap` sopra, un dizionario si ottiene utilizzando i tipi `String` sia per la chiave che per il valore.
+
+```java
+IMap<String, String> myDict = new Map<String, String>();
+myDict.add("Dictionary", "A book containing definitions.\nA type of map data structure.");
+```
+
+Nel frammento di codice Java riportato sopra, si suppone che esista una classe concreta `Map` che implementa l'interfaccia `IMap`, mantenendo i tipi generics
+
+```java
+public class Map<K,V> implements IMapGenerics<K,V> {
+    /* ... */
+}
+```
 
 ## Riferimenti
 * [L'interfaccia `Map` di Java (Oracle Docs.)][1]

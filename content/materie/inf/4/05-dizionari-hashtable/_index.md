@@ -3,7 +3,6 @@ title: "Strutture dati associative: Mappe, Dizionari e Hash Table"
 running_title: "Strutture associative"
 heading: Lezioni
 weight: 50
-draft: true
 ---
 
 Le strutture dati *mappa* sono uno strumento di sviluppo fondamentale, grazie
