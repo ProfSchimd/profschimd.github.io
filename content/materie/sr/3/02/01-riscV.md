@@ -201,3 +201,12 @@ che `x11>0` è equivalente a `0<x11` in modo da usare `BLT`)
 qui usiamo il fatto che `x11<=0` equivale a `0>=x11`)
 
         BGE x0, x11, .fine
+
+
+## Link
+
+* [Interprete RISC-V](https://www.cs.cornell.edu/courses/cs3410/2019sp/riscv/interpreter/)
+* [Altro simulatore RISC-V](https://www.kvakil.me/venus/)
+* [Guida RISC-V (in inglese)](https://medium.com/swlh/risc-v-assembly-for-beginners-387c6cd02c49)
+* [Programma di simulazione RISC-V scritto in java](https://github.com/TheThirdOne/rars/releases/tag/continuous)
+* [Programma di simulazione di un CPU RISC-V](https://github.com/mortbopet/Ripes)
