@@ -1,19 +1,14 @@
 ---
 title: Informazione e dati
-weight: 1
+type: lecture
+weight: 100
 summary: "In questa lezione capiremo cosa sono i dati e cosa si intende per informazione. Questo
 aspetto va necessariamente approfondito per gestire al meglio i dati in modo da mantenere l'informazione
 che è di interesse."
 ---
 
 ## Cosa sono i dati
-Oggi si utilizza il termine **dati** (in inglese *data*, parola plurale) per indicare tutto
-ciò che viene elaborato dai sistemi informatici. I dati, ovviamente vengono elaborati perché
-siano utili a persone e/o società. Ad esempio i dati sulla temperatura atmosferica vengono
-elaborati per vari scopi tra cui produrre previsioni atmosferiche, aggiustare la temperatura
-dell'acqua in casa, decidere se o meno irrigare un campo e molti altri scopi. Indipendentemente
-dall'utilizzo che se ne fa, il dato (in inglese il singolare di *data* è *datum* che però non
-viene mai utilizzato) è sempre lo stesso, ad esempio 26°C (o 299,15 K).
+Oggi si utilizza il termine **dati** (in inglese *data*, parola plurale) per indicare tutto ciò che viene elaborato dai sistemi informatici.  dati vengono elaborati al fine di essere utili a persone e/o società.  Ad esempio i dati sulla temperatura atmosferica vengono elaborati per vari scopi tra cui produrre previsioni atmosferiche, aggiustare la temperatura dell'acqua in casa, decidere se o meno irrigare un campo e molti altri scopi. Indipendentemente dall'utilizzo che se ne fa, il dato (in inglese il singolare di *data* è *datum* che però non viene mai utilizzato) è sempre lo stesso, ad esempio 26°C (o 299,15 K).
 
 {{<def>}}
 Un **dato** è un "fatto", ovvero una *misurazione* di una quantità che può essere fisica
@@ -41,10 +36,32 @@ di "pompaggio". Ad esempio, può essere misurata mediante un sensore montato su 
 appositi elettrodi collegato al corpo della persona di cui si vuole misurare il battito. [Documentazione API Fitbit](https://dev.fitbit.com/build/reference/device-api/heart-rate/)
 {{</example>}}
 
+{{<exercise title="I dati della quotidianità">}}
+Nelle prossime 24 ore registra tutti i dati che incontri nelle attività di tutti i giorni. Puoi usare una App oppure un taccuino. Oltre al dato (il numero, il fatto, la frase, ...) registra anche il luogo dove l'hai rilevato (ad esempio quale app) e se si tratta o meno di un dato personale. Per dato personale si intende un dato che ti riguarda direttamente, esempio di dati personali sono: la tua email, la tua data di nascita, la tua canzone preferita, ...
+
+Vediamo un esempio
+
+```
+App Instagram:  Storia del mio viaggio in Spagna,     Dato personale
+App Instagram:  Storia del mio compagno in palestra,  Dato personale altrui
+App Amazon:     Recensione Scarpe,                    Dato personale altrui
+Fermata tram:   orario del T1,                        Dato non personale.
+```
+{{</exercise>}}
+
 ## Informazione
 Il concetto di informazione si differenzia da quello di dato in quanto l'informazione
 deve essere "posseduta" per potersi definire tale. Per fare un esempio, consideriamo
-l'informazione *temperatura a Venezia in questo istante*. 
+l'informazione *temperatura a Venezia in questo istante*.
+
+### Entropia
+
+$$ H = - \sum_{i=1}^{n}{p_i \log_2{p_i}} $$
+
+{{<attention>}}
+Quando si deve calcolare l'entropia secondo la formula sopra, si deve stare attenti ai casi in cui \\(p_i=1\\) in quanto il logaritmo di zero non è definito. Unicamente per il calcolo di tale quantità, si stabilisce che 
+$$ 0\log_2{0} = 0 $$
+{{</attention>}}
 
 ## Dati e computer
 Il concetto di informazione descritto sopra è un concetto *astratto* nel senso che non descrive
