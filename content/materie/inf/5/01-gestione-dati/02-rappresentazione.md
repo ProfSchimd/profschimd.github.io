@@ -1,6 +1,6 @@
 ---
 title: Rappresentazione dei dati
-weight: 2
+weight: 200
 ---
 
 ## Rappresentare l'informazione

@@ -1,6 +1,6 @@
 ---
 title: Manipolare i dati
-weight: 3
+weight: 300
 ---
 
 ## Manipolare i dati
