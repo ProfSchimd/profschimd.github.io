@@ -12,3 +12,11 @@ weight: 300
 ### Cancellazione
 
 ### Replicazione e Consistenza
+
+## Problematiche
+
+### Concorrenza
+
+### Consistenza
+
+### Atomicità
