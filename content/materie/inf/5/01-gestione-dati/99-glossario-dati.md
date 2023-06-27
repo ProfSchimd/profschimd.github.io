@@ -5,6 +5,10 @@ type: lecture
 summary: "I concetti dell'unità sono qui raccolti in forma di glossario"
 weight: 990
 ---
+
+## A
+* **Attributo**
+
 ## B
 * **Bit**: unità di misura dell'informazione quando questa viene calcolata utilizzare i logaritmi in base 2.
 
@@ -16,7 +20,7 @@ weight: 990
 ## D
 * **Database**
 * **Dato**: una *misurazione* di una quantità che può essere fisica (come temperatura, distanza, peso, ...) o non fisica (commento, una nota musicale, un pixel, ...).
-* **DBMS**:
+* **DBMS**: (*Database Management System*) software appositamente progettato e sviluppato per gestire basi di dati.
 * **Digitalizzazione**
 * **Dominio**
 

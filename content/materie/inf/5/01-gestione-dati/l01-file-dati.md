@@ -1,6 +1,6 @@
 ---
-title: "Laboratorio: esplorazione dataset su file"
-running_title: "Lab: file dataset"
+title: "Laboratorio 1: esplorazione dataset su file"
+running_title: "Lab 1: file dataset"
 summary: "In questo laboratorio verrà analizzato un dataset memorizzato su file in formato JSON o CSV."
 type: lecture
 weight: 1000
