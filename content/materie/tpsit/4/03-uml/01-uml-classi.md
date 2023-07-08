@@ -1,7 +1,8 @@
 ---
 title: Diagramma della classi UML
+running_title: "Diagrammi delle classi"
 type: lecture
-weight: 10
+weight: 100
 ---
 
 ## Cose'è il diagramma delle classi
