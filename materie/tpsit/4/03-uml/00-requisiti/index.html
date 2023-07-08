@@ -1,0 +1,111 @@
+<!doctype html><html><head><meta charset=utf-8><title>Analisi dei Requisiti software &ndash; Michele Schimd</title><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/spacelab/bootstrap.min.css rel=stylesheet><link href=https://profschimd.github.io/css/syntax.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css><script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n crossorigin=anonymous></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></head><body class="d-flex flex-column min-vh-100"><header><nav class="p-1 navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand rel=author href=https://profschimd.github.io/>Michele Schimd</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav ml-auto"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown aria-expanded=false>Materie</a><ul class=dropdown-menu aria-labelledby=navbarDropdown><li><a href=https://profschimd.github.io/materie/inf/ class=dropdown-item>Informatica</a></li><li><a href=https://profschimd.github.io/materie/sr/ class=dropdown-item>SR</a></li><li><a href=https://profschimd.github.io/materie/tpsit/ class=dropdown-item>TPSIT</a></li><li><a href=https://profschimd.github.io/materie/gpoi/ class=dropdown-item>GPOI</a></li><li><a href=https://profschimd.github.io/materie/ec/ class=dropdown-item>EC</a></li><li><a href=https://profschimd.github.io/materie/python/ class=dropdown-item>Python</a></li></ul></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown aria-expanded=false>Classi</a><ul class=dropdown-menu aria-labelledby=navbarDropdown><li><a href=https://profschimd.github.io/classi/4ia/ class=dropdown-item>4IA</a></li><li><a href=https://profschimd.github.io/classi/4ic/ class=dropdown-item>4IC</a></li><li><a href=https://profschimd.github.io/classi/5ic/ class=dropdown-item>5IC</a></li><li><a href=https://profschimd.github.io/classi/5id/ class=dropdown-item>5ID</a></li><li><a href=https://profschimd.github.io/classi/anni-passati/ class=dropdown-item>Anni precedenti</a></li></ul></li><li class=nav-item><a class=nav-link href=https://profschimd.github.io/about/ role=button><i class="bi bi-info-circle"></i></a></li></ul></div></div></nav></header><div class="p-4 bg-primary" style="background-size:cover;background-position:50%;background-image:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.6) 100%),url(https://profschimd.github.io/img/zuccante_it.jpeg)"><div class=container><h1 class="display-4 text-white">Analisi dei Requisiti software</h1></div></div><div class=bg-light><nav aria-label="breadcrumb mt-0"><div class=container><ol class=breadcrumb><li class=breadcrumb-item><a href=https://profschimd.github.io/>Home</a></li><li class=breadcrumb-item><a href=https://profschimd.github.io/materie/>Materie</a></li><li class=breadcrumb-item><a href=https://profschimd.github.io/materie/tpsit/>TPSIT</a></li><li class=breadcrumb-item><a href=https://profschimd.github.io/materie/tpsit/4/>Quarto Anno</a></li><li class=breadcrumb-item><a href=https://profschimd.github.io/materie/tpsit/4/03-uml/>UML</a></li><li class="breadcrumb-item active" aria-current=page><a href=https://profschimd.github.io/materie/tpsit/4/03-uml/00-requisiti/>Requisiti</a></li></ol></nav></div><div class="container py-5"><main><div class=row><div class=col-10><aside><nav id=TableOfContents><ul><li><a href=#requisiti-di-un-software>Requisiti di un software</a></li><li><a href=#raccolta-dei-requisiti>Raccolta dei requisiti</a></li><li><a href=#classificazione-dei-requisiti>Classificazione dei requisiti</a></li></ul></nav></aside></div><div class=col-2></div></div><article><div class=container style=text-align:justify><h2 id=requisiti-di-un-software>Requisiti di un software</h2><p>Nella <em>progettazione</em> di un software uno degli obiettivi è, ovviamente, quello di
+soddisfare l&rsquo;<em>utente finale</em>. Cosa significa &ldquo;soddisfare&rdquo; in questo caso? A questa
+domanda non può esistere un&rsquo;unica risposta in quanto la soddisfazione dipende da
+quello che l&rsquo;utente si aspetta. Quello che l&rsquo;utente si aspetta dipende da quali
+sono le sue <em>esigenze</em> (rispetto al software). Quindi, nel progettare
+un software <strong>è fondamentale conoscere le esigenze del cliente</strong> che verranno poi
+tradotte in <strong>requisiti</strong> del software stesso.</p><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-text"></i> Definizione: Requisiti software</strong></h5><p>I <strong>requisiti</strong> di un software sono le <em>caratteristiche</em> e le <em>funzionalità</em> che un
+software deve possedere per essere considerato, da parte dell&rsquo;utente, adatto allo scopo.
+Fondamentale è che ogni requisito possa essere <em>verificato</em>, cioè si deve poter dire
+se un software soddisfa o meno quel requisito.</p></div><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-text"></i> Definizione: In English: software requirements</strong></h5><p>A <strong>software requirement</strong> is a property that must be exhibited by something in order to solve some problem in the real world, an essential property of all software requirements is that they are verifiable. (<em>IEEE Software Engineer Body Of Knowledge - SWEBOK</em>)</p></div><p>Per progettare un software, quindi, è necessario conoscere le esigenze degli utenti
+finali, che devono perciò essere interrogati su quello che loro si aspettano dal
+software. Per esempio, se il progetto prevede lo sviluppo di un <em>software gestionale</em>
+(il software che gestisce il <em>sistema informativo</em> di un azienda, esempio dipendenti,
+clienti, fatture, &mldr;) si andranno a interrogare i dipendenti dell&rsquo;azienda.
+In certi casi però questo non è possibile, si pensi, ad esempio, ad una
+software house che sviluppa videogiochi e che vuole conquistare mercato con un gioco
+innovativo. Chi sono gli utenti da interrogare? Come è possibile interrogare gli
+utenti su quello che si aspettano da un gioco che ancora non esiste? Come si vede,
+l&rsquo;<em>analisi dei requisiti software</em> non è sempre un operazione semplice ed immediata,
+ma può richiedere tempo e sforzo notevoli.</p><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-code"></i> Esempio: software gestionale</strong></h5><p><p>Facciamo ora alcuni esempi di requisiti che un <em>software gestionale</em> deve possedere.
+La raccolta e l&rsquo;analisi dei requisiti di un software (anche semplice) richiede diverse
+pagine di documentazione perciò ci limitiamo qui a pochi esempi che possano fornire
+un&rsquo;idea di massima.</p><ul><li><p><strong>Gestione dell&rsquo;anagrafica fornitori</strong> Il software deve permettere di: consultare,
+modificare e stampare una schermata (eventualmente composta di più pagine) che
+contenga l&rsquo;elenco dei fornitori (ordinabile secondo l&rsquo;ordine alfabetico) di modo
+che per ogni fornitore siano mostrate le informazioni di: ragione sociale, indirizzo
+legale, sito web del fornitore.</p></li><li><p><strong>Modalità &ldquo;manager&rdquo; e modalità &ldquo;impiegato&rdquo;</strong> Il software deve poter funzionare
+(almeno) in due distinte modalità: quella <em>manager</em> utilizzata dai <em>quadri</em>
+dell&rsquo;azienda e quella <em>impiegato</em> usata da tutti gli altri. Nella modalità manager
+sono visibili tutte le informazioni presenti nel database. Nella modalità impiegato
+non sono accessibili le sezioni relative a: anagrafica dipendente, piani di business,
+documenti manageriali.</p></li><li><p><strong>Compatibilità con diversi dispositivi</strong> Il software deve essere fruibile su
+qualsiasi piattaforma sia tramite PC che tramite dispositivi <em>mobile</em> (es. Smartphone
+e Tablet) senza che vi sia alcuna differenza tra le operazioni che possono essere
+compiute in un caso e nell&rsquo;altro.</p></li></ul></p></div><div class="alert alert-primary" markdown=1><h5 class=no_toc><i class="bi bi-journal-code"></i> Esempio: videogioco</strong></h5><p><p>I requisiti di un videogioco i cui utenti (giocatori) non sono noti, non sono
+facili da rendere formali. Tuttavia, è necessario avere una lista completa di
+tali requisiti per poter procedere allo sviluppo del software. Come nell&rsquo;esempio
+precedente, anche in questo caso ci limitiamo a fornire un numero minimo di
+requisiti.</p><ul><li><p><strong>Modalità single player e multiplayer</strong> Il gioco deve comprendere due possibili
+modalità di gioco una con giocatore singolo ed uno con più giocatori. Nel primo
+caso il giocatore sarà in competizione con degli altri giocatori artificiali che
+devono adattarsi alle abilità del giocatore stesso. Nel caso di multiplayer non
+è prevista la presenza di giocatori artificiali. Il numero di giocatori in
+modalità multiplayer deve essere almeno 2 e non più di 32.</p></li><li><p><strong>Diverse interfacce di controllo</strong> Il gioco si deve poter controllare con diverse
+modalità: tastiera + mouse, pad e touchscreen + giroscopio. Il gioco deve fornire
+un&rsquo;esperienza di gioco simile indipendentemente dal controllo utilizzato. In particolare
+non ci devono essere possibilità utilizzabili con un tipo di controllo e non con
+altri tipi.</p></li><li><p><strong>Punteggio globale</strong> Ci deve essere una <em>scoreboard</em> mondiale nella quale
+il gioco salva automaticamente i risultati del giocatori. Questa classifica
+deve essere consultabile in un&rsquo;apposita schermata del gioco che deve mostrare:
+posizione e punteggio del giocatore, nome, punteggio e posizione dei giocatori
+immediatamente precedenti e seguente nella classifica. La schermata deve anche
+dare la possibilità di scorrere (sia in alto che in basso) la classifica e di
+cercare i giocatori per nome (in modo da poter vedere la posizione ed il
+punteggio di un giocatore di si sappia il nome, es. di un amico).</p></li></ul></p></div><h2 id=raccolta-dei-requisiti>Raccolta dei requisiti</h2><p>Nella fase di raccolta dei requisiti, bisogna tener conto di diverse <em>sorgenti</em> di
+tali requisiti. Nel paragrafo sopra ci siamo concentrati sugli utenti finali
+&ldquo;espliciti&rdquo; del software, ma non sono gli unici ad avere dei requisiti sul software.
+Un esempio di sorgente che non è ovvio è la <em>legge</em>. Si pensi ad un software per
+il commercio elettronico che memorizza dati sensibili tra cui indirizzo di residenza,
+data di nascita, numeri di carta di credito ed altro. Il software deve ovviamente
+rispondere al requisito di segretezza di questi dati (per esempio il GDPR europeo).
+Quindi la <em>conformità alle leggi sul trattamento dei dati</em> è un requisito che il
+software deve possedere, ma che non possiamo pensare come ad un requisito espresso
+da uno specifico utente.</p><p>Vediamo, quindi, quali sono le possibili sorgenti di requisiti.</p><ul><li><p><strong>Stakeholder</strong> (portatori di interesse): chiunque interagisca in qualche modo con
+il software, ha interesse nei confronti di esso e quindi può avere delle esigenze
+che il progettista deve tenere in considerazione. Esempi di stakeholder sono: utenti,
+manager, clienti, &mldr;</p></li><li><p><strong>Ambiente di lavoro</strong>: un software che venga sviluppato per un&rsquo;azienda deve
+tener conto della realtà dell&rsquo;azienda: che dispositivi ci sono, che rete viene
+usata, dove si trovano geograficamente le sedi, quante persone contemporaneamente
+usano il software, &mldr;</p></li><li><p><strong>Regole di mercato</strong>: ogni software deve obbedire a delle regole e a delle
+leggi che possono diventare parte dei requisiti. Ad esempio il trattamento dei
+dati, oppure il linguaggio utilizzato dai personaggi di un videogioco oppure le
+regole sul commercio.</p></li><li><p><strong>Obiettivi</strong>: ogni azienda ha i propri <em>obiettivi</em> ed il software deve
+essere in linea con essi. Ad esempio un azienda che promuove la parità di genere
+può volere un software che usi testo e linguaggio neutro rispetto al sesso.
+Anche il più banale obiettivo di fare utili si traduce in un budget assegnato
+allo sviluppo del software, il budget quindi diventa un requisito del software.</p></li><li><p><strong>Conoscenze di dominio</strong>: i software vengono usati per fare operazioni in
+un preciso <em>dominio</em>. Ad esempio un software di commercio elettronico opera
+in uno o più stati dove ci potrebbero essere monete diverse (es. Euro e Dollaro).
+Oppure in un&rsquo;azienda metalmeccanica il software potrebbe aver bisogno di
+informazione relative ai materiali che usano e alle caratteristiche di questi
+materiali.</p></li></ul><div class="alert alert-success" markdown=1><h5 class=no_toc><i class="bi bi-eye"></i> Osserva: Stakeholder</strong></h5><p><p>Il termine <em>stakeholder</em> viene utilizzato spesso in ambito lavorativo e, come scritto
+anche sopra viene tradotto con <em>portatori di interesse</em>. gli stakeholder sono quindi
+tutte le persone <em>fisiche</em> e <em>giuridiche</em> che sono in qualche modo interessate da un
+prodotto.</p><p>Prendiamo come esempio un software gestionale, gli stakeholder in questo caso sono
+molteplici.</p><ul><li>Dipendenti dell&rsquo;azienda</li><li>Clienti e fornitori dell&rsquo;azienda, se presenti nel sistema o se interagiscono con il sistema</li><li>Le autorità garanti della protezione dei dati (se il sistema memorizza dati personali)</li><li>L&rsquo;azienda che produce il software</li><li>Le aziende che offrono l&rsquo;<em>hosting</em> del software (se presenti)</li><li>&mldr;</li></ul><p>Come si vede la lista degli stakeholder è spesso lunga e comprende, oltre a persone fisiche
+(es. dipendenti) anche persone <em>giuridiche</em> (es. aziende, garante della protezione dei dati).</p></p></div><h2 id=classificazione-dei-requisiti>Classificazione dei requisiti</h2><p>Può risultare comodo classificare i requisiti raccolta ecco in ottica di una
+migliore progettazione del software e del suo sviluppo. Tra le varie proposte
+di classificazione dei requisiti presentiamo qui quella denominata <strong>FURPS</strong>,
+acronimo che rappresenta l&rsquo;inizio di ognuno di essi</p><ul><li><strong>Functionality</strong> (<em>funzionalità</em>) riguarda le caratteristiche e le funzionalità
+del software. Ad esempio, la possibilità di stampare la lista clienti è una
+funzionalità di un software gestionale.</li><li><strong>Usability</strong> (<em>usabilità</em>) riguarda la facilità di utilizzo del software.
+Ad esempio la possibilità di usare un videogioco con diversi tipi di controller
+è un aspetto di usabilità.</li><li><strong>Reliability</strong> (<em>affidabilità</em>) riguarda la &ldquo;robustezza&rdquo; del software intesa
+come stabilità e mancanza di <em>crash</em>. Ad esempio la capacità di un sistema
+operativo di funzionare senza bloccarsi o bloccarsi raramente.</li><li><strong>Performance</strong> (<em>prestazioni</em>) riguarda l&rsquo;efficienza del software, esempio
+la reattività o la velocità di esecuzione. Ad esempio la capacità di riconoscere
+un volto in un video in tempo reale.</li><li><strong>Supportability</strong> (<em>manutenibilità</em>) riguarda la possibilità di mantenere,
+espandere e correggere bug enl software. Ad esempio la possibilità di correggere
+velocemente un bug di sicurezza (che potrebbe compromettere i dati).</li></ul><div class="alert alert-danger" markdown=1><h5 class="alert-danger no_toc"><i class="bi bi-exclamation-triangle"></i> Attenzione</strong></h5><p><p>Spesso si tende a considerare la raccolta e l&rsquo;analisi dei requisiti come uno spreco di
+tempo. Questo errore è tipico di molti programmatori e/o team di sviluppo che non hanno
+sufficiente esperienza con lo sviluppo di software. Per evitare di incorrere in questo
+errore, basta tenere a mente che <strong>se un aspetto del software non è stato considerato
+nell&rsquo;analisi dei requisiti, allora non verrà realizzato</strong>.</p><p>In particolare questo ha due implicazioni &ldquo;opposte&rdquo;:</p><ul><li>se il cliente ci aveva comunicato una sua necessità che non viene realizzata, il progetto
+sarà incompleto,</li><li>se il cliente <strong>non</strong> ci aveva comunicato un requisito, ma noi lo abbiamo comunque
+realizzato, questo non verrà pagato.</li></ul></p></div></div></article><nav class="mx-5 my-3"><div class=card><h5 class=card-header>Indice di UML</h5><ul class="list-group list-group-flush"><li class="list-group-item list-group-item-primary"><strong><a href=https://profschimd.github.io/materie/tpsit/4/03-uml/00-requisiti/>> Analisi dei Requisiti software</a></strong></li><li class=list-group-item><a href=https://profschimd.github.io/materie/tpsit/4/03-uml/01-uml-classi/>Diagramma della classi UML</a></li><li class=list-group-item><a href=https://profschimd.github.io/materie/tpsit/4/03-uml/02-use-case/>Diagrammi dei casi d'uso UML</a></li></ul><div class=card-footer><a class="btn btn-primary" href=https://profschimd.github.io/materie/tpsit/4/03-uml/>Index</a></div></div></nav></main></div><div class="py-3 border-top bg-light mt-auto"><div class=container><div class=row><div class=col-sm><ul class=list-unstyled><li>Michele Schimd &copy; 2023</li><li><a class=pr-1 href=mailto:michele.schimd@itiszuccante.edu.it><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-at" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 012 2h12a2 2 0 011.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83.191 12.857A2 2 0 002 14h12a2 2 0 001.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg></a><a class=pr-1 rel=me href=https://github.com/ProfSchimd target=_blank title=ProfSchimd alt=GitHub><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.012 8.012.0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a class=pr-1 rel=me href=https://www.linkedin.com/in/michele-schimd-44a85160 target=_blank title=michele-schimd-44a85160 alt=Linkedin><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526.0 1.175.0h13.65C15.474.0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487.0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837.0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822.0-1.359.54-1.359 1.248.0.694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869.0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274.0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54.0 01.016-.025V6.169h-2.4c.03.678.0 7.225.0 7.225h2.4z"/></svg></a><a class=pr-1 rel=me href=https://stackoverflow.com/users/18081937 target=_blank title=18081937><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" fill="currentcolor" class="bi bi-stack-overflow" viewBox="0 0 16 16"><path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z"/><path d="M3.857 13.145h7.137v-1.428H3.857v1.428zM10.254.0 9.108.852l4.26 5.727 1.146-.852L10.254.0zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z"/></svg></a></li><li><span style=font-size:small><em>Ultimo aggiornamento: 08/07/2023</em></span></li></ul></div><div class="col-lg text-right"><ul class=list-unstyled><li>Materiale di studio e di esercizio per gli alunni dello Zuccante.</li></ul><div><p><a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/><img style=float:right alt="Creative Commons License" src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png></a></div></p></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js integrity=sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js integrity=sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF crossorigin=anonymous></script></body></html>
