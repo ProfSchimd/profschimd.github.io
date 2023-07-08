@@ -1,20 +1,84 @@
 ---
 title: Rappresentazione dei dati
 type: lecture
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/5/INF.5.01/01.GestioneDati
 weight: 200
 ---
 
 ## Rappresentare i dati
-
 ### Tipi e domini
+Alla fine della [lezione su "Informazione e Dati"]({{<ref "01-informazione-dati.md" >}}) si è visto che i sistemi di calcolo utilizzano *sequenze di bit* per memorizzare dati (numero, testo, immagine, ...). Per decidere se mostrare un testo o un'immagine, un sistema deve conoscere il **tipo** di dato, in questo modo è possibile interpretare la sequenza di bit. Un tipico esempio di assegnazione del tipo di dato è l'*estensione di un file*, il file `bach.jpeg` probabilmente conterrà una foto del famoso compositore tedesco, mentre il file `bach.mp3` probabilmente conterrà una sua opera musicale.
+
+{{<exercise>}}
+Procedi con il seguente esperimento:
+* prendi un'immagine dal tuo laptop (supponiamo `IMG20210903.jpeg`) e creane una copia;
+* cambia l'estensione del file di copia, ad esempio rinominandolo `IMG20210903.mp3`;
+* infine prova ad aprire il file rinominato (es. doppio click); 
+
+Cosa succede? Perché?
+{{</exercise>}}
 
 {{<def>}}
-Il **tipo** di un dato indica come interpretare la sequenza di bit che rappresenta quel dato. Esempi di tipi sono: numeri interi, numeri con virgola, stringhe, immagini jpeg, ...
+Il **tipo** di un dato indica come interpretare la sequenza di bit che rappresenta quel dato. Esempi di tipi sono: numeri interi, numeri con virgola, stringhe, immagini jpeg, ... Normalmente ad un tipo è associato anche il numero di bit che compongono i valori. Ad esempio il tipo `int` dei linguaggi di programmazione è normalmente associato a 32 bit, mentre i `double` a 64.
 {{</def>}}
+
+Il tipo ci dice cosa significa ciascuna sequenze di bit, ma non ci dice quali sono le sequenze di bit valide,  questo non è un problema quando tutte le sequenze sono valide (ad esempio negli interi senza segno a `8` bit le \\(2^8=256\\) combinazioni sono i numeri da `0` a `255`). In certi casi solo alcune combinazioni di bit sono possibili, ad esempio la valutazione Amazon può essere data da 1 a 5 stelle. L'insieme dei valori ammissibili per un dato tipo si dice **dominio**. Come visto sopra non sempre il dominio comprende tutti le possibili combinazioni di bit.
 
 {{<def>}}
 Il **dominio** è l'insieme dei possibili valori che un dato può assumere. Ad esempio un intero può essere solo positivo, una stringa può essere fatta solo di lettere e numeri.
 {{</def>}}
+
+Vediamo ora alcuni esempi per chiarire i concetti di *tipo* e *dominio*.
+
+{{<example title="Tipi dati nei linguaggi di programmazione">}}
+Consideriamo il linguaggio Java in cui la sintassi impone la dichiarazione esplicita dei tipi di ogni variabile. Consideriamo il seguente frammento di codice Java
+
+```java
+int a = 123;
+boolean b = false;
+char c = 'Z';
+double d = 3.1415;
+String e = "Hello!";
+```
+
+come si vede nel linguaggio Java è necessario indicare il tipo di una variabile, questo determina quanti bit saranno usati per quel tipo (32 per `int`, 8 ber `boolean`, 64 per `double`, ...) e di conseguenza il dominio che è sempre rappresentato da tutte le possibili combinazioni di bit. 
+{{</example>}}
+
+{{<example title="Tipi in SQL">}}
+Nelle future lezioni affronteremo in dettaglio il linguaggio SQL per la creazione e l'interrogazione di database relazionali. SQL prevede una sintassi per la definizione di *tipi* e *domini*, vediamo alcuni esempi.
+
+**Interi**
+```sql
+age INT NOT NULL CHECK age>=18
+```
+
+L'esempio mostra come si dichiara un *attributo* di nome `age` che sia di *tipo* intero, il *dominio* **non** comprende il valore `NULL` e non può avere valori minori di `18`.
+
+**Stringhe**
+```sql
+first_name VARCHAR(100)
+```
+
+L'esempio mostra come si dichiara un *attributo* di nome `first_name` che può essere una stringa di caratteri la cui lunghezza massima è `100`. Per come funziona il linguaggio SQL, tale stringa può anche avere il valore `NULL`.
+{{</example>}}
+
+#### Atomicità
+Ad esclusione dei tipi di dato più semplici (numeri, caratteri, booleani, ...), un *valore* è solitamente rappresentato da una sequenza di (sotto) dati. Il classico esempio è il tipo dato indirizzo, esso tipicamente è una stringa del tipo `Via Roma 12/4`. Tuttavia all'interno di tali stringa ci sono "pezzi" di informazione:
+* `Via Roma` rappresentate il nome (`Roma`) e la denominazione `Via` dell'indirizzo;
+* `12` rappresenta il numero civico dell'indirizzo e
+* `/4` rappresenta l'interno (numero di appartamento) dell'indirizzo.
+
+Dal momento che il valore `Via Roma 12/4` si può ulteriormente scomporre in pezzi di informazione che da soli hanno un significato, il valore si dice che *non è atomico*.
+
+Prendiamo ora l'esempio del numero telefonico `333-11223344`, anche se esiste una suddivisione del valore in *prefisso* `333` e in *suffisso* `11223344`, tipicamente diciamo che il valore è *atomico* in quanto le due parti individuate non hanno un significato intrinseco, detto in altre parole, prese singolarmente queste due parti non danno alcuna informazione.
+
+{{<def title="Valore atomico">}}
+Un *valore* si dice **atomico** se non è ulteriormente suddivisibile in parti che abbiamo un significato nella realtà di interesse. Un tipo di dati è atomico se ogni valore del suo dominio è atomico.
+{{</def>}}
+
+{{<attention>}}
+Il concetto di valore atomico non è universale e dipende dal *contesto* in cui esso viene utilizzato. Riprendendo l'esempio dell'indirizzo `Via Roma 12/4`, i singoli valori (`Via Roma`, `12` e `/4`) possono aver significato presi singolarmente, ad esempio in un ufficio postale che deve recapitare la corrispondenza. Tuttavia lo stesso valore può essere considerato atomico, ad esempio nel database dei dipendenti di un azienda, l'indirizzo di un dipendente è l'intera stringa, che non ha senso spezzare in parti più piccole. Quindi **è fondamentale valutare l'atomicità di un valore/attributo caso per caso, sulla base della realtà di interesse**.
+{{</attention>}}
 
 ### Record
 
@@ -80,5 +144,7 @@ Quando si utilizza un dataset, spesso si assume che la sua rappresentazione inte
 
 
 ### Vincoli
+
+#### Vincoli di dominio
 
 
