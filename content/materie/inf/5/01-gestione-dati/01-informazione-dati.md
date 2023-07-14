@@ -11,8 +11,7 @@ che è di interesse."
 Oggi si utilizza il termine **dati** (in inglese *data*, parola plurale) per indicare tutto ciò che viene elaborato dai sistemi informatici, tali dati vengono elaborati per aiutare persone e/o società a prendere decisioni. Ad esempio dati sulla temperatura atmosferica permettono di produrre previsioni atmosferiche, aggiustare la temperatura di casa, decidere se irrigare un campo. Indipendentemente dal suo utilizzo, il dato (in inglese il singolare di *data* è *datum* che però non viene mai utilizzato) rimane lo stesso, ad esempio 26°C (o 299,15 K).
 
 {{<def>}}
-Un **dato** è un "fatto", ovvero una *misurazione* di una quantità che può essere fisica
-(come temperatura, distanza, peso, ...) o non fisica (commento, una nota musicale, un pixel, ...).
+Un **dato** è un "fatto", ovvero una *misurazione* di una quantità che può essere fisica (come temperatura, distanza, peso, ...) o non fisica (commento, una nota musicale, un pixel, ...).
 {{</def>}}
 
 {{<example>}}

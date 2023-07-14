@@ -15,14 +15,14 @@ weight: 990
 ## C
 * **Campo**
 * **Codifica**: una regola per associare ad una sequenza di caratteri un altra sequenza di caratteri. Ad esempio la codifica ASCII estesa associa ad ogni sequenza di 8 bit un carattere usato nelle lingue.
-* **CRUD**
+* **CRUD**: sigla che identifica le quattro tipologie di operazioni: Create, Read, Update e Delete.
 
 ## D
-* **Database**
+* **Database**: è una collezione di dati memorizzata, gestita ed accessibile attraverso un Database Management System (DBMS).
 * **Dato**: una *misurazione* di una quantità che può essere fisica (come temperatura, distanza, peso, ...) o non fisica (commento, una nota musicale, un pixel, ...).
 * **DBMS**: (*Database Management System*) software appositamente progettato e sviluppato per gestire basi di dati.
-* **Digitalizzazione**
-* **Dominio**
+* **Digitalizzazione**: operazione che porta in formato numerico (digitale) l'informazione.
+* **Dominio**: insieme dei possibili valori che un dato può assumere.
 
 ## E
 * **Entropia**: l'informazione media che si ha osservando l'esito di un esperimento aleatoria. Essendo una media di quantità misurate in bit (l'informazione), l'entropia si misura in bit.
@@ -36,7 +36,7 @@ weight: 990
 * **Query**
 
 ## R
-* **Record**
+* **Record**: sequenza di \\(n\\) valori atomici tra di loro collegati.
 
 ## S
 * **Sistema informativo**
