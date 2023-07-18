@@ -206,6 +206,7 @@ qui usiamo il fatto che `x11<=0` equivale a `0>=x11`)
 ## Link
 
 * [Interprete RISC-V](https://www.cs.cornell.edu/courses/cs3410/2019sp/riscv/interpreter/)
+* [Assembly Learning Environment (ALE)](https://riscv-programming.org/ale/)
 * [Altro simulatore RISC-V](https://www.kvakil.me/venus/)
 * [Guida RISC-V (in inglese)](https://medium.com/swlh/risc-v-assembly-for-beginners-387c6cd02c49)
 * [Programma di simulazione RISC-V scritto in java](https://github.com/TheThirdOne/rars/releases/tag/continuous)
