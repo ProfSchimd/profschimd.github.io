@@ -96,7 +96,6 @@ Eseguire quindi la query utilizzando il pulsante "Execute All" (simbolo "Play"),
 Se l'esecuzione termina con un errore, probabilmente non si sono seguiti i passaggi correttamente. Affinché tutto funzioni devono essere stati usati esattamente i nomi indicati nel testo ed il tipo indicato. Attenzione che i valori numerici con la virgola vanno inseriti utilizzando il punto `.` come divisore, quindi `99.99` e non `99,99`.
 {{</attention>}}
 
-Cosa si vede
 
 ## Riferimenti
 * [SQLite Browser][1]
