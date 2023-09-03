@@ -43,21 +43,15 @@ Ogni attributo di una relazione deve avere un tipo ed un dominio associato, in S
 #### Tipi numerici
 
 * `INT`: Questo tipo di dati rappresenta numeri interi, ovvero numeri senza parte frazionaria. Può essere utilizzato per memorizzare valori come 1, 10, -5, ecc.
-
 * `DECIMAL`: Il tipo di dati `DECIMAL`, noto anche come `NUMERIC`, è utilizzato per memorizzare numeri decimali con una precisione e una scala specificate. È adatto per rappresentare valori monetari o altre quantità precise.
 
 #### Tipi stringa
 
 * `CHAR(M)`: Il tipo di dati `CHAR` rappresenta una stringa di lunghezza fissa di `M` caratteri. La stringa viene spesso riempita con spazi bianchi per raggiungere la lunghezza specificata.
-
 * `VARCHAR(M)`: Il tipo di dati `VARCHAR` rappresenta una stringa di lunghezza variabile con una lunghezza massima di `M` caratteri. Non riempie la stringa con spazi bianchi inutili, quindi è più efficiente per le stringhe più corte.
-
 * `TEXT(M)`: Il tipo di dati `TEXT` rappresenta una stringa di lunghezza variabile con una lunghezza massima opzionale di `M` caratteri. È adatto per memorizzare testi lunghi, come descrizioni o note.
-
 * `DATE`: Il tipo di dati `DATE` rappresenta una data, inclusi giorno, mese e anno.
-
 * `TIME`: Il tipo di dati `TIME` rappresenta un orario del giorno, inclusi ore, minuti, secondi e frazioni di secondo.
-
 * `DATETIME`: Il tipo di dati `DATETIME` rappresenta una combinazione di data e orario, inclusi giorno, mese, anno, ore, minuti, secondi e frazioni di secondo.
 
 #### Tipi *Large Object*
@@ -88,12 +82,32 @@ CREATE TABLE Teacher (
     email VARCHAR(100),
     phone_number VARCHAR(15)
 );
-
 ```
 
 {{<important>}}
 Oltre ai tipi previsti dallo standard SQL, ogni DBMS [qui][2] si trova, ad esempio, la lista (non completa) dei tipi definiti in [MySQL][3], [qui][4] la lista relativa al DBMS MariaDB (MariaDB è un progetto *open source* nato da MySQL dopo che questo è stato acquisito da Oracle).
 {{</important>}}
+
+#### `AUTO INCREMENT`
+Spesso si creano chiavi primarie sotto forma di valori interi, in molti DBMS (ad esempio MariaDB) è possibile indicare che un attributo intero deve assumere valori consecutivi e distinti, `AUTO_INCREMENT` permette di fare questo. Nell'esempio sotto, le chiavi `student_id` e `teacher_id` avranno valori interi via via crescenti: `1,2,3,...`.
+
+
+```sql
+CREATE TABLE Student (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    -- ...
+);
+
+CREATE TABLE Teacher (
+    teacher_id INT AUTO_INCREMENT PRIMARY KEY,
+    -- ...
+);
+```
+
+{{<important>}}
+Il supporto di `AUTO_INCREMENT` non è uguale in tutti i DBMS, inoltre il comportamento può risultare non ovvio in certe situazioni. Per questo motivo è sempre opportuno consultare la documentazione del DBMS in uso. Ad esempio [qui][5] si trova la documentazione di `AUTO_INCREMENT` per il DBMS MariaDB.
+{{</important>}}
+
 
 ### Chiavi
 
@@ -154,9 +168,69 @@ CREATE TABLE Class (
     section VARCHAR(8) NOT NULL,
     location VARCHAR(16),
 );
-
 ```
 
+#### `NUT NULL` e `UNIQUE`
+Esistono due vincoli di dominio che possono essere espressi in SQL:
+* `NOT NULL` impone che un attributo non possa avere il valore `NULL` (non indicando questo vincolo, i valori `NULL` sono ammessi di default).
+* `UNIQUE` impone che i valori per un attributo siano unici nella relazione. In altre parole non possono esistere due tuple con lo stesso valore di attributi che sono identificati con `UNIQUE`.
+
+Possiamo, ad esempio, modificare la definizione della tabella `Teacher` nel seguente modo
+```sql
+CREATE TABLE Teacher (
+    teacher_id INT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    birth_date DATE,
+    hire_date DATE,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone_number VARCHAR(15) UNIQUE
+);
+```
+
+Notiamo che `UNIQUE` e `NOT NULL` possono essere usati insieme, infatti il vincolo di `UNIQUE` non si applica ai valori `NULL` (possono esistere più tuple con valore `NULL` per un attributo `UNIQUE`).
+
+Dall'esempio capiamo che per una tuple di `Teacher` devono essere specificati (`NOT NULL`) nome, cognome e email. Inoltre l'email deve essere unica (quindi l'email potrebbe essere utilizzata come chiave primaria in quanto chiave candidata)
+
+{{<observe>}}
+La chiave primaria deve per definizione essere `UNIQUE`, infatti non possono esistere due tuple con la stessa chiave primaria. Inoltre la chiave primaria non può essere `NULL`. Nell'esempio sopra, tuttavia, non si è indicato `teacher_id` con `UNIQUE` nè con `NOT NULL` questo perché `PRIMARY KEY`, per quanto appena detto, implica entrambi questi vincoli. In generala in una relazione ogni *chiave candidata* soddisfa i vincoli `UNIQUE` e `NOT NULL`.
+{{</observe>}}
+
+È possibile esprimere il vincolo `UNIQUE` su una combinazione di attributi. Ad esempio per essere sicuri che nella relazione `Class` esista un'unica tupla per ogni classe possiamo aggiungere il seguente vincolo
+
+```sql
+CREATE TABLE Class (
+    -- Come sopra
+    UNIQUE(level, section);
+);
+```
+
+Ad esempio `level=1` e `section=A` può esistere una sola volta nella relazione, tuttavia può esistere anche una tupla con `level=1` e `section=B`, come anche la tupla con `level=2` e `section=A`. Notare che se noi avessimo usato la seguente sintassi:
+
+```sql
+CREATE TABLE Class (
+    -- ...
+    level INT UNIQUE CHECK (level >= 1 AND level <= 5)
+    section UNIQUE VARCHAR(8) NOT NULL,
+    -- ...
+);
+```
+
+solo una tupla potrebbe avere `level=1` e solo una tupla potrebbe avere `section=A`.
+
+### Valore di default
+La parola chiave `DEFAULT` in SQL è utilizzata per assegnare un valore predefinito a una colonna quando un nuovo record viene inserito nella tabella e nessun valore specifico è fornito per quella colonna. In altre parole, se non si specifica un valore per la colonna durante un'operazione di `INSERT`, il valore predefinito specificato con `DEFAULT` verrà utilizzato automaticamente.
+
+```sql
+CREATE TABLE Class (
+    class_id INT PRIMARY KEY,
+    level INT DEFAULT 1 CHECK (level >= 1 AND level <= 5),
+    section VARCHAR(8) DEFAULT 'A' NOT NULL,
+    location VARCHAR(16)
+);
+```
+
+Quando un attributo non è dichiarato `NOT NULL` e non viene specificato un valore con `DEFAULT`, le tuple che non specificano il valore dell'attributo in fase di inserimento prendono il valore `NULL`.
 
 ## `CREATE SCHEMA`
 
@@ -168,6 +242,42 @@ Ecco un esempio di come utilizzare l'istruzione `CREATE SCHEMA`:
 CREATE SCHEMA my_schema;
 ```
 
+## Domande ed Esercizi
+
+
+Rispondi alle seguenti domande motivando la risposta.
+
+1. Quando si progetta una nuova tabella utilizzando l'istruzione CREATE TABLE, quali sono alcune delle considerazioni importanti da tenere a mente per definire gli attributi, le chiavi primarie e le chiavi esterne in modo efficace? Come queste decisioni possono influenzare le prestazioni e la struttura del database?
+2. Durante la creazione di una tabella tramite CREATE TABLE, quali tipi di vincoli di dominio e restrizioni possono essere applicati agli attributi? In che modo l'uso di vincoli come NOT NULL, UNIQUE, CHECK e DEFAULT può contribuire a garantire l'integrità dei dati e prevenire errori nel database?
+
+{{<exercise title="Gestione di un magazzino">}}
+
+Devi creare una base di dati per la gestione di un magazzino. La base di dati dovrà contenere tre tabelle: `Product`, `Supplier`, e `Stock`. Ecco i requisiti per ciascuna tabella:
+
+1. `Product`:
+   - Attributi: `product_id` (INT), `name` (VARCHAR), `description` (TEXT), `price` (DECIMAL), `category` (VARCHAR).
+   - `product_id` è la chiave primaria.
+   - Il prezzo (`price`) deve essere un valore decimale positivo.
+   - La categoria (`category`) rappresenta la categoria di appartenenza del prodotto.
+
+2. `Supplier`:
+   - Attributi: `supplier_id` (INT), `name` (VARCHAR), `contact_name` (VARCHAR), `email` (VARCHAR), `phone_number` (VARCHAR).
+   - `supplier_id` è la chiave primaria.
+   - L'indirizzo email (`email`) deve essere unico per ogni fornitore.
+   - Il numero di telefono (`phone_number`) deve seguire un formato specifico.
+
+3. `Stock`:
+   - Attributi: `stock_id` (INT), `product_id` (INT), `supplier_id` (INT), `quantity` (INT), `purchase_date` (DATE).
+   - `stock_id` è la chiave primaria.
+   - `product_id` è una chiave esterna collegata alla tabella `Product`, indicando il prodotto in magazzino.
+   - `supplier_id` è una chiave esterna collegata alla tabella `Supplier`, indicando il fornitore del prodotto in magazzino.
+   - `quantity` rappresenta la quantità di prodotti disponibili in magazzino.
+   - La data di acquisto (`purchase_date`) deve essere una data valida.
+
+Scrivi l'istruzione SQL per creare queste tre tabelle, rispettando i requisiti e utilizzando `CREATE TABLE`.
+
+{{</exercise>}}
+
 ## Riferimenti
 * [`CREATE TABLE` (W3School)][1]
 * [Tipi dati (W3School)][2]
@@ -176,3 +286,4 @@ CREATE SCHEMA my_schema;
 [2]: https://www.w3schools.com/sql/sql_datatypes.asp
 [3]: https://www.mysql.com/it/
 [4]: https://mariadb.com/kb/en/data-types/
+[5]: https://mariadb.com/kb/en/auto_increment/
