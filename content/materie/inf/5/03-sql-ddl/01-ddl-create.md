@@ -85,7 +85,7 @@ CREATE TABLE Teacher (
 ```
 
 {{<important>}}
-Oltre ai tipi previsti dallo standard SQL, ogni DBMS [qui][2] si trova, ad esempio, la lista (non completa) dei tipi definiti in [MySQL][3], [qui][4] la lista relativa al DBMS MariaDB (MariaDB è un progetto *open source* nato da MySQL dopo che questo è stato acquisito da Oracle).
+Oltre ai tipi previsti dallo standard SQL, ogni DBMS [qui](https://www.w3schools.com/sql/sql_datatypes.asp) si trova, ad esempio, la lista (non completa) dei tipi definiti in [MySQL][3], [qui][4] la lista relativa al DBMS MariaDB (MariaDB è un progetto *open source* nato da MySQL dopo che questo è stato acquisito da Oracle).
 {{</important>}}
 
 #### `AUTO INCREMENT`
@@ -105,7 +105,7 @@ CREATE TABLE Teacher (
 ```
 
 {{<important>}}
-Il supporto di `AUTO_INCREMENT` non è uguale in tutti i DBMS, inoltre il comportamento può risultare non ovvio in certe situazioni. Per questo motivo è sempre opportuno consultare la documentazione del DBMS in uso. Ad esempio [qui][5] si trova la documentazione di `AUTO_INCREMENT` per il DBMS MariaDB.
+Il supporto di `AUTO_INCREMENT` non è uguale in tutti i DBMS, inoltre il comportamento può risultare non ovvio in certe situazioni. Per questo motivo è sempre opportuno consultare la documentazione del DBMS in uso. Ad esempio [qui](https://mariadb.com/kb/en/auto_increment/) si trova la documentazione di `AUTO_INCREMENT` per il DBMS MariaDB.
 {{</important>}}
 
 
@@ -151,7 +151,6 @@ CREATE TABLE ClassTeacher (
     FOREIGN KEY (teacher_id) REFERENCES Teacher(id),
     FOREIGN KEY (class_id) REFERENCES Class(id)
 );
-
 ```
 
 ### Vincoli di dominio
@@ -231,6 +230,29 @@ CREATE TABLE Class (
 ```
 
 Quando un attributo non è dichiarato `NOT NULL` e non viene specificato un valore con `DEFAULT`, le tuple che non specificano il valore dell'attributo in fase di inserimento prendono il valore `NULL`.
+
+### Vincoli di integrità referenziale
+L'opzione `ON DELETE` nelle chiavi esterne di SQL è utilizzata per specificare il comportamento desiderato quando viene eliminata una riga nella tabella *padre* (riferita dalla chiave esterna). Ci sono diverse strategie previste le più importanti sono:
+
+- `ON DELETE CASCADE`: Quando una tupla nella tabella riferita, tutte le tuple che la riferiscono vengono automaticamente eliminate. Questa opzione garantisce che non ci siano record orfani.
+
+- `ON DELETE SET NULL`: Quando una tupla nella tabella riferita, il valore nella colonna corrispondente della tabella figlio viene impostato su `NULL`. Questa opzione può essere utile quando si desidera consentire record orfani, ma si vuole mantenere la coerenza dei dati, ovviamente non è possibile utilizzare questa opzione se la chiave esterna è definita `NOT NULL`.
+
+- `ON DELETE RESTRICT`: Questa opzione impedisce l'eliminazione di una riga nella tabella padre se esistono record corrispondenti nella tabella figlio.
+
+
+Nel caso della tabella `ClassTeacher`, se si utilizza `ON DELETE CASCADE` per la chiave esterna `teacher_id`, quando un insegnante viene eliminato dalla tabella `Teacher`, tutte le associazioni nella tabella `ClassTeacher` relative a quel professore verranno automaticamente eliminate, garantendo che non ci siano riferimenti orfani nella tabella `ClassTeacher`.
+
+```sql
+CREATE TABLE ClassTeacher (
+    teacher_id INT,
+    class_id INT,
+    year VARCHAR(4),
+    PRIMARY KEY (teacher_id, class_id),
+    FOREIGN KEY (teacher_id) REFERENCES Teacher(id) ON DELETE CASCADE,
+    FOREIGN KEY (class_id) REFERENCES Class(id) ON DELETE CASCADE
+);
+```
 
 ## `CREATE SCHEMA`
 
