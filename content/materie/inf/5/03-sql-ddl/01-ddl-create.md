@@ -108,6 +108,23 @@ CREATE TABLE Teacher (
 Il supporto di `AUTO_INCREMENT` non è uguale in tutti i DBMS, inoltre il comportamento può risultare non ovvio in certe situazioni. Per questo motivo è sempre opportuno consultare la documentazione del DBMS in uso. Ad esempio [qui](https://mariadb.com/kb/en/auto_increment/) si trova la documentazione di `AUTO_INCREMENT` per il DBMS MariaDB.
 {{</important>}}
 
+{{<attention>}}
+In SQLite è scoraggiato l'uso di `AUTO_INCREMENT` (la cui sintassi corretta à `AUTOINCREMENT` senza underscore `_`) per motivi di efficienza. SQLite assegna automaticamente un identificativo (chiamato `ROWID`) ad ogni riga delle tabelle. Se la tabella contiene un `INT PRIMARY KEY` **senza `AUTOINCREMENT`**, allora SQLite, automaticamente, utilizza l'identificativo di riga per la chiave.
+
+```sql
+CREATE TABLE Student (
+    -- Errore (non segnalato da DB Browser!)
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+
+    -- Ok, ma non usa ROWID
+    student_id INT AUTOINCREMENT PRIMARY KEY,
+    
+    -- Ok, usa ROWID come chiave primaria (scelta da preferire)
+    student_id INT PRIMARY KEY,
+);
+```
+{{</attention>}}
+
 
 ### Chiavi
 
