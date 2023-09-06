@@ -2,6 +2,7 @@
 title: "L'operazione JOIN in SQL"
 running_title: "JOIN in SQL"
 type: lecture
+summary: "In questa lezione si viene introdotto il concetto di JOIN comprese le sue varianti (naturale, inner e outer)."
 weight: 300
 ---
 
