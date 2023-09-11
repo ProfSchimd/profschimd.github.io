@@ -5,7 +5,7 @@ as: "2022 - 2023"
 ---
 
 Ecco le migliori tre applicazioni "Calcolatrice" della classe
-[5ID (2022 - 2023)]({{< ref "5id" >}})
+[5ID (2022 - 2023)]({{< ref "5id-2022-2023" >}})
 
 ---
 
