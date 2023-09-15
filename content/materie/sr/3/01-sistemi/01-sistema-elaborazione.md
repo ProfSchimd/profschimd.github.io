@@ -1,6 +1,6 @@
 ---
 title: Sistema di elaborazione
-weight: 1
+weight: 100
 type: lecture
 summary: "I sistemi di elaborazione sono quei dispositivi che sono in grado di elaborare dati. Spesso questi possono essere programmati per fare delle specifiche elaborazioni."
 ---
@@ -51,7 +51,7 @@ Un sistema basato sull'architettura di von Neumann utilizza il **fetch-and-execu
 4. Esegue l'istruzione (*execute*)
 5. Ritorna al punto 1.
 
-Questo funzionamento prosegue fino a che la CPU non viene *interrotta*. Il funzionamento sarà più chiaro quando parleremo di [CPU e Assembly]({{< ref "cpu.md" >}}).
+Questo funzionamento prosegue fino a che la CPU non viene *interrotta*. Il funzionamento sarà più chiaro quando parleremo di [CPU e Assembly]({{<ref "02-cpu.md" >}}).
 
 ### Le componenti dell'architettura di von Neumann
 Vediamo ora in dettaglio qual'è il compito delle quattro componenti principali dell'architettura di von Neumann: CPU, memoria, I/O e bus.

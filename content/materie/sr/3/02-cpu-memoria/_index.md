@@ -1,6 +1,6 @@
 ---
 title: Memoria e CPU
-weight: 1
+weight: 200
 ---
 
 Un buon pilota deve conoscere bene la macchina o la moto che guida altrimenti

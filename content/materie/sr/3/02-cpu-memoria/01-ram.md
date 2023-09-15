@@ -1,6 +1,6 @@
 ---
 title: Random Access Memory (RAM)
-weight: 10
+weight: 100
 summary: "La RAM è una della memoria di un sistema di elaborazione, il suo funzionamento è strettamente collegato al funzionamento della CPU e per questo va compreso a fondo."
 ---
 

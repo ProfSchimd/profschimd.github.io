@@ -1,6 +1,6 @@
 ---
 title: Central Processing Unit (CPU)
-weight: 20
+weight: 200
 summary: "La CPU è il centro operativo di un sistema di elaborazione dati, essa permette di fare operazioni semplici, ma in modo veloce. Capire come funziona la CPU è fondamentale per scrivere programmi che siano efficienti."
 ---
 
@@ -18,7 +18,7 @@ La parte di controllo della CPU è responsabile di comandare tutti i circuiti in
 * Un registro chiamato **program counter** (**PC**) che contiene *l'indirizzo di memoria delle prossima istruzione che la CPU deve eseguire*.
 * Un registro chiamato **instruction register** (**IR**) che contiene l'istruzione da eseguire
 * Un circuito di decodifica (**decode**) che imposta tutti i circuiti in modo che venga eseguita l'istruzione presente nell'IR.
-* Altri registri e circuiti per [accedere alla memoria]({{<ref ram >}}) e all'I/O.
+* Altri registri e circuiti per [accedere alla memoria]({{<ref "01-ram" >}}) e all'I/O.
 
 Nella figura sotto, si vede uno schema di una CPU contenente le varie parti sopra elencate.
 {{<include "img/cpu_schema.html" >}}

@@ -6,7 +6,7 @@ weight: 50
 ---
 
 ## Programmazione sequenziale
-Normalmente siamo abituati a pensare ad un programma come ad una **sequenza di istruzione**, questo è in effetti quello che accade all'interno di un core della CPU che esegue continuamente il [ciclo di fetch-and-execute]({{< ref "cpu.md" >}}). Per questo motivo si parla anche di **programmazione sequenziale** nel qual caso il compito del programmatore è trovare la giusta sequenza di istruzione (siano esse istruzioni Java, C++, assembly, ...).
+Normalmente siamo abituati a pensare ad un programma come ad una **sequenza di istruzione**, questo è in effetti quello che accade all'interno di un core della CPU che esegue continuamente il [ciclo di fetch-and-execute]({{< ref "02-cpu.md" >}}). Per questo motivo si parla anche di **programmazione sequenziale** nel qual caso il compito del programmatore è trovare la giusta sequenza di istruzione (siano esse istruzioni Java, C++, assembly, ...).
 
 {{<column/two-cols wl=8 wr=4 content="left" embed="img/img_iphone.html">}}
 Tuttavia, se si pensa a come oggi usiamo i nostri dispositivi (smartphone, laptop, PC, ...), ci si accorge subito che non si tratta di un un "uso sequenziale". Siamo ormai abituati ad interagire con il dispositivo e ad aspettarci che reagisca al nostro input (tap, click, swipe, ...). In pratica un dispositivo moderno è un oggetto in grado di reagire ad **eventi** che si verificano quali:

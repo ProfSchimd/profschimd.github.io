@@ -1,7 +1,7 @@
 ---
 title: Clock
 type: lecture
-weight: 40
+weight: 400
 ---
 Il clock è un segnale periodico utilizzato per *temporizzare* dei circuiti elettronici. Ricordiamo che un **segnale** è una *quantità fisica che varia nel tempo*. Solitamente nei circuiti elettronici il clock viene realizzato mediante una tensione di corrente che varia nel tempo. Un segnale periodico è un segnale che si ripete uguale indefinitamente. La parte del segnale di clock che viene ripetuta si chiama **ciclo di clock**, la durata della parte ripetuta si chiama **periodo**.
 
