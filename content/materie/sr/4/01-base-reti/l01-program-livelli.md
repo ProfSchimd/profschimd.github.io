@@ -1,6 +1,7 @@
 ---
 title: "Laboratorio: livelli di rete e programmazione"
-weight: 110
+running_title: "Lab 1: Livelli di rete"
+weight: 1000
 ---
 
 Uno dei vantaggi dei vantaggi di un'[architettura di rete stratificata][1] è la **modularità** che ne deriva. Infatti,

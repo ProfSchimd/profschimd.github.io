@@ -1,6 +1,8 @@
 ---
 title: Protocolli di rete
-weight: 30
+running_title: Protocolli
+type: lecture
+weight: 300
 ---
 
 {{<def title="Protocollo">}}

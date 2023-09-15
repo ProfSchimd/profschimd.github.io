@@ -1,6 +1,7 @@
 ---
 title: Incapsulamento
-weight: 25
+type: lecture
+weight: 400
 ---
 
 Una delle operazione più importanti nelle reti è quella di incapsulamento, questa operazione
