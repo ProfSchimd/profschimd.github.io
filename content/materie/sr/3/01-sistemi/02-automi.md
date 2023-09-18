@@ -68,3 +68,27 @@ La tecnologia non ci permette di creare sistemi che possano avere un numero infi
 In ogni momento un sistema a stati finiti può trovarsi in uno solo stato, tale stato può cambiare in seguito ad un input, chiamiamo **transizione di stato** il passaggio del sistema da uno stato ad un altro.
 
 ## Esempio: semaforo
+
+{{<column/two-cols wr=6 wl=6 content="left" embed="./img/automa-semaforo.html">}}
+Un semplice automa è rappresentato dal *semaforo* il quale, quando è in funzione si può trovare in uno di 3 stati possibili (consideriamo non in funzione il semaforo lampeggiante):
+1. `Luce Rossa` 
+2. `Luce Gialla`
+3. `Luce Verde`
+
+L'output del semaforo è l'accensione della luce corrispondente allo stato in cui si trova, ad esempio lo stato `Luce Verde` accenderà il disco verde
+🟢, lo stato `Luce Gialla` il disco giallo 🟡 e lo stato `Luce Rossa` il disco rosso 🔴.
+
+Nello schema a fianco vediamo anche le *transazioni di stato*, in questo caso sono le semplici transazioni che opera un semaforo. Ad esclusione dell'accensione e spegnimento, ogni transazione è dovuta ad un timer la cui durata dipende dal tipo di transizione.
+{{</column/two-cols>}}
+
+{{<exercise>}}
+Individuare gli stati e le transazioni di un automa che fa funzionare un semaforo pedonale alternato ad un semaforo stradale. È fondamentale che, quando il semaforo è verde per i pedoni non sia nè verde ne giallo per le auto e viceversa.
+{{</exercise>}}
+
+## Utilizzi degli automi
+
+Nell'ambito informatico gli automi vengono utilizzati in numerose situazioni.
+* Descrizione dello stato del sistema, ad esempio nei sistemi operativi lo stato del processore viene descritto mediante un automa (si parla spessi di *diagramma di stato*).
+* Descrizione di un *protocollo di rete*, ad esempio per indicare situazioni di spedizione di dati per cui non si è ricevuto conferma.
+* Descrizione dello stato di una *sessione*, ad esempio in sito web con autenticazione la sessione può trovarsi in nello stato di `Logged Out` e, in seguito al corretto inserimento delle credenziali (nome utente e password) passare alle stato `Logged In`.
+* Riconoscimento di stringhe e di *espressioni regolari*, per capire se un input è nel formato corretto ad esempio una mail correttamente espresso come `nome@dominio`.
