@@ -34,7 +34,7 @@ Si chiama **architettura** di un sistema di elaborazione il modo in cui i vari c
 
 ## Architettura di von Neumann
 
-{{<column/two-cols wl=6 wr=6 content="right" embed="img/von_neumann.html">}}
+{{<column/two-cols wl=6 wr=6 content="right" embed="img/von-neumann.html">}}
 
 Nell'immagine a sinistra si vede uno schema dell'architettura di von Neumann. Essa è composta dalla **CPU** (*Central Processing Unit*) la quale è collegata alla **memoria** (chiamata anche **RAM** - *Random Access Memory*) ed ai dispositivi di **I/O** (*Input/Output*) tramite il **Bus di sistema** (un vero e proprio circuito). 
 {{</column/two-cols>}}
