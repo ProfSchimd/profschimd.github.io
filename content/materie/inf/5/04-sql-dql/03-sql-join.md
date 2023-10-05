@@ -7,12 +7,63 @@ weight: 300
 ---
 
 ## Il concetto di `JOIN`
+Nei database relazionali concetti correlati sono collegati tra di loro mediante *chiave esterne*, quando vi è la necessità di "riunire" queste informazioni in un'unica relazione (tabella), si procede ad un'operazione chiamata *join*.
+
+L'operazione di join produce una relazione a partire da due o più altre relazioni. In base al tipo di unione, si possono presentare diversi [tipi di join](#tipologie-di-join), il punto di partenza di una join è il prodotto cartesiano che discutiamo brevemente di seguito.
 
 ### Il prodotto cartesiano
+Prendiamo due insiemi \\(A=\lbrace a,b \rbrace\\) e \\(B=\lbrace c,d\rbrace\\), il prodotto cartesiano è l'insieme di tutte le coppie \\((x,y)\\) che si possono formare prendendo il primo elemento \\(x\\) dal primo insieme ed il secondo elemento \\(y\\) dal secondo insieme.
+
+$$ A \times B = \lbrace (a,c), (b,c), (a,d), (b,d) \rbrace $$
+
+Nell'algebra relazionale il prodotto cartesiano tra relazione produce una relazione dove ogni tupla è composta da una tupla della prima relazione e da una tupla della seconda relazione.]]{{<column/columns>}}
+{{<column/col>}}
+`Student`
+{{<table>}}
+| Name | class |
+|------|-------|
+| Al   | 1A    |
+| Bob  | 2A    |
+{{</table>}}
+{{</column/col>}}
+{{<column/col>}}
+`Class`
+{{<table>}}
+| id | room |
+|----|------|
+| 1A | 101  |
+| 2A | 203  |
+{{</table>}}
+{{</column/col>}}
+{{<column/col>}}
+`Student` \\(\times\\) `Class` 
+{{<table>}}
+| Name | class | id | room |
+|------|-------|----|------|
+| Al   | 1A    | 1A | 101  |
+| Al   | 1A    | 2A | 203  |
+| Bob  | 2A    | 1A | 101  |
+| Bob  | 2A    | 2A | 203  |
+{{</table>}}
+{{</column/col>}}
+{{</column/columns>}}
+
+Le informazioni contenute nel prodotto cartesiano, tuttavia, non sono sempre *valide* per la base di dati, per questo motivo vanno filtrate. Una *join* è la combinazione del prodotto cartesiano e del filtraggio.
+
 
 ## Tipologie di `JOIN`
+Quando si esegue un join ti tabelle sulla base di un attributo, le tuple presenti in una tabella potrebbero non avere corrispondenza nell'altra tabella. Sulla base di come il join tratta questa situazione, identifichiamo quattro tipi di operazioni di join, rappresentati di seguito in termini insiemistici.
+
+{{<include "img/img-join-type.html">}}
 
 ### `INNER JOIN`
+Si tratta dell'operazione di join più comune in quanto include nel risultato solo le tuple che hanno corrispondenza in entrambe le tabelle.
+
+```sql
+SELECT S.last_name, S.first_name, C.level, C.section
+FROM Student AS S LEFT JOIN Class AS C
+ON S.class = C.class_id;
+```
 
 ### `OUTER JOIN`
 
@@ -51,7 +102,7 @@ FROM cliente LEFT JOIN item on cliente.email = item.customer
 WHERE item.customer is NULL;
 ```
 
-#### `RIGH JOIN`
+#### `RIGHT JOIN`
 
 {{<def>}}
 L'operazione **outer join** esegue un join in cui vengono include anche le tuple che non hanno corrispondenza in entrambe le tabelle unite. Esistono tre tipi di outer join, il **full outer join** comprende tutte le tuple ed è la stessa cosa del prodotto cartesiano. Il **left outer join** comprende tutte le tuple che si trovano nella tabella di sinistra. Il **right outer join** comprende tutte le tuple che si trovano nella tabella di destra.
