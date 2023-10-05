@@ -2,7 +2,7 @@
 title: Automi
 weight: 200
 type: lecture
-summary: "Il più semplice sistema di elaborazione è l'automa il quale riceve simboli in ingresso e cambia stato in risposta."
+summary: "Il più semplice sistema di elaborazione è l'automa il quale riceve simboli in ingresso e cambia stato in risposta a tali ingressi. Questa lezione spiega brevemente cosa sono e come si comportano gli automi mostrando il semaforo stradale come esempio di automa."
 ---
 
 ## Automa a stati finiti
