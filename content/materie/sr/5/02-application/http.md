@@ -5,9 +5,7 @@ type: lecture
 weight: 300
 ---
 
-Il protocollo HTTP (**H**yper**T**ext **T**ransfer **P**rotocol) e la sua versione *sicura* HTTPS (HTTP **S**ecure) sono tra i più importanti protocolli di Internet.
-Inizialmente sviluppato da Tim Berners-Lee al CERN, HTTP è stato ufficialmente definito nel 1996
-([qui](https://www.w3.org/Protocols/HTTP/HTTP2.html) la versione del 1992)
+Il protocollo HTTP (**H**yper**T**ext **T**ransfer **P**rotocol) e la sua versione *sicura* HTTPS (HTTP **S**ecure) sono tra i più importanti protocolli di Internet. Inizialmente sviluppato da Tim Berners-Lee al CERN di Ginevra, HTTP è stato ufficialmente definito dall'IETF nel 1996 attraverso l'RFC 1945 ([qui](https://www.w3.org/Protocols/HTTP/HTTP2.html) la versione del 1992)
 
 Le versioni attualmente più diffuse sono:
 * HTTP/1.1: RFC 9112
@@ -210,9 +208,11 @@ di protezione dei dati come, ad esempio, il [GDPR europeo](https://gdpr.eu/cooki
 * [HTTP Overview (Mozilla MDN)][2]
 * [Cookie (Wikipedia, EN)][3]
 * [Using HTTP Cookies (Mozilla MDN)][4]
+* [How HTTPS works][5]
 
 [1]: https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 [2]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
 [3]: https://en.wikipedia.org/wiki/HTTP_cookie
 [4]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+[5]: https://howhttps.works/
 
