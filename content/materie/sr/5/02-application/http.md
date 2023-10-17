@@ -5,17 +5,15 @@ type: lecture
 weight: 300
 ---
 
-Il protocollo HTTP (**H**yper**T**ext **T**ransfer **P**rotocol) e la sua versione *sicura* HTTPS (HTTP **S**ecure) sono tra i più importanti protocolli di Internet. Inizialmente sviluppato da Tim Berners-Lee al CERN di Ginevra, HTTP è stato ufficialmente definito dall'IETF nel 1996 attraverso l'RFC 1945 ([qui](https://www.w3.org/Protocols/HTTP/HTTP2.html) la versione del 1992)
+I protocolli HTTP (**H**yper**T**ext **T**ransfer **P**rotocol) e HTTPS (HTTP **S**ecure) sono tra i più importanti protocolli della rete Internet. HTTP è stato creato da Tim Berners-Lee al CERN di Ginevra ([qui](https://www.w3.org/Protocols/HTTP/HTTP2.html) la versione del 1992), ed è poi stato pubblicato ufficialmente dall'IETF nell'RFC 1945 nel 1996.
 
-Le versioni attualmente più diffuse sono:
-* HTTP/1.1: RFC 9112
+Le versioni di HTTP più diffuse sono (dal più al meno diffuso):
 * HTTP/2: RFC 9113
 * HTTP/3: RFC 9114
+* HTTP/1.1: RFC 9112
 
 ## Funzionamento
-Il protocollo HTTP è un protocollo basato sul paradigma client/server ed utilizza il
-protocollo TCP a livello di trasporto. A tale scopo sono riservate le porte 80 e 443
-per server HTTP e HTTPS, rispettivamente (spesso viene anche usata la porta 8080).
+Il protocollo HTTP è un protocollo basato sul paradigma client/server ed utilizza il protocollo TCP a livello di trasporto. A tale scopo sono riservate le porte 80 e 443 per server HTTP e HTTPS, rispettivamente. Spesso vengono usate porte oltre la 1024 (tipici esempi sono 8080, 8000, ...), soprattutto quando non è possibile operare sulla porta 80 per motivi di sicurezza e/o privilegi (per aprire le porte da 1024 in giù, sono necessari i privilegi di amministratore).
 
 Una comunicazione HTTP avviene secondo i seguenti passi:
 1. il client stabilisce una connessione TCP con il server;
@@ -203,12 +201,19 @@ I cookie possono contenere informazioni sensibili e sono quindi soggetti ai vari
 di protezione dei dati come, ad esempio, il [GDPR europeo](https://gdpr.eu/cookies).
 {{</observe>}}
 
-## Link utili
+## Riferimenti
+
+### Informazioni generali su HTTP
 * [HTTP (Wikipedia, EN)][1]
 * [HTTP Overview (Mozilla MDN)][2]
+* [How HTTPS works][5]
+
+### Informazioni sui Cookie
 * [Cookie (Wikipedia, EN)][3]
 * [Using HTTP Cookies (Mozilla MDN)][4]
-* [How HTTPS works][5]
+
+### Strumenti utili per debugging HTTP
+* [HTTTPie Desktop e WebApp per generare richieste HTTP](https://httpie.io/)
 
 [1]: https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 [2]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
