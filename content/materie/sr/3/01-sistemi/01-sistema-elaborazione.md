@@ -29,14 +29,23 @@ Chiaramente la sveglia non è programmabile (possiamo impostare l'ora, ma non po
 Il programmatore, si occupa di scrivere software per sistemi programmabili (ad esempio scrivere un App Android). Fortunatamente, non serve imparare da zero la programmazione per ogni dispositivo programmabile. Per esempio è possibile creare un software per Windows e per Android usando (quasi) lo stesso codice Java. Ciò è possibile perché nei vari sistemi programmabili i componenti sono organizzati in maniera simile. Si dice che questi sistemi utilizzano la stessa *architettura*. L'architettura più importante è quella di *von Neumann* che è alla base di quasi tutti i sistemi di elaborazione. Per questo motivo cercheremo di capire questo modo di organizzare un elaboratore.
 
 {{<def>}}
-Si chiama **architettura** di un sistema di elaborazione il modo in cui i vari componenti sono collegati tra loro ed il modo in cui questi componenti interagiscono per ottenere l'elaborazione input/output.
+Si definisce **architettura** di un sistema di elaborazione l'insieme dei componenti ed il modo in cui essi sono collegati tra loro interagendo per ottenere l'elaborazione input/output.
 {{</def>}}
+
+{{<think title="Cosa fa un sistema programmabile?">}}
+Abbiamo parlato in *astratto* di *sistema programmabile* e di *programma*, proviamo ad immaginare la risposta alle seguenti domande.
+* Come funziona una sistema programmabile? 
+* Come fa ad *eseguire* il programma? 
+* Cos'è un programma?
+* Quali sono le istruzioni del programma?
+* Come si fa a inserire/cambiare il programma?
+{{</think>}}
 
 ## Architettura di von Neumann
 
 {{<column/two-cols wl=6 wr=6 content="right" embed="img/von-neumann.html">}}
 
-Nell'immagine a sinistra si vede uno schema dell'architettura di von Neumann. Essa è composta dalla **CPU** (*Central Processing Unit*) la quale è collegata alla **memoria** (chiamata anche **RAM** - *Random Access Memory*) ed ai dispositivi di **I/O** (*Input/Output*) tramite il **Bus di sistema** (un vero e proprio circuito). 
+Nell'immagine a sinistra si vede uno schema dell'architettura di von Neumann. Essa è composta dalla **CPU** (*Central Processing Unit*) la quale è collegata alla **memoria** (chiamata anche **RAM** - *Random Access Memory*) ed ai dispositivi di **I/O** (*Input/Output*) tramite il **Bus di sistema** che possiamo immaginare come un insieme di "cavi" di collegamento. 
 {{</column/two-cols>}}
 
 Una caratteristica importante dell'architettura di von Neumann è che le **istruzioni del programma da eseguire sono memorizzate nella stessa memoria (la RAM) che contiene i dati**. Si parla quindi di architettura a **programma memorizzato** (*stored program*) che differisce da architettura a **programma fisso** (*fixed memory*). Le architetture a programma fisso sono utilizzate in dispositivi che fanno una cosa specifica quali: calcolatrici (non programmabili), lavatrici, ... Le architetture a programma memorizzato (come l'architettura di von Neumann) sono utilizzate in quasi tutti i dispositivi programmabili: computer, smartphone, tablet, Arduino, console, ...
@@ -57,7 +66,7 @@ Questo funzionamento prosegue fino a che la CPU non viene *interrotta*. Il funzi
 Vediamo ora in dettaglio qual'è il compito delle quattro componenti principali dell'architettura di von Neumann: CPU, memoria, I/O e bus.
 
 #### CPU
-La **CPU** (Central Processing Unit) è il "cervello" di un calcolatore. Si tratta di un sistema molto complesso in grado di eseguire istruzioni relativamente semplice (perlopiù operazioni matematiche) ad una elevatissima velocità. Una CPU moderna può sommare 1 miliardi di numeri in un secondo. La CPU deve sempre avere una *prossima istruzione da eseguire*. Nell'architettura di von Neumann queste istruzioni sono memorizzate (insieme ai dati) nella *memoria centrale*.
+La **CPU** (*Central Processing Unit*) è il "cervello" di un calcolatore. Si tratta di un sistema molto complesso in grado di eseguire istruzioni relativamente semplice (ad esempio somma di numeri, spostamento di numeri, confronto tra numeri, ...) ad una velocità elevatissima. Ad esempio, una CPU moderna può fare 1 miliardi di somme tra interi in un secondo. L'insieme delle istruzioni che una CPU è in grado di eseguire viene detto **Instruction Set Architecture (ISA)** e rappresenta i mattoni con i quali *tutti i programmi* vengono eseguiti. La sequenza di istruzioni che una CPU deve eseguire rappresenta il *programma* che deve essere memorizzato da qualche parte. Nell'architettura di von Neumann il programma è memorizzato nella *memoria centrale* (la RAM) sotto forma di *codice macchina*, una dell idee rivoluzionarie dell'architettura di von Neumann è quella di tenere sulla stessa memoria sia il programma sia i dati che questo elabora.
 
 #### Memoria centrale
 La **memoria centrale** è un "contenitore" di informazioni (*bit*). Nell'architettura di von Neumann la memoria centrale contiene i **dati** (ad esempio una sequenza di numeri da sommare) e le **istruzioni**. Le istruzioni sono le operazioni fondamentali che la CPU è in grado di eseguire. Mettendo tante istruzioni uno dopo l'altra si crea un programma.
@@ -86,3 +95,6 @@ ____
 3. Cos'è l'architettura di un elaboratore?**{{<colored "success" "FACILE" >}}**
 4. Perché è un bene che molti dispositivi abbiano la stessa architettura? **{{<colored "danger" "DIFFICILE" >}}**
 5. Come funziona un computer che si basa sull'architettura di von Neumann? **{{<colored "warning" "MEDIA" >}}**
+
+
+{{<youtube 4IujdJr8bfc >}}
