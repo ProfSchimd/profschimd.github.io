@@ -2,7 +2,7 @@
 title: "Diagramma ER: Molteplicità e vincoli"
 running_title: ER Molteplicità
 type: lecture
-weight: 300
+weight: 200
 ---
 
 ##  Molteplicità

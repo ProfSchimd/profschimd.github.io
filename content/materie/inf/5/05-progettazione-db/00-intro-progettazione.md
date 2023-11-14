@@ -2,7 +2,7 @@
 title: "Introduzione alla progettazione di basi di dati"
 running_title: Progettazione DB
 type: lecture
-weight: 10
+weight: 5
 summary: "Il primo passo per la creazione di una base di dati è la sua progettazione. Questa lezione discute le motivazioni e gli obiettivi della progettazione introducendo i tre livelli di progettazione: concettuale, logica e fisica."
 ---
 
