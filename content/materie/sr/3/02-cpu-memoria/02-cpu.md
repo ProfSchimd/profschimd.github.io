@@ -1,5 +1,7 @@
 ---
 title: Central Processing Unit (CPU)
+running_title: CPU
+type: lecture
 weight: 200
 summary: "La CPU è il centro operativo di un sistema di elaborazione dati, essa permette di fare operazioni semplici, ma in modo veloce. Capire come funziona la CPU è fondamentale per scrivere programmi che siano efficienti."
 ---
