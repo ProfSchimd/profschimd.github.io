@@ -7,22 +7,22 @@ summary: "La CPU è il centro operativo di un sistema di elaborazione dati, essa
 ---
 
 ## Central Processing Unit (CPU)
-La **CPU** (**Central Processing Unit** - *unità centrale di elaborazione*) rappresenta il "cervello" di un calcolatore in quanto esegue le **istruzioni** che compongono un programma. Tali istruzioni sono molto semplice come: sommare due numeri, memorizza un numero in memoria, leggi un carattere dalla tastiera, ... 
+La **CPU** (**Central Processing Unit** - *unità centrale di elaborazione*) rappresenta il "cervello" di un calcolatore ed esegue le **istruzioni** che compongono un *programma*. Tali istruzioni sono molto semplice: somma due numeri, memorizza un numero in memoria, leggi un carattere dalla tastiera, ... 
 
-L'insieme delle istruzioni che una CPU è in grado di eseguire viene detto **Instruction Set Architecture ISA** e dipende dal modo in cui la CPU è organizzata internamente. Ad esempio, se una CPU non ha un circuito per dividere due numeri, la CPU non sarà in grado di fare le divisioni in un'unica operazione. In questo caso sarà quindi necessario scrivere una sequenza di istruzioni (un algoritmo) che faccia la divisione utilizzando solo quelle operazioni di cui la CPU dispone.
+L'insieme delle istruzioni che una CPU è in grado di eseguire si chiama **Instruction Set Architecture ISA** e dipende dal modo in cui la CPU è organizzata internamente. Ad esempio, se una CPU non ha un circuito per dividere due numeri, la CPU non sarà in grado di fare le divisioni in un'unica operazione. Sarà quindi necessario scrivere una sequenza di istruzioni (un *algoritmo*) per la divisione utilizzando solo operazioni di cui la CPU dispone.
 
 Anche se CPU diverse (es. Intel vs AMD) hanno modi diversi di eseguire le istruzioni, tutte le CPU contengono tre componenti fondamentali:
-1. Una spazio di memorizzazione rappresentato da una serie di registri (**register file**)
-2. Una serie di componenti che fungono da controllo (**control**) della CPU
-3. Un componente per operazioni logiche aritmetiche (**Arithmetic Logic Unit, ALU**).
+1. Una spazio di memorizzazione rappresentato da una serie di registri (**register file**);
+2. Una serie di componenti che fungono da controllo (**control**) della CPU;
+3. Un componente per operazioni aritmetiche e logiche (**Arithmetic Logic Unit, ALU**).
 
-La parte di controllo della CPU è responsabile di comandare tutti i circuiti in modo che venga eseguita l'istruzione richiesta, fanno parte del controllo
-* Un registro chiamato **program counter** (**PC**) che contiene *l'indirizzo di memoria delle prossima istruzione che la CPU deve eseguire*.
-* Un registro chiamato **instruction register** (**IR**) che contiene l'istruzione da eseguire
-* Un circuito di decodifica (**decode**) che imposta tutti i circuiti in modo che venga eseguita l'istruzione presente nell'IR.
+Il controllo della CPU comanda tutti i circuiti interni affinché venga eseguita l'istruzione corrente, fanno parte del controllo:
+* Un registro chiamato **Program Counter** (**PC**) che contiene *l'indirizzo di memoria delle prossima istruzione che la CPU deve eseguire*'
+* Un registro chiamato **Instruction Register** (**IR**) che contiene l'istruzione da eseguire;
+* Un circuito di decodifica (**decode**) che configura i circuiti per l'esecuzione dell'istruzione presente nell'IR;
 * Altri registri e circuiti per [accedere alla memoria]({{<ref "01-ram" >}}) e all'I/O.
 
-Nella figura sotto, si vede uno schema di una CPU contenente le varie parti sopra elencate.
+Nella figura sotto, si vede uno schema semplificato di CPU contenente contenente le varie parti descritte sopra.
 {{<include "img/cpu_schema.html" >}}
 
 ## Ciclo di funzionamento della CPU
