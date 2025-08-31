@@ -2,6 +2,7 @@
 title: Sincronizzazione
 type: lecture
 weight: 10
+summary: "S"
 ---
 ## Cos'è la sincronizzazione
 

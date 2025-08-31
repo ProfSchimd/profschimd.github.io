@@ -3,18 +3,20 @@
 <div class="card">
     <h5 class="card-header">Indice di {{ .Title }}</h5>
     
-<ul class="list-group list-group-flush">
-{{ range .CurrentSection.Pages }}
-{{ $rangePageUrl := .Permalink | absURL }}
-{{ if eq ($thisPageUrl) ($rangePageUrl) }}
-<li class="list-group-item list-group-item-primary"><strong><a href="{{ .Permalink }}">> {{ .Title }}</a></strong></li>
-{{ else }}
-<li class="list-group-item"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-{{ end }}
-{{ end }}
-</ul>
-<div class="card-footer">
-<a class="btn btn-primary" href="{{ .Permalink }}">Index</a>
-</div>
+    <ul class="list-group list-group-flush">
+        {{ range .CurrentSection.Pages }}
+        {{ $rangePageUrl := .Permalink | absURL }}
+        {{ if .Params.type }}
+            {{ if eq ($thisPageUrl) ($rangePageUrl) }}
+            <li class="list-group-item list-group-item-primary"><strong><a href="{{ .Permalink }}"> {{ .Title }}</a></strong></li>
+            {{ else }}
+            <li class="list-group-item"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        {{ end }}
+        {{ end }}
+    </ul>
+    <div class="card-footer">
+        <a class="btn btn-primary" href="{{ .Permalink }}">Index</a>
+    </div>
 </div>
 {{ end }}

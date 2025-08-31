@@ -23,7 +23,7 @@ L'immagine sotto mostra le principali porte logiche, il loro simbolo grafica e l
 Combinando opportunamente porte logiche è possibile creare qualsiasi *funzione logica* (o *funzione booleana*) cioè una funzione che ha input e output binari.
 
 ### Addizionatore
-Come esempio di funzione booleana consideriamo un **assizionatore** (*adder*) a 4 bit. Cominciamo considerando la somma di due bit considerando anche il *riporto*, questo circuito logico si chiama **full adder** ed è il primo mattone per costruire un sommatore a più bit.
+Come esempio di funzione booleana consideriamo un **addizionatore** (*adder*) a 4 bit. Cominciamo considerando la somma di due bit considerando anche il *riporto*, questo circuito logico si chiama **full adder** ed è il primo mattone per costruire un sommatore a più bit.
 
 {{<column/columns>}}
 {{<column/col>}}

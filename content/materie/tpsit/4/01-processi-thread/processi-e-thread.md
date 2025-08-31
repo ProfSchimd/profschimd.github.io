@@ -1,5 +1,6 @@
 ---
 title: Processi e Thread
+type: lecture
 summary: "Processi e thread"
 ---
 

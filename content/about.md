@@ -10,10 +10,6 @@ Il materiale prodotto, quindi, va utilizzato **esclusivamente a scopi
 didattici** e non rappresenta documentazione o guida ufficiale ad i tool,
 linguaggi ed in generale agli argomenti trattati.
 
-## Informazioni
-
-* **Ricevimento:** Venerdì dalle 9:00 alle 9:55 (prenotarsi su [Spaggiari][2])
-
 ## Link utili
 * [GitHub ProfSchimd][1]
 * [Registro Elettronico][2]

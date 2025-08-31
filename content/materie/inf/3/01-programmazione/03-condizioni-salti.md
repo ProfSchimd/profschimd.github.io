@@ -1,6 +1,8 @@
 ---
 title: Condizioni e salti
 weight: 30
+summary: "Una fondamentale caratteristica dei programmi è quella di poter operare scelte sulla base di condizioni. Le istruzioni che operano tali scelte chiamate istruzione di salto o istruzioni di controllo del flusso."
+type: lecture
 ---
 
 ## Condizioni: `if-then-else`
