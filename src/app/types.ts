@@ -20,9 +20,21 @@ export interface Module {
   lectures: Lecture[];
 }
 
-export interface Subject {
-  subject: string;
-  short: string;
-  year: number;
-  mods: Module[];
-}
+// export interface Year {
+//   id: string,
+//   title: string,
+//   description: string,
+//   icon: any,
+//   slug: string,
+//   mods: Module[]
+// }
+
+// export interface Subject {
+//   id: string,
+//   title: string,
+//   description: string;
+//   slug: string;
+//   years: Year[];
+//   mods: Module[];
+//   icon: IconType;
+// }

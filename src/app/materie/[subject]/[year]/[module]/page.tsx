@@ -1,27 +1,12 @@
 import { Module } from "@/app/types";
-import { modules } from "../modules";
+import { getModuleInfo, getModuleParams, ModuleSlug } from "@/lib/slugHelpers";
 
-// put in types
-interface ModuleProps {
-    params: Promise<{
-        module: string;
-    }>
-}
 
-// we need to create utility functions that use input objects/jsons to extract
-// information about modules and lecture. 
 export async function generateStaticParams() {
-
-    return modules.mods.map((module) => (
-        { module: module.id }
-    ));
+    return getModuleParams();
 }
 
-function getModuleInfo(name: string) {
-    return modules.mods.filter((m) => m.id === name)[0];
-}
-
-// Extract into components (to use in all modules)
+// TODO: Extract into components (to use in all modules)
 function ModuleNotFound({ module }: { module: string }) {
     return (
         <p>{module} Not found</p>
@@ -39,9 +24,11 @@ function ModuleIndex(moduleInfo: Module) {
     );
 }
 
-const ModulePage = async ({ params }: ModuleProps) => {
-    const { module } = await params;
-    const moduleInfo = getModuleInfo(module);
+const ModulePage = async ({ params }: {
+    params: Promise<ModuleSlug>
+}) => {
+    const { subject, year, module } = await params;
+    const moduleInfo = getModuleInfo(subject, year, module);
     return (
         <div>
             {moduleInfo ? <ModuleIndex {...moduleInfo} /> : <ModuleNotFound module={module} />}

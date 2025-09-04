@@ -1,4 +1,5 @@
 import { FaNetworkWired, FaShieldVirus, FaJava, FaMobile, FaGavel, FaChartGantt, FaRobot } from "react-icons/fa6";
+import { PiNumberSquareFiveBold, PiNumberSquareFourBold, PiNumberSquareThreeBold } from "react-icons/pi";
 
 export const Author = "Prof. Schimd";
 
@@ -13,46 +14,154 @@ export const Social = {
 
 export const Subjects = [
     {
-        id: "1",
+        id: "inf",
         title: "Informatica",
         description: "Programmazione nativa e web, sia frontend che backend con progettazione Database.",
         slug: "/materie/inf",
         icon: FaJava,
+        years: [
+            {
+                id: "3",
+                title: "Terzo Anno",
+                description: "Programmazione nativa, paradigma di programmazione ad oggetti.",
+                icon: PiNumberSquareThreeBold,
+                slug: "/materie/inf/3/",
+                mods: []
+            },
+            {
+                id: "4",
+                title: "Quarto Anno",
+                description: "Strutture dati e programmazione web frontend.",
+                icon: PiNumberSquareFourBold,
+                slug: "/materie/inf/4/",
+                mods: []
+            },
+            {
+                id: "5",
+                title: "Quinto Anno",
+                description: "Progettazione di database e sviluppo backend.",
+                icon: PiNumberSquareFiveBold,
+                slug: "/materie/inf/5/",
+                mods: []
+            },
+        ]
     },
     {
-        id: "2",
+        id: "sr",
         title: "Sistemi e Reti",
         description: "Sistemi embedded per l'Internet of Things. Reti e progettazione con particolare riferimento alla cybersecurity",
         slug: "/materie/sr",
         icon: FaNetworkWired,
+        years: [
+            {
+                id: "3",
+                title: "Terzo Anno",
+                description: "Sistemi di elaborazione e fondamenti di reti.",
+                icon: PiNumberSquareThreeBold,
+                slug: "/materie/sr/3/",
+                mods: []
+            },
+            {
+                id: "4",
+                title: "Quarto Anno",
+                description: "Modelli per reti e configurazione reti locali.",
+                icon: PiNumberSquareFourBold,
+                slug: "/materie/sr/4/",
+                mods: [ // sort id and slug thing
+                    {
+                        id: "SR.4.01",
+                        name: "Physical",
+                        title: "Livello Fisico",
+                        slug: "/materie/sr/4/SR.4.01",
+                        front_page: "README.md",
+                        lectures: [
+
+                        ]
+                    },
+                    {
+                        id: "SR.4.02",
+                        name: "Data Link",
+                        title: "Livello di Collegamento",
+                        slug: "/materie/sr/4/SR.4.02",
+                        front_page: "README.md",
+                        lectures: [
+
+                        ]
+                    },
+                    {
+                        id: "SR.4.03",
+                        name: "Network",
+                        title: "Livello di Rete",
+                        slug: "/materie/sr/4/SR.4.03",
+                        front_page: "README.md",
+                        lectures: [{
+                            id: "L01",
+                            weight: 10,
+                            title: "Ruoli del livello di Rete",
+                            type: "lecture",
+                            source: {
+                                url: "L01_NetRole.md", // or "https://www. ... ",
+                                type: "local" // or "remote"
+                            }
+                        },
+                        {
+                            id: "L02",
+                            weight: 20,
+                            title: "Protocolli del livello di Rete",
+                            type: "lecture",
+                            source: {
+                                url: "https://www. ... /ip.md",
+                                type: "remote"
+                            }
+                        }]
+                    }]
+            },
+            {
+                id: "5",
+                title: "Quinto Anno",
+                description: "Progettazione reti e sicurezza dei sistemi.",
+                icon: PiNumberSquareFiveBold,
+                slug: "/materie/sr/5/",
+                mods: []
+            },
+        ]
     },
     {
-        id: "3",
+        id: "tpsit",
         title: "TPSIT",
         description: "Progettazione di sistemi informatici, programmazione concorrente e asincrona. Sviluppo di applicazioni mobile",
         icon: FaMobile,
     },
 
     {
-        id: "4",
+        id: "gpoi",
         title: "GPOI",
         description: "Gestione progetto e Organizzazione di impresa.",
+        slug: "/materie/gpoi",
         icon: FaChartGantt,
+        years: [{
+            id: "5",
+                title: "Quinto Anno",
+                description: "Project management e principi di macroeconomia.",
+                icon: FaChartGantt,
+                slug: "/materie/gpoi/5/",
+                mods: []
+    }]
     },
     {
-        id: "5",
+        id: "ec",
         title: "Educazione Civica",
         description: "Cittadinanza digitale. Aspetti etici della tecnologia.",
         icon: FaGavel,
     },
     {
-        id: "6",
+        id: "cyber",
         title: "Cybersecurity",
         description: "Protezione di dati e di sistemi informatici. Attività di simulazione capture the flag.",
         icon: FaShieldVirus,
     },
     {
-        id: "7",
+        id: "ai",
         title: "AI e Data Science",
         description: "Scienza dei dati e sistemi di intelligenza artificiale. Analisi dei dati e creazioni di chatbot",
         icon: FaRobot

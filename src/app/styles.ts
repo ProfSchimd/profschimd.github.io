@@ -25,4 +25,20 @@ export const Titles = {
 
 export const Elements = {
     LINK: "text-sky-800 dark:text-sky-400 hover:text-sky-600",
+    ROUND_BADGE: ""
+}
+
+export const Cards = {
+    VERTICAL_CARDS_CONTAINER_CLS: "flex-col mt-4 w-full bg-zinc-100 dark:bg-zinc-700 rounded-lg shadow-md overflow-hidden border border-zinc-200 dark:border-zinc-700 hover:shadow-lg group",
+    CARD_CONTAINER_CLS: "min-h-full",
+    CARD_LEFT_BAND_CLS: "bg-sky-100 dark:bg-sky-700 text-sky-600 dark:text-sky-200",
+    CARD_RIGHT_BAND_CLS: "",
+    CARD_RIGHT_TITLE_CLS: "text-xl font-semibold text-gray-600 dark:text-gray-200",
+    CARD_RIGHT_SUBTITLE_CLS: "text-xs text-gray-600 dark:text-gray-400",
+    CARD_RIGHT_DESCRIPTION_CLS: "text-gray-500 dark:text-gray-400 font-thin",
+
+}
+
+export const Animations = {
+    ANIMATION_SCALE_AND_SHADOW_CLS: "ease-in-out hover:scale-105 duration-300"
 }
