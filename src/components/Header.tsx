@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { Header as HeaderStyle } from "@/app/styles"
+import Button from './Button'
 
 
 const navMenu = [
@@ -27,9 +28,9 @@ export default function Header() {
           </Link>
           <div className="flex space-x-6">
             {navMenu.map((item, index) => (
-              <Link key={index} href={item.link} className={`${HeaderStyle.NAV_LINK}`}>
+              <Button key={index} href={item.link} className={`${HeaderStyle.NAV_LINK}`}>
                 {item.text}
-              </Link>
+              </Button>
             ))}
           </div>
         </nav>
