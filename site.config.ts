@@ -31,7 +31,7 @@ export const Subjects = [
             {
                 id: "4",
                 title: "Quarto Anno",
-                description: "Strutture dati e programmazione web frontend.",
+                description: "Strutture dati lineari (lista, coda, stack, ...) e non lineari (grafi e alberi). Programmazione web frontend con HTML, CSS e Javascript.",
                 icon: PiNumberSquareFourBold,
                 slug: "/materie/inf/4/",
                 mods: [
