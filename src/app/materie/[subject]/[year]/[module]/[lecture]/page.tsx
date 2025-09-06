@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import { TbArrowBack } from "react-icons/tb";
 import ContentError from "@/components/ContentError";
 import Description from "@/components/Description";
+import { useMDXComponents } from "@/mdx-components";
 
 export async function generateStaticParams() {
     return getLectureParams();
@@ -30,20 +31,22 @@ const LectureRender = async ({ lectureInfo, slug, contentCls = "" }: LocalLectur
     }
     return (
 
-        <div className="flex-col ">
-            <h1 className={`${Titles.PAGE_TITLE}`}>{lectureInfo.title}</h1>
+        <div className="flex-col">
+            <Link className={`${Elements.LINK}`} href={`/materie/${slug.subject}/${slug.year}/${slug.module}`}>
+                    <TbArrowBack className="mr-1 inline" /> {moduleInfo?.title}
+                </Link>
+            <h1 className={`${Titles.PAGE_TITLE} mt-2`}>{lectureInfo.title}</h1>
             {parsed?.frontMatter.description ?
                 <Description>{parsed?.frontMatter.description}</Description> :
                 <></>}
-            <div className="my-2">
-                <Link className={`${Elements.LINK}`} href={`/materie/${slug.subject}/${slug.year}/${slug.module}`}>
-                    <TbArrowBack className="mr-1 inline" /> {moduleInfo?.title}
-                </Link>
+            <div className="mb-4 pb-2 border-b border-gray-500">
+                
             </div>
-            <div className={`${contentCls}`}>
-                {parsed?.content ? <MDXRemote source={parsed?.content} /> : <></>}
+            <div className={`${contentCls} mb-4 pb-2 border-b border-gray-500`}>
+                {parsed?.content ? <MDXRemote source={parsed?.content}  components={useMDXComponents()}/> : <></>}
             </div>
-            <Link href="#">Top</Link>
+
+            {/* TODO  */}
 
         </div>
     );

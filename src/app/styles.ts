@@ -4,12 +4,12 @@ export const Root = {
 };
 
 export const Header = {
-    CONTAINER: "bg-zinc-300 dark:bg-zinc-700 shadow-md dark:shadow-zinc-600 border-b dark:border-zinc-400",
+    CONTAINER: "bg-zinc-300 dark:bg-zinc-700 shadow-md dark:shadow-zinc-600 border-b dark:border-zinc-400 print:hidden",
     NAV_LINK: "rounded-xl text-sky-100 bg-sky-700 dark:bg-sky-800 mx-1 px-4 py-2 hover:bg-sky-600",
 }
 
 export const Footer = {
-    CONTAINER: "bg-zinc-300 dark:bg-zinc-700 shadow-md dark:shadow-zinc-600 border-t dark:border-zinc-400"
+    CONTAINER: "bg-zinc-300 dark:bg-zinc-700 shadow-md dark:shadow-zinc-600 border-t dark:border-zinc-400 print:hidden"
 }
 
 export const Content = {

@@ -5,7 +5,7 @@ interface DescriptionProps {
 
 const Description = ({ children, className } : DescriptionProps) => {
     return(
-        <div className={className || "text-lg font-thin tracking-wide"}>
+        <div className={className || "text-xl font-thin tracking-wide"}>
             {children}
         </div>
     );
