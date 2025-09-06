@@ -1,5 +1,7 @@
 import { Animations, Cards, Header, Titles } from "@/app/styles";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
+import Description from "@/components/Description";
+import IndexBandCard from "@/components/IndexBandCard";
 import { getSubjectInfo, getYearInfo, getYearParams, YearSlug } from "@/lib/slugHelpers";
 import Link from "next/link";
 
@@ -16,18 +18,18 @@ const SubjectYear = async ({ params }: {
     return (
         <div>
             <div className={`${Titles.PAGE_TITLE}`}>{subjectInfo.title} - {yearInfo?.title}</div>
-            <div>{yearInfo?.description}</div>
+            <Description>{yearInfo?.description}</Description>
             <div>
                 {yearInfo?.mods.map((m, i) => (
                     <ConditionalLink key={m.id} href={m.slug} condition={true}>
                         <div className={`${Cards.VERTICAL_CARDS_CONTAINER_CLS} ${Animations.ANIMATION_SCALE_AND_SHADOW_CLS}`}>
                             <VerticalBanded
                                 left={
-                                    <div className="py-4 flex flex-col items-center font-bold">
+                                    <IndexBandCard>
                                         <div className="text-xs">Modulo</div>
                                         <div className="text-2xl py-1">{i + 1}</div>
                                         <div className="text-xs">{m.name}</div>
-                                    </div>
+                                    </IndexBandCard>
                                 }
                                 leftCls={`w-20 ${Cards.CARD_LEFT_BAND_CLS}`}
                                 rightCls="p-4"

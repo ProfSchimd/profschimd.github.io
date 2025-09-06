@@ -1,4 +1,7 @@
+import { Animations, Cards } from "@/app/styles";
 import { Module } from "@/app/types";
+import { ConditionalLink, VerticalBanded } from "@/components/Cards";
+import IndexBandCard from "@/components/IndexBandCard";
 import { getModuleInfo, getModuleParams, ModuleSlug } from "@/lib/slugHelpers";
 
 
@@ -18,7 +21,24 @@ function ModuleIndex(moduleInfo: Module) {
         <div>
             <h1>{moduleInfo.title}</h1>
             {moduleInfo.lectures.sort((a, b) => a.weight - b.weight).map((lecture, i) => (
-                <p key={lecture.id}>{i + 1} - {lecture.title}</p>
+                <ConditionalLink key={lecture.id} href={`${moduleInfo.slug}/${lecture.id}`} condition={true}>
+                        <div className={`${Cards.VERTICAL_CARDS_CONTAINER_CLS} ${Animations.ANIMATION_SCALE_AND_SHADOW_CLS}`}>
+                            <VerticalBanded
+                                left={
+                                    <IndexBandCard>
+                                        <div className="text-xs">Lezione</div>
+                                        <div className="text-2xl py-1">{i + 1}</div>
+                                        <div className="text-xs">{lecture.id}</div>
+                                    </IndexBandCard>
+                                }
+                                leftCls={`w-20 ${Cards.CARD_LEFT_BAND_CLS}`}
+                                rightCls="p-4"
+                            >
+                                <div className={Cards.CARD_RIGHT_TITLE_CLS}>{lecture.title}</div>
+                                <div className={Cards.CARD_RIGHT_SUBTITLE_CLS}>{lecture.id}</div>
+                            </VerticalBanded>
+                        </div>
+                    </ConditionalLink>
             ))}
         </div>
     );

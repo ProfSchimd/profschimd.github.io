@@ -45,6 +45,16 @@ export const Subjects = [
                             {
                                 id: "L01",
                                 weight: 10,
+                                title: "Programmazione web",
+                                type: "lecture",
+                                source: {
+                                    url: "/web/WEB.00/0-web-application.mdx",
+                                    type: "local"
+                                }
+                            },
+                            {
+                                id: "L02",
+                                weight: 20,
                                 title: "Il linguaggio Javascript",
                                 type: "lecture",
                                 source: {
