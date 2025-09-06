@@ -1,4 +1,5 @@
 import { Animations, Cards, Header, Titles } from "@/app/styles";
+import Button from "@/components/Button";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
 import { getSubjectInfo, getYearInfo, getYearParams, YearSlug } from "@/lib/slugHelpers";
 import Link from "next/link";
@@ -40,9 +41,9 @@ const SubjectYear = async ({ params }: {
                 ))}
             </div>
             <div className="flex items-center justify-center w-full p-4">
-                <Link className={`${Header.NAV_LINK} font-thin`} href={subjectInfo.slug || "/"}>
+                <Button href={subjectInfo.slug || "/"}>
                     Back to {subjectInfo.title}
-                </Link>
+                </Button>
             </div>
         </div>
     );
