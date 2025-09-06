@@ -40,5 +40,5 @@ export const Cards = {
 }
 
 export const Animations = {
-    ANIMATION_SCALE_AND_SHADOW_CLS: "ease-in-out hover:scale-105 duration-300"
+    ANIMATION_SCALE_AND_SHADOW_CLS: "ease-in-out hover:scale-101 duration-300"
 }

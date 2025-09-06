@@ -1,4 +1,4 @@
-import { Cards, Titles } from "@/app/styles";
+import { Animations, Cards, Titles } from "@/app/styles";
 import Link from "next/link";
 import { IconType } from "react-icons";
 
@@ -60,11 +60,12 @@ export function VerticalBanded({ left, children, containerCls, leftCls, rightCls
 
 const VCard = ({ id, title, description, icon }: CardProps) => {
   const iconCls = "text-sky-600 dark:text-sky-200 group-hover:text-sky-700 transition-colors duration-300";
+  const containerCls = `w-full min-h-full bg-zinc-100 dark:bg-zinc-700 rounded-lg shadow-md overflow-hidden border border-zinc-200 dark:border-zinc-700 ${Animations.ANIMATION_SCALE_AND_SHADOW_CLS} hover:shadow-lg`;
   const IconComponent = icon;
   return (
     <div
       key={id}
-      className="w-full min-h-full bg-zinc-100 dark:bg-zinc-700 rounded-lg shadow-md overflow-hidden border border-zinc-200 dark:border-zinc-700 hover:shadow-lg transition-shadow duration-200"
+      className={containerCls}
     >
       <VerticalBanded
         left={<IconComponent size={32} className={iconCls} />}
