@@ -3,4 +3,70 @@ title: "Programmazione Web"
 description: "Introduzione alla programmazione: architettura e funzionamento generale"
 ---
 
-Nella programmazione web
+Quando accediamo alla posta elettronica, pubblichiamo una nuova foto sui social media, facciamo acquisti online o consultiamo il portale della nostra carta di credito, quasi certamente usiamo una web application (**WebApp**). Un indizio è l'utilizzo di un *browser* per usufruire di tali servizi. Questa lezione introduce i concetti fondamentali, l'architettura ed il funzionamento di una **web application**.
+
+## Struttura di una Web Application
+In una web application, il **client** fornisce l'interfaccia **utente** per accedere e manipolare dati e informazioni gestiti da un **server**. Lo scambio di dati tra client e server avviene tramite il *protocollo* **HTTP**, motivo per cui si parla di "web" application.
+Client e server si trovano generalmente su **reti** diverse, e comunicano attraverso una connessione di rete. In alcuni casi possono trovarsi sulla stessa rete o persino sullo stesso dispositivo. In situazioni particolari e rare, client e server possono essere lo stesso processo.
+In ogni caso, l'interazione tra i due avviene esclusivamente tramite il protocollo HTTP, anche se attraverso una connessione locale.
+
+<div className="p-2 bg-white rounded-2xl shadow-lg dark:shadow-gray-500 mb-2">
+![Architettura di una Web Application](/img/inf/inf-web-development.svg)
+<div className="flex justify-center font-base font-thin text-gray-800">Architettura di una Web Application</div>
+</div>
+
+Facendo riferimento anche all'immagine sopra, vediamo come avviene una comunicazione tra client e server web.
+1. Il client utilizza i *metodi* del protocollo HTTP per inviare una **richiesta** al server, questa richiesta contiene l'**URL** di una **risorsa**, ad esempio `/index.html`.
+2. Il server riceve il pacchetto HTTP con la richiesta e la elabora. Se il formato del messaggio è corretto (coerente con quanto descritto dal protocollo HTTP), il server procede a *recuperare* la risorsa richiesta.
+3. Nel recuperare la risorsa il server può semplicemente cercare un *file* dal proprio filesystem (ad esempio un file con nome `index.html`). Se la richiesta coinvolge una risorsa *dinamica*, il server *costruisce* la risorsa `index.html` anziché caricarla *staticamente* dal filesystem.
+4. Una volta recuperata o generata, la risorsa viene inviata al client all'interno di una risposta HTTP, tipicamente codificata in UTF-8.
+
+La procedura appena descritta viene eseguita se la risorsa richiesta (`index.html` nell'esempio) può essere caricata o costruita con successo. In certi casi, tale risorse può non esistere o può non essere costruita correttamente (ad esempio perché sono stati forniti degli input sbagliati). In questi casi il server web risponde con una risposta HTTP che contiene un codice di errore, i tipici codici di errore sono
+- `404` risorsa non trovata, utilizzato quando un file richiesto non è presente nel server;
+- `500` errore nel server, utilizzato quando non è stato possibile costruire la risorsa.
+
+## Gli attori
+In una web application sono coinvolti diversi attori principali:
+- utente: l'utilizzatore finale dell'applicazione;
+- client (web): processo in grado di comunicare con un server (web) e di offrire un'interfaccia all'utente;
+- server (web): processo in grado di memorizzare e creare risorse e dati utili all'utente;
+- rete: insieme di dispositivi e protocolli che permettono di far comunicare più dispositivi;
+- HTTP: protocollo utilizzato per lo scambio di risorse tra un client ed un server.
+Senza soffermarci sui concetti di utente e rete, approfondiamo un po' cosa sono e perché sono importanti client, server e HTTP.
+
+### Web server
+Il **server web** è un processo (programma) in esecuzione su un dispositivo che viene interrogato utilizzando una connessione di rete. Anche quando il server è in esecuzione in locale (ad esempio durante lo sviluppo), la sua interrogazione avviene mediante un messaggio (pacchetto HTTP) di rete (in questi casi si usa l'indirizzo IP di *loopback* `127.0.0.1`).
+
+### Client
+Il **client web** è un processo (programma) in esecuzione su un dispositivo che interroga un *server web* utilizzando una connessione di rete per spedire delle **richieste** attraverso pacchetti (messaggi) del protocollo HTTP. Il client web è normalmente un **browser** (ad esempio Chrome, Edge, Firefox, Safari, ...), ma può anche essere un altro processo. Un tipico esempio sono app che vengono eseguite da dispositivi mobile. In questo caso (ad esempio la App Gmail sullo smartphone), la app stessa interroga il web server e non viene utilizzato un browser. In questo contesto, la app di Gmail rappresenta un client web perché comunica direttamente con un server web, anche senza passare da un browser.
+
+### HTTP
+Il protocollo **HTTP** (*HyperText Transfer Protocol) definisce come avviene la comunicazione tra un server ed un client web. HTTP definisce quali messaggi (stringhe) si scambiano i due processi (client e server) e quali tipologie di richieste e risposte possono essere effettuate. HTTP definisce la struttura dei messaggi, che sono codificati come stringhe in UTF-8. In pratica, client e server si scambiano delle stringhe che contengono delle particolari "parole" (ad esempio `GET`, `POST`, ...) che vengono interpretate da client/server.
+
+
+## Sicurezza di una applicazione web
+La sicurezza in una web application è estremamente importante in quanto bisogna sempre tenere a mente che tutti i messaggi, e quindi i dati scambiati, tra client e server viaggiano in una rete che, spesso, è la rete pubblica Internet. 
+
+Ci sono due aspetti che vanno considerati quando si parla di sicurezza di una web application.
+1. La **riservatezza** delle informazioni scambiate, ad esempio numeri di carta di credito o messaggi privati (posta o chat). Per garantire la riservatezza, le web application utilizzano spesso HTTPS, una versione sicura di HTTP che cifra i dati scambiati grazie al protocollo TLS.
+2. La **sicurezza** del codice scaricato in quanto è possibile che si verifichino degli attacchi chiamati *Cross Site Scripting (XSS)* che permettono a malintenzionati di far eseguire del codice malevolo intromettendosi nella comunicazione tra client e server.
+
+## Dizionario
+
+**Client (web)** Processo che utilizza il protocollo HTTP per accedere ad un server.
+
+**HTTP** Protocollo per l'accesso a risorse presenti in un web server.
+
+**Protocollo** Insieme di regole che definiscono come avviene la comunicazione tra due entità.
+
+**Rete** Insieme di dispositivi e protocolli che permettono la comunicazione tra due dispositivi.
+
+**Risorsa** Un unità di dati che client e server si scambiano.
+
+**Server (web)** Processo che utilizza il protocollo HTTP per servire risorse presenti in uno storage o, se necessario, dinamicamente create.
+
+**URL** Uniform Resource Locator, utilizzato per identificare univocamente risorse all'interno della rete Internet.
+
+**XSS** Cross Site Scripting, un tipo di attacco informatico che permette l'esecuzione nel client di codice non autorizzato e possibilmente dannoso.
+
+## Riferimenti
