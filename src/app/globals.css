@@ -1,2 +1,16 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "katex/dist/katex.min.css";
+@import "rehype-callouts/theme/obsidian";
+
+/* Dark mode using CSS media query (works with Tailwind's media strategy) */
+@media (prefers-color-scheme: dark) {
+  .callout {
+    mix-blend-mode: lighten;
+    background-color: rgb(from var(--rc-color-dark, var(--rc-color-default)) r g b / 0.1);
+  }
+  
+  .callout-title {
+    color: var(--rc-color-dark, var(--rc-color-default));
+  }
+}

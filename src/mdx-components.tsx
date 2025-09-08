@@ -1,9 +1,14 @@
-import type { MDXComponents } from 'mdx/types'
-import rehypePrettyCode from 'rehype-pretty-code';
+import type { MDXComponents } from "mdx/types";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypePrettyCode from "rehype-pretty-code";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeCallouts from "rehype-callouts";
  
 const components: MDXComponents = {
-  h2: ({ children }) => (
-    <h1 className="text-xl md:text-2xl font-normal">{children}</h1>
+  h2: ({ id, children }) => (
+    <h2 id={id} className="text-xl md:text-2xl font-normal">{children}</h2>
   ),
   p: ({ children }) => (
     <div className="my-3">{children}</div>
@@ -16,7 +21,12 @@ export function useMDXComponents(): MDXComponents {
 
 export const mdxOptions = {
   mdxOptions: {
-    remarkPlugins: [],
-    rehypePlugins: [rehypePrettyCode],
+    remarkPlugins: [remarkGfm, remarkMath],
+    rehypePlugins: [
+      rehypeCallouts,
+      rehypeSlug,
+      rehypePrettyCode,
+      rehypeKatex,
+    ],
   },
 };
