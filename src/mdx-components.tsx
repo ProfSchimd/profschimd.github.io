@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import rehypePrettyCode from 'rehype-pretty-code';
  
 const components: MDXComponents = {
   h2: ({ children }) => (
@@ -12,3 +13,10 @@ const components: MDXComponents = {
 export function useMDXComponents(): MDXComponents {
   return components
 }
+
+export const mdxOptions = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypePrettyCode],
+  },
+};

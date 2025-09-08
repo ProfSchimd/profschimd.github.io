@@ -8,7 +8,7 @@ import Button from "@/components/Button";
 import { TbArrowBack } from "react-icons/tb";
 import ContentError from "@/components/ContentError";
 import Description from "@/components/Description";
-import { useMDXComponents } from "@/mdx-components";
+import { mdxOptions, useMDXComponents } from "@/mdx-components";
 
 export async function generateStaticParams() {
     return getLectureParams();
@@ -43,7 +43,7 @@ const LectureRender = async ({ lectureInfo, slug, contentCls = "" }: LocalLectur
                 
             </div>
             <div className={`${contentCls} mb-4 pb-2 border-b border-gray-500`}>
-                {parsed?.content ? <MDXRemote source={parsed?.content}  components={useMDXComponents()}/> : <></>}
+                {parsed?.content ? <MDXRemote source={parsed?.content}  components={useMDXComponents()} options={mdxOptions}/> : <></>}
             </div>
 
             {/* TODO  */}
