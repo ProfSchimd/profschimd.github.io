@@ -90,7 +90,17 @@ export const Subjects = [
                 description: "Sistemi di elaborazione e fondamenti di reti.",
                 icon: PiNumberSquareThreeBold,
                 slug: "/materie/sr/3/",
-                mods: []
+                mods: [
+                    {
+                        id: "SR.3.01",
+                        name: "Sistemi",
+                        title: "Sistemi di Elaborazione",
+                        slug: "/materie/sr/3/SR.3.01",
+                        front_page: "README.md",
+                        lectures: [
+                        ]
+                    },
+                ]
             },
             {
                 id: "4",
