@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
 import Description from "@/components/Description";
 import IndexBandCard from "@/components/IndexBandCard";
+import PageTitle from "@/components/Title";
 import { getSubjectInfo, getYearInfo, getYearParams, YearSlug } from "@/lib/slugHelpers";
 import Link from "next/link";
 
@@ -18,7 +19,7 @@ const SubjectYear = async ({ params }: {
     const yearInfo = getYearInfo(subject, year);
     return (
         <div>
-            <div className={`${Titles.PAGE_TITLE}`}>{subjectInfo.title} - {yearInfo?.title}</div>
+            <PageTitle>{subjectInfo.title} - {yearInfo?.title}</PageTitle>
             <Description>{yearInfo?.description}</Description>
             <div>
                 {yearInfo?.mods.map((m, i) => (

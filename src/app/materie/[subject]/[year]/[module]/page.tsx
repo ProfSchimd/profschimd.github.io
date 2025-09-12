@@ -2,6 +2,7 @@ import { Animations, Cards } from "@/app/styles";
 import { Module } from "@/app/types";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
 import IndexBandCard from "@/components/IndexBandCard";
+import PageTitle from "@/components/Title";
 import { getModuleInfo, getModuleParams, ModuleSlug } from "@/lib/slugHelpers";
 
 
@@ -19,7 +20,7 @@ function ModuleNotFound({ module }: { module: string }) {
 function ModuleIndex(moduleInfo: Module) {
     return (
         <div>
-            <h1>{moduleInfo.title}</h1>
+            <PageTitle>{moduleInfo.title}</PageTitle>
             {moduleInfo.lectures.sort((a, b) => a.weight - b.weight).map((lecture, i) => (
                 <ConditionalLink key={lecture.id} href={`${moduleInfo.slug}/${lecture.id}`} condition={true}>
                         <div className={`${Cards.VERTICAL_CARDS_CONTAINER_CLS} ${Animations.ANIMATION_SCALE_AND_SHADOW_CLS}`}>

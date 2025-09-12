@@ -9,6 +9,7 @@ import { TbArrowBack } from "react-icons/tb";
 import ContentError from "@/components/ContentError";
 import Description from "@/components/Description";
 import { mdxOptions, useMDXComponents } from "@/mdx-components";
+import PageTitle from "@/components/Title";
 
 export async function generateStaticParams() {
     return getLectureParams();
@@ -35,7 +36,7 @@ const LectureRender = async ({ lectureInfo, slug, contentCls = "" }: LocalLectur
             <Link className={`${Elements.LINK}`} href={`/materie/${slug.subject}/${slug.year}/${slug.module}`}>
                     <TbArrowBack className="mr-1 inline" /> {moduleInfo?.title}
                 </Link>
-            <h1 className={`${Titles.PAGE_TITLE} mt-2`}>{lectureInfo.title}</h1>
+            <PageTitle className={`${Titles.PAGE_TITLE} mt-2`}>{lectureInfo.title}</PageTitle>
             {parsed?.frontMatter.description ?
                 <Description>{parsed?.frontMatter.description}</Description> :
                 <></>}
