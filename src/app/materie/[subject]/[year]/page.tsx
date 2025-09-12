@@ -1,11 +1,10 @@
-import { Animations, Cards, Header, Titles } from "@/app/styles";
+import { Animations, Cards } from "@/app/styles";
 import Button from "@/components/Button";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
 import Description from "@/components/Description";
 import IndexBandCard from "@/components/IndexBandCard";
-import PageTitle from "@/components/Title";
+import PageTitle from "@/components/PageTitle";
 import { getSubjectInfo, getYearInfo, getYearParams, YearSlug } from "@/lib/slugHelpers";
-import Link from "next/link";
 
 export async function generateStaticParams() {
     return getYearParams();

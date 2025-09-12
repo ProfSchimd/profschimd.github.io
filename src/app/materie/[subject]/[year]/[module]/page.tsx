@@ -2,7 +2,7 @@ import { Animations, Cards } from "@/app/styles";
 import { Module } from "@/app/types";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
 import IndexBandCard from "@/components/IndexBandCard";
-import PageTitle from "@/components/Title";
+import PageTitle from "@/components/PageTitle";
 import { getModuleInfo, getModuleParams, ModuleSlug } from "@/lib/slugHelpers";
 
 
