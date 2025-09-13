@@ -9,6 +9,7 @@ export interface Lecture {
   title: string;
   type: "lecture";
   source: LectureSource;
+  summary: string;
 }
 
 export interface Module {

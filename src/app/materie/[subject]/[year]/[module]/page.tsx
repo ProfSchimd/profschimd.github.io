@@ -37,6 +37,7 @@ function ModuleIndex(moduleInfo: Module) {
                             >
                                 <div className={Cards.CARD_RIGHT_TITLE_CLS}>{lecture.title}</div>
                                 <div className={Cards.CARD_RIGHT_SUBTITLE_CLS}>{lecture.id}</div>
+                                <div className="font-thin">{lecture.summary}</div>
                             </VerticalBanded>
                         </div>
                     </ConditionalLink>

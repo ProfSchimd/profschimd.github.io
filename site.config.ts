@@ -46,12 +46,13 @@ export const Subjects = [
                             {
                                 id: "L01",
                                 weight: 10,
-                                title: "Programmazione web",
+                                title: "Web application",
                                 type: "lecture",
                                 source: {
                                     url: "/web/WEB.00/0-web-application.mdx",
                                     type: "local"
-                                }
+                                },
+                                summary: "Una web application è un applicazione che sfrutta le tecnologie web: HTTP, HTML, CSS e Javascript.",
                             },
                             // {
                             //     id: "L02",
@@ -106,7 +107,8 @@ export const Subjects = [
                             source: {
                                 url: "/sr/3/01-sistemi/01-sistema-elaborazione.md", 
                                 type: "local" // or "remote"
-                            }
+                            },
+                            summary: "I sistemi di elaborazione sono quei dispositivi che sono in grado di elaborare dati. Spesso questi possono essere programmati per fare delle specifiche elaborazioni.",
                         },
                         ]
                     }
