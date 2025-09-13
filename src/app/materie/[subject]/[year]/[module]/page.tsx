@@ -1,9 +1,10 @@
 import { Animations, Cards } from "@/app/styles";
 import { Module } from "@/app/types";
+import Button from "@/components/Button";
 import { ConditionalLink, VerticalBanded } from "@/components/Cards";
 import IndexBandCard from "@/components/IndexBandCard";
 import PageTitle from "@/components/PageTitle";
-import { getModuleInfo, getModuleParams, ModuleSlug } from "@/lib/slugHelpers";
+import { getModuleInfo, getModuleParams, getYearInfo, ModuleSlug } from "@/lib/slugHelpers";
 
 
 export async function generateStaticParams() {
@@ -23,24 +24,24 @@ function ModuleIndex(moduleInfo: Module) {
             <PageTitle>{moduleInfo.title}</PageTitle>
             {moduleInfo.lectures.sort((a, b) => a.weight - b.weight).map((lecture, i) => (
                 <ConditionalLink key={lecture.id} href={`${moduleInfo.slug}/${lecture.id}`} condition={true}>
-                        <div className={`${Cards.VERTICAL_CARDS_CONTAINER_CLS} ${Animations.ANIMATION_SCALE_AND_SHADOW_CLS}`}>
-                            <VerticalBanded
-                                left={
-                                    <IndexBandCard>
-                                        <div className="text-xs">Lezione</div>
-                                        <div className="text-2xl py-1">{i + 1}</div>
-                                        <div className="text-xs">{lecture.id}</div>
-                                    </IndexBandCard>
-                                }
-                                leftCls={`w-20 ${Cards.CARD_LEFT_BAND_CLS}`}
-                                rightCls="p-4"
-                            >
-                                <div className={Cards.CARD_RIGHT_TITLE_CLS}>{lecture.title}</div>
-                                <div className={Cards.CARD_RIGHT_SUBTITLE_CLS}>{lecture.id}</div>
-                                <div className="font-thin">{lecture.summary}</div>
-                            </VerticalBanded>
-                        </div>
-                    </ConditionalLink>
+                    <div className={`${Cards.VERTICAL_CARDS_CONTAINER_CLS} ${Animations.ANIMATION_SCALE_AND_SHADOW_CLS}`}>
+                        <VerticalBanded
+                            left={
+                                <IndexBandCard>
+                                    <div className="text-xs">Lezione</div>
+                                    <div className="text-2xl py-1">{i + 1}</div>
+                                    <div className="text-xs">{lecture.id}</div>
+                                </IndexBandCard>
+                            }
+                            leftCls={`w-20 ${Cards.CARD_LEFT_BAND_CLS}`}
+                            rightCls="p-4"
+                        >
+                            <div className={Cards.CARD_RIGHT_TITLE_CLS}>{lecture.title}</div>
+                            <div className={Cards.CARD_RIGHT_SUBTITLE_CLS}>{lecture.id}</div>
+                            <div className="font-thin">{lecture.summary}</div>
+                        </VerticalBanded>
+                    </div>
+                </ConditionalLink>
             ))}
         </div>
     );
@@ -51,9 +52,15 @@ const ModulePage = async ({ params }: {
 }) => {
     const { subject, year, module } = await params;
     const moduleInfo = getModuleInfo(subject, year, module);
+    const yearInfo = getYearInfo(subject, year);
     return (
         <div>
             {moduleInfo ? <ModuleIndex {...moduleInfo} /> : <ModuleNotFound module={module} />}
+            <div className="flex items-center justify-center w-full p-4">
+                <Button href={yearInfo?.slug || "/"}>
+                    Back to {yearInfo?.title}
+                </Button>
+            </div>
         </div>
     );
 }
