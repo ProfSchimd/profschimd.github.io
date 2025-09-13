@@ -98,9 +98,20 @@ export const Subjects = [
                         slug: "/materie/sr/3/SR.3.01",
                         front_page: "README.md",
                         lectures: [
+                        {
+                            id: "L01",
+                            weight: 10,
+                            title: "Sistemi di Elaborazione",
+                            type: "lecture",
+                            source: {
+                                url: "/sr/3/01-sistemi/01-sistema-elaborazione.md", 
+                                type: "local" // or "remote"
+                            }
+                        },
                         ]
-                    },
+                    }
                 ]
+                
             },
             {
                 id: "4",
