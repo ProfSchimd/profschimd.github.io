@@ -3,12 +3,12 @@ import { getLectureInfo, getLectureParams, getModuleInfo, LectureSlug } from "@/
 import { parseLocalMdx, parseRemoteMarkdown } from "@/lib/utils";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
-import { Elements, Header, Titles } from "@/app/styles";
-import Button from "@/components/Button";
+import { Elements, Titles } from "@/app/styles";
 import { TbArrowBack } from "react-icons/tb";
 import ContentError from "@/components/ContentError";
 import Description from "@/components/Description";
 import { mdxOptions, useMDXComponents } from "@/mdx-components";
+import PageTitle from "@/components/PageTitle";
 
 export async function generateStaticParams() {
     return getLectureParams();
@@ -21,7 +21,6 @@ interface LocalLectureProps {
 }
 
 const LectureRender = async ({ lectureInfo, slug, contentCls = "" }: LocalLectureProps) => {
-    const mergedSlug = `${slug.subject}/${slug.year}/${slug.module}/${lectureInfo.source.url}`;
     const moduleInfo = getModuleInfo(slug.subject, slug.year, slug.module);
     const parsed = lectureInfo.source.type === "local" ?
         parseLocalMdx(lectureInfo.source.url) :
@@ -33,20 +32,18 @@ const LectureRender = async ({ lectureInfo, slug, contentCls = "" }: LocalLectur
 
         <div className="flex-col">
             <Link className={`${Elements.LINK}`} href={`/materie/${slug.subject}/${slug.year}/${slug.module}`}>
-                    <TbArrowBack className="mr-1 inline" /> {moduleInfo?.title}
-                </Link>
-            <h1 className={`${Titles.PAGE_TITLE} mt-2`}>{lectureInfo.title}</h1>
+                <TbArrowBack className="mr-1 inline" /> {moduleInfo?.title}
+            </Link>
+            <PageTitle className={`${Titles.PAGE_TITLE} mt-2`}>{lectureInfo.title}</PageTitle>
             {parsed?.frontMatter.description ?
                 <Description>{parsed?.frontMatter.description}</Description> :
                 <></>}
             <div className="mb-4 pb-2 border-b border-gray-500">
-                
+
             </div>
             <div className={`${contentCls} mb-4 pb-2 border-b border-gray-500`}>
-                {parsed?.content ? <MDXRemote source={parsed?.content}  components={useMDXComponents()} options={mdxOptions}/> : <></>}
+                {parsed?.content ? <MDXRemote source={parsed?.content} components={useMDXComponents()} options={mdxOptions} /> : <></>}
             </div>
-
-            {/* TODO  */}
 
         </div>
     );
