@@ -19,8 +19,9 @@ Nella vita di tutti i giorni usiamo decine si sistemi di elaborazione (spesso se
 
 > [!question]Esercizio
 > Continua l'elenco dei sistemi di elaborazione che incontri durante il giorno pensando a cosa fai dal momento in cui esci da scuola fino al momento in cui vai a dormire.
->
-> ### Sistema programmabile
+
+
+### Sistema programmabile
 Tra le tantissime differenze che ci sono tra i veri sistemi di elaborazione, una è particolarmente importante ed è la **programmabilità**. Diciamo che un sistema è **programmabile** se possiamo cambiare il tipo di elaborazione cioè la *relazione tra input e output*.
 
 Chiaramente la sveglia non è programmabile (possiamo impostare l'ora, ma non possiamo certo usarla per scrivere un documento). Al contrario un computer (o uno smartphone) possono essere programmati nel senso che possiamo scrivere un programma che ci permetta di usarlo come sveglia, per scrivere documenti, per giocare e per molte altre cose. Sia che installiamo un software (o una App), sia che scriviamo noi il codice, quello che facciamo è dare **istruzioni** al sistema di elaborazione perché faccia certe operazioni specifiche. Ad esempio, il programma Word conterrà, tra le altre, le istruzioni per mostrare a schermo il testo digitato sulla tastiera.
@@ -42,10 +43,7 @@ Il programmatore, si occupa di scrivere software per sistemi programmabili (ad e
 
 Nell'immagine vede uno schema dell'architettura di von Neumann. Essa è composta dalla **CPU** (*Central Processing Unit*) la quale è collegata alla **memoria** (chiamata anche **RAM** - *Random Access Memory*) ed ai dispositivi di **I/O** (*Input/Output*) tramite il **Bus di sistema** che possiamo immaginare come un insieme di "cavi" di collegamento. 
 
-<div className="flex justify-center bg-white rounded-2xl shadow-lg dark:shadow-gray-500 mb-2">
 ![Architettura di von Neumann](/img/sr/sr-von-neumann.svg)
-<div className="flex justify-center font-base font-thin text-gray-800">Architettura di von Neumann</div>
-</div>
 
 Una caratteristica importante dell'architettura di von Neumann è che le **istruzioni del programma da eseguire sono memorizzate nella stessa memoria (la RAM) che contiene i dati**. Si parla quindi di architettura a **programma memorizzato** (*stored program*) che differisce da architettura a **programma fisso** (*fixed memory*). Le architetture a programma fisso sono utilizzate in dispositivi che fanno una cosa specifica quali: calcolatrici (non programmabili), lavatrici, ... Le architetture a programma memorizzato (come l'architettura di von Neumann) sono utilizzate in quasi tutti i dispositivi programmabili: computer, smartphone, tablet, Arduino, console, ...
 
