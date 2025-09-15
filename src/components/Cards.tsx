@@ -47,7 +47,7 @@ export function VerticalBanded({ left, children, containerCls, leftCls, rightCls
   const leftAlignmentCls = leftCentered ? "flex justify-center items-center" : "";
   return (
     <div className={`flex ${containerCls}`}>
-      <div className={`${leftCls} ${leftAlignmentCls}`}>
+      <div className={`w-16 flex-shrink-0 ${leftCls} ${leftAlignmentCls}`}>
         {left}
       </div>
       <div className={`flex-col ${rightCls}`}>
@@ -113,7 +113,7 @@ interface CardGridProps {
 const CardGrid = ({ title, cards, vertical = false, link = false }: CardGridProps) => {
   return (
     <div className="mt-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         {title && <h1 className={`${Titles.PAGE_TITLE} mb-8`}>{title}</h1>}
         <div className={`grid grid-cols-1 ${!vertical && "sm:grid-cols-2 lg:grid-cols-3"} gap-6 auto-rows-[1fr]`}>
           {cards.map((card) => {

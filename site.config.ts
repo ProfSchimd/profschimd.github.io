@@ -1,4 +1,4 @@
-import { FaNetworkWired, FaJava} from "react-icons/fa6";
+import { FaNetworkWired, FaJava } from "react-icons/fa6";
 // import { FaNetworkWired, FaShieldVirus, FaJava, FaMobile, FaGavel, FaChartGantt, FaRobot } from "react-icons/fa6";
 import { PiNumberSquareFiveBold, PiNumberSquareFourBold, PiNumberSquareThreeBold } from "react-icons/pi";
 
@@ -99,21 +99,32 @@ export const Subjects = [
                         slug: "/materie/sr/3/SR.3.01",
                         front_page: "README.md",
                         lectures: [
-                        {
-                            id: "L01",
-                            weight: 10,
-                            title: "Sistemi di Elaborazione",
-                            type: "lecture",
-                            source: {
-                                url: "/sr/3/01-sistemi/01-sistema-elaborazione.md", 
-                                type: "local" // or "remote"
+                            {
+                                id: "L01",
+                                weight: 10,
+                                title: "Sistemi di Elaborazione",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/3/01-sistemi/01-sistema-elaborazione.md",
+                                    type: "local" // or "remote"
+                                },
+                                summary: "I sistemi di elaborazione sono quei dispositivi che sono in grado di elaborare dati. Spesso questi possono essere programmati per fare delle specifiche elaborazioni.",
                             },
-                            summary: "I sistemi di elaborazione sono quei dispositivi che sono in grado di elaborare dati. Spesso questi possono essere programmati per fare delle specifiche elaborazioni.",
-                        },
+                            {
+                                id: "L02",
+                                weight: 20,
+                                title: "Automi",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/3/01-sistemi/02-automi.md",
+                                    type: "local" // or "remote"
+                                },
+                                summary: "Il più semplice sistema di elaborazione è l'automa il quale riceve simboli in ingresso e cambia stato in risposta a tali ingressi. Questa lezione spiega brevemente cosa sono e come si comportano gli automi mostrando il semaforo stradale come esempio di automa.",
+                            },
                         ]
                     }
                 ]
-                
+
             },
             {
                 id: "4",
