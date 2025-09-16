@@ -143,6 +143,25 @@ export const Subjects = [
                 icon: PiNumberSquareFourBold,
                 slug: "/materie/sr/4/",
                 mods: [ // sort id and slug thing
+                    {
+                        id: "SR.4.01",
+                        name: "Models",
+                        title: "Modelli di rete",
+                        slug: "/materie/sr/4/SR.4.01",
+                        front_page: "",
+                        lectures: [
+                            {
+                                id: "L01",
+                                weight: 10,
+                                title: "Modelli di riferimento",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/4/SR.4.01/01-modelli-rete.mdx",
+                                    type: "local"
+                                }
+                            }
+                        ]
+                    }
                     // {
                     //     id: "SR.4.01",
                     //     name: "Physical",

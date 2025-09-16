@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeCallouts from "rehype-callouts";
 import ImageWithCaption from "./components/ImageWithCaption";
+import StackedTooltip from "./components/StackedTooltip";
  
 const components: MDXComponents = {
   h2: ({ id, children }) => (
@@ -20,7 +21,7 @@ const components: MDXComponents = {
 } satisfies MDXComponents;
  
 export function useMDXComponents(): MDXComponents {
-  return components
+  return {StackedTooltip, ...components}
 }
 
 export const mdxOptions = {
