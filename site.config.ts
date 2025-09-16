@@ -54,16 +54,26 @@ export const Subjects = [
                                 },
                                 summary: "Una web application è un applicazione che sfrutta le tecnologie web: HTTP, HTML, CSS e Javascript.",
                             },
-                            // {
-                            //     id: "L02",
-                            //     weight: 20,
-                            //     title: "Il linguaggio Javascript",
-                            //     type: "lecture",
-                            //     source: {
-                            //         url: "https://raw.githubusercontent.com/ProfSchimd/teaching-material/refs/heads/main/inf/javascript/JS.01_JSLanguage/JS.01.L01_HelloJS/README.md",
-                            //         type: "remote"
-                            //     }
-                            // }
+                        ]
+                    },
+                    {
+                        id: "INF.4.02",
+                        name: "Data",
+                        title: "Strutture dati",
+                        slug: "/materie/inf/4/INF.4.02",
+                        front_page: "README.md",
+                        lectures: [
+                            {
+                                id: "L01",
+                                weight: 10,
+                                title: "Cosa sono le strutture dati",
+                                type: "lecture",
+                                source: {
+                                    url: "/inf/4/02-strutture-dati/01-strutture-operazioni.md",
+                                    type: "local"
+                                },
+                                summary: "Le strutture dati sono dei costrutti che permettono di organizzare l'informazione all'interno di un calcolatore.",
+                            },
                         ]
                     }
                 ]
