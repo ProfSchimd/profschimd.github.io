@@ -28,7 +28,7 @@ System.out.println("First element: " + a[0]); // Read the value at position 0
 
 Queste operazioni che sono disponibili sulla struttura dati li chiamiamo **primitive** di acesso alla struttura dati. 
 
-> [!warning]Osserva
+> [!tip]Osserva
 > L’array **non** prevede le seguenti primitive:
 >
 > - Inserimento (**Insert)** di un nuovo elemento

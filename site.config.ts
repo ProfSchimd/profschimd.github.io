@@ -74,6 +74,17 @@ export const Subjects = [
                                 },
                                 summary: "Le strutture dati sono dei costrutti che permettono di organizzare l'informazione all'interno di un calcolatore.",
                             },
+                            {
+                                id: "L02",
+                                weight: 20,
+                                title: "Liste concatenate",
+                                type: "lecture",
+                                source: {
+                                    url: "/inf/4/02-strutture-dati/02-lista-concatenata.mdx",
+                                    type: "local"
+                                },
+                                summary: "Questa lezione affronta le strutture dati di tipo lista, sia singolarmente che doppiamente concatenate.",
+                            },
                         ]
                     }
                 ]

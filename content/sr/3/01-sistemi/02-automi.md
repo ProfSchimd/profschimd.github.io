@@ -76,7 +76,7 @@ Nello schema a sopra vediamo anche le *transazioni di stato*, in questo caso son
 
 
 
-> [!question]Esercizio
+> [!example]Esercizio
 > Individuare gli stati e le transazioni di un automa che fa funzionare un semaforo pedonale alternato ad un semaforo stradale. È fondamentale che, quando il semaforo è verde per i pedoni non sia nè verde ne giallo per le auto e viceversa.
 
 

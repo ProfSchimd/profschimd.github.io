@@ -3,7 +3,7 @@ import { getLectureInfo, getLectureParams, getModuleInfo, LectureSlug } from "@/
 import { parseLocalMdx, parseRemoteMarkdown } from "@/lib/utils";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
-import { Elements, Titles } from "@/app/styles";
+import { Content, Elements, Titles } from "@/app/styles";
 import { TbArrowBack } from "react-icons/tb";
 import ContentError from "@/components/ContentError";
 import Description from "@/components/Description";
@@ -64,7 +64,7 @@ const LecturePage = async ({ params }: {
             <LectureRender
                 lectureInfo={lectureInfo}
                 slug={slug}
-                contentCls="max-w-none prose dark:prose-invert prose-lg"
+                contentCls={`max-w-none ${Content.PROSE} ${Content.PROSE_PRE}`}
             />
         </div>
     )

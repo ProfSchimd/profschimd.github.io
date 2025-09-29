@@ -7,6 +7,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeCallouts from "rehype-callouts";
 import ImageWithCaption from "./components/ImageWithCaption";
 import StackedTooltip from "./components/StackedTooltip";
+import InteractiveLinkedList from "./components/InteractiveLinkedList";
  
 const components: MDXComponents = {
   h2: ({ id, children }) => (
@@ -17,11 +18,24 @@ const components: MDXComponents = {
   ),
   img: ({src, alt, title}) => (
     <ImageWithCaption src={src} alt={alt} title={title} />
-  )
+  ),
+  ul: ({ children, ...props }) => (
+    <ul className="marker:text-gray-700 dark:marker:text-gray-200" {...props}>
+      {children}
+    </ul>
+  ),
+  li: ({ children, ...props }) => (
+    <li {...props}>
+      {children}
+    </li>
+  ),
 } satisfies MDXComponents;
  
 export function useMDXComponents(): MDXComponents {
-  return {StackedTooltip, ...components}
+  return {
+    InteractiveLinkedList,
+    StackedTooltip,
+    ...components}
 }
 
 export const mdxOptions = {

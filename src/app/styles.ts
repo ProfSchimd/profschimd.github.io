@@ -14,7 +14,8 @@ export const Footer = {
 
 export const Content = {
     CONTAINER: "container mx-auto px-4 py-4",
-    PROSE: "prose dark:prose-invert prose-lg mx-auto max-w-4xl", // may need to customize links
+    PROSE_PRE: "prose-pre:bg-gray-900 prose-pre:text-gray-100",
+    PROSE: "prose dark:prose-invert prose-lg", // may need to customize links
 }
 
 export const Titles = {

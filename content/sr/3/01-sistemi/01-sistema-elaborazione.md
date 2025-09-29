@@ -17,7 +17,7 @@ Nella vita di tutti i giorni usiamo decine si sistemi di elaborazione (spesso se
 * Il *computer di bordo* di un auto o di un moderno bus sono degli elaboratori che prendono input dai nostri comandi e da tutti i sensori che sono installati sull'auto. L'output è rappresentato dalle informazioni della plancia.
 * Il *computer* che il docente usa per la lezione in aula è un sistema di elaborazione. L'input è rappresentato dai comandi impartiti con tastiera e mouse, ma anche dai programmi precedentemente installati (es. Windows, Chrome, Word, ...). L'output, ovviamente, dipende dai comandi impartiti (es. file copiato su una chiavetta, registro elettronico, documento word, ...).
 
-> [!question]Esercizio
+> [!example]Esercizio
 > Continua l'elenco dei sistemi di elaborazione che incontri durante il giorno pensando a cosa fai dal momento in cui esci da scuola fino al momento in cui vai a dormire.
 
 
@@ -28,11 +28,11 @@ Chiaramente la sveglia non è programmabile (possiamo impostare l'ora, ma non po
 
 Il programmatore, si occupa di scrivere software per sistemi programmabili (ad esempio scrivere un App Android). Fortunatamente, non serve imparare da zero la programmazione per ogni dispositivo programmabile. Per esempio è possibile creare un software per Windows e per Android usando (quasi) lo stesso codice Java. Ciò è possibile perché nei vari sistemi programmabili i componenti sono organizzati in maniera simile. Si dice che questi sistemi utilizzano la stessa *architettura*. L'architettura più importante è quella di *von Neumann* che è alla base di quasi tutti i sistemi di elaborazione. Per questo motivo cercheremo di capire questo modo di organizzare un elaboratore.
 
-> [!info]Definizione
+> [!note]Definizione
 > Si definisce **architettura** di un sistema di elaborazione l'insieme dei componenti ed il modo in cui essi sono collegati tra loro interagendo per ottenere l'elaborazione input/output.
 
 > [!question]Cosa fa un sistema programmabile?
->Abbiamo parlato in *astratto* di *sistema programmabile* e di *programma*, proviamo ad immaginare la risposta alle seguenti domande.
+> Abbiamo parlato in *astratto* di *sistema programmabile* e di *programma*, proviamo ad immaginare la risposta alle seguenti domande.
 > * Come funziona una sistema programmabile? 
 > * Come fa ad *eseguire* il programma? 
 > * Cos'è un programma?

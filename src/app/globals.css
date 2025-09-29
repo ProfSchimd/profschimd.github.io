@@ -9,6 +9,11 @@
   content: "";
 }
 
+.prose :not(pre) > code {
+  @apply bg-gray-300 text-gray-900 px-1.5 py-0.5 rounded font-thin;
+  @apply dark:bg-gray-700 dark:text-gray-200;
+}
+
 @import "katex/dist/katex.min.css";
 @import "rehype-callouts/theme/obsidian";
 
