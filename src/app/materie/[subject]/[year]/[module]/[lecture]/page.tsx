@@ -9,6 +9,7 @@ import ContentError from "@/components/ContentError";
 import Description from "@/components/Description";
 import { mdxOptions, useMDXComponents } from "@/mdx-components";
 import PageTitle from "@/components/PageTitle";
+import PageInfo from "@/components/PageInfo";
 
 export async function generateStaticParams() {
     return getLectureParams();
@@ -38,6 +39,7 @@ const LectureRender = async ({ lectureInfo, slug, contentCls = "" }: LocalLectur
             {parsed?.frontMatter.description ?
                 <Description>{parsed?.frontMatter.description}</Description> :
                 <></>}
+            <PageInfo repo={parsed?.frontMatter.repo}></PageInfo>
             <div className="mb-4 pb-2 border-b border-gray-500">
 
             </div>
