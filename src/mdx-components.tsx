@@ -20,7 +20,7 @@ const components: MDXComponents = {
     <ImageWithCaption src={src} alt={alt} title={title} />
   ),
   ul: ({ children, ...props }) => (
-    <ul className="marker:text-gray-700 dark:marker:text-gray-200" {...props}>
+    <ul className="marker:text-inherit dark:marker:text-inherit" {...props}>
       {children}
     </ul>
   ),
