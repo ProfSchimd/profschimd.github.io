@@ -85,6 +85,17 @@ export const Subjects = [
                                 },
                                 summary: "Questa lezione affronta le strutture dati di tipo lista, sia singolarmente che doppiamente concatenate.",
                             },
+                            {
+                                id: "L03",
+                                weight: 30,
+                                title: "Alberi",
+                                type: "lecture",
+                                source: {
+                                    url: "/inf/4/02-strutture-dati/03-alberi.mdx",
+                                    type: "local"
+                                },
+                                summary: "Le strutture dati ad albero rappresentano un valido strumento per rappresentare informazione gerarchica. Gli alberi sono usati spesso per operazioni di ricerca in quanto permettono di strutturare l'informazione in modo da agevolare la ricerca.",
+                            },
                         ]
                     }
                 ]
