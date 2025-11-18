@@ -96,6 +96,17 @@ export const Subjects = [
                                 },
                                 summary: "Le strutture dati ad albero rappresentano un valido strumento per rappresentare informazione gerarchica. Gli alberi sono usati spesso per operazioni di ricerca in quanto permettono di strutturare l'informazione in modo da agevolare la ricerca.",
                             },
+                            {
+                                id: "L04",
+                                weight: 40,
+                                title: "Grafi",
+                                type: "lecture",
+                                source: {
+                                    url: "/inf/4/02-strutture-dati/04-grafi.mdx",
+                                    type: "local"
+                                },
+                                summary: "Il caso più generale di strutture dati con nodi sono i grafi. Un grafo è una struttura dati che permette di rappresentare una relazione arbitraria tra nodi.",
+                            },
                         ]
                     }
                 ]

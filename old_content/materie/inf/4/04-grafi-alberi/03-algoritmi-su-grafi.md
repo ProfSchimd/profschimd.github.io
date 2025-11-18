@@ -1,7 +1,7 @@
 ---
 title: "Algoritmi su grafi"
 type: lecture
-repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/graphs/algoritms
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/graphs/algorithms
 weight: 300
 summary: "L'utilizzo dei grafi come strutture dati permette l'esecuzione di algoritmi altrimenti difficili, se non impossibili, da realizzare. Questa lezione presenta alcuni tra i più importanti algoritmi su grafi."
 ---

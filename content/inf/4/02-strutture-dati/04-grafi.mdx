@@ -1,0 +1,95 @@
+---
+title: "Grafi"
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/graphs
+---
+
+Consideriamo il problema di rappresentare i collegamento tra gli utenti di un *social network*. Ogni iscritto sarà collegato ad altri iscritti, a loro volta questi saranno collegati ad altri iscritti e così via a formare una *rete* di contatti che chiamiamo, appunto, *rete sociale*.
+
+![Esempio di rete sociale](/img/inf/social-graph.svg)
+
+Un modo di rappresentare tale rete è considerare ogni persona come un **nodo** della rete e collegare tra di loro i nodi (persone) che sono contatti diretti. Nell'immagine sopra vediamo un esempio di rete sociale. Questo rete ha sei iscritti (`Alice`, `Bob`, `Carol`, ...) tra loro collegati. In questa rete il *contatto* è *bidirezionale*, come nel caso di Facebook. Ad esempio `Alice` è un contatto di `Bob`, ma anche `Bob` è un contatto di `Alice`. Altri tipi di social network prevedono contatti *unidirezionali*, ad esempio su Instagram `Giulie` può seguire `Henry` senza che `Henry` segua `Giulie`.
+
+Sempre guardando all'immagine sopra notiamo che:
+* in generale gli iscritti hanno un numero di contatti diverso, ad esempio `Alice` e
+`Fred` hanno quattro contatti, mentre `Bob` ed `Eric` ne hanno due;
+* ci possono essere iscritti che non hanno contatti, ad esempio `Zoe`;
+* non esiste una struttura sequenziale degli iscritti, ad esempio non ha senso dire
+che `Alice` viene prima di `David` e dopo `Bob`;
+* possono esistere diverse "strade" trade due contatti, ad esempio per "raggiungere" `David` da `Bob`, posso "passare" da `Alice` o da `Fred`.
+
+> [!example] Esercizio
+> 
+> Pensa una situazione del mondo reale in cui i nono sono sequenziali (cioè array e liste non vanno bene). Fai un esempio grafico (simile a quello sopra) e spiega perché non è possibile la rappresentazione a lista.
+
+## Definizione di grafo
+Vediamo ora una definizione formale di grafo.
+
+> [!note] Definizione
+> 
+> Un grafo è un insieme di **nodi** (**nodes**) collegati tra di loro mediante **lati** (**edges**) o **archi** (**arcs**). Ogni lato o arco mette in collegamento due nodi diversi o un nodo con sé stesso, in questo caso il collegamento viene anche detto *self-loop* (o semplicemente *loop*). Se il collegamento ha una direzione (c'è una partenza ed un arrivo), allora diciamo che il grafo è **orientato** (**directed**), e chiamiamo i collegamenti *archi* altrimenti diciamo che il grafo è **non orientato** (*undirected*) e chiamiamo i collegamenti *lati*.
+
+> [!warning] Attenzione
+>
+> È importante non confondere la rappresentazione di un grafo con punti e segmenti con i nodi e archi. Ovviamente, ogni punto rappresenta un nodo ed ogni segmento un arco, **ma sono possibile altre rappresentazioni**. Una rappresentazione spesso usata in informatica è quella [mediante matrici](#rappresentazione-mediante-matrici) (che tratteremo sotto). In matematica, i grafi sono spesso rappresentati mediante insiemi, ad esempio, il grafo dell'immagine sopra sarà composta da:
+> * l'insieme dei *nodi*:
+> 
+> $$ \lbrace A, B, C, D, E, F, Z\rbrace $$
+> * l'insieme dei *lati*:
+> 
+> $$ \lbrace (A, B), (A, C), (A, D), (A,F), (B, F), (C,D), (C,E), (D,F), (F,E)\rbrace $$
+
+### Grado
+Come visto nell'esempio sopra, ogni nodo può avere qualsiasi numeri di connessioni, anche a zero (`Zoe`, nell'esempio). In un grafo orientato un nodo `A` può avere un arco verso `B`, ma potrebbe
+l'arco da `B` ad `A` potrebbe non esistere. 
+
+> [!note] Definizione: Grado
+> Per un grafo *non orientato*, il numero di lati incidenti un nodo `A` viene detto **grado** (**degree**) di `A` e si indica con $\delta(A)$. Un self-loop su `A` conta come due lati.
+>
+> Per un grafo *orientato*, il numeri di archi entranti in `A` è detto **grado entrante** (**in degree**) e si indica con $\delta^-(A)$, il numero di archi uscenti da in `A` è detto **grado uscente** (**out degree**) e si indica con $\delta^+(A)$. Il **grado** (complessivo) di `A` è la differenza tra il grado entrante ed il grado uscente
+>
+> $$ \delta(A) = \delta^+(A) - \delta^-(B) $$
+>
+> Un self-loop in un dato nodo `A` va considerato come un arco entrante ed un arco uscente.
+
+### Cammino e connettività
+In un grafo è possibile "muoversi" da un nodo ad un altro percorrendo i lati o gli archi. Ad esempio nel grafo ad inizio lezione ci si può spostare da `Alice` ad `Eric`, attraverso `Carol` oppure attraverso `Fred`. È anche possibile raggiungere `Eric` da `Alice` attraverso `Bob`, `Fred`, `David` e `Carol`. I nodi consecutivi di queste sequenze sono collegati direttamente, una sequenza così fatta viene detta cammino.
+
+> [!note] Definizione: Cammino
+> In un grafo un **cammino** (**path**) è una sequenza di nodi $a, b, c, d, \ldots$ tale che tra due nodi adiacenti nella lista $x, y$ ci sia un lato, nel caso di grafi non orientati, o un arco uscente da $x$ ed entrante in $y$ nel caso di grafi orientati. Se il cammino inizia e conclude nello stesso nodo si dice **circuito** (**cycle**).
+
+#### Esempio: grafo orientato
+Vediamo ora un esempio di grafo orientato.
+
+![Un esempio di grafo orientato con 5 nodi](/img/inf/grafo-orientato.svg)
+
+Il grado entrante $\delta^-$, uscente $\delta^+$ e complessivo $\delta$ di ogni singolo nodo del grafo è riportato nella seguente tabella.
+
+
+| Nodo |  $\delta^-$   |    $\delta^+$   |    $\delta$    |
+|------|---------------|-----------------|----------------|
+|   A  |   2           |        1        |     -1         |
+|   B  |   2           |        3        |      1         |
+|   C  |   2           |        1        |     -1         |
+|   D  |   1           |        2        |      1         |
+|   E  |   2           |        1        |     -1         |
+
+In un grafo orientato, i cammini (percorsi) validi seguono le frecce. Nella figura sopra il cammino `A, B, D` è valido, mentre il cammino `A, C, D` no poiché non esiste l'arco da `A` a `C` (esisto da `C` ad `A`). Anche `A, B, B, A` è un cammino valido che utilizza il loop `(B,B)`. Di conseguenza anche `B, B, B` è un cammino valido, ma `A, A, A` no perché non esiste il loop `(A,A)`. Notiamo che qualsiasi cammino che termina in `E`, ad esempio `A, B, D, E`,
+può solo rimanere in `E` percorrendo il loop `(E,E)`.
+
+#### Esempio: grafo non orientato
+Vediamo ora un esempio di grafo non orientato in cui i nodi rappresentato stazioni ferroviarie e i lati rappresentano collegamenti ad alta velocità.
+
+![Grafo non orientato rappresentante connessioni ferroviarie tra città](/img/inf/grafo-stazioni-citta.svg)
+
+Ricordiamo che il grado rappresenta il numero totale di lati incidenti, per cui il nodo `TO` ha grado 2, il nodo `MI` ha grado 4, `VE` grado 2 `BO` grado 4 e così via.
+
+In tale grafo `TO, MI, VE` è un cammino che parte da `TO` ed arriva `VE` passando per `MI`. Un altro cammino è `BO, FI, GE, MI, BO` in questo caso inizio e fine del coincidono, quindi si tratta di un circuito. Un altro cammino è `VE, BO, MI, VE, BO, MI`, questo percorre due volte lo stesso *sotto cammino* `VE, BO, MI`, attenzione questo cammino non è un circuito, ma contiene al suo interno un sotto cammino che è un circuito. 
+
+### Grafi pesati
+Nei grafi visti finora i lati e gli archi non hanno alcun valore associato. Nei **grafi pesati**, per contro, ogni lato/arco ha un **peso** che, di norma è un valore numerico.
+
+![Esempio di grafo pesato rappresentante la distanza tra stazioni](/img/inf/grafo-pesato.svg)
+
+La figura sopra mostra il grafo delle stazioni ferrovieri in cui sono presenti i *pesi* su ciscun lato. Nell'esempio i pesi potrebbero rappresentare i minuti di percorrenza tra le stazioni. Ad esempio, tra Milano e Bologna (lato tra `MI` e `BO`) il tempo di percorrenza, secondo questo grafo, è di 130 minuti, mentre tra Bologna e Firenze è di 45 minuti. Essendo il grafo non orientato il peso di un lato vale in entrambe le direzioni. Ad esempio, anche da Bologna a Milano servono 130 minuti (come da Milano a Bologna).
+
+In caso di grafi orientati ogni arco può essere percorso in una sola direzione (indicata dalla freccia nella rappresentazione grafica). In un grafo il peso deve essere specificato su tutti gli archi. Ad esempio l'arco da `A` a `B` avrà un peso che potrebbe essere diverso dal peso da `B` ad `A`.
