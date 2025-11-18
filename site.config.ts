@@ -250,7 +250,27 @@ export const Subjects = [
                 description: "Progettazione reti e sicurezza dei sistemi.",
                 icon: PiNumberSquareFiveBold,
                 slug: "/materie/sr/5/",
-                mods: []
+                mods: [
+                    {
+                        id: "SR.5.02",
+                        name: "Application",
+                        title: "Livello Applicativo",
+                        slug: "/materie/sr/5/SR.5.02",
+                        front_page: "",
+                        lectures: [
+                            {
+                                id: "L01",
+                                weight: 10,
+                                title: "Protocollo HTTP",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/5/SR.5.02/01-http.mdx",
+                                    type: "local"
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
         ]
     },
