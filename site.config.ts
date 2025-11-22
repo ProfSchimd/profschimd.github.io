@@ -165,6 +165,37 @@ export const Subjects = [
                                 summary: "Il più semplice sistema di elaborazione è l'automa il quale riceve simboli in ingresso e cambia stato in risposta a tali ingressi. Questa lezione spiega brevemente cosa sono e come si comportano gli automi mostrando il semaforo stradale come esempio di automa.",
                             },
                         ]
+                    },
+                    {
+                        id: "SR.3.02",
+                        name: "CPU",
+                        title: "Funzionamento di CPU e Memoria",
+                        slug: "/materie/sr/3/SR.3.02",
+                        front_page: "README.md",
+                        lectures: [
+                            {
+                                id: "L01",
+                                weight: 10,
+                                title: "Fetch and Execute",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/3/SR.3.02/01-fetch-and-execute.md",
+                                    type: "local" // or "remote"
+                                },
+                                summary: "La CPU è il centro operativo di un sistema di elaborazione dati, essa permette di fare operazioni semplici, ma in modo veloce.",
+                            },
+                            {
+                                id: "L02",
+                                weight: 20,
+                                title: "Accesso alla RAM",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/3/SR.3.02/02-memoria.md",
+                                    type: "local" // or "remote"
+                                },
+                                summary: "La RAM è una della memoria di un sistema di elaborazione, il suo funzionamento è strettamente collegato al funzionamento della CPU e per questo va compreso a fondo.",
+                            }
+                        ]
                     }
                 ]
 
