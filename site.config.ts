@@ -194,6 +194,17 @@ export const Subjects = [
                                     type: "local" // or "remote"
                                 },
                                 summary: "La RAM è una della memoria di un sistema di elaborazione, il suo funzionamento è strettamente collegato al funzionamento della CPU e per questo va compreso a fondo.",
+                            },
+                            {
+                                id: "L03",
+                                weight: 30,
+                                title: "Assembly RISC-V",
+                                type: "lecture",
+                                source: {
+                                    url: "/sr/3/SR.3.02/03-risc-v.md",
+                                    type: "local" // or "remote"
+                                },
+                                summary: "Questa lezione introduce il linguaggio assembly RISC-V presentando l'architettura generale RISC-V e le principali istruzioni.",
                             }
                         ]
                     }
