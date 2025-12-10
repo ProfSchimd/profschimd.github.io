@@ -1,0 +1,210 @@
+---
+title: "Mappe e Tabelle Hash"
+repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/maps/
+---
+
+## Perché una nuova struttura dati
+Con array e liste si memorizzano dati in forma lineare, gli array, inoltre, permettono l'accesso ai dati usando *indici*, diciamo che gli array *associano dati a numeri (indici)*.
+
+```java
+int n = 100;
+String[] names = new String[n];
+names[0] = "Alice";
+names[1] = "Bob";
+// ...
+names[42] = "Alice";
+// ...
+```
+
+Nell'array `names`, la stringa `Alice` è *associata* alle posizioni `0` e `42`, mentre la stringa `Bob` è *associata* alla posizione `1`. Anche le rimanenti posizioni saranno associate ad un valore, che potrebbe essere `null`. Notiamo come lo stesso *valore* (`Alice`) si può associare a indici diversi (`0` e `42` nell'esempio). Tuttavia, per un singolo indice esiste un unico valore associato (`0 -> Alice`, `1 -> Bob`, ...).
+
+Immaginiamo di gestire un'*anagrafica* (raccolta di informazioni personali come nome, cognome, indirizzo, ...) e di dover accedere alle informazioni su `Alice`. Usando l'array `names` sopra, dobbiamo individuare in che posizione/i compare tale nome.
+
+```java
+for (int i = 0; i < names.length; i++) {
+    if (names[i].compareTo("Alice") == 0) {
+        System.out.println(i);
+    } 
+}
+```
+
+Nella realtà la situazione sarà più complessa. Immaginiamo di aver usato una classe `Person` con i metodi `getId` e `getName`, l'array `names` diventerà un array `people` di oggetti `Person`.
+
+```java
+Person[] people = new Person[10];
+people[0] = new Person("001", "Alice", "Smith", 30);
+people[1] = new Person("002", "Bob", "Green", 48);
+people[2] = new Person("003", "Carol", "McDough", 19);
+// ...
+```
+
+Ora, per accedere alle informazioni della persona con identificavo `002` dobbiamo cercare nell'array `people`.
+
+```java
+int i = 0;
+for (; i < people.length; i++) {
+    if (people[i].getId().compareTo("002") == 0) {
+        break;
+    }
+}
+// ora i contiene l'indice della persona con id '002'
+System.out.println(people[i]);
+```
+
+Sarebbe molto più comodo poter indicare direttamente l'identificativo in fase di accesso.
+
+```java
+System.out.println(people["002"]);
+```
+
+Java non prevede tale sintassi, ma la libreria standard esistono classi per strutture dati a **mappa**, queste classi implementano l'interfaccia [Map][1]. Nel prossimo paragrafo, vedremo come definire una versione semplificata di tale interfaccia, più in generale discuteremo la struttura dati astratta *mappa*.
+
+## Mappa
+Vediamo ora come definire una struttura dati che permette l'accesso alle informazioni attraverso una **chiave** (**key**) che identifica il corrispondente **valore** (**value**), una struttura di questo tipo viene chiamata **mappa** (**map**).
+
+> [!note] Definizione: Mappa
+>
+> Una **mappa** è una struttura che permette di memorizzare informazioni sotto forma di *coppie* `(chiave, valore)`. La chiave rappresenta un *identificativo* all'interno della mappa. Se una data chiave è presente nella mappa, allora ad essa è associato un *valore* che può essere qualsiasi tipo di dato.
+
+> [!warning] Attenzione
+>
+> Il temine *mappa* è frequentemente utilizzato, ma non è l'unico, altri termini che si possono incontrare sono *dizionario* (*dictionary*), *associative array* o *hash table*. In questa lezione utilizzeremo e definiremo ciascuno di questi termini in modo che sia chiaro cosa indicano.
+
+Sostanzialmente, una mappa crea una *funzione* tra le chiavi ed i valori, fornendo ad una mappa una chiave, essa risponde restituendo il valore associato alla chiave, o indicando l'assenza di tale valore.
+
+![Un esempio di struttura dati mappa](/img/inf/map-example.svg)
+
+La figura sopra mostra lo schema di una mappa con chiavi di tipo stringa e valori di tipo persona. La mappa deve tenere traccia delle chiavi (*keys*) attraverso cui accedere ai valori (*values*). Il modo in cui queste parti vengono memorizzate dipende dall'implementazione della mappa.
+
+Nell'esempio vediamo che la chiave `001` è associata ad un "oggetto" che ha `Alice` e `30` come valori di `name` e `age`. Allo stesso modo altri valori sono associati alla chiave `002`. In questo specifico esempio le chiavi sono di tipo `String`, per quanto riguarda i valori sono di tipo `Person`.
+
+> [!note] Osserva
+> Un array è in effetti un tipo speciale di mappa in cui le chiavi sono gli interi comprese tra `0` e `n-1` (se l'array contiene `n` posizioni). Ad esempio l'array
+> ```java
+> String[] names = {"Alice", "Bob", "Carol", "David"};
+> ```
+> contiene il dato `Alice` associato alla chiave `0`, il dato `Bob` associato alla chiave `1` e così via.
+
+Vediamo ora un'interfaccia Java che permette di definire le operazioni fondamentali di una mappa, l'interfaccia utilizza il meccanismo dei *generics* di Java (vedi riquadro sotto).
+
+```java
+public interface IMap<K,V> {
+    void add(K key, V value);
+    V remove(K key);
+    V get(K key);
+    K[] keys();
+    V[] values();
+    int size();
+    boolean isEmpty();
+}
+```
+
+> [!warning]- Uso dei generics
+>
+> L'interfaccia `IMap` utilizza i *generics* che permettono di specificare il *tipo* al momento in cui la classe viene istanziata anziché al momento della definizione della classe/interfaccia stessa. Un esempio di istanziazione dell'interfaccia sopra è dato nel seguente codice.
+> ```java
+> IMap<String, Integer> myMap = ... 
+> ```
+> I *generics* sono alla base delle classi contenitori offerte dalla libreria Java. Ad esempio per creare un `ArrayList` di stringhe si usa il seguente codice:
+> ```java
+> ArrayList<String> names = new ArrayList<String>();
+> ```
+> In maniera simile possiamo creare un `ArrayList` di interi si crea con il seguente codice:
+> ```java
+> ArrayList<Integer> ages = new ArrayList<Integer>();
+> ```
+> I tipi specificati dentro le parentesi angolari `< >` **devono essere tipi riferimento** e **non possono essere tipi fondamentali come `int` o `double`**. Questo perché sfrutta il fatto che ogni tipo riferimento è sottoclasse di `Object`, cosa che non vale per i tipi fondamentali (`int`, `double`, `boolean`, ...).
+
+Il nome delle operazioni indica in modo diretto come operano sulla struttura dati.
+* `add` aggiunge un coppia `(key, value)` alla mappa
+* `remove` rimuove la coppia `(key, value)` dalla mappa
+* `get` restituisce, se presente, il `value` associata alla `key` data
+* `keys` restituisce la lista di tutte le chiavi
+* `values` restituisce la lista di tutti i valori
+* `size` restituisce il numero di coppie memorizzate nella mappa
+* `isEmpty` restituisce `true` se la mappa è vuota (non contiene alcuna coppia)
+
+## Dizionari
+Con il termine **dizionario** (**dictionary**) si indica solitamente una mappa in cui il tipo della chiave è una stringa, di norma anche il valore è una string. Il nome deriva proprio dal dizionario fisico in cui si ricerca un termine (una stringa) per ottenere la corrispondente definizione (un'altra stringa).
+
+Utilizzando l'interfaccia `IMap` sopra, un dizionario si ottiene utilizzando i tipi `String` sia per la chiave che per il valore.
+
+```java
+IMap<String, String> myDict = new Map<String, String>();
+myDict.add("Dictionary", "A book containing definitions.\nA type of map data structure.");
+```
+
+Nel frammento di codice Java riportato sopra, si suppone che esista una classe concreta `Map` che implementa l'interfaccia `IMap`, mantenendo i tipi generics
+
+```java
+public class Map<K,V> implements IMapGenerics<K,V> {
+    /* ... */
+}
+```
+
+## Hash table
+
+Una *tabella di hash* è una struttura dati che memorizza dati associando ad ogni *valore* una *chiave* calcolata mediante una *funzione di hash*. Supponiamo di voler memorizzare il valore  $x$ utilizzando una funzione di hash $h(x)$, la tabella di hash sarà quindi una tabella in cui per ogni riga esiste una chiave, ad esempio $h(x)$ ed uno o più valori, ad esempio $x$.
+
+![Esempio di funzione hash a valori interi e di tabella hash corrispondente](/img/inf/hash-table.svg)
+
+## Funzioni di hash
+Un aspetto fondamentale delle tabelle di hash è la *funzione di hash* (*hash function*) che indichiamo qui con $h(x)$. È importante tenere sempre a mente che il *dominio* di tale funzioni (i possibili valori di $x$) non è necessariamente un dominio numerico. In effetti $x$ può essere qualsiasi cosa dato da memorizzare. Per quanto riguardo il *codominio* di $x$, invece, si richiede che questo sia numerico, tipicamente un sottoinsieme dei numeri naturali (zero incluso). Questo requisito è fondamentale in quanto $h(x)$ rappresenta l'indice con cui accederemo alla tabella, per questo deve essere un numero intero non negativo. Il valore $h(x)$ viene chiamato *valore di hash* (o semplicemente *hash*) di $x$.
+
+> [!note] Definizione: Funzione Hash
+> Una **funzione hash** $h(x)$ è una funzione che ha come dominio una qualsiasi sequenza di bit (i dati) e come codominio un sottoinsieme dei numeri naturali $\mathbb{N}$.
+> ```math
+> h:\{0,1\}^* \longrightarrow \mathbb{H} \subseteq \mathbb{N}
+> ```
+
+### Collisioni
+Un concetto importante nella progettazione di tabelle di hash è quello di **collisione** (**collision**). Si parla di collisione quando due oggetti diversi $x_1$ e $x_2$ hanno stesso valore di hash.
+
+```math
+h(x_1) = h(x_2)
+```
+
+In altre parole due oggetti che generano una collisione, devono essere memorizzati nella stessa riga della tabella di hash. Questo concetto è importante nell'implementazione di una tabella di hash in quanto **la tabella di hash è tanto più efficiente quanto più rare sono le collisioni**.
+
+> [!warning] Attenzione
+>
+> Le presenza o meno di collisioni, dipende dalla funzione di hash scelta e non dal modo in cui si memorizza la tabella di hash. Per questo motivo, la scelta di $h(x)$ è estremamente importante.
+
+### Esempi di funzione hash
+Un tipico esempio di funzione di hash è la funzione *resto* che, tuttavia, si può utilizzare solo quando $x$ è un valore numerico intero. 
+
+```math
+h(x) = x \ \text{mod} \ M
+```
+
+Il valore $M$ è importante nella progettazione di una tabella di hash. Ricordiamo infatti che il resto della divisione di un numero intero $x$ per $M$ è un valore intero nell'intervallo $[0,M)$, aperto a destro cioè $M$ escluso. In altre parole $M$ rappresenta il numero di righe della tabella. Di conseguenza, $M$ rappresenta la dimensione in memoria della tabella. Per mantenere la tabella compatta, si potrebbe pensare che un $M$ piccolo sia la scelta migliore, tuttavia, quando $M$ è troppo piccolo si verificano molte collisioni che rendono meno efficiente la tabella di hash.
+
+## Mappe, Dizionari e Hash Table in vari linguaggi
+
+### Java
+Come detto sopra, Java non ha un costrutto *dizionario* come parte del linguaggio, ma nella libreria standard sono presenti diverse classi che realizzano mappe e dizionari.
+- `Map<K,V>` [Java Doc][1]
+- `Hashtable<K,V>` [Java Doc][2]
+
+### Javascript
+In Javascript è presente la classe [`Map`][3] che rappresenta una collezione di oggetti indicizzati da una chiave, non necessariamente numerica o stringa.
+
+> [!warning] Attenzione
+>
+> Gli oggetti Javascript permettono di memorizzare variabili (campi) utilizzando il loro nome (una stringa) o un indice (intero) come chiave. A volte si usano oggetti come mappe, ma questo è sbagliato, in quanto gli oggetti non sono efficienti come `Map` e non hanno tutti i metodi necessari alla corretta manipolazione delle mappe.
+
+### Python
+Python contiene una struttura dati [dizionario][4] (`dict`) come parte del linguaggio. Tale struttura permette di memorizzare oggetti con chiave stringa. Si noti, tuttavia, che i `dict` di Python non permettono di usare chiave che non siano stringhe.
+
+### PHP
+In PHP gli [array][5] sono a tutti gli effetti delle mappe. È possibile usare qualsiasi tipo di variabile come chiave ed è anche possibile creare un array che utilizzi tipi diversi (stringhe, interi, Person, ecc.) come chiave.
+
+
+## Riferimenti
+* [L'interfaccia `Map` di Java (Oracle Docs.)][1]
+
+[1]: https://docs.oracle.com/javase/8/docs/api/java/util/Map.html
+[2]: https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html
+[3]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+[4]: https://docs.python.org/3/tutorial/datastructures.html#dictionaries
+[5]: https://www.php.net/manual/en/language.types.array.php

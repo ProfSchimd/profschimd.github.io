@@ -107,6 +107,17 @@ export const Subjects = [
                                 },
                                 summary: "Il caso più generale di strutture dati con nodi sono i grafi. Un grafo è una struttura dati che permette di rappresentare una relazione arbitraria tra nodi.",
                             },
+                            {
+                                id: "L05",
+                                weight: 50,
+                                title: "Mappe e Tabelle Hash",
+                                type: "lecture",
+                                source: {
+                                    url: "/inf/4/02-strutture-dati/05-map-hashtable.mdx",
+                                    type: "local"
+                                },
+                                summary: "Le mappe realizzano strutture dati a dizionario oggi sono presenti nativamente in molti linguaggi. Una tecnica per l'implementazione di mappe sono le hash table.",
+                            },
                         ]
                     }
                 ]
