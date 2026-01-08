@@ -152,7 +152,7 @@ Una *tabella di hash* è una struttura dati che memorizza dati associando ad ogn
 Un aspetto fondamentale delle tabelle di hash è la *funzione di hash* (*hash function*) che indichiamo qui con $h(x)$. È importante tenere sempre a mente che il *dominio* di tale funzioni (i possibili valori di $x$) non è necessariamente un dominio numerico. In effetti $x$ può essere qualsiasi cosa dato da memorizzare. Per quanto riguardo il *codominio* di $x$, invece, si richiede che questo sia numerico, tipicamente un sottoinsieme dei numeri naturali (zero incluso). Questo requisito è fondamentale in quanto $h(x)$ rappresenta l'indice con cui accederemo alla tabella, per questo deve essere un numero intero non negativo. Il valore $h(x)$ viene chiamato *valore di hash* (o semplicemente *hash*) di $x$.
 
 > [!note] Definizione: Funzione Hash
-> Una **funzione hash** $h(x)$ è una funzione che ha come dominio una qualsiasi sequenza di bit (i dati) e come codominio un sottoinsieme dei numeri naturali $\mathbb{N}$.
+> Una **funzione hash** $h(x)$ è una funzione che ha come dominio una qualsiasi sequenza di bit (i dati) e come codominio un sottoinsieme finito dei numeri naturali $\mathbb{N}$.
 > ```math
 > h:\{0,1\}^* \longrightarrow \mathbb{H} \subseteq \mathbb{N}
 > ```
@@ -178,6 +178,15 @@ h(x) = x \ \text{mod} \ M
 ```
 
 Il valore $M$ è importante nella progettazione di una tabella di hash. Ricordiamo infatti che il resto della divisione di un numero intero $x$ per $M$ è un valore intero nell'intervallo $[0,M)$, aperto a destro cioè $M$ escluso. In altre parole $M$ rappresenta il numero di righe della tabella. Di conseguenza, $M$ rappresenta la dimensione in memoria della tabella. Per mantenere la tabella compatta, si potrebbe pensare che un $M$ piccolo sia la scelta migliore, tuttavia, quando $M$ è troppo piccolo si verificano molte collisioni che rendono meno efficiente la tabella di hash.
+
+> [!tip] Hash crittografico
+> 
+> Esistono delle funzioni di hash utilizzate per scopi diversi dalla costruzione di tabelle hash. In particolare in *crittografia* si usano delle particolari funzioni di hash dette **hash crittografiche** per realizzare maggiore sicurezza nelle comunicazioni. Esempi di funzioni hsh crittografiche sono `MD5` e `SHA-256`. Spesso i tool a linea di comando (esempio la bash), contengono comandi per il calcolo di questi valori di hash
+> ```shell
+> echo "Hello World" > /tmp/hello.txt # Crea un file contenente 'Hello World'
+> md5 /tmp/hello.txt # e59ff97941044f85df5297e1c302d260
+> sha256 /tmp/hello.txt # d2a84f4b8b650937ec8f73cd8be2c74add5a911ba64df27458ed8229da804a26
+> ```
 
 ## Mappe, Dizionari e Hash Table in vari linguaggi
 

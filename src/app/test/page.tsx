@@ -1,770 +1,778 @@
 "use client";
-import React, { useState, useRef, JSX } from 'react';
-import { 
-  FaNetworkWired, 
-  FaShieldVirus, 
-  FaJava, 
-  FaMobile, 
-  FaGavel, 
-  FaChartGantt, 
-  FaRobot,
-  FaPlus,
-  
-  FaTrash,
-  
-  FaUpload,
-  FaDownload,
-  FaChevronDown,
-  FaChevronRight
-} from "react-icons/fa6";
-import {
-FaSave,
-FaEdit,
-} from "react-icons/fa"
-import { PiNumberSquareFiveBold, PiNumberSquareFourBold, PiNumberSquareThreeBold } from "react-icons/pi";
 
-// Type definitions
-interface Source {
-  url: string;
-  type: 'local' | 'remote';
+import { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaCircleXmark } from "react-icons/fa6";
+
+// Types
+interface BaseQuestion {
+    type: "invertible" | "single" | "multiple" | "fill";
+    id: string;
+    weight: number;
+    tags: string[];
 }
 
-interface Lecture {
-  id: string;
-  weight: number;
-  title: string;
-  type: string;
-  source: Source;
+interface InvertibleQuestionData extends BaseQuestion {
+    type: "invertible";
+    text: [string, string];
+    options: string[];
+    correct: number[];
 }
 
-interface Module {
-  id: string;
-  name: string;
-  title: string;
-  slug: string;
-  front_page: string;
-  lectures: Lecture[];
+interface MultipleQuestionData extends BaseQuestion {
+    type: "multiple";
+    text: string;
+    options: string[];
+    correct: number[];
 }
 
-interface Year {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-  slug: string;
-  mods: Module[];
+interface SingleQuestionData extends BaseQuestion {
+    type: "single";
+    text: string;
+    options: string[];
+    correct: number[];
 }
 
-interface Subject {
-  id: string;
-  title: string;
-  description: string;
-  slug: string;
-  icon: string;
-  years: Year[];
+interface FillQuestionData extends BaseQuestion {
+    type: "fill";
+    text: string;
+    tofill: string;
+    correct: string[];
 }
 
-interface Social {
-  Github: string | null;
-  Bluesky: string | null;
-  Linkedin: string | null;
-  Email: string | null;
-  Youtube: string | null;
-  StackOverflow: string | null;
+type QuestionData = InvertibleQuestionData | MultipleQuestionData | SingleQuestionData | FillQuestionData;
+
+interface InvertibleAnswer {
+    invertibleIndex: number; // ?? Is that 0,1 for the two versions (direct and invert)?
+    selected: number[];
 }
 
-interface AppData {
-  Author: string;
-  Social: Social;
-  Subjects: Subject[];
-}
-
-interface EditingItem {
-  item: any;
-  path: string;
-}
-
-type ItemType = 'subject' | 'year' | 'mod' | 'lecture';
-
-// Icon mapping
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  FaNetworkWired,
-  FaShieldVirus,
-  FaJava,
-  FaMobile,
-  FaGavel,
-  FaChartGantt,
-  FaRobot,
-  PiNumberSquareFiveBold,
-  PiNumberSquareFourBold,
-  PiNumberSquareThreeBold
+type UserAnswers = {
+    [key: string]: InvertibleAnswer | number[] | number | string[] | undefined;
 };
 
-const initialData: AppData = {
-  Author: "Prof. Schimd",
-  Social: {
-    Github: "ProfSchimd",
-    Bluesky: "profschimd.bsky.social",
-    Linkedin: null,
-    Email: null,
-    Youtube: null,
-    StackOverflow: "18081937",
-  },
-  Subjects: [
+const getAnswersStyle = (isSelected: boolean, correct: boolean, showResults: boolean) => {
+    let bgColor = 'bg-white dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900';
+
+    if (showResults) {
+        if (isSelected && correct) bgColor = 'bg-green-100 dark:bg-green-800';
+        else if (isSelected && !correct) bgColor = 'bg-red-100 dark:bg-red-800';
+        else if (!isSelected && correct) bgColor = 'bg-yellow-100 dark:bg-yellow-800';
+    } else if (isSelected) {
+        bgColor = 'bg-zinc-50 dark:bg-zinc-950';
+    }
+    return bgColor;
+}
+
+interface QuestionProps<T extends QuestionData, A> {
+    question: T;
+    userAnswer: A | undefined;
+    onAnswer: (answer: A) => void;
+    showResults: boolean;
+}
+
+const InvertibleQuestion = ({
+    question,
+    userAnswer,
+    onAnswer,
+    showResults
+}: QuestionProps<InvertibleQuestionData, InvertibleAnswer>) => {
+    const textIndex = 0;
+    const selectedOptions = userAnswer?.selected ?? [];
+
+    const handleOptionToggle = (idx: number) => {
+        const newSelected = [...selectedOptions];
+        const existingIdx = newSelected.indexOf(idx);
+        if (existingIdx > -1) {
+            newSelected.splice(existingIdx, 1); // removes 1 element starting at index existingIdx
+        } else {
+            newSelected.push(idx);
+        }
+        onAnswer({ invertibleIndex: textIndex, selected: newSelected });
+    }
+
+    const isCorrect = (idx: number) => {
+        return question.correct[idx] === 1;
+    }
+
+    return (
+        <div>
+            <div
+                className="text-lg mb-4"
+                dangerouslySetInnerHTML={{ __html: question.text[textIndex] }}
+            />
+            <div className="space-y-2">
+                {question.options.map((opt, idx) => {
+                    const isSelected = selectedOptions.includes(idx);
+                    const correct = isCorrect(idx);
+                    const bgColor = getAnswersStyle(isSelected, correct, showResults);
+
+                    return (
+                        <label
+                            key={idx}
+                            className={`flex items-start gap-3 p-3 border-2 rounded-lg cursor-pointer transition-colors ${bgColor} ${isSelected ? 'border-zinc-500 dark:border-zinc-800' : 'border-zinc-300 dark:border-zinc-500'
+                                }`}>
+
+
+                            <input
+                                checked={isSelected}
+                                type="checkbox"
+                                onChange={() => handleOptionToggle(idx)}
+                                disabled={showResults}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: opt }} />
+                            {showResults && (
+                                <span className="ml-auto">
+                                    {correct ? (
+                                        <FaCheckCircle className="w-5 h-5 text-green-600" />
+                                    ) : isSelected ? (
+                                        <FaCircleXmark className="w-5 h-5 text-red-600" />
+                                    ) : null}
+                                </span>
+                            )}
+                        </label>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+const MultipleQuestion = ({
+    question,
+    userAnswer,
+    onAnswer,
+    showResults
+}: QuestionProps<MultipleQuestionData, number[]>) => {
+
+    const selectedOptions = userAnswer ?? [];
+
+    const handleOptionToggle = (idx: number) => {
+        const newSelected = [...selectedOptions];
+        const existingIdx = newSelected.indexOf(idx);
+        if (existingIdx > -1) {
+            newSelected.splice(existingIdx, 1);
+        } else {
+            newSelected.push(idx);
+        }
+        onAnswer(newSelected);
+    }
+
+    const isCorrect = (idx: number) => {
+        return question.correct[idx] === 1;
+    }
+
+    return (
+        <div className="space-y-4">
+            <div
+                className="text-lg mb-4"
+                dangerouslySetInnerHTML={{ __html: question.text }}
+            />
+            <div className="space-y-2">
+                {question.options.map((opt, idx) => {
+                    const isSelected = selectedOptions.includes(idx);
+                    const correct = isCorrect(idx);
+                    const bgColor = getAnswersStyle(isSelected, correct, showResults);
+
+                    return (
+                        <label
+                            key={idx}
+                            className={`flex items-start gap-3 p-3 border-2 rounded-lg cursor-pointer transition-colors ${bgColor} ${isSelected ? 'border-zinc-500 dark:border-zinc-800' : 'border-zinc-300 dark:border-zinc-500'
+                                }`}>
+                            <input
+                                type="checkbox"
+                                checked={isSelected}
+                                onChange={() => handleOptionToggle(idx)}
+                                disabled={showResults}
+                                className="mt-1"
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: opt }} />
+                            {showResults && (
+                                <span className="ml-auto">
+                                    {correct ? (
+                                        <FaCheckCircle className="w-5 h-5 text-green-600" />
+                                    ) : isSelected ? (
+                                        <FaCircleXmark className="w-5 h-5 text-red-600" />
+                                    ) : null}
+                                </span>
+                            )}
+                        </label>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+const SingleQuestion = ({
+    question,
+    userAnswer,
+    onAnswer,
+    showResults
+}: QuestionProps<SingleQuestionData, number>) => {
+    const handleOptionSelection = (idx: number) => {
+        onAnswer(idx);
+    }
+    const correctIdx = question.correct.indexOf(1);
+    return (
+        <div className="space-y-4">
+            <div
+                className="text-lg mb-4"
+                dangerouslySetInnerHTML={{ __html: question.text }}
+            />
+            <div>
+                {question.options.map((opt, idx) => {
+                    const isSelected = (userAnswer === idx);
+                    const correct = (idx === correctIdx);
+                    const bgColor = getAnswersStyle(isSelected, correct, showResults);
+                    return (
+                        <label key={idx}
+                            className={`flex items-start gap-3 p-3 border-2 rounded-lg cursor-pointer transition-colors ${bgColor} ${isSelected ? 'border-zinc-500 dark:border-zinc-800' : 'border-zinc-300 dark:border-zinc-500'
+                                }`}>
+                            <input
+                                type="radio"
+                                name={`single-${question.id}`}
+                                onChange={() => handleOptionSelection(idx)}
+                                disabled={showResults}
+                                className="mt-1"
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: opt }} />
+                            <span className="ml-auto">
+                                {correct ? (
+                                    <FaCheckCircle className="w-5 h-5 text-green-600" />
+                                ) : isSelected ? (
+                                    <FaCircleXmark className="w-5 h-5 text-red-600" />
+                                ) : null}
+                            </span>
+                        </label>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+const FillQuestion = ({
+    question,
+    userAnswer,
+    onAnswer,
+    showResults
+}: QuestionProps<FillQuestionData, string[]>) => {
+    const answers = userAnswer ?? question.correct.map(() => '');
+    const handleInputChange = (idx: number, value: string) => {
+        const newAnswers = [...answers];
+        newAnswers[idx] = value;
+        onAnswer(newAnswers);
+    }
+    const parts = question.tofill.split(/\{\{(\d+)\}\}/);
+    let inputIdx = 0;
+
+    return (
+        <div>
+            <div
+                className="text-lg mb-4"
+                dangerouslySetInnerHTML={{ __html: question.text }}
+            />
+            <div className="text-lg leading-relaxed">
+                {parts.map((part, idx) => {
+                    if (idx % 2 === 0) {
+                        return <span key={idx} dangerouslySetInnerHTML={{ __html: part }} />
+                    } else {
+                        const currentIdx = inputIdx++;
+                        const userVal = answers[currentIdx] || '';
+                        const correctVal = question.correct[currentIdx];
+                        const isCorrect = userVal.toLowerCase().trim() === correctVal.toLowerCase().trim();
+
+                        let borderColor = 'border-gray-300';
+                        let bgColor = 'bg-white';
+
+                        if (showResults) {
+                            if (isCorrect) {
+                                borderColor = 'border-green-500';
+                                bgColor = 'bg-green-50';
+                            } else {
+                                borderColor = 'border-red-500';
+                                bgColor = 'bg-red-50';
+                            }
+                        }
+                        return (
+                            <span key={idx} className="inline-block mx-1">
+                                <input
+                                    type="text"
+                                    value={userVal}
+                                    onChange={(e) => handleInputChange(currentIdx, e.target.value)}
+                                    disabled={showResults}
+                                    className={`px-2 py-1 border-2 rounded ${borderColor} ${bgColor} min-w-[120px]`}
+                                    placeholder="..."
+                                />
+                                {showResults && !isCorrect && (
+                                    <span className="ml-2 text-green-600 font-medium">
+                                        ({correctVal})
+                                    </span>
+                                )}
+                            </span>
+                        )
+                    }
+                })}
+            </div>
+        </div>
+    );
+}
+
+const QuizApp = () => {
+    const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(1);
+    const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
+    const [showResults, setShowResults] = useState<boolean>(false);
+
+    const currentQuestion = quizData[currentQuestionIdx];
+
+    const handleAnswer = (answer: InvertibleAnswer | number[] | number | string[]): void => {
+        setUserAnswers({
+            ...userAnswers,
+            [currentQuestion.id]: answer
+        });
+    };
+
+
+    const computeScore = () => {
+        let totalScore = 0;
+        let earnedScore = 0;
+        quizData.forEach(q => {
+            totalScore += q.weight;
+            const userAns = userAnswers[q.id];
+            if (q.type == "invertible") {
+                if (!userAns) {
+                    return;
+                }
+                const ans = userAns as InvertibleAnswer;
+                const selected = ans.selected || [];
+                let correct = true;
+                selected.forEach(idx => {
+                    if (q.correct[idx] !== 1) {
+                        correct = false;
+                    }
+                });
+                q.correct.forEach((val, idx) => {
+                    if (val === 1 && !selected.includes(idx)) {
+                        correct = false;
+                    }
+                })
+                if (correct) {
+                    earnedScore += q.weight;
+                }
+            }
+            if (q.type === "multiple") {
+                if (!userAns) {
+                    return;
+                }
+                const ans = userAns as number[];
+                const selected = ans || [];
+                let correct = true;
+                selected.forEach(idx => {
+                    if (q.correct[idx] !== 1) {
+                        correct = false;
+                    }
+                });
+                q.correct.forEach((val, idx) => {
+                    if (val === 1 && !selected.includes(idx)) {
+                        correct = false;
+                    }
+                })
+                if (correct) {
+                    earnedScore += q.weight;
+                }
+            }
+            if (q.type === "single") {
+                const ans = userAns as number;
+                if (userAns === undefined) {
+                    return;
+                }
+                if (q.correct[ans] === 1) {
+                    earnedScore += q.weight;
+                }
+
+            }
+            if (q.type === "fill") {
+                if (!userAns) {
+                    return;
+                }
+                const ans = userAns as string[];
+                let allCorrect = true;
+                q.correct.forEach((correctAns, idx) => {
+                    const userVal = (ans[idx] || '').toLowerCase().trim();
+                    const correctVal = correctAns.toLowerCase().trim();
+                    if (userVal !== correctVal) {
+                        allCorrect = false;
+                    }
+                })
+                if (allCorrect) {
+                    earnedScore += q.weight;
+                }
+            }
+        });
+        return {total: totalScore, earned: earnedScore};
+    }
+
+    const score = showResults ? computeScore() : null;
+    console.log(`S: ${score ? score.earned : ""}`);
+
+    const handleReset = () => {
+        setUserAnswers({});
+        setShowResults(false);
+        setCurrentQuestionIdx(0);
+    };
+
+    const handleSubmit = (): void => {
+        setShowResults(true);
+    };
+
+    const renderQuestion = () => {
+        switch (currentQuestion.type) {
+            case "invertible":
+                return (
+                    <InvertibleQuestion
+                        question={currentQuestion}
+                        userAnswer={userAnswers[currentQuestion.id] as InvertibleAnswer || undefined}
+                        onAnswer={handleAnswer}
+                        showResults={showResults}
+                    />
+                );
+            case "multiple":
+                return (
+                    <MultipleQuestion
+                        question={currentQuestion}
+                        userAnswer={userAnswers[currentQuestion.id] as number[] || undefined}
+                        onAnswer={handleAnswer}
+                        showResults={showResults}
+                    />
+                );
+            case "single":
+                return (
+                    <SingleQuestion
+                        question={currentQuestion}
+                        userAnswer={userAnswers[currentQuestion.id] as number || undefined}
+                        onAnswer={handleAnswer}
+                        showResults={showResults}
+                    />
+                );
+            case "fill":
+                return (
+                    <FillQuestion
+                        question={currentQuestion}
+                        userAnswer={userAnswers[currentQuestion.id] as string[] || undefined}
+                        onAnswer={handleAnswer}
+                        showResults={showResults}
+                    />
+                );
+            default:
+                return <></>
+        }
+    }
+
+    return (
+        <div className="max-w-4xl mx-auto bg-zinc-100 dark:bg-zinc-600 rounded-lg shadow-lg p-6">
+            <div className="mb-6">
+                {renderQuestion()}
+            </div>
+            <div className="flex justify-between items-center">
+                <button
+                    onClick={() => setCurrentQuestionIdx(Math.max(0, currentQuestionIdx - 1))}
+                    disabled={currentQuestionIdx === 0}
+                    className="flex items-center gap-2 px-4 py-2 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 rounded hover:bg-zinc-300 dark:hover:bg-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    <FaArrowLeft className="w-5 h-5" />
+                    Precedente
+                </button>
+
+                {showResults ?
+                    <button
+                        onClick={handleReset}
+                        className="flex items-center gap-2 px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                    >Reset
+                    </button>
+                    : (<button
+                        onClick={handleSubmit}
+                        className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                    >
+                        Consegna Test
+                    </button>)
+                }
+
+                <button
+                    onClick={() => setCurrentQuestionIdx(Math.min(currentQuestionIdx + 1, quizData.length - 1))}
+                    disabled={currentQuestionIdx === (quizData.length - 1)}
+                    className="flex items-center gap-2 px-4 py-2 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 rounded hover:bg-zinc-300 dark:hover:bg-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    Successivo
+                    <FaArrowRight className="w-5 h-5" />
+                </button>
+            </div>
+
+            <div className="mt-6 flex justify-center gap-2 flex-wrap">
+                {quizData.map((q, idx) => {
+                    const hasAnswer = userAnswers[q.id] !== undefined;
+                    let bgColor = 'bg-zinc-200 dark:bg-zinc-800';
+
+                    if (showResults) {
+                        bgColor = 'bg-gray-300';
+                    } else if (hasAnswer) {
+                        bgColor = 'bg-blue-500 text-white';
+                    }
+
+                    if (idx === currentQuestionIdx) {
+                        bgColor += ' ring-2 ring-zinc-600 dark:ring-zinc-500';
+                    }
+                    return (
+                        <button
+                            key={idx}
+                            onClick={() => setCurrentQuestionIdx(idx)}
+                            className={`w-10 h-10 rounded ${bgColor} hover:opacity-80 transition-all`}
+                        >{idx + 1}
+                        </button>
+                    );
+                })}
+            </div>
+
+        </div>
+    );
+}
+
+export default QuizApp;
+
+
+const quizData: QuestionData[] = [
     {
-      id: "inf",
-      title: "Informatica",
-      description: "Programmazione nativa e web, sia frontend che backend con progettazione Database.",
-      slug: "/materie/inf",
-      icon: "FaJava",
-      years: [
-        {
-          id: "3",
-          title: "Terzo Anno",
-          description: "Programmazione nativa, paradigma di programmazione ad oggetti.",
-          icon: "PiNumberSquareThreeBold",
-          slug: "/materie/inf/3/",
-          mods: []
-        },
-        {
-          id: "4",
-          title: "Quarto Anno",
-          description: "Strutture dati e programmazione web frontend.",
-          icon: "PiNumberSquareFourBold",
-          slug: "/materie/inf/4/",
-          mods: []
-        },
-        {
-          id: "5",
-          title: "Quinto Anno",
-          description: "Progettazione di database e sviluppo backend.",
-          icon: "PiNumberSquareFiveBold",
-          slug: "/materie/inf/5/",
-          mods: []
-        },
-      ]
+        "id": "001",
+        "type": "invertible",
+        "text": [
+            "Indica tutte le affermazioni <u>vere</u> riguardanti <b>BIOS e UEFI</b>.",
+            "Indica tutte le affermazioni <u>false</u> riguardanti <b>BIOS e UEFI</b>."
+        ],
+        "options": [
+            "Il BIOS UEFI non supporta l'uso del mouse e della tastiera.",
+            "La <i>M-flash</i> consente l'aggiornamento del BIOS via USB.",
+            "Il BIOS UEFI permette di configurare una password.",
+            "L'overclocking da BIOS non genera problemi di surriscaldamento.",
+            "Il BIOS UEFI permette di impostare la temperatura <i>target di raffreddamento.</i>"
+        ],
+        "correct": [0, 1, 1, 0, 1],
+        "weight": 2,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
     },
     {
-      id: "sr",
-      title: "Sistemi e Reti",
-      description: "Sistemi embedded per l'Internet of Things. Reti e progettazione con particolare riferimento alla cybersecurity",
-      slug: "/materie/sr",
-      icon: "FaNetworkWired",
-      years: [
-        {
-          id: "3",
-          title: "Terzo Anno",
-          description: "Sistemi di elaborazione e fondamenti di reti.",
-          icon: "PiNumberSquareThreeBold",
-          slug: "/materie/sr/3/",
-          mods: []
-        },
-        {
-          id: "4",
-          title: "Quarto Anno",
-          description: "Modelli per reti e configurazione reti locali.",
-          icon: "PiNumberSquareFourBold",
-          slug: "/materie/sr/4/",
-          mods: [
-            {
-              id: "SR.4.01",
-              name: "Physical",
-              title: "Livello Fisico",
-              slug: "/materie/sr/4/SR.4.01",
-              front_page: "README.md",
-              lectures: []
-            },
-            {
-              id: "SR.4.02",
-              name: "Data Link",
-              title: "Livello di Collegamento",
-              slug: "/materie/sr/4/SR.4.02",
-              front_page: "README.md",
-              lectures: []
-            },
-            {
-              id: "SR.4.03",
-              name: "Network",
-              title: "Livello di Rete",
-              slug: "/materie/sr/4/SR.4.03",
-              front_page: "README.md",
-              lectures: [
-                {
-                  id: "L01",
-                  weight: 10,
-                  title: "Ruoli del livello di Rete",
-                  type: "lecture",
-                  source: {
-                    url: "L01_NetRole.md",
-                    type: "local"
-                  }
-                },
-                {
-                  id: "L02",
-                  weight: 20,
-                  title: "Protocolli del livello di Rete",
-                  type: "lecture",
-                  source: {
-                    url: "https://www. ... /ip.md",
-                    type: "remote"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          id: "5",
-          title: "Quinto Anno",
-          description: "Progettazione reti e sicurezza dei sistemi.",
-          icon: "PiNumberSquareFiveBold",
-          slug: "/materie/sr/5/",
-          mods: []
-        },
-      ]
+        "id": "002",
+        "type": "multiple",
+        "text": "All'avvio di un PC appena assemblato si sentono numerosi beep, cosa è consigliato fare?",
+        "options": [
+            "Aggiornare il BIOS UEFI per risolvere problemi di incompatibilità hardware.",
+            "Verificare quale problema si è verificato sulla base del numero di beep che si sentono.",
+            "Proseguire comunque poiché è normale che un computer emetta numerosi beep all'avvio.",
+            "Restituire la scheda madre perché è sicuramente difettata.",
+            "Contare il numero di beep che si sentono."
+        ],
+        "correct": [0, 1, 0, 0, 1],
+        "weight": 2,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "003",
+        "type": "fill",
+        "text": "Completa il seguente testo.<br>",
+        "tofill": "Durante l'avvio del computer, il {{0}} esegue un check dell'hardware. Ad esempio, rimuovendo i moduli RAM si dovrà sentire un {{1}} che segnala <i>Bad memory</i>.",
+        "correct": [
+            "POST",
+            "beep code"
+        ],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "004",
+        "type": "invertible",
+        "text": [
+            "Quali dei seguenti meccanismi di sicurezza sono attivati da BIOS.",
+            "Quali dei seguenti meccanismi di sicurezza <u>non</u> sono attivati da BIOS."
+        ],
+        "options": [
+            "Un controllo sul tipo di sistema operativo avviato che impedisce  quelli non autorizzati.",
+            "Un meccanismo di tracciamento via Internet del dispositivo.",
+            "La cifratura (<i>encryption</i>) dei dati presenti sul drive",
+            "Creazione di utenti non amministratori per evitare l'installazione di software dannoso.",
+            "Scansione antivirus di tutti i programmi installati."
+        ],
+        "correct": [1, 1, 1, 0, 0],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "005",
+        "type": "invertible",
+        "text": [
+            "Indica tutte le affermazioni <u>vere</u> riguardanti la <b>CPU</b>.",
+            "Indica tutte le affermazioni <u>false</u> riguardanti la <b>CPU</b>."
+        ],
+        "options": [
+            "Le CPU con istruzioni RISC sono più veloci perché ogni istruzione richiede meno tempo.",
+            "Le CPU con istruzioni CISC sono più costose perché il chip è più grande.",
+            "Se presente, l'<i>Hyper-Threading</i> raddoppia il numero di CPU <i>logiche</i>.",
+            "Le prestazioni della CPU dipendono anche dal <i>Front Side Bus (FSB)</i>.",
+            "L'<i>overclock</i> è sempre consigliato poiché aumenta le prestazioni."
+        ],
+        "correct": [0, 0, 1, 1, 0],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "006",
+        "type": "invertible",
+        "text": [
+            "Indica tutte le affermazioni <u>vere</u> riguardanti le CPU <b>multi core</b>.",
+            "Indica tutte le affermazioni <u>false</u> riguardanti le CPU <b>multi core</b>."
+        ],
+        "options": [
+            "Le risorse (esempio cache L1) devono essere condivise tra tutti i cori.",
+            "Permettono di inserire più unità di elaborazione (<i>core</i>) nello stesso chip.",
+            "Permettono di connettere più unità di elaborazione (<i>core</i>) nella stessa scheda madre.",
+            "Generano più calore rispetto ai processori single core poiché sono più veloci.",
+            "Tutti i core condividono la stessa memoria RAM."
+        ],
+        "correct": [0, 1, 0, 0, 1],
+        "weight": 2,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "007",
+        "type": "fill",
+        "text": "Completa il seguente testo.<br>",
+        "tofill": "Per raffreddare la CPU si usa la {{0}} che distribuisce il calore sulla superficie. Tale calore viene poi disperso dal {{1}} e dalla ventola di raffreddamento della CPU. Questo fa accumulare calore all'interno del case che viene a sua volta raffreddato dalle {{2}} presenti nel case.",
+        "correct": [
+            "pasta termica",
+            "dissipatore",
+            "ventole"
+        ],
+        "weight": 2,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "008",
+        "type": "single",
+        "text": "Scegli la migliore definizione del termine <b>ridondante</b> (<i>redundant</i> in inglese).",
+        "options": [
+            "Qualcosa di superfluo, ma utile a qualche scopo.",
+            "Qualcosa di inutile che può essere eliminato senza conseguenze.",
+            "Qualcosa di eccessivo che può creare problemi.",
+            "Qualcosa di necessario per le prestazione e che viene venduto a parte."
+        ],
+        "correct": [1, 0, 0, 0],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "009",
+        "type": "invertible",
+        "text": [
+            "Indica quali dei seguenti sono vantaggi dell'utilizzo di <b>RAID</b>.",
+            "Indica quali dei seguenti <u>non</u> sono vantaggi dell'utilizzo di <b>RAID</b>."
+        ],
+        "options": [
+            "Archiviare dati su più dischi.",
+            "Rendere più efficiente l'accesso ai dati.",
+            "Creare ridondanza dei dati memorizzati.",
+            "Rendere più difficile rubare i dati.",
+            "Rendere più energeticamente efficiente lo storage."
+        ],
+        "correct": [1, 1, 1, 0, 0],
+        "weight": 2,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "010",
+        "type": "single",
+        "text": "Scegli la migliore definizione del termine <b>legacy</b>.",
+        "options": [
+            "Compatibile con sistemi e tecnologie non più utilizzate.",
+            "Non più funzionante la cui riparazione non è possibile.",
+            "Legato ad una specifica tecnologie hardware o software.",
+            "Distribuito gratuitamente e senza nessuna licenza d'uso."
+        ],
+        "correct": [1, 0, 0, 0],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "011",
+        "type": "invertible",
+        "text": [
+            "Indica tutte le affermazioni <u>vere</u> riguardanti <b>cavi e connettori SATA</b>.",
+            "Indica tutte le affermazioni <u>false</u> riguardanti <b>cavi e connettori SATA</b>."
+        ],
+        "options": [
+            "Il connettore è <i>simmetrico</i>, cioè non ha dritto e rovescio.",
+            "Il cavo SATA non fornisce alimentazione.",
+            "Vengono normalmente utilizzati per collegare dispositivi alla rete Ethernet.",
+            "Uno dei due estremi viene collegato alla scheda madre."
+        ],
+        "correct": [0, 1, 0, 1],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "012",
+        "type": "single",
+        "text": "In una CPU dual core con Hyper-Threading, quante istruzioni possono essere eseguite contemporaneamente?",
+        "options": [
+            "6",
+            "8",
+            "2",
+            "4"
+        ],
+        "correct": [0, 0, 0, 1],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "013",
+        "type": "single",
+        "text": "Qual'è un segnale del fatto che la batteria CMOS è scarica o quasi?",
+        "options": [
+            "Data e ora del PC sono sbagliati.",
+            "Rallentamento dell'accesso ai file del disco.",
+            "Il sistema operativo non si avvia.",
+            "Una specifica sequenza di beep durante il POST."
+        ],
+        "correct": [1, 0, 0, 0],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "014",
+        "type": "invertible",
+        "text": [
+            "Indica quali componenti sono generalmente sostituiti installando una nuova scheda madre.",
+            "Indica quali componenti <u>non</u> sono generalmente sostituiti installando una nuova scheda madre."
+        ],
+        "options": [
+            "RAM",
+            "Hard drive",
+            "CPU",
+            "Unità ottica",
+            "Batteria CMOS"
+        ],
+        "correct": [1, 0, 1, 0, 0],
+        "weight": 1,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
+    },
+    {
+        "id": "015",
+        "type": "fill",
+        "text": "Completa il seguente testo.<br>",
+        "tofill": "Ci si protegge da problemi all'alimentazione elettrica con degli {{0}} che utilizzano una {{1}} in grado di fornire alimentazione elettrica durante eventuali blackout. Grazie all'interazione con il {{2}}, è possibile arrestare il computer prima che la batteria si esaurisca.",
+        "correct": [
+            "UPS",
+            "batteria",
+            "sistema operativo"
+        ],
+        "weight": 2,
+        "tags": ["SR", "ITE", "Hardware Avanzato"]
     }
-  ]
-};
-
-const SubjectsManager: React.FC = () => {
-  const [data, setData] = useState<AppData>(initialData);
-  const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
-  const [editingItem, setEditingItem] = useState<EditingItem | null>(null);
-  const [editForm, setEditForm] = useState<any>({});
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const toggleExpanded = (nodeId: string): void => {
-    const newExpanded = new Set(expandedNodes);
-    if (newExpanded.has(nodeId)) {
-      newExpanded.delete(nodeId);
-    } else {
-      newExpanded.add(nodeId);
-    }
-    setExpandedNodes(newExpanded);
-  };
-
-  const startEdit = (item: any, path: string): void => {
-    setEditingItem({ item, path });
-    setEditForm({ ...item });
-  };
-
-  const saveEdit = (): void => {
-    if (!editingItem) return;
-    
-    const newData = { ...data };
-    const pathArray = editingItem.path.split('.');
-    
-    let current: any = newData;
-    for (let i = 0; i < pathArray.length - 1; i++) {
-      if (pathArray[i] === 'Subjects') {
-        current = current.Subjects;
-      } else if (!isNaN(Number(pathArray[i]))) {
-        current = current[parseInt(pathArray[i])];
-      } else {
-        current = current[pathArray[i]];
-      }
-    }
-    
-    const lastKey = pathArray[pathArray.length - 1];
-    if (!isNaN(Number(lastKey))) {
-      current[parseInt(lastKey)] = editForm;
-    } else {
-      current[lastKey] = editForm;
-    }
-    
-    setData(newData);
-    setEditingItem(null);
-    setEditForm({});
-  };
-
-  const cancelEdit = (): void => {
-    setEditingItem(null);
-    setEditForm({});
-  };
-
-  const deleteItem = (path: string): void => {
-    const newData = { ...data };
-    const pathArray = path.split('.');
-    
-    let current: any = newData;
-    for (let i = 0; i < pathArray.length - 1; i++) {
-      if (pathArray[i] === 'Subjects') {
-        current = current.Subjects;
-      } else if (!isNaN(Number(pathArray[i]))) {
-        current = current[parseInt(pathArray[i])];
-      } else {
-        current = current[pathArray[i]];
-      }
-    }
-    
-    const lastKey = pathArray[pathArray.length - 1];
-    if (Array.isArray(current) && !isNaN(Number(lastKey))) {
-      current.splice(parseInt(lastKey), 1);
-    } else {
-      delete current[lastKey];
-    }
-    
-    setData(newData);
-  };
-
-  const addItem = (parentPath: string, itemType: ItemType): void => {
-    const newData = { ...data };
-    let current: any = newData;
-    
-    if (parentPath) {
-      const pathArray = parentPath.split('.');
-      for (const key of pathArray) {
-        if (key === 'Subjects') {
-          current = current.Subjects;
-        } else if (!isNaN(Number(key))) {
-          current = current[parseInt(key)];
-        } else {
-          current = current[key];
-        }
-      }
-    }
-
-    let newItem: Subject | Year | Module | Lecture;
-    switch (itemType) {
-      case 'subject':
-        newItem = {
-          id: `new_${Date.now()}`,
-          title: "New Subject",
-          description: "",
-          slug: "",
-          icon: "FaJava",
-          years: []
-        };
-        current.push(newItem);
-        break;
-      case 'year':
-        newItem = {
-          id: "new",
-          title: "New Year",
-          description: "",
-          icon: "PiNumberSquareThreeBold",
-          slug: "",
-          mods: []
-        };
-        current.years.push(newItem);
-        break;
-      case 'mod':
-        newItem = {
-          id: `new_${Date.now()}`,
-          name: "New Module",
-          title: "New Module",
-          slug: "",
-          front_page: "README.md",
-          lectures: []
-        };
-        current.mods.push(newItem);
-        break;
-      case 'lecture':
-        newItem = {
-          id: `L${Date.now()}`,
-          weight: 10,
-          title: "New Lecture",
-          type: "lecture",
-          source: {
-            url: "",
-            type: "local"
-          }
-        };
-        current.lectures.push(newItem);
-        break;
-    }
-    
-    setData(newData);
-  };
-
-  const exportData = (): void => {
-    const dataStr = JSON.stringify(data, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'subjects-data.json';
-    link.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const importData = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (e: ProgressEvent<FileReader>) => {
-      try {
-        const result = e.target?.result;
-        if (typeof result === 'string') {
-          const importedData: AppData = JSON.parse(result);
-          setData(importedData);
-        }
-      } catch (error) {
-        alert('Error parsing JSON file: ' + (error as Error).message);
-      }
-    };
-    reader.readAsText(file);
-  };
-
-  const renderIcon = (iconName: string): JSX.Element => {
-    const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent className="w-4 h-4" /> : <FaJava className="w-4 h-4" />;
-  };
-
-  const handleFormInputChange = (key: string, value: string | number): void => {
-    setEditForm({ ...editForm, [key]: value });
-  };
-
-  const handleNestedFormInputChange = (key: string, subKey: string, value: string): void => {
-    setEditForm({
-      ...editForm,
-      [key]: { ...editForm[key], [subKey]: value }
-    });
-  };
-
-  const renderEditForm = (): JSX.Element | null => {
-    if (!editingItem) return null;
-
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="bg-white rounded-lg p-6 w-96 max-h-96 overflow-y-auto">
-          <h3 className="text-lg font-bold mb-4">Edit Item</h3>
-          
-          {Object.keys(editForm).map((key: string) => {
-            if (key === 'years' || key === 'mods' || key === 'lectures') return null;
-            
-            if (typeof editForm[key] === 'object' && editForm[key] !== null) {
-              return (
-                <div key={key} className="mb-3">
-                  <label className="block text-sm font-medium mb-1">{key}</label>
-                  {Object.keys(editForm[key]).map((subKey: string) => (
-                    <div key={subKey} className="ml-4 mb-2">
-                      <label className="block text-xs text-gray-600">{subKey}</label>
-                      <input
-                        type="text"
-                        className="w-full p-2 border rounded"
-                        value={editForm[key][subKey] || ''}
-                        onChange={(e) => handleNestedFormInputChange(key, subKey, e.target.value)}
-                      />
-                    </div>
-                  ))}
-                </div>
-              );
-            }
-            
-            return (
-              <div key={key} className="mb-3">
-                <label className="block text-sm font-medium mb-1">{key}</label>
-                {key === 'icon' ? (
-                  <select
-                    className="w-full p-2 border rounded"
-                    value={editForm[key] || ''}
-                    onChange={(e) => handleFormInputChange(key, e.target.value)}
-                  >
-                    {Object.keys(iconMap).map((iconName: string) => (
-                      <option key={iconName} value={iconName}>{iconName}</option>
-                    ))}
-                  </select>
-                ) : key === 'type' && editForm.source ? (
-                  <select
-                    className="w-full p-2 border rounded"
-                    value={editForm[key] || ''}
-                    onChange={(e) => handleFormInputChange(key, e.target.value)}
-                  >
-                    <option value="local">local</option>
-                    <option value="remote">remote</option>
-                  </select>
-                ) : key === 'description' ? (
-                  <textarea
-                    className="w-full p-2 border rounded"
-                    rows={3}
-                    value={editForm[key] || ''}
-                    onChange={(e) => handleFormInputChange(key, e.target.value)}
-                  />
-                ) : (
-                  <input
-                    type={typeof editForm[key] === 'number' ? 'number' : 'text'}
-                    className="w-full p-2 border rounded"
-                    value={editForm[key] || ''}
-                    onChange={(e) => handleFormInputChange(
-                      key, 
-                      typeof editForm[key] === 'number' ? Number(e.target.value) : e.target.value
-                    )}
-                  />
-                )}
-              </div>
-            );
-          })}
-          
-          <div className="flex gap-2 mt-4">
-            <button
-              onClick={saveEdit}
-              className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-            >
-              <FaSave /> Save
-            </button>
-            <button
-              onClick={cancelEdit}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderLecture = (lecture: Lecture, lectureIndex: number, modPath: string): JSX.Element => {
-    const lecturePath = `${modPath}.lectures.${lectureIndex}`;
-    
-    return (
-      <div key={lecture.id} className="ml-8 p-2 border-l-2 border-purple-200">
-        <div className="flex items-center gap-2">
-          <span className="text-purple-600 font-medium">{lecture.title}</span>
-          <span className="text-xs text-gray-500">({lecture.type}, weight: {lecture.weight})</span>
-          <button
-            onClick={() => startEdit(lecture, lecturePath)}
-            className="p-1 text-blue-500 hover:bg-blue-100 rounded"
-          >
-            <FaEdit className="w-3 h-3" />
-          </button>
-          <button
-            onClick={() => deleteItem(lecturePath)}
-            className="p-1 text-red-500 hover:bg-red-100 rounded"
-          >
-            <FaTrash className="w-3 h-3" />
-          </button>
-        </div>
-        <div className="text-xs text-gray-600 mt-1">
-          Source: {lecture.source?.url} ({lecture.source?.type})
-        </div>
-      </div>
-    );
-  };
-
-  const renderMod = (mod: Module, modIndex: number, yearPath: string): JSX.Element => {
-    const modPath = `${yearPath}.mods.${modIndex}`;
-    const nodeId = `mod-${modPath}`;
-    const isExpanded = expandedNodes.has(nodeId);
-    
-    return (
-      <div key={mod.id} className="ml-6 p-2 border-l-2 border-blue-200">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => toggleExpanded(nodeId)}
-            className="p-1 hover:bg-gray-100 rounded"
-          >
-            {isExpanded ? <FaChevronDown className="w-3 h-3" /> : <FaChevronRight className="w-3 h-3" />}
-          </button>
-          <span className="text-blue-600 font-medium">{mod.title}</span>
-          <span className="text-xs text-gray-500">({mod.name})</span>
-          <button
-            onClick={() => addItem(modPath, 'lecture')}
-            className="p-1 text-green-500 hover:bg-green-100 rounded"
-          >
-            <FaPlus className="w-3 h-3" />
-          </button>
-          <button
-            onClick={() => startEdit(mod, modPath)}
-            className="p-1 text-blue-500 hover:bg-blue-100 rounded"
-          >
-            <FaEdit className="w-3 h-3" />
-          </button>
-          <button
-            onClick={() => deleteItem(modPath)}
-            className="p-1 text-red-500 hover:bg-red-100 rounded"
-          >
-            <FaTrash className="w-3 h-3" />
-          </button>
-        </div>
-        
-        {isExpanded && (
-          <div className="mt-2">
-            <div className="text-xs text-gray-600 mb-2">
-              Slug: {mod.slug} | Front page: {mod.front_page}
-            </div>
-            {mod.lectures && mod.lectures.map((lecture: Lecture, lectureIndex: number) =>
-              renderLecture(lecture, lectureIndex, modPath)
-            )}
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  const renderYear = (year: Year, yearIndex: number, subjectPath: string): JSX.Element => {
-    const yearPath = `${subjectPath}.years.${yearIndex}`;
-    const nodeId = `year-${yearPath}`;
-    const isExpanded = expandedNodes.has(nodeId);
-    
-    return (
-      <div key={year.id} className="ml-4 p-2 border-l-2 border-green-200">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => toggleExpanded(nodeId)}
-            className="p-1 hover:bg-gray-100 rounded"
-          >
-            {isExpanded ? <FaChevronDown className="w-3 h-3" /> : <FaChevronRight className="w-3 h-3" />}
-          </button>
-          {renderIcon(year.icon)}
-          <span className="text-green-600 font-medium">{year.title}</span>
-          <button
-            onClick={() => addItem(yearPath, 'mod')}
-            className="p-1 text-green-500 hover:bg-green-100 rounded"
-          >
-            <FaPlus className="w-3 h-3" />
-          </button>
-          <button
-            onClick={() => startEdit(year, yearPath)}
-            className="p-1 text-blue-500 hover:bg-blue-100 rounded"
-          >
-            <FaEdit className="w-3 h-3" />
-          </button>
-          <button
-            onClick={() => deleteItem(yearPath)}
-            className="p-1 text-red-500 hover:bg-red-100 rounded"
-          >
-            <FaTrash className="w-3 h-3" />
-          </button>
-        </div>
-        
-        {isExpanded && (
-          <div className="mt-2">
-            <div className="text-xs text-gray-600 mb-2">{year.description}</div>
-            {year.mods && year.mods.map((mod: Module, modIndex: number) =>
-              renderMod(mod, modIndex, yearPath)
-            )}
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  const renderSubject = (subject: Subject, subjectIndex: number): JSX.Element => {
-    const subjectPath = `Subjects.${subjectIndex}`;
-    const nodeId = `subject-${subjectPath}`;
-    const isExpanded = expandedNodes.has(nodeId);
-    
-    return (
-      <div key={subject.id} className="p-3 border rounded-lg mb-3">
-        <div className="flex items-center gap-2 mb-2">
-          <button
-            onClick={() => toggleExpanded(nodeId)}
-            className="p-1 hover:bg-gray-100 rounded"
-          >
-            {isExpanded ? <FaChevronDown className="w-4 h-4" /> : <FaChevronRight className="w-4 h-4" />}
-          </button>
-          {renderIcon(subject.icon)}
-          <h3 className="text-lg font-semibold text-gray-800">{subject.title}</h3>
-          <button
-            onClick={() => addItem(subjectPath, 'year')}
-            className="p-1 text-green-500 hover:bg-green-100 rounded"
-          >
-            <FaPlus className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => startEdit(subject, subjectPath)}
-            className="p-1 text-blue-500 hover:bg-blue-100 rounded"
-          >
-            <FaEdit className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => deleteItem(subjectPath)}
-            className="p-1 text-red-500 hover:bg-red-100 rounded"
-          >
-            <FaTrash className="w-4 h-4" />
-          </button>
-        </div>
-        
-        <div className="text-sm text-gray-600 mb-2">{subject.description}</div>
-        
-        {isExpanded && (
-          <div>
-            {subject.years && subject.years.map((year: Year, yearIndex: number) =>
-              renderYear(year, yearIndex, subjectPath)
-            )}
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  return (
-    <div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">Educational Content Manager</h1>
-          <div className="flex gap-2">
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept=".json"
-              onChange={importData}
-              className="hidden"
-            />
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              <FaUpload /> Import
-            </button>
-            <button
-              onClick={exportData}
-              className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-            >
-              <FaDownload /> Export
-            </button>
-            <button
-              onClick={() => addItem('', 'subject')}
-              className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
-            >
-              <FaPlus /> Add Subject
-            </button>
-          </div>
-        </div>
-
-        <div className="mb-6 p-4 bg-gray-100 rounded">
-          <h2 className="text-lg font-semibold mb-2">Author & Social</h2>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <strong>Author:</strong> {data.Author}
-              <button
-                onClick={() => startEdit({ Author: data.Author }, 'Author')}
-                className="ml-2 p-1 text-blue-500 hover:bg-blue-100 rounded"
-              >
-                <FaEdit className="w-3 h-3" />
-              </button>
-            </div>
-            <div>
-              <strong>Social Links:</strong>
-              <button
-                onClick={() => startEdit(data.Social, 'Social')}
-                className="ml-2 p-1 text-blue-500 hover:bg-blue-100 rounded"
-              >
-                <FaEdit className="w-3 h-3" />
-              </button>
-              <div className="text-xs text-gray-600 mt-1">
-                {Object.entries(data.Social).map(([key, value]) => (
-                  <div key={key}>{key}: {value || 'null'}</div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Subjects ({data.Subjects.length})</h2>
-          {data.Subjects.map((subject: Subject, index: number) =>
-            renderSubject(subject, index)
-          )}
-        </div>
-
-        {renderEditForm()}
-      </div>
-    </div>
-  );
-};
-
-export default SubjectsManager;
+];
