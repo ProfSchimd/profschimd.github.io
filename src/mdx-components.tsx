@@ -8,6 +8,7 @@ import rehypeCallouts from "rehype-callouts";
 import ImageWithCaption from "./components/ImageWithCaption";
 import StackedTooltip from "./components/StackedTooltip";
 import InteractiveLinkedList from "./components/InteractiveLinkedList";
+import SlideshowWithCaption from "./components/SlideshowWithCaption";
  
 const components: MDXComponents = {
   h1: ({ id, children }) => (
@@ -48,6 +49,7 @@ export function useMDXComponents(): MDXComponents {
   return {
     InteractiveLinkedList,
     StackedTooltip,
+    SlideshowWithCaption,
     ...components}
 }
 

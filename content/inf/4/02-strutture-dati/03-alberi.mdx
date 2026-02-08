@@ -3,16 +3,14 @@ title: "Alberi"
 repo: https://github.com/ProfSchimd/teaching-material/tree/main/inf/datastructure/tree
 ---
 
-Le strutture dati ad albero sono usate per rappresentare informazioni con *struttura gerarchica*, esempi sono l'albero genealogico e l'organizzazione di file e cartelle all'interno del *filesystem*.
+Le strutture dati ad albero sono usate per rappresentare informazioni con *struttura gerarchica*, alcuni esempi sono l'albero genealogico e l'organizzazione di file e cartelle all'interno del *filesystem*. Gli alberi sono anche utilizzati anche come struttura per rendere efficiente la *ricerca* e trovano impiego anche nel *machine learning* e nell'*intelligenza artificiale*.
 
-In tutti questi casi, la migliore struttura per memorizzare i dati è quella ad **albero**. Gli alberi sono anche utilizzati anche come struttura per favorire la *ricerca* ed anche in ambiti come il *machine learning* e l'*intelligenza artificiale*.
-
-## Concetti sugli alberi
+## Concetti e definizioni sugli alberi
 
 ![Un esempio di struttura ad albero per contenere stringhe.](/img/inf/albero-esempio.svg)
 
 Facendo riferimento alla figura sopra, vediamo subito che, normalmente, il modo
-di disegnare un albero è contrario rispetto a quello che si si aspetterebbe, l'albero
+di disegnare un albero è contrario rispetto a quello che ci si aspetterebbe, l'albero
 infatti cresce e si ramifica verso il basso, anziché verso l'alto, come gli alberi
 biologici.
 
@@ -42,7 +40,7 @@ Riassumiamo quindi le varie cose viste in alcune definizioni
 > [!note]Definizione
 > Un **albero** (**tree**) è una struttura dati gerarchica costituita da **nodi** (**nodes**) collegati mediante **archi** (**arcs**). Ogni albero non vuoto ha un nodo **radice** (**root**), ogni nodo può avere dei **figli** (**children**), nodi senza figli si dicono **foglie** (**leaves**) mentre gli altri nodi sono detti **nodi interni** (**internal nodes**). Tutti i nodi ad eccezioni della radice hanno *esattamente un nodo genitore* e nessun nodo può essere antenato di un suo antenato.
 
->[!Attention]
+>[!Attention] Attenzione
 > In certi casi gli archi negli alberi non vengono rappresentati come frecce, ma semplicemente come dei segmenti (**lati**) che collegano i vari nodi. Questo succede soprattutto quando si interpretano gli alberi come casi particolari di grafi. Un caso noto è l'algoritmo per trovare, in un grafo, l'*albero di copertura minimale* (*minimum spanning tree*), in questo caso il grafo potrebbe essere *non orientato* (senza frecce) che determinerebbe un albero di copertura, a sua volta, senza frecce.
 
 Completiamo quindi la lista dei "gradi di parentela" in un albero:
@@ -53,7 +51,7 @@ Completiamo quindi la lista dei "gradi di parentela" in un albero:
 * *fratelli* (*siblings*): nodi che hanno lo stesso genitore
 * *cugini* (*cousins*): nodi con genitore diverso, ma alla stessa *altezza* (vedi sotto)
 
-> [!example]
+> [!example] Esempio
 > Vediamo alcuni esempi di "parentela" riferendoci all'albero della figura sopra.
 > * `Alice` è il genitore di `Bob`, `David` e `Gill`; `Bob` è il genitore di `Carol`; ...
 > * `Emily` e `Fred` sono figli di `David`; `Henry` e `Ian` sono figli di `Carol`; ...
@@ -82,7 +80,13 @@ Riassumiamo i concetti esposti nella seguente definizione.
 > [!note]Definizione: Profondità e altezza
 > La **profondità** (**depth**) di un nodo è il numero di *antenati* di quel nodo, l'**altezza di un nodo** (**node height**) il numero massimo di discendenti, l'**altezza di un albero** (**tree height**) è l'altezza del nodo radice.
 
-### Alberi in Java
+Infine introduciamo il concetto di **sottoalbero** che è un albero contenuto all'interno di un altro albero. Si noti come *qualsiasi nodo di un albero può essere visto come la radice di un albero* se si ignorano alcuni nodi dell'albero originale. Ad esempio nella figura sopra `David` è la radice di un albero che contiene 8 nodi (si immagini di "disconnettere" `David` da `Alice` e di eliminare tutti i nodi che non sono più raggiungibili da `David`).
+
+> [!danger] Struttura dati ricorsiva
+>
+> Il fatto che ogni nodo possa essere visto come la radice di un albero, determina una **struttura ricorsiva** degli alberi. Per questo motivo, gli algoritmi su alberi tendono ad essere ricorsivi in quanto questo è il modo più *naturale* per pensarli.
+
+## Alberi in Java
 Come nel caso delle liste, anche le strutture dati ad albero utilizzano il concetto di *nodo* collegati in modo da formare la struttura ad albero. Negli alberi i collegamenti esistono tra un nodo e i suoi figli, in pratica un nodo viene anche collegato al proprio genitore. Ovviamente le foglie non hanno collegamento verso i figli mentre la radice non ha collegamento il genitore.
 
 Il nodo contiene anche un *valore* che rappresenta l'informazione che si vuole
@@ -92,7 +96,7 @@ valori `Bob`, `David` e `Gill`.
 
 L'interfaccia Java per un nodo dell'albero viene mostrata di seguito.
 
-#### La classe `TreeNode`
+### La classe `TreeNode`
 
 ```java showLineNumbers
 public interface ITreeNode {
@@ -109,7 +113,7 @@ public interface ITreeNode {
 }
 ```
 
-L'interfacci contiene diversi metodi per:
+L'interfaccia contiene diversi metodi per:
 * interrogare il nodo
     * `value()` restituisce il valore
     * `parent()` restituisce il genitore
@@ -124,10 +128,10 @@ L'interfacci contiene diversi metodi per:
     * `isInternal()` determina se il nodo è interno
 
 L'implementazione in Java dell'interfaccia `ITreeNode` viene lasciata come
-esercizio in quanto non richiede particolari accorgimenti (ad eccezione do
+esercizio in quanto non richiede particolari accorgimenti (ad eccezione di
 `addChild` e `removeChild` che devono mantenere la struttura ad albero).
 
-#### La classe `Tree`
+### La classe `Tree`
 In pratica la struttura ad albero è interamente determinata dai collegamenti
 tra i nodi. Per questo motivo l'interfaccia `ITree` sotto dichiarata non contiene
 metodi per la modifica, ma solo per la sua interrogazione. L'unica eccezione
@@ -152,12 +156,10 @@ che merita di essere trattato a parte, in particolare quando si parlerà di
 [visite di un albero](#visite-di-un-albero).
 
 > [!tip]Osserva
-> Le interfacce `ITreeNode` e `ITree` sopra sono state scritte in modo un albero sia identificato dalla sua radice. Una volta ottenuta la radice, è possibile navigare l'albero per raggiungere tutti qualsiasi nodo.
->
-> In è possibile raggiungere tutti i nodi partendo da un nodo qualsiasi. Infatti è sempre possibile utilizzando anche collegamenti al genitore. 
+> Le interfacce `ITreeNode` e `ITree` sopra sono state scritte in modo che un albero sia identificato dalla sua radice. Una volta ottenuta la radice, è possibile navigare l'albero per raggiungere qualsiasi nodo. Si noti anche che è sempre possibile utilizzare anche i collegamenti al genitore. 
 
 > [!example]Esercizio
-> Implementare in Java l'interfaccia `ITreeNode` descritta sopra mediante una classe concreta di nome `TreeNode`. Oltre ai metodi dell'interfaccia la classe deve prevedere un costruttore che imposti il *valore* (`value`) del node, il riferimento al *nodo genitore* (`parent`) e la *lista dei figli* (`children`). La firma del costruttore sarà quindi:
+> Implementare in Java l'interfaccia `ITreeNode` descritta sopra mediante una classe concreta di nome `TreeNode`. Oltre ai metodi dell'interfaccia la classe deve prevedere un costruttore che imposti il *valore* (`value`) del nodo, il riferimento al *genitore* (`parent`) e la *lista dei figli* (`children`). La firma del costruttore sarà quindi:
 > ```java
 > public TreeNode(Object value, ITreeNode parent, ITreeNode[] children)
 > ```
@@ -178,9 +180,9 @@ che merita di essere trattato a parte, in particolare quando si parlerà di
 > [!attention]
 > La *ricerca* (`search`) all'interno di un albero verrà discussa sotto nella sezione [visite di un albero](#visite-di-un-albero). Lo studente può comunque provare a realizzare una propria idea di ricerca come utile esercizio di pratica.
 
-### Semplici algoritmi su alberi
+## Semplici algoritmi su alberi
 Vediamo qui alcuni semplici algoritmi su alberi.
-#### Profondità di un nodo 
+### Profondità di un nodo 
 Abbiamo visto sopra che la *profondità* di un nodo è il numero di antenati di quel
 nodo, dato un `ITreeNode` come possiamo calcolare la sua profondità? La strategia
 risolutiva è molto semplice e sfrutta la ricorsione.
@@ -199,7 +201,7 @@ L'algoritmo è semplice:
 * altrimenti la sua profondità sarà uno più della profondità del genitore per calcolare
 la quale usiamo la ricorsione (`getDepth(node.parent())`).
 
-#### Altezza di un nodo
+### Altezza di un nodo
 Il calcolo dell'altezza di un nodo utilizza un approccio simile al calcolo della
 profondità, tuttavia ci sono due importanti differenze:
 * la ricorsione sarà sui figli anziché sul genitore e quindi *ci saranno tante chiamate
@@ -243,7 +245,7 @@ cui tutti i nodi hanno *al massimo due figli* (tuttavia, possono averne uno o ze
 In un albero binario possiamo semplificare la gestione dei figli, ogni nodo può avere 0, 1 o 2 figli. Spesso si fa riferimento ai figli *sinistro* (*left child*) e *destro* (*right child*) immaginando l'albero disegnato nel modo visto sopra.
 
 > [!example]Esempio
-> Come già detto, l'albero dell'esempio sopra non è binario poiché ci sono due nodi con tre figli. Se però consideriamo il sottoalbero la cui radice è `Bob`, allora vediamo che si tratta di un albero binario con `Bob` che come unico figlio `Carol` (che può essere sia destro che sinistro) il quale ha due figli `Henry` (figlio sinistro) e `Ian` (figlio destro).
+> Come già detto, l'albero dell'esempio sopra non è binario poiché ci sono due nodi con tre figli. Se però consideriamo il sottoalbero la cui radice è `Bob`, allora vediamo che si tratta di un albero binario con `Bob` con l'unico figlio `Carol` (che può essere sia destro che sinistro) il quale ha due figli `Henry` (figlio sinistro) e `Ian` (figlio destro).
 
 Vediamo un esempio di albero binario dove il contenuto di ogni nodo è un intero
 anziché una stringa (utilizzando le interfacce Java definite sopra si dovrà usare
@@ -251,17 +253,15 @@ la classe `Integer`, perché?).
 
 ![Un esempio di albero di ricerca binario.](/img/inf/albero-ricerca-binario.svg)
 
-L'albero contiene 9 nodi con 0, 1 e 2 figli, ma non ci sono nodi con 3 o più figli, quindi l'albero sopra è un albero binario. La radice dell'albero contiene il valore `53` ed ha due figli, il figlio sinistro contiene il valore `42`, il figlio destro contiene il valore `56`. Il nodo con valore `21` ha un solo figlio, dal disegno possiamo dedurre che si tratti del figlio destro.
+L'albero contiene 19 nodi con 0, 1 e 2 figli, ma non ci sono nodi con 3 o più figli, quindi l'albero sopra è un albero binario. La radice dell'albero contiene il valore `53` ed ha due figli, il figlio sinistro contiene il valore `42`, il figlio destro contiene il valore `56`. Il nodo con valore `21` ha un solo figlio, dal disegno possiamo dedurre che si tratti del figlio destro.
 
-Un nodo qualsiasi si può considerare radice di un sottoalbero, negli alberi binari per ogni nodo possiamo avere due sottoalberi uno con radice il figlio sinistro ed uno con radice il figlio destro. 
-
-In un albero binario un *cammino* (*path*) può essere indicato semplicemente indicando,
+In un albero binario un *cammino* (*path*) può essere specificato indicando,
 per ogni nodo, se si segue il figlio destro o il figlio sinistro. Ad esempio, il cammino
 dalla radice (`53`) alla foglia `55` può essere descritto indicando il nodo di partenza
 (in questo caso la radice) e successivamente indicando i figli attraversati in questo
 case: destro (`56`), sinistro (`55`) e destro (`55`).
 
-La seguente interfaccia estende `ITreeNode` e definisce l'interfaccia `BinaryTreeNode`
+La seguente interfaccia estende `ITreeNode` e definisce l'interfaccia `IBinaryTreeNode`
 che aggiunge i metodi per recuperare ed impostare i figli sinistro e destro.
 
 ```java
@@ -281,7 +281,7 @@ public interface IBinaryTreeNode extends ITreeNode {
 > 4. il figlio destro (`right`).
 
 ## Visite di un albero
-La **visita** (**visit**) di un albero è l'operazione che attraverso (visita)
+La **visita** (**visit**) di un albero è l'operazione che attraversa (visita)
 tutti i nodi esattamente una volta. Durante la visita viene effettuata qualche operazione per ciascun nodo visitato. Ad esempio potremmo stampare il contenuto. Data la struttura di un albero, sorge il problema dell'*ordine in cui visitare* i nodi.
 
 ![Esempio di un albero di ricerca binario con tre nodi.](/img/inf/albero-ricerca-binario-piccolo.svg)
@@ -298,8 +298,8 @@ in questo caso sarà `3 16 8`, questa visita si chiama [**post-order visit**](#p
 Vediamo come implementare in Java queste tre visite.
 
 Il codice sotto usa il metodo `doOperation` che accetta un parametro di tipo `IBinaryTreeNode` e che indica l'operazione da eseguire durante la visita. Esempi di `doOperation` sono:
-* `print(node)`: che mostra a console il valore (funzione di comodo al posto di  `System.out.println(node.vaule())`),
-* `arrList.add(node)`: che aggiunge `node` ad una struttura dati, ad esempio un `ArrayList<IBinaryTreeNode>`,
+* `print(node)`: che mostra a console il valore (funzione di comodo al posto di  `System.out.println(node.value())`),
+* `addList.add(node)`: che aggiunge `node` ad una struttura dati, ad esempio un `ArrayList<IBinaryTreeNode>`,
 * `sum += node.value().intValue()`: nel caso si stia eseguendo la somma dei valori nei nodi,
 * ...
 
@@ -330,6 +330,35 @@ public static void printPreOrder(IBinaryTreeNode node) {
 }
 ```
 
+<SlideshowWithCaption slides={[
+    {
+      src: '/img/inf/pre-order/pre-order-example-1.svg',
+      caption: 'Nella visita pre-order il primo nodo visitato è la radice dopodiché si visitano, sottoalbero sinistro e sottoalbero destro in questo esatto ordine.'
+    },
+    {
+      src: '/img/inf/pre-order/pre-order-example-2.svg',
+      caption: 'Ricorsivamente, durante la visita di ciascun sottoalbero si mantiene l\'ordine radice-sinistro-destro.'
+    },
+    {
+      src: '/img/inf/pre-order/pre-order-example-3.svg',
+      caption: 'Giunti ad una foglia la si visita per poi tornare al genitore.'
+    },
+    {
+      src: '/img/inf/pre-order/pre-order-example-4.svg',
+      caption: 'Dopo aver visitato il figlio sinistro, il ritorno al genitore (8 nell\'esempio) procede con la visita del figlio destro (16 nell\'esempio). Questo termina la visita del sottoalbero con radice 8.'
+    },
+    {
+      src: '/img/inf/pre-order/pre-order-example-5.svg',
+      caption: 'Terminata la visita del sottalbero con radice 8, si procede con il sottoalbero sinistro la cui radice (21 nell\'esempio) viene immediatamente visitata.'
+    },
+    {
+      src: '/img/inf/pre-order/pre-order-example-6.svg',
+      caption: 'Non essendo presento un figlio sinistro di 21, si "salta" il sottoalbero sinistro e si passa direttamente a quello destro la cui radice 2 è anche una foglia. Questa è l\'utlima visita.'
+    }
+    
+  ]} showThumbnails={false} captionPosition={"right"}/>
+
+
 ### In-order
 Nella visita **in-order**, la prima cosa da fare è visitare il sottoalbero
 sinistro, successivamente si visita la radice ed infine il sottoalbero destro.
@@ -345,6 +374,7 @@ public static void printInOrder(IBinaryTreeNode node) {
 }
 ```
 
+
 ### Post-order
 Nella visita **post-order** la prima cosa da fare è visitare i due sottoalberi
 (prima il sinistro poi il destro) e solo alla fine si visita la radice.
@@ -359,6 +389,10 @@ public static void printPostOrder(IBinaryTreeNode node) {
     doOperation(node);
 }
 ```
+
+> [!warning] Importante
+>
+> Tutti i tre algoritmi sopra iniziano con un controllo sul valore di `node`. Se questo è `null` allora l'algoritmo termina immediatamente senza eseguire chiamate ricorsive. Questo passo è il *caso base* della ricorsione che impedisce un ciclo infinito di chiamate.
 
 ### Confronto visite
 ![Esempio di allbero binario per memorizzare interi.](/img/inf/albero-binario.svg)
@@ -390,11 +424,7 @@ Seguendo questo processo l'output dell'algoritmo sarà la sequenza di valori: `3
 
 
 ## Alberi di ricerca binari
-Uno dei tantissimi utilizzi degli alberi è come una struttura dati per rendere
-efficienti operazioni di *ricerca* (*search*) di valori memorizzati. Anche se
-esistono alberi di ricerca di qualsiasi arietà, tra i più comuni ci sono gli
-**alberi di ricerca binary** (*Binary Search Tree (BST)*) che discuteremo in
-questa sezione.
+Un utilizzo molto comune degli alberi è per rendere efficienti le operazioni di *ricerca* (*search*). Esistono alberi di ricerca di qualsiasi arietà, ma spesso si usano  **alberi di ricerca binari** (*Binary Search Tree (BST)*) che discutiamo in questa sezione.
 
 La ricerca mediante alberi si basa sull'idea che i valori memorizzati non possano
 comparire in qualsiasi nodo, ma che, in base al valore stesso, si possano trovare
@@ -407,34 +437,15 @@ Un albero è un **albero di ricerca binario** se dato un qualsiasi nodo con valo
 $k$, i nodi del sottoalbero sinistro hanno valore $\leq k$ e i nodi del sottoalbero
 di destra hanno valore $\geq k$.
 
-Quindi dalla definizione si capisce che in base al valore il nodo è posizionato
-in una posizione specifica. Ad esempio supponiamo di avere il valore `20`
-memorizzato nella radice, allora valori più piccoli (ad esempio `10`) possono
-stare in un nodo che sia nell sottoalbero sinistro della radice, mentre valori
-più grandi (ad esempio `30`) possono stare solo nel sottoalbero destro della
-radice. Per quanta riguarda i valori uguali, la regola sopra non fornisce alcun
-vincolo, per cui tale valore può stare sia nel sottoalbero sinistro sia in quello
-destro della radice.
+Quindi dalla definizione si capisce che in base al suo valore il nodo si trova in una posizione specifica dell'albero. Ad esempio supponiamo di avere il valore `20` memorizzato nella radice, allora valori più piccoli (ad esempio `10`) possono stare in un nodo del sottoalbero sinistro, mentre valori più grandi (ad esempio `30`) possono stare solo nel sottoalbero destro. Per quanta riguarda i valori uguali, la regola sopra non fornisce alcun vincolo, per cui tale valore può stare sia nel sottoalbero sinistro sia in quello destro della radice.
 
 ![Confronto tra un albero binario (sinistra) ed un albero binario di ricerca (destra).](/img/inf/alberi-binari-confronto.svg)
 
-I due alberi sopra sono due alberi binari, ma solo quello più a destra è un
-albero binario di ricerca. Infatti consideriamo il nodo radice dell'albero a
-sinistra il cui valore è `15`. Il suo figlio destro è `21` quindi correttamente
-maggiore o uguale a `15`, ma il figlio destro di `21` (nipote di `15`) ha valore
-`2` che quindi è minore di `15`. Allo stesso modo, nel sottoalbero sinistro della
-radice si trovano nodi con valore più grande del valore della radice (ad esempio
-il nodo `16`).
-{/* {{<include "img/albero-binario.html">}} */}
-{/* {{<include "img/albero-binario-ricerca-piccolo.html">}} */}
+I due alberi sopra sono due alberi binari, ma solo quello a destra è un albero binario di ricerca. Se consideriamo la radice dell'albero a sinistra, il cui valore è `15`, vediamo che il figlio destro è `21` maggiore di `15`, tuttavia il figlio destro di `21` ha valore `2`, quindi è minore di `15`, questo viola la regola di albero binario di ricerca. Allo stesso modo, nel sottoalbero sinistro della radice si trovano nodi con valore più grande del valore della radice (ad esempio il nodo `16`).
 
-Nell'albero di destra, invece, si vede come la proprietà di albero di ricerca
-binario in quanto ogni nodo ha solo nodi con valori $\leq$ a sinistra e solo
-valori $\geq$ a destra. Notiamo anche che l'unico caso di valore uguale
-(`55`) compare nella radice e nell'albero destro.
+Nell'albero di destra, invece, possiede la proprietà di albero di ricerca binario in quanto ogni nodo ha solo nodi con valori $\leq$ a sinistra e solo valori $\geq$ a destra. Notiamo anche che esiste un caso di uguaglianza (valore `55`).
 
-Il metodo qui sotto mostra come realizzare l'algoritmo di ricerca del valore `key`
-all'interno di un albero di ricerca binario che memorizza `int`.
+Il metodo qui sotto mostra come realizzare l'algoritmo di ricerca del valore `key` all'interno di un albero di ricerca binario che memorizza `int`.
 
 ```java showLineNumbers
 private Node recursiveSearch(int key, Node node) {
